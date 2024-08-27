@@ -1,17 +1,17 @@
 ---
-title: Preview - Increase performance of Premium SSDs and Standard SSD/HDDs
+title: Increase performance of Premium SSDs and Standard SSD/HDDs
 description: Increase the performance of Azure Premium SSDs and Standard SSD/HDDs using performance plus.
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 08/27/2024
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
 ---
 
-# Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs
+# Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs
 
-The Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium solid-state drives (SSD), Standard SSDs, and Standard hard disk drives (HDD) that are 513 GiB and larger can be increased by enabling performance plus. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk.
+The Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium solid-state drives (SSD), Standard SSDs, and Standard hard disk drives (HDD) that are 513 GiB and larger can be increased by enabling performance plus. Enabling performance plus improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk.
 
 Once enabled, the IOPS and throughput limits for an eligible disk increase to the higher maximum limits. To see the new IOPS and throughput limits for eligible disks, consult the columns that begin with "*Expanded" in the [Scalability and performance targets for VM disks](disks-scalability-targets.md) article.
 
