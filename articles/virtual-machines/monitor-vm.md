@@ -136,7 +136,12 @@ Boot diagnostics is a debugging feature for Azure VMs that allows you to diagnos
 
 ### Troubleshoot performance issues
 
-[The Performance Diagnostics tool](/troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json) helps troubleshoot performance issues on Windows or Linux virtual machines by quickly diagnosing and providing insights on issues it currently finds on your machines. The tool doesn't analyze historical monitoring data you collect, but rather checks the current state of the machine for known issues, implementation of best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory.
+[The Performance Diagnostics tool](/troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json) helps troubleshoot performance issues on Windows or Linux virtual machines by quickly diagnosing and providing insights on issues it currently finds on your machines. It supports two different modes:
+
+* Continuous diagnostics (preview) collects data at five-second intervals and reports actionable insights about high resource usage every five minutes.
+* On-demand diagnostics helps you troubleshoot an ongoing performance issue with more in-depth data, insights, and recommendations based on data collected at a single point in time.
+
+For more information, go to [Troubleshoot performance issues on Azure virtual machines using Performance Diagnostics](/troubleshoot/azure/virtual-machines/windows/performance-diagnostics).
 
 ## Related content
 
