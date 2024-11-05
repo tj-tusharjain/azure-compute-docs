@@ -133,6 +133,8 @@ Similarly, to enable an optional group signal with name "hardware", and disable 
 ```
 
 > [!NOTE]
+> Please find the list of existing tags below.
+>
 > | **Existing tags**  | **Signals** |
 > |---|---|
 > | **Network**  | outbound_connectivity, dns, tcp_stats |
@@ -142,9 +144,9 @@ Similarly, to enable an optional group signal with name "hardware", and disable 
 > | **Process** | process, process_cpu, proces_monitor |
 > | **AZBlob** | az_storage_blob |
 > | **Hardware** | hardware_health_monitor |
->  
-
-#### Configure signal execution frequency 
+>
+ 
+ #### Configure signal execution frequency 
 
 The signal execution frequency can be customized by adjusting the "parameterOverrides" field. 
 For instance, to set the outbound connectivity test execution frequency to 60 seconds, the following configuration can be used.
