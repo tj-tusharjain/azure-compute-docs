@@ -18,38 +18,40 @@ ms.date:     10/28/2024
 
 ### Customize VM Watch configuration 
 
-VM watch signals can be categorized into two groups: Core and Optional. By default, only core group <link to plugin page> signals are enabled with default configurations <link to plugin page>. Each signal is executed at an interval of every three minutes. However, customers can easily overwrite these default settings from the "vmWatchSettings" using either the [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/) or [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/).
+VM watch signals can be categorized into two groups: Core and Optional. By default, only core group <link to plugin page> signals are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from the "vmWatchSettings" using either the [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
 
 
 To access "vmWatchSettings" for ARM Template, navigate back to the Overview Page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below. 
 
 ```
-"settings": { 
-"vmWatchSettings": { 
-"enabled": true 
-   } 
-} 
+{
+   "settings": {
+      "vmWatchSettings": {
+         "enabled": true
+      }
+   }
+}
 ```
 
-For AZ CLI, customers can run the following command to access "vmWatchSettings".
+For AZ CLI, please run the following command to access "vmWatchSettings".
 
 ```
-az vm extension show -g <your resource group name> --vm-name <your vm name> -n <application health extension type>
+az vm extension show -g <your resource group name> --vm-name <your vm name> -n <your extension name>
 ```
 > [!IMPORTANT]
-> The code segment is identical for both Windows and Linux except for the value of the parameter <application health extension type> passed into the Extension Type.
+> The code segment is identical for both Windows and Linux except for the value of the parameter <your extension name> passed into the Extension Type.
 > 
-> Please replace <application health extension type> with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
+> Please replace <your extension name> with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
 
 
-### vmWatchSettings Fields 
+### vmWatchSettings Properties 
 
-| **Name** | **Type** | **Description** |
-|---|---|---|
-| **enabled** | bool | This shows whether VM watch is enabled or not |
-| **signalFilters** | object | This filters the enabled / disabled signals, either by tag or signal name. |
-| **parameterOverrides** | object | This specifies the parameters to overwrite for each signal execution. The default parameters can be found in the VM watch plugin collection page <link to plugin page>. |
-| **environmentAttributes** | object | This specifies any environment attributes to help decide if a test is eligible to execute or not. This setting is optional |
+| **Name** | **Type** | **Description** | **Is Required**
+|---|---|---|---|
+| **enabled** | bool | This shows whether VM watch is enabled or not | **true**
+| **signalFilters** | object | This filters the enabled / disabled signals, either by tag or signal name. | **false**
+| **parameterOverrides** | object | This specifies the parameters to overwrite for each signal execution. The default parameters can be found in the VM watch plugin collection page <link to plugin page>. | **false**
+| **environmentAttributes** | object | This specifies any environment attributes to help decide if a test is eligible to execute or not. | **false**
 
  
 
@@ -58,11 +60,11 @@ az vm extension show -g <your resource group name> --vm-name <your vm name> -n <
 VM watch can be switched on / off by setting the "enabled" configuration.  
 
 ```
-{ 
-"vmWatchSettings": { 
-    "enabled": true 
-   } 
-} 
+{
+   "vmWatchSettings": {
+      "enabled": true
+   }
+}
 ```
 
 > [!NOTE]
@@ -72,52 +74,52 @@ VM watch can be switched on / off by setting the "enabled" configuration.
 > | **false** | This setting will disable VM watch |
 > 
 
-#### Enable / disable test execution 
+#### Enable / disable signal execution 
 
 Customers can control the signals to be executed with "signalFilter" field. This field contains the following subfields: 
 
 | **Subfields** | **Description** |
-|---|---|
-| **enabledTags** | This will enable the signals in the optional group specified with these tags | 
+|---|------|
+| **enabledTags** | This will enable the signals in the optional group specified with these tags |  
 | **disabledTags** | This will disable the signals in the core and optional groups specified with these tags | 
 | **enabledOptionalSignals** | This will enable signals specified in optional group. Provide signal name(s) as parameter | 
 | **disabledSignals** | This will disable the signals specified in the core and optional groups. Provide signal name(s) as parameter | 
 
 
-For instance, to add signals in optional group containing "Network" tag to the execution, remove signals containing "Disk" tag, customers can provide the configuration below: 
+For instance, to enable signals in optional group containing "Network" tag and disable signals containing "Disk" tag, specify such tags under the "enabledTags" and "disabledTags" as shown below:
 ```
-{ 
-"vmWatchSettings": { 
-   "enabled": true, 
-   "signalFilters": { 
-       "enabledTags": [ 
-            "Network" 
-           ], 
-       "disabledTags": [ 
-           "Disk" 
-           ]
-      } 
-   } 
+{
+   "vmWatchSettings": {
+      "enabled": true,
+      "signalFilters": {
+         "enabledTags": [
+            "Network"
+         ],
+         "disabledTags": [
+            "Disk"
+         ]
+      }
+   }
 }
 ```
 
-Subsequently, to enable an optional group signal with name "hardware", and disable signals with name "process" and "dns", customers can provide the configuration below:   
+Similarly, to enable an optional group signal with name "hardware", and disable signals with name "process" and "dns", specify such tags under the "enabledOptionalSignals" and "disabledSignals" as shown below:  
 
 ```
-{ 
-"vmWatchSettings": { 
-   "enabled": true, 
-   "signalFilters": { 
-       "enabledOptionalSignals": [ 
-            "hardware" 
-         ], 
-       "disabledSignals": [ 
-            "process", 
-            "dns" 
-         ] 
-      } 
-   } 
-} 
+{
+   "vmWatchSettings": {
+      "enabled": true,
+      "signalFilters": {
+         "enabledOptionalSignals": [
+            "hardware"
+         ],
+         "disabledSignals": [
+            "process",
+            "dns"
+         ]
+      }
+   }
+}
 ```
 
 > [!NOTE]
@@ -135,17 +137,17 @@ Subsequently, to enable an optional group signal with name "hardware", and disab
 
 #### Configure signal execution frequency 
 
-The signal execution frequency can be customized by adjusting the "parameterOverrides" field. To configure the frequency, customers should append "_INTERVAL" to the signal name and specify the desired time duration. 
+The signal execution frequency can be customized by adjusting the "parameterOverrides" field. 
 For instance, to set the outbound connectivity test execution frequency to 60 seconds, the following configuration can be used.
 ```
-{ 
-"vmWatchSettings": { 
-   "enabled": true, 
-   "parameterOverrides ": { 
-        "OUTBOUND_CONNECTIVITY_INTERVAL": "60s" 
-      } 
-   } 
-} 
+{
+   "vmWatchSettings": {
+      "enabled": true,
+      "parameterOverrides ": {
+         "OUTBOUND_CONNECTIVITY_INTERVAL": "60s"
+      }
+   }
+}
 ```
  
 
@@ -153,14 +155,14 @@ For instance, to set the outbound connectivity test execution frequency to 60 se
 
 Signal execution parameters can be overwritten by setting the "parameterOverrides" field as well. For instance, to set "disk_io" signal mount point to "/mnt", customers can specify the configuration below: 
 ```
-{ 
-"vmWatchSettings": { 
-   "enabled": true, 
-   "parameterOverrides ": { 
-        "DISK_IO_MOUNT_POINTS": "/mnt" 
-      } 
-   } 
-} 
+{
+   "vmWatchSettings": {
+      "enabled": true,
+      "parameterOverrides ": {
+         "DISK_IO_MOUNT_POINTS": "/mnt"
+      }
+   }
+}
 
 ``` 
 
@@ -169,14 +171,14 @@ Signal execution parameters can be overwritten by setting the "parameterOverride
 In addition to tags, VM watch also checks the eligibility <insert link to plugin page> of the signal before execution. Customers can specify environment attributes to help VM watch determine the eligibility of each signal for execution. 
 For instance, if a customer knows that the VM has outbound traffic disabled, they can provide this information to VM Watch. This will ensure that any outbound network-related signal execution is marked as ineligible.
 ```
-{ 
-"vmWatchSettings": { 
-   "enabled": true, 
-   "environmentAttributes ": { 
-        "OutboundConnectivityDisabled": true 
-       } 
-   } 
-} 
+{
+   "vmWatchSettings": {
+      "enabled": true,
+      "environmentAttributes ": {
+         "OutboundConnectivityDisabled": true
+      }
+   }
+}
 ```
 
 ### Next Steps
