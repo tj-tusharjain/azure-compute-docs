@@ -83,17 +83,6 @@ Customers can control the signals to be executed with "signalFilter" field. This
 | **enabledOptionalSignals** | This will enable signals specified in optional group. Provide signal name(s) as parameter | 
 | **disabledSignals** | This will disable the signals specified in the core and optional groups. Provide signal name(s) as parameter | 
 
-> [!NOTE]
-> | **Existing Tags**  | **Signals** |
-> |---|---|
-> | **Network**  | outbound_connectivity, dns, tcp_stats |
-> | **Clock** | clockskew |
-> | **Disk** | disk_io, disk_iops |
-> | **IMDS** | imds |
-> | **Process** | process, process_cpu, proces_monitor |
-> | **AZBlob** | az_storage_blob |
-> | **Hardware** | hardware_health_monitor |
-> 
 
 For instance, to add signals in optional group containing "Network" tag to the execution, remove signals containing "Disk" tag, customers can provide the configuration below: 
 ```
@@ -130,7 +119,19 @@ Subsequently, to enable an optional group signal with name "hardware", and disab
    } 
 } 
 ```
- 
+
+> [!NOTE]
+> Please find below the existing tags and corresponding VM watch signals
+> | **Existing tags**  | **Signals** |
+> |---|---|
+> | **Network**  | outbound_connectivity, dns, tcp_stats |
+> | **Clock** | clockskew |
+> | **Disk** | disk_io, disk_iops |
+> | **IMDS** | imds |
+> | **Process** | process, process_cpu, proces_monitor |
+> | **AZBlob** | az_storage_blob |
+> | **Hardware** | hardware_health_monitor |
+>  
 
 #### Configure signal execution frequency 
 
@@ -148,7 +149,7 @@ For instance, to set the outbound connectivity test execution frequency to 60 se
 ```
  
 
-#### Override Default signal execution parameters 
+#### Override default signal execution parameters 
 
 Signal execution parameters can be overwritten by setting the "parameterOverrides" field as well. For instance, to set "disk_io" signal mount point to "/mnt", customers can specify the configuration below: 
 ```
