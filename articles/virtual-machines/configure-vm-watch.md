@@ -18,7 +18,7 @@ ms.date:     10/28/2024
 
 ### Customize VM Watch configuration 
 
-VM watch signals can be categorized into two groups: Core and Optional <link to plugin page>. By default, only core group signals are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from the "vmWatchSettings" using either the [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
+VM watch signals can be categorized into two groups: Core and Optional <link to plugin page>. By default, only core group signals are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from the "vmWatchSettings" using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
 
 
 To access "vmWatchSettings" for ARM Template, navigate back to the Overview Page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below. 
@@ -58,10 +58,10 @@ Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your
 
 | **Name** | **Type** | **Description** | **Is Required**
 |---|---|---|---|
-| **enabled** | bool | This shows whether VM watch is enabled or not | **true**
-| **signalFilters** | object | This filters the enabled / disabled signals, either by tag or signal name. | **false**
-| **parameterOverrides** | object | This specifies the parameters to overwrite for each signal execution. The default parameters can be found in the VM watch plugin collection page <link to plugin page>. | **false**
-| **environmentAttributes** | object | This specifies any environment attributes to help decide if a test is eligible to execute or not. | **false**
+| **enabled** | bool | This shows whether VM watch is enabled or not | true
+| **signalFilters** | object | This filters the enabled / disabled signals, either by tag or signal name. | false
+| **parameterOverrides** | object | This specifies the parameters to overwrite for each signal execution. The default parameters can be found in the VM watch plugin collection page <link to plugin page>. | false
+| **environmentAttributes** | object | This specifies any environment attributes to help decide if a test is eligible to execute or not. | false
 
  
 
@@ -133,8 +133,6 @@ Similarly, to enable an optional group signal with name "hardware", and disable 
 ```
 
 > [!NOTE]
-> Please find below the existing tags and corresponding VM watch signals
-> |
 > | **Existing tags**  | **Signals** |
 > |---|---|
 > | **Network**  | outbound_connectivity, dns, tcp_stats |
