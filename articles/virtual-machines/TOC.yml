@@ -2189,6 +2189,8 @@
     href: resource-graph-availability.md
   - name: VM watch
     items: 
+    - name: VM watch Plugin Collection
+      href: vm-watch-plugin-collection.md
     - name: Overview
       href: azure-vm-watch.md
     - name: Install VM watch
