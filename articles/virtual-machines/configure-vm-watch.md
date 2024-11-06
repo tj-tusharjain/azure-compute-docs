@@ -39,7 +39,7 @@ For AZ CLI, please run the following command to access "vmWatchSettings".
 az vm extension show -g <your resource group name> --vm-name <your vm name> -n <your extension name>
 ```
 > [!IMPORTANT]
-> The code segment is identical for both Windows and Linux except for the value of the parameter <your extension name> passed into the Extension Type.
+> The code segment is identical for both Windows and Linux except for the value of the parameter <your extension name> passed into the Extension name.
 > 
 > Please replace <your extension name> with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
 
@@ -49,7 +49,7 @@ For Powershell, please run the following command to access "vmWatchSettings".
 Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your vm name>" -Name "<your extension name>" 
 ```
 > [!IMPORTANT]
-> The code segment is identical for both Windows and Linux except for the value of the parameter <your extension name> passed into the Extension Type.
+> The code segment is identical for both Windows and Linux except for the value of the parameter <your extension name> passed into the Extension name.
 > 
 > Please replace <your extension name> with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
 
