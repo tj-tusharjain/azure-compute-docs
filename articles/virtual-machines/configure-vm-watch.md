@@ -51,7 +51,7 @@ Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your
 > [!IMPORTANT]
 > The code segment is identical for both Windows and Linux except for the value of the parameter <your extension name> passed into the Extension name.
 > 
-> Please replace <your extension name> with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
+> Please replace "<your extension name>" with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
 
 
 ### vmWatchSettings Properties 
