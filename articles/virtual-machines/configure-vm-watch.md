@@ -15,12 +15,16 @@ ms.date:     10/28/2024
 # Configure VM watch
 
 
-
 ### Customize VM Watch configuration 
 
 VM watch signals can be categorized into two groups: Core and Optional <link to plugin page>. By default, only core group signals are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from the "vmWatchSettings" using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
 
-### Accessing vmWatchSettings
+### Accessing vmWatchSettings on Azure Virtual Machines
+
+> [!IMPORTANT]
+> The code segment is identical for both Windows and Linux except for the value of the parameter `<your extension name>` passed into the Extension name.
+> 
+> Please replace `<your extension name>` with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
 
 #### [ARM Template](#tab/ARM-template-1)
 1. Navigate back to the Overview Page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below.
@@ -40,20 +44,11 @@ VM watch signals can be categorized into two groups: Core and Optional <link to 
 ```
 az vm extension show -g <your resource group name> --vm-name <your vm name> -n <your extension name>
 ```
-> [!IMPORTANT]
-> The code segment is identical for both Windows and Linux except for the value of the parameter `<your extension name>` passed into the Extension name.
-> 
-> Please replace `<your extension name>` with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
-
 #### [PowerShell](#tab/powershell-1)
 ```
 Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your vm name>" -Name "<your extension name>" 
 ```
-> [!IMPORTANT]
-> The code segment is identical for both Windows and Linux except for the value of the parameter `<your extension name>` passed into the Extension name.
-> 
-> Please replace `<your extension name>` with "ApplicationHealthLinux" for Linux and "ApplicationHealthWindows" for Windows installations.  
-
+---
 
 ### vmWatchSettings Properties 
 
