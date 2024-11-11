@@ -126,10 +126,8 @@ Similarly, to enable an optional group signal with name `hardware`, and disable 
    }
 }
 ```
-> [!IMPORTANT] 
-> 
 
-##### Configure signal execution frequency 
+#### Configure signal execution frequency 
 
 The signal execution frequency can be customized by adjusting the `parameterOverrides` field. 
 For instance, to set the outbound connectivity test execution frequency to 60 seconds, specify the following configuration below.
@@ -145,7 +143,7 @@ For instance, to set the outbound connectivity test execution frequency to 60 se
 ```
  
 
-##### Override default signal execution parameters 
+#### Override default signal execution parameters 
 
 Signal execution parameters can be overwritten by setting the `parameterOverrides` field as well. For instance, to set `disk_io` signal mount point to `/mnt`, the following configuration can be used: 
 ```
@@ -160,7 +158,7 @@ Signal execution parameters can be overwritten by setting the `parameterOverride
 
 ``` 
 
-##### Environment attribute enrichments 
+#### Environment attribute enrichments 
 
 In addition to tags, VM watch also checks the eligibility <insert link to plugin page> of the signal before execution. The environment attributes can be specified to help VM watch determine the eligibility of each signal for execution. 
 For instance, if outbound traffic has been disabled on a VM, this information can be provided to VM Watch. This will ensure that any outbound network-related signal execution will be marked as ineligible.
