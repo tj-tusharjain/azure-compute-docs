@@ -15,7 +15,7 @@ ms.date:     10/28/2024
 # Configure VM watch
 
 
-VM watch signals can be categorized into two groups: Core and Optional <link to plugin page>. By default, only core group signals are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from the "vmWatchSettings" using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
+VM watch signals can be categorized into two groups: Core and Optional <link to plugin page>. By default, only core group signals are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from the `vmWatchSettings` using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
 
 ### Accessing vmWatchSettings on Azure Virtual Machines
 
@@ -46,11 +46,10 @@ Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your
 ```
 ---
 
-### Customize VM Watch configuration 
+### Customizing VM Watch configurations 
 VM watch signals can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of `vmWatchSettings` properties.
 
-### vmWatchSettings Properties 
-
+#### vmWatchSettings Properties 
 | **Name** | **Type** | **Description** | **Is Required**
 |---|---|---|---|
 | **enabled** | bool | This shows whether VM watch is enabled or not | true
@@ -58,6 +57,9 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
 | **parameterOverrides** | object | This specifies the parameters to overwrite for each signal execution. The default parameters can be found in the VM watch plugin collection page <link to plugin page>. | false
 | **environmentAttributes** | object | This specifies any environment attributes to help decide if a test is eligible to execute or not. | false
 
+> [!IMPORTANT]
+> see VM watch Plugin Collection <insert link to plug in page> for a full list of VM watch signals, associated tags, overwritable parameters and environment attributes.
+>
  
 #### Switching On / Off VM watch 
 
@@ -88,9 +90,6 @@ The signals to be executed can be controlled using the `signalFilters` field. Th
 | **enabledOptionalSignals** | This will enable signals specified in optional group. Provide signal name(s) as parameter | 
 | **disabledSignals** | This will disable the signals specified in the core and optional groups. Provide signal name(s) as parameter | 
 
-> [!NOTE]
-> see VM watch Plugin Collection <insert link to plug in page> for a list of VM watch signals and associated tags.
->
 
 For instance, to enable signals in the optional group containing `Network` tag and disable signals containing `Disk` tag, specify such tags under the `enabledTags` and `disabledTags` as shown below:
 ```
@@ -127,11 +126,10 @@ Similarly, to enable an optional group signal with name `hardware`, and disable 
    }
 }
 ```
-#### parameterOverrides Property
-> [!NOTE]
-> see VM watch Plugin Collection <insert link to plug in page> for a full list of overwritable parameters for VM watch signals.
->
-#### Configure signal execution frequency 
+> [!IMPORTANT] 
+> 
+
+##### Configure signal execution frequency 
 
 The signal execution frequency can be customized by adjusting the `parameterOverrides` field. 
 For instance, to set the outbound connectivity test execution frequency to 60 seconds, specify the following configuration below.
@@ -147,7 +145,7 @@ For instance, to set the outbound connectivity test execution frequency to 60 se
 ```
  
 
-#### Override default signal execution parameters 
+##### Override default signal execution parameters 
 
 Signal execution parameters can be overwritten by setting the `parameterOverrides` field as well. For instance, to set `disk_io` signal mount point to `/mnt`, the following configuration can be used: 
 ```
@@ -162,7 +160,7 @@ Signal execution parameters can be overwritten by setting the `parameterOverride
 
 ``` 
 
-#### Environment attribute enrichments 
+##### Environment attribute enrichments 
 
 In addition to tags, VM watch also checks the eligibility <insert link to plugin page> of the signal before execution. The environment attributes can be specified to help VM watch determine the eligibility of each signal for execution. 
 For instance, if outbound traffic has been disabled on a VM, this information can be provided to VM Watch. This will ensure that any outbound network-related signal execution will be marked as ineligible.
