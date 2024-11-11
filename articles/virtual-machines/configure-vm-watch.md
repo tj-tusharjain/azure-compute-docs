@@ -17,6 +17,11 @@ ms.date:     10/28/2024
 
 VM watch signals can be categorized into two groups: Core and Optional <link to plugin page>. By default, only core group signals are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from the `vmWatchSettings` using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
 
+### Pre-requisites
+This article assumes that you're familiar with:
+- VM watch [Signals](/azure/virtual-machines/azure-vm-watch) and their descriptions
+- [Installing VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) to Virtual Machines and Scale Sets
+
 ### Accessing vmWatchSettings on Azure Virtual Machines
 
 > [!IMPORTANT]
