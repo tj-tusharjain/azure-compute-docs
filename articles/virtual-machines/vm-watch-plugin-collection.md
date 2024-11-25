@@ -32,6 +32,7 @@ This article assumes that you are familiar with:
 > | **Overwritable Parameters** | This setting will disable VM watch |
 > 
 
+### Groups, Tags and Corresponding Checks, Metrics and Event Logs
 | Plugin Name | Group | Tags | Checks | Metrics | Event Logs |  
 |---|---|---|---|---|---|
 | outbound_connectivity| Core|Network| outbound_connectivity|  
@@ -46,6 +47,26 @@ This article assumes that you are familiar with:
 | process_monitor   | Optional|Process|process_monitor|UpTime|  
 | az_storage_blob   | Optional|AzBlob| az_storage_blob|     
 | hardware_health_monitor   | Optional|Hardware| | | hardware_health_monitor|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+
+
+### Eligibility, Default Behavior and Overwritable Parameters
+| Plugin Name | Eligibility | Default Behavior | Overwritable Parameters |  
+|---|---|---|---|
+| outbound_connectivity| Eligible if EnvironmentAttribute "OutboundConnectivityDisabled" is not set or set to "false" |Network| outbound_connectivity| 
+| dns| Eligible if EnvironmentAttribute "OutboundConnectivityDisabled" is not set or set to "false" |Network| outbound_connectivity| 
+| tcp_stats| Always eligible  |Network| outbound_connectivity| 
+| clock_skew| Eligible if EnvironmentAttribute "OutboundConnectivityDisabled" is not set or set to "false"|Network| outbound_connectivity| 
+| disk_io| Always eligible if mount points are not specified. If mount points are explicitly specified, only eligible when data disks are attached to the VM |Network| outbound_connectivity| 
+| disk_iops| Always eligible |Network| outbound_connectivity| 
+| imds| Always eligible|Network| outbound_connectivity| 
+| process| Always eligible|Network| outbound_connectivity| 
+| process_cpu| Always eligible|Network| outbound_connectivity| 
+| process_monitor| Always eligible|Network| outbound_connectivity| 
+| az_storage_blob| Eligible if EnvironmentAttribute "OutboundConnectivityDisabled" is not set or set to "false"  |Network| outbound_connectivity| 
+| hardware_health_monitor| Eligible in Windows machine|Network| outbound_connectivity| 
+
+
 
 
 | Plugin Name             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       | eligibility                                                                                                                                       | Group    | Tags                       | Default Behavior                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Overwritable Parameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Checks                                    | Metrics                                                                                                                                                                                                                                                                                                                                                                                    | EventLogs                                  |
