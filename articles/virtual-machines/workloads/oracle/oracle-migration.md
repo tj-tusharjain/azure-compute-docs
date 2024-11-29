@@ -1,8 +1,7 @@
 ---
 title: Migrate Oracle workloads to Azure VMs
 description: Learn how to migrate Oracle workloads to Azure VMs.
-author: jessieheassler
-ms.author: jhaessler
+author: jessiehaessler
 ms.service: oracle-on-azure
 ms.topic: concept-article
 ms.date: 10/03/2024
@@ -10,28 +9,29 @@ ms.date: 10/03/2024
 
 # Migrate Oracle workloads to Azure VMs  
 
-This article shows how to move your Oracle workload from your on-premises environment to the [Azure virtual machines (VMs) landing zone](/azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone). It uses the landing zone for [Oracle on Azure virtual machines](/azure/cloud-adoption-framework/scenarios/oracle-iaas/#landing-zone-architecture-for-oracle-on-azure-virtual-machines), which offers design advice and best practices. A proven discovery, design, and deployment approach are recommended for the overall migration strategy, followed by data migration, and cutover. 
+
+This article explains how to migrate your Oracle workload from an on-premises environment to [Azure Virtual Machines (VMs)](/azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone). It leverages the landing zone for [Oracle on Azure VMs](/azure/cloud-adoption-framework/scenarios/oracle-iaas/#landing-zone-architecture-for-oracle-on-azure-virtual-machines), providing design guidance and best practices. The recommended strategy includes a structured approach for discovery, design, and deployment, followed by data migration and final cutover.
 
 :::image type="content" source="media/oracle-migration/azure-virtual-machine-migration.png" alt-text="Screenshot of discovery, design, and deploy migration strategy."lightbox="media/oracle-migration/azure-virtual-machine-migration.png":::
 
 ## Discovery
 
-Migration begins with a detailed assessment of the Oracle product portfolio. This includes the Oracle  database version(s), current and future state operating system, but also the application and their dependencies.
+Migration begins with a comprehensive assessment of the Oracle product portfolio. This assessment includes evaluating the Oracle database version(s), the current and target operating systems, as well as the applications and their dependencies.
 
-If you plan to migrate Oracle applications, which can be: Oracle ([EBS](https://www.oracle.com/in/applications/ebusiness/), [Siebel](https://www.oracle.com/in/cx/siebel/), [People Soft](https://www.oracle.com/in/applications/peoplesoft/), [JDE](https://www.oracle.com/in/applications/jd-edwards-enterpriseone/), and others) and non-Microsoft partner offerings like [SAP](https://pages.community.sap.com/topics/oracle) or custom applications.
+If you plan to migrate Oracle applications, such as Oracle ([EBS](https://www.oracle.com/in/applications/ebusiness/), [Siebel](https://www.oracle.com/in/cx/siebel/), [PeopleSoft](https://www.oracle.com/in/applications/peoplesoft/), [JDE](https://www.oracle.com/in/applications/jd-edwards-enterpriseone/), or other non-Microsoft partner solutions like [SAP](https://pages.community.sap.com/topics/oracle) or custom applications, these should be carefully considered as part of the migration strategy.
 
-The existing Oracle database can operate on servers, Oracle Real Application Clusters (RAC), or non-Microsoft partner RAC.
+The existing Oracle database environment may be running on standalone servers, Oracle Real Application Clusters (RAC), or non-Microsoft partner RAC solutions.
 
->! Please note, that Real Application Clustering (RAC) is not supported on Azure. If you have this scenario, please be aware to hand over your RAC reports or PDB/CDB reports (depending on your architecture) from all RAC-nodes and generate the reports from the same timeframe. The best sizing indication is always given when generating those reports on peak-timeframes.
 
-For applications, we need to discover the size of your infrastructure that can be done easily by using Azure Migrate based discovery. 
+>! Please note that Real Application Clustering (RAC) is not supported on Azure. If this applies to your environment, ensure you provide RAC reports or PDB/CDB reports (depending on your architecture) from all RAC nodes. These reports must be generated from the same timeframe to ensure consistency. The most accurate sizing recommendations are obtained by generating these reports during peak usage periods.
 
-In the discovery phase, we encourage you to review all application dependencies. 
-Decide if you allow for application downtimes during the migration, as this is decisive for the migration tooling. Thereby, you can decide for either online or offline migrations. 
+For applications, determining the size of your infrastructure is straightforward using Azure Migrate's discovery capabilities.
 
->! When you decide to perform an online migration, please make sure to be able to open the firewall for the migration activity.
+During the discovery phase, it is essential to review all application dependencies. You should decide whether application downtime is acceptable during the migration, as this will influence the choice of migration tools. Based on this decision, you can choose between online or offline migration methods.
 
-The network planning is an important step during the migration perios. Please properly test the bandwidth that you need with the data size that you bring to Azure. 
+If you opt for an online migration, ensure the necessary firewall ports are open to facilitate the migration process.
+
+Network planning is a critical step during the migration period. Be sure to test the bandwidth required to transfer your data to Azure thoroughly, based on the size of your dataset.
 
 
 ## Design 
@@ -57,16 +57,16 @@ Based on your capacity planning and your architecture design, you can use Ansibl
 
 ## Types for data migration  
 
-The data migration types are dependent on the decisions in the discovery. 
-You can leverage Data Box, RMAN, Data Pump, Goldengate, Striim, Shareplex, and Data Guard upon your preferences. 
-Please also visit [Oracle Migration Planning](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-migration-planning) in case you choose to re-visit the characteristics of online and offline migrations. 
+The type of data migration depends on the decisions made during the discovery phase. You can choose from tools and methods such as Data Box, RMAN, Data Pump, GoldenGate, Striim, SharePlex, and Data Guard based on your preferences and requirements.
+
+For additional guidance, refer to [Oracle Migration Planning](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-migration-planning) to review the characteristics of online and offline migrations.
 
 >! Note:
-A offline migration always takes longer than an online migration. Therefore tools like Data Pump are not recommended for a high data size and low downtime window.
+Offline migrations typically take longer than online migrations. As a result, tools like Data Pump are not recommended for scenarios involving large data sizes and strict low-downtime requirements.
 
 ## Data migration approach
 
-After you set up Oracle on Azure infrastructure, install Oracle database, and migrate related applications; the next step is to transfer data from on premise Oracle database to the new Oracle database on Azure. See the following Oracle tools: 
+Once your Oracle infrastructure is set up on Azure, the Oracle database is installed, and related applications are migrated, the next step is to transfer data from your on-premises Oracle database to the new Oracle database on Azure. To facilitate this, consider using the following Oracle tools:
 
 - [Recovery Manager (RMAN)](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/getting-started-rman.html)
 - [Data Pump](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html)
@@ -94,15 +94,15 @@ Scenario-1: RMAN: Use RMAN backup and restore with Azure features, the setup for
 
 Scenario-2: RMAN Backup Approach
 
-:::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-2.png" alt-text="Diagram shows the RMAN backup and restore approach."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-2.png":::
+:::image type="content" source="./media/oracle-migration/rman-backup-approach-scenario2.png" alt-text="Diagram shows the RMAN backup and restore approach."lightbox="./media/oracle-migration/rman-backup-approach-scenario2.png":::
  
 Scenario-3: Alternatively, setup can be modified in multiple different ways as depicted in the following scenario.
 
-:::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-3.png" alt-text="Diagram shows modified versions of scenario 2."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-3.png":::
+:::image type="content" source="./media/oracle-migration/rman-backup-approach-scenario3.png" alt-text="Diagram shows modified versions of scenario 2."lightbox="./media/oracle-migration/rman-backup-approach-scenario3.png":::
  
 Scenario-4: Data PumpàAzCopy - easy and straight forward approach using Data Pump backup and restore using Azure capabilities.
 
-:::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-4.png" alt-text="Diagram shows Data Pump backup and restore using Azure capabilities."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-4.png":::
+:::image type="content" source="./media/oracle-migration/datapump-backup-approach-scenario4.png" alt-text="Diagram shows Data Pump backup and restore using Azure capabilities."lightbox="./media/oracle-migration/datapump-backup-approach-scenario4.png":::
  
 Scenario-5: Data Box - a unique scenario in which data is moved between the locations using a storage device and physical shipment.
 
