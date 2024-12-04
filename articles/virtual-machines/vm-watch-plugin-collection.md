@@ -43,7 +43,7 @@ This article assumes that you are familiar with:
 | dns| Core|Network| <ul><li>dns</li> </ul>|||
 | tcp_stats | Core|Network| | <ul><li>SegmentsRetransimitted</li> <li>NormalizedSegmentsRetransimitted</li>  <li>ConnectionResets</li> <li>NormalizedConnectionResets</li> <li>FailedConnectionAttempts</li> <li> NormalizedFailedConnectionAttempts </li><li> ActiveConnectionOpenings </li><li> PassiveConnectionOpenings </li><li> CurrentConnections </li><li> SegmentsReceived </li><li> SegmentsSent </li> </ul>||
 | clock_skew | Core|Clock| <ul><li>clockskew</li> </ul>|||
-| disk_io | Core|Disk|<ul><li>disk_io</li> </ul>| <ul><li>UsedSpaceInBytes</li>  <li>FreeSpaceInBytes</li>  <li>CapacityInBytes</li>  <li>UsedPercent</li> </ul>||
+| disk_io | Core|Disk|<ul><li>disk_io</li> </ul>| <ul><li>UsedSpaceInBytes</li><li>FreeSpaceInBytes</li><li>CapacityInBytes</li><li>UsedPercent</li> </ul>||
 | disk_iops  | Core|Disk||<ul> <li>WriteOps</li> <li>ReadOps</li> </ul>||
 | imds | Core|IMDS| <ul> <li>imds</li> </ul>|||
 | process  | Core|Process| <ul> <li>process</li> </ul>|||
