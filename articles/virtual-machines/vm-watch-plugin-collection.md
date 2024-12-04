@@ -25,11 +25,11 @@ This article assumes that you are familiar with:
 > [!NOTE]
 > | **Name**  | **Description** |
 > |---|---|
-> | **Collector** | This setting will enable VM watch |
+> | **Collector** | This is a logical grouping of similar "" where you can collect tests, metrics and logs to determine the health of a particular resource |
 > | **Group** | This indicates whether the collectors are part of the Core or Optional Group. Core Group collectors are enabled by default, while Optional Group collectors can be enabled or disabled based on the user's requirements |
 > | **Tags** | This is used to categorize and filter tests, metrics and logs |
 > | **Overwritable Parameters** | These are associated parameters that can be customized to override the default configuration |
-> | **Eligibility** | This setting will disable VM watch |
+> | **Eligibility** | This determines whether a collector is eligible to be executed based on the environment attributes specified by the user |
 > | **Default Behavior** | This is the standard setting and action that would be followed if no custom configurations are provided. |
 
 
@@ -37,18 +37,18 @@ This article assumes that you are familiar with:
 
 | Collector Name | Group | Tags | Checks | Metrics | Event Logs |
 |---|---|---|---|---|---|
-| outbound_connectivity| Core|Network| outbound_connectivity|||
-| dns| Core|Network| dns|||
-| tcp_stats | Core|Network| | <ul>  <li>SegmentsRetransimitted</li> <li>NormalizedSegmentsRetransimitted</li>  <li>ConnectionResets</li> <li>NormalizedConnectionResets</li> <li>FailedConnectionAttempts</li> <li> NormalizedFailedConnectionAttempts </li><li> ActiveConnectionOpenings </li><li> PassiveConnectionOpenings </li><li> CurrentConnections </li><li> SegmentsReceived </li><li> SegmentsSent </li> </ul>||
-| clock_skew | Core|Clock| clockskew|||
-| disk_io | Core|Disk|disk_io| <ul><li>UsedSpaceInBytes</li>  <li>FreeSpaceInBytes</li>  <li>CapacityInBytes</li>  <li>UsedPercent</li> </ul>||
+| outbound_connectivity| Core|Network| <ul><li>outbound_connectivity</li></ul>|||
+| dns| Core|Network| <ul><li>dns</li> </ul>|||
+| tcp_stats | Core|Network| | <ul><li>SegmentsRetransimitted</li> <li>NormalizedSegmentsRetransimitted</li>  <li>ConnectionResets</li> <li>NormalizedConnectionResets</li> <li>FailedConnectionAttempts</li> <li> NormalizedFailedConnectionAttempts </li><li> ActiveConnectionOpenings </li><li> PassiveConnectionOpenings </li><li> CurrentConnections </li><li> SegmentsReceived </li><li> SegmentsSent </li> </ul>||
+| clock_skew | Core|Clock| <ul><li>clockskew</li> </ul>|||
+| disk_io | Core|Disk|<ul><li>disk_io</li> </ul>| <ul><li>UsedSpaceInBytes</li>  <li>FreeSpaceInBytes</li>  <li>CapacityInBytes</li>  <li>UsedPercent</li> </ul>||
 | disk_iops  | Core|Disk||<ul> <li>WriteOps</li> <li>ReadOps</li> </ul>||
-| imds | Core|IMDS| imds|||
-| process  | Core|Process| process|||
+| imds | Core|IMDS| <ul> <li>imds</li> </ul>|||
+| process  | Core|Process| <ul> <li>process</li> </ul>|||
 | process_cpu   | Core|Process| |<ul> <li>ProcessCoreUsage</li> <li>ProcessMachineUsage</li> <li>MachineTotalCpuUsage</li></ul>||
-| process_monitor   | Optional|Process|process_monitor|UpTime||
-| az_storage_blob   | Optional|AzBlob| az_storage_blob|||
-| hardware_health_monitor   | Optional|Hardware| | | hardware_health_monitor|
+| process_monitor   | Optional|Process|<ul> <li>process_monitor</li> </ul>|<ul> <li>UpTime</li> </ul>||
+| az_storage_blob   | Optional|AzBlob| <ul> <li>az_storage_blob</li> </ul>|||
+| hardware_health_monitor   | Optional|Hardware| | | <ul> <li>hardware_health_monitor</li> </ul>|
 
 
 
