@@ -19,7 +19,7 @@ VM watch signals can be categorized into two groups: Core and Optional <link to 
 
 ### Pre-requisites
 This article assumes that you are familiar with:
-- VM watch [Signals](/azure/virtual-machines/azure-vm-watch) and their descriptions
+- VM watch [Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch) and their descriptions
 - [Installing VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) to Virtual Machines and Scale Sets
 
 - VM Watch Collector Suite
