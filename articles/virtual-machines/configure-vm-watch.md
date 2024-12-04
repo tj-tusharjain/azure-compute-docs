@@ -46,16 +46,16 @@ This article assumes that you are familiar with:
 
 #### [CLI](#tab/cli-1)
 ```
-az vm extension show -g <your resource group name> --vm-name <your vm name> -n <your extension name>
+az vm extension show -g <your resource group name> --vm-name <your vm name> -n <application health extension type>
 ```
 #### [PowerShell](#tab/powershell-1)
 ```
-Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your vm name>" -Name "<your extension name>" 
+Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your vm name>" -Name "<application health extension type>" 
 ```
 ---
 
 ### Customizing VM watch configurations 
-VM watch tests, metrics and logs can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of `vmWatchSettings` properties.
+VM watch checks, metrics and logs can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of properties for `vmWatchSettings`.
 
 #### vmWatchSettings Properties 
 | **Name** | **Type** | **Description** | **Is Required**
