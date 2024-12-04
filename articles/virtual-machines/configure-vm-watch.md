@@ -22,6 +22,8 @@ This article assumes that you are familiar with:
 - VM watch [Signals](/azure/virtual-machines/azure-vm-watch) and their descriptions
 - [Installing VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) to Virtual Machines and Scale Sets
 
+- VM Watch Collector Suite
+
 ### Accessing vmWatchSettings on Azure Virtual Machines
 
 > [!IMPORTANT]
@@ -52,15 +54,15 @@ Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your
 ---
 
 ### Customizing VM watch configurations 
-VM watch signals can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of `vmWatchSettings` properties.
+VM watch tests, metrics and logs can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of `vmWatchSettings` properties.
 
 #### vmWatchSettings Properties 
 | **Name** | **Type** | **Description** | **Is Required**
 |---|---|---|---|
-| **enabled** | bool | This shows whether VM watch is enabled or not | true
-| **signalFilters** | object | This filters the enabled / disabled signals, either by tag or signal name. | false
-| **parameterOverrides** | object | This specifies the parameters to overwrite for each signal execution. The default parameters can be found in the VM watch plugin collection page <link to plugin page>. | false
-| **environmentAttributes** | object | This specifies any environment attributes to help decide if a test is eligible to execute or not. | false
+| **enabled** | `bool` | This shows whether VM watch is enabled or not | true
+| **signalFilters** | `object` | This filters the enabled / disabled signals, either by tag or signal name. | false
+| **parameterOverrides** | `object` | This specifies the parameters to overwrite for each signal execution. The default parameters can be found in the VM watch plugin collection page <link to plugin page>. | false
+| **environmentAttributes** | `object` | This specifies any environment attributes to help decide if a test is eligible to execute or not. | false
 
 > [!IMPORTANT]
 > see VM watch Plugin Collection <insert link to plug in page> for a full list of VM watch signals, associated tags, overwritable parameters and environment attributes.
@@ -68,7 +70,7 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
  
 #### Switching On / Off VM watch 
 
-VM watch can be switched on / off by configuring the `enabled` property.  
+VM watch can be switched on / off by configuring the `enabled` property, as shown in the code segment below. 
 
 ```
 {
