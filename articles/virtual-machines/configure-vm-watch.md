@@ -15,16 +15,17 @@ ms.date:     10/28/2024
 # Configure VM watch
 
 
-VM watch signals can be categorized into two groups: Core and Optional <link to plugin page>. By default, only core group signals are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from the `vmWatchSettings` using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
+VM watch collectors can be categorized into two groups: Core and Optional <link to collector page>. By default, only core group collectors are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
+
+This article describes on how to configure VM watch to suit specific requirements.
 
 ### Pre-requisites
 This article assumes that you are familiar with:
 - VM watch [Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch) and their descriptions
 - [Installing VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) to Virtual Machines and Scale Sets
+- VM Watch Collector Suite <insert link to collector page here>
 
-- VM Watch Collector Suite
-
-### Accessing vmWatchSettings on Azure Virtual Machines
+### Accessing `vmWatchSettings` on Azure Virtual Machines
 
 > [!IMPORTANT]
 > The code segment is identical for both Windows and Linux except for the value of the parameter `<your extension name>` passed into the Extension name. Please replace `<your extension name>` with `ApplicationHealthLinux` for Linux and `ApplicationHealthWindows` for Windows installations.  
