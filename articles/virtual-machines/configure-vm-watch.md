@@ -28,7 +28,7 @@ This article assumes that you are familiar with:
 ### Accessing `vmWatchSettings` on Azure Virtual Machines
 
 > [!IMPORTANT]
-> The code segment is identical for both Windows and Linux except for the value of the parameter `<your extension name>` passed into the Extension name. Please replace `<your extension name>` with `ApplicationHealthLinux` for Linux and `ApplicationHealthWindows` for Windows installations.  
+> The code segment is identical for both Windows and Linux except for the value of the parameter `<application health extension type>` passed into the Extension Type. Please replace `<application health extension type>` with `ApplicationHealthLinux` for Linux and `ApplicationHealthWindows` for Windows installations.  
 
 #### [ARM Template](#tab/ARM-template-1)
 1. Navigate back to the Overview Page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below.
