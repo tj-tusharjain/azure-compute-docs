@@ -28,9 +28,9 @@ This article assumes that you are familiar with:
 > | **Collector** | This is a logical grouping of similar "" where you can collect checks, metrics and logs to determine the health of a particular resource |
 > | **Group** | This indicates whether the collectors are part of the core or optional group. Core group collectors are enabled by default, while Optional group collectors can be enabled or disabled based on the user's requirements |
 > | **Tags** | This is used to categorize and filter checks, metrics and logs |
-> | **Overwritable Parameters** | These are associated parameters that can be customized to override the default configuration |
 > | **Eligibility** | This determines whether a collector is eligible to be executed based on the environment attributes specified by the user |
 > | **Default Behavior** | This is the standard setting and action that would be followed if no custom configurations are provided. |
+> | **Overwritable Parameters** | These are associated parameters that can be customized to override the default configuration |
 
 
 ### Groups, Tags and Corresponding Checks, Metrics and Event Logs
