@@ -15,7 +15,7 @@ ms.subservice: monitoring
 
 # VM watch Collector Suite 
 
-VM watch collectors are designed to gather VM health data on various resources like disk and network, by running health tests (checks, metrics, and logs) within the VM. This suite of collectors aids in identifying issues, monitoring performance trends, and optimizing resources to enhance the overall user experience.
+VM watch collectors are designed to gather VM health data on various resources like disk and network, by running health checks within the VM. This suite of collectors aids in identifying issues, monitoring performance trends, and optimizing resources to enhance the overall user experience.
 
 This article provides a summary of all available collectors in VM watch, along with the corresponding checks, metrics, logs, and parameter configurations. For detailed descriptions of each check, metric, and log, please refer to the [VM watch Overview](/azure/virtual-machines/azure-vm-watch) page.
 
