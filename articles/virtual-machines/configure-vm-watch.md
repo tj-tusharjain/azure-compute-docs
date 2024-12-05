@@ -14,7 +14,7 @@ ms.date:     10/28/2024
 
 # Configure VM watch
 
-VM watch signals are logically grouped into Collector Suites, which can be categorized into two groups: Core and Optional <link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
+VM watch signals are logically grouped into Collector Suites, which can be categorized into two groups: Core and Optional<link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
 
 This article describes on how to configure VM watch to suit specific requirements.
 
@@ -24,7 +24,7 @@ This article assumes that you are familiar with:
 - [Installing VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) to Virtual Machines and Scale Sets
 - VM watch Collector Suite <insert link to collector page here>
 
-### Accessing `vmWatchSettings` on Azure Virtual Machines
+### Access `vmWatchSettings` on Azure Virtual Machines
 
 > [!IMPORTANT]
 > The code segment is identical for both Windows and Linux except for the value of the parameter `<application health extension type>` passed into the Extension Type. Please replace `<application health extension type>` with `ApplicationHealthLinux` for Linux and `ApplicationHealthWindows` for Windows installations.  
@@ -53,7 +53,7 @@ Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your
 ```
 ---
 
-### Customizing VM watch configurations 
+### Customize VM watch configurations 
 VM watch signals can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of properties for `vmWatchSettings`.
 
 #### vmWatchSettings Properties 
@@ -65,10 +65,10 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
 | **environmentAttributes** | `object` | This specifies any environment attributes that will help decide if a test is eligible to execute or not. | false
 
 > [!IMPORTANT]
-> see VM watch Collector Suite page <insert link to collector page> for a full list of collectors, associated signals and tags, overwritable parameters and environment attributes.
+> See VM watch Collector Suite <insert link to collector page> for a full list of collectors, associated signals and tags, overwritable parameters and environment attributes.
 >
  
-#### Switching On / Off VM watch 
+#### Switch On/Off VM watch 
 
 VM watch can be switched on / off by configuring the `enabled` property, as shown in the code segment below. 
 
@@ -86,7 +86,7 @@ VM watch can be switched on / off by configuring the `enabled` property, as show
 > | **false** | This setting will disable VM watch |
 > 
 
-#### Enabling / disabling signal execution 
+#### Enable/disable signal execution 
 
 By default, only the core group signals <link> are enabled. However, the `signalFilters` property can be used to control and configure the signals to be executed. This property includes the following subfields.
 
