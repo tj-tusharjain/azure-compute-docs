@@ -67,7 +67,7 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
 | **Name** | **Type** | **Description** | **Is Required**
 |---|---|---|---|
 | **enabled** | `bool` | This allows you to enable or disable VM watch | true
-| **signalFilters** | `object` | This filters the enabled / disabled signals, either by tag or signal name. | false
+| **signalFilters** | `object` | This filters the enabled / disabled signals, either by tag or collector suite name. | false
 | **parameterOverrides** | `object` | This specifies the parameters that can be overwritten for each signal execution. The full list of overwritable parameters can be found in the VM watch Collector Suite page <link to collector page>. | false
 | **environmentAttributes** | `object` | This specifies any environment attributes that will help decide if a test is eligible to execute or not. | false
 
@@ -101,8 +101,8 @@ By default, only the core group signals <link> are enabled. However, the `signal
 |---|------|
 | **enabledTags** | This will enable the signals in the optional group specified with tags provided by the user |  
 | **disabledTags** | This will disable the signals in the core and optional groups specified with tags provided by the user | 
-| **enabledOptionalSignals** | This will enable signals specified in optional group. Provide signal name(s) as parameter | 
-| **disabledSignals** | This will disable the signals specified in the core and optional groups. Provide signal name(s) as parameter | 
+| **enabledOptionalSignals** | This will enable signals specified in optional group. Provide collector suite name(s) as parameter | 
+| **disabledSignals** | This will disable the signals specified in the core and optional groups. Provide collector suite name(s) as parameter | 
 
 
 For instance, to enable signals in the optional group containing `Network` tag and disable signals containing `Disk` tag, specify such tags under the `enabledTags` and `disabledTags` as shown below:
