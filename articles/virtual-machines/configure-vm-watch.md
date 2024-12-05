@@ -15,7 +15,7 @@ ms.date:     10/28/2024
 # Configure VM watch
 
 
-VM watch collectors can be categorized into two groups: Core and Optional <link to collector page>. By default, only core group collectors are enabled with default configurations <link to plugin page>. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
+VM watch collectors can be categorized into two groups: Core and Optional <link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
 
 This article describes on how to configure VM watch to suit specific requirements.
 
@@ -23,7 +23,7 @@ This article describes on how to configure VM watch to suit specific requirement
 This article assumes that you are familiar with:
 - VM watch [Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch) and their descriptions
 - [Installing VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) to Virtual Machines and Scale Sets
-- VM Watch Collector Suite <insert link to collector page here>
+- VM watch Collector Suite <insert link to collector page here>
 
 ### Accessing `vmWatchSettings` on Azure Virtual Machines
 
@@ -55,18 +55,18 @@ Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your
 ---
 
 ### Customizing VM watch configurations 
-VM watch checks, metrics and logs can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of properties for `vmWatchSettings`.
+VM watch signals can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of properties for `vmWatchSettings`.
 
 #### vmWatchSettings Properties 
 | **Name** | **Type** | **Description** | **Is Required**
 |---|---|---|---|
-| **enabled** | `bool` | This shows whether VM watch is enabled or not | true
+| **enabled** | `bool` | This allows you to enable or disable VM watch | true
 | **signalFilters** | `object` | This filters the enabled / disabled signals, either by tag or signal name. | false
-| **parameterOverrides** | `object` | This specifies the parameters to overwrite for each signal execution. The default parameters can be found in the VM watch plugin collection page <link to plugin page>. | false
-| **environmentAttributes** | `object` | This specifies any environment attributes to help decide if a test is eligible to execute or not. | false
+| **parameterOverrides** | `object` | This specifies the parameters that can be overwritten for each signal execution. The full list of overwritable parameters can be found in the VM watch Collector Suite page <link to collector page>. | false
+| **environmentAttributes** | `object` | This specifies any environment attributes that will help decide if a test is eligible to execute or not. | false
 
 > [!IMPORTANT]
-> see VM watch Plugin Collection <insert link to plug in page> for a full list of VM watch signals, associated tags, overwritable parameters and environment attributes.
+> see VM watch Collector Suite page <insert link to collector page> for a full list of collectors, associated signals and tags, overwritable parameters and environment attributes.
 >
  
 #### Switching On / Off VM watch 
@@ -93,8 +93,8 @@ By default, only the core group signals <link> are enabled. However, the `signal
 
 | **Subfields** | **Description** |
 |---|------|
-| **enabledTags** | This will enable the signals in the optional group specified with these tags |  
-| **disabledTags** | This will disable the signals in the core and optional groups specified with these tags | 
+| **enabledTags** | This will enable the signals in the optional group specified with tags provided by the user |  
+| **disabledTags** | This will disable the signals in the core and optional groups specified with tags provided by the user | 
 | **enabledOptionalSignals** | This will enable signals specified in optional group. Provide signal name(s) as parameter | 
 | **disabledSignals** | This will disable the signals specified in the core and optional groups. Provide signal name(s) as parameter | 
 
@@ -168,7 +168,7 @@ Signal execution parameters can be overwritten by setting the `parameterOverride
 
 #### Environment attribute enrichments 
 
-In addition to tags, VM watch also checks the eligibility <insert link to plugin page> of the signals before execution. The environment attributes can be specified to help VM watch determine the eligibility of each signal for execution. 
+In addition to tags, VM watch also checks the eligibility <insert link to collector page> of the signals before execution. The environment attributes can be specified to help VM watch determine the eligibility of each signal for execution. 
 For instance, if outbound traffic has been disabled on a VM, this information can be provided to VM watch. This will ensure that any outbound network-related signal execution will be marked as ineligible.
 ```
 {
