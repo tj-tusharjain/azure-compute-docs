@@ -15,7 +15,15 @@ ms.date:     10/28/2024
 # Configure VM watch
 
 
-VM watch collectors can be categorized into two groups: Core and Optional <link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/), [AZ CLI](https://learn.microsoft.com/en-us/cli/azure/) or [Powershell](https://learn.microsoft.com/en-us/powershell/).
+VM watch emits 3 types of signals to reflect the health status of VMs:
+
+- **Check**: A test run that returns either a Pass or Fail result. Corresponding ErrorCode and ErrorMessages are also returned.
+
+- **Metric**: A numerical measurement of VM status collected from the VM.
+
+- **Log**: Plain text messages indicating the system health information.
+
+VM watch signals are logically grouped into a Collector Suite, which can be categorized into two groups: Core and Optional <link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
 
 This article describes on how to configure VM watch to suit specific requirements.
 
@@ -183,7 +191,7 @@ For instance, if outbound traffic has been disabled on a VM, this information ca
 
 ### Next Steps
 
-- Link to VM watch Plugin Collection Page
+- Link to VM watch Collector Suite Page
 
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 
