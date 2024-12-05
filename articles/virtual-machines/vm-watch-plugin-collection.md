@@ -28,6 +28,7 @@ This article assumes that you are familiar with:
 > | **Name**  | **Description** |
 > |---|---|
 > | **Collector** | This is a logical grouping of similar tests where you can collect checks, metrics and logs to determine the health of a particular resource |
+> | **Signals** | This is what is emitted to reflect the health status of VMs. The 3 types of signals emitted are checks, metrics and logs |
 > | **Group** | This indicates whether the collectors are part of the core or optional group. Core group collectors are enabled by default, while Optional group collectors can be enabled or disabled based on the user's requirements |
 > | **Tags** | This is used to categorize and filter checks, metrics and logs |
 > | **Eligibility** | This determines whether a collector is eligible to be executed based on the environment attributes specified by the user |
