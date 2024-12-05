@@ -86,7 +86,7 @@ VM watch can be switched on / off by configuring the `enabled` property, as show
 > | **false** | This setting will disable VM watch |
 > 
 
-#### Enable/disable signal execution 
+#### Enable/Disable signal execution 
 
 By default, only the core group signals <link> are enabled. However, the `signalFilters` property can be used to control and configure the signals to be executed. This property includes the following subfields.
 
