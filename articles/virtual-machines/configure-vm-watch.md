@@ -14,13 +14,6 @@ ms.date:     10/28/2024
 
 # Configure VM watch
 
-
-VM watch emits 3 types of signals to reflect the health status of VMs:
-
-- **Check**: A test run that returns either a Pass or Fail result. Corresponding ErrorCode and ErrorMessages are also returned.
-- **Metric**: A numerical measurement of VM status collected from the VM.
-- **Log**: Plain text messages indicating the system health information.
-
 VM watch signals are logically grouped into a Collector Suite, which can be categorized into two groups: Core and Optional <link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
 
 This article describes on how to configure VM watch to suit specific requirements.
