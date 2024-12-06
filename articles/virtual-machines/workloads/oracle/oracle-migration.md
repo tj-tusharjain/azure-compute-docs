@@ -24,7 +24,7 @@ when you plan to migrate Oracle applications, such as Oracle ([EBS](https://www.
 The existing Oracle database environment may be running on standalone servers, Oracle Real Application Clusters (RAC), or non-Microsoft partner RAC solutions.
 
 
->! Please note that Real Application Clustering (RAC) is not supported on Azure. If this applies to your environment, ensure you provide RAC reports or PDB/CDB reports (depending on your architecture) from all RAC nodes. These reports must be generated from the same timeframe to ensure consistency. The most accurate sizing recommendations are obtained by generating these reports during peak usage periods.
+>! Please note that Real Application Clustering (RAC) is not supported on Azure virtual machines. If this applies to your environment, ensure you provide RAC reports or PDB/CDB reports (depending on your architecture) from all RAC nodes. These reports must be generated from the same timeframe to ensure consistency. The most accurate sizing recommendations are obtained by generating these reports during peak usage periods.
 
 For applications, determining the size of your infrastructure is straightforward using Azure Migrate's discovery capabilities.
 
