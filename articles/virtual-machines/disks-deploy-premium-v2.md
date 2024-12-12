@@ -196,6 +196,107 @@ You've now deployed a VM with a premium SSD v2.
 
 ---
 
+## Use a Premium SSD v2 in non-AZ Regions
+
+# [Azure CLI](#tab/azure-cli)
+
+Create a Premium SSD v2 disk in a region without availability zone support by using the [az disk create](/cli/azure/disk#az-disk-create) command. Then create a VM in the same region that supports Premium Storage and attach the disk to it by using the [az vm create](/cli/azure/vm#az-vm-create) command. 
+
+The following script creates a Premium SSD v2disk with a 4k sector size. To create a disk with a 512 sector size, update the `$logicalSectorSize` parameter. Replace the values of all the variables with your own, then run the following script:
+
+```azurecli-interactive
+## Initialize variables
+diskName="yourDiskName"
+resourceGroupName="yourResourceGroupName"
+region="yourRegionName"
+zone="yourZoneNumber"
+##Replace 4096 with 512 to deploy a disk with 512 sector size
+logicalSectorSize=4096
+vmName="yourVMName"
+vmImage="Win2016Datacenter"
+adminPassword="yourAdminPassword"
+adminUserName="yourAdminUserName"
+vmSize="Standard_D4s_v3"
+
+## Create a Premium SSD v2 disk
+az disk create -n $diskName -g $resourceGroupName \
+--size-gb 100 \
+--disk-iops-read-write 5000 \
+--disk-mbps-read-write 150 \
+--location $region \
+--zone $zone \
+--sku PremiumV2_LRS \
+--logical-sector-size $logicalSectorSize
+
+## Create the VM
+az vm create -n $vmName -g $resourceGroupName \
+--image $vmImage \
+--zone $zone \
+--authentication-type password --admin-password $adminPassword --admin-username $adminUserName \
+--size $vmSize \
+--location $region \
+--attach-data-disks $diskName
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Create a Premium SSD v2 disk in a region without availability zone supportby using the [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) to define the configuration of your disk and the [New-AzDisk](/powershell/module/az.compute/new-azdisk) command to create your disk. Next, create a VM in the same region and availability zone that supports Premium Storage by using the [az vm create](/cli/azure/vm#az-vm-create). Finally, attach the disk to it by using the [Get-AzVM](/powershell/module/az.compute/get-azvm) command to identify variables for the virtual machine, the [Get-AzDisk](/powershell/module/az.compute/get-azdisk) command to identify variables for the disk, the [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk) command to add the disk, and the [Update-AzVM](/powershell/module/az.compute/update-azvm) command to attach the new disk to the virtual machine. 
+
+The following script creates a Premium SSD v2 disk with a 4k sector size. To create a disk with a 512 sector size, update the `$logicalSectorSize` parameter. Replace the values of all the variables with your own, then run the following script:
+
+```powershell
+# Initialize variables
+$resourceGroupName = "yourResourceGroupName"
+$region = "useast"
+$zone = "yourZoneNumber"
+$diskName = "yourDiskName"
+$diskSizeInGiB = 100
+$diskIOPS = 5000
+$diskThroughputInMBPS = 150
+#To use a 512 sector size, replace 4096 with 512
+$logicalSectorSize=4096
+$lun = 1
+$vmName = "yourVMName"
+$vmImage = "Win2016Datacenter"
+$vmSize = "Standard_D4s_v3"
+$vmAdminUser = "yourAdminUserName"
+$vmAdminPassword = ConvertTo-SecureString "yourAdminUserPassword" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential ($vmAdminUser, $vmAdminPassword);
+
+# Create a Premium SSD v2
+$diskconfig = New-AzDiskConfig `
+-Location $region `
+-Zone $zone `
+-DiskSizeGB $diskSizeInGiB `
+-DiskIOPSReadWrite $diskIOPS `
+-DiskMBpsReadWrite $diskThroughputInMBPS `
+-AccountType PremiumV2_LRS `
+-LogicalSectorSize $logicalSectorSize `
+-CreateOption Empty
+
+New-AzDisk `
+-ResourceGroupName $resourceGroupName `
+-DiskName $diskName `
+-Disk $diskconfig
+
+# Create the VM
+New-AzVm `
+    -ResourceGroupName $resourceGroupName `
+    -Name $vmName `
+    -Location $region `
+    -Zone $zone `
+    -Image $vmImage `
+    -Size $vmSize `
+    -Credential $credential
+
+# Attach the disk to the VM
+$vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName -Name $diskName
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
+```
+
+
 ## Adjust disk performance
 
 You can adjust the performance of a Premium SSD v2 disk four times within a 24 hour period. Creating a disk counts as one of these times, so for the first 24 hours after creating a premium SSD v2 disk you can only adjust its performance up to three times.
