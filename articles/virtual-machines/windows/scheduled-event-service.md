@@ -4,7 +4,7 @@ description: Learn how to monitor your Azure virtual machines for scheduled even
 author: mysarn
 ms.service: azure-virtual-machines
 ms.subservice: scheduled-events
-ms.date: 08/20/2019
+ms.date: 12/12/2024
 ms.author: sarn
 ms.topic: how-to
 # Monitoring Scheduled Events
@@ -58,23 +58,23 @@ New-AzVm `
 
 1. Connect to **myCollectorVM** and copy the .zip file to the virtual machine and extract all of the files. On your VM, open a PowerShell prompt. Move your prompt into the folder containing `SchService.ps1`, for example: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`,  and set up the service.
 
-```powershell
-.\SchService.ps1 -Setup
-```
+   ```powershell
+   .\SchService.ps1 -Setup
+   ```
 
 1. Start the service.
 
-```powershell
-.\SchService.ps1 -Start
-```
+   ```powershell
+   .\SchService.ps1 -Start
+   ```
 
 The service will now start polling every 10 seconds for any scheduled events and approve the events to expedite the maintenance.  Freeze, Reboot, Redeploy, and Preempt are the events captured by Schedule events.   Note that you can extend the script to trigger some mitigations prior to approving the event.
 
 1. Validate the service status and make sure it is running.
 
-```powershell
-.\SchService.ps1 -status  
-```
+   ```powershell
+   .\SchService.ps1 -status  
+   ```
 
 This should return `Running`.
 
