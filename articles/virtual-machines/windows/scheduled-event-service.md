@@ -54,15 +54,15 @@ New-AzVm `
 ```
  
 
-Download the installation .zip file of the project from [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
+1. Download the installation .zip file of the project from [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Connect to **myCollectorVM** and copy the .zip file to the virtual machine and extract all of the files. On your VM, open a PowerShell prompt. Move your prompt into the folder containing `SchService.ps1`, for example: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`,  and set up the service.
+1. Connect to **myCollectorVM** and copy the .zip file to the virtual machine and extract all of the files. On your VM, open a PowerShell prompt. Move your prompt into the folder containing `SchService.ps1`, for example: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`,  and set up the service.
 
 ```powershell
 .\SchService.ps1 -Setup
 ```
 
-Start the service.
+1. Start the service.
 
 ```powershell
 .\SchService.ps1 -Start
@@ -70,7 +70,7 @@ Start the service.
 
 The service will now start polling every 10 seconds for any scheduled events and approve the events to expedite the maintenance.  Freeze, Reboot, Redeploy, and Preempt are the events captured by Schedule events.   Note that you can extend the script to trigger some mitigations prior to approving the event.
 
-Validate the service status and make sure it is running.
+1. Validate the service status and make sure it is running.
 
 ```powershell
 .\SchService.ps1 -status  
@@ -100,28 +100,32 @@ At any point you can stop/remove the Scheduled Event Service by using the switch
 
 We now want to connect a Log Analytics Workspace to the collector VM. The Log Analytics workspace acts as a repository and we will configure event log collection to capture the application logs from the collector VM. 
 
- To route the Scheduled Events to the Events Log, which will be saved as Application log by our service, you will need to connect your virtual machine to your Log Analytics workspace.  
- 
-1. Open the page for the workspace you created.
-1. Under **Connect to a data source** select **Azure virtual machines (VMs)**.
+To route the Scheduled Events to the Events Log, which will be saved as Application log by our service, you will need to connect your virtual machine to your Log Analytics workspace.  
 
-    ![Connect to a VM as a data source](./media/notifications/connect-to-data-source.png)
+### Open the Log Analytics workspace page:
 
-1. Search for and select **myCollectorVM**. 
-1. On the new page for **myCollectorVM**, select **Connect**.
+1. Open the Azure portal.
+1. In the search bar at the top, type Log Analytics Workspaces and select it from the search results.
+1. Choose the workspace you created to open its page.
+
+### Connect a VM as a data source:
+
+1. Under Settings, select Data Sources and then click Virtual Machines.
+1. Under Connect to a data source, select Azure virtual machines (VMs).
+1. In the list of available virtual machines, search for and select **myCollectorVM** (the VM you want to connect).
+1. After selecting myCollectorVM, click Connect.
 
 This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md) in your virtual machine. It will take a few minutes to connect your VM to the workspace and install the extension. 
 
 ## Configure the workspace
 
-1. Open the page for your workspace and select **Advanced settings**.
-1. Select **Data** from the left menu, then select **Windows Event Logs**.
-1. In **Collect from the following event logs**, start typing *application* and then select **Application** from the list.
-
-    ![Select Advanced settings](./media/notifications/advanced.png)
-
-1. Leave **ERROR**, **WARNING**, and **INFORMATION** selected and then select **Save** to save the settings.
-
+### Open the workspace settings and configure data collection
+1. Go back to the Log Analytics workspace page.
+1. Under Settings, select Advanced settings.
+1. In the Advanced settings page, select Data from the left menu, and then click Windows Event Logs.
+1. In the 'Collect from the following event logs' section, start typing application and select Application from the list.
+1. Ensure that **ERROR**, **WARNING**, and **INFORMATION** are selected.
+1. Click Save to apply the settings.
 
 > [!NOTE]
 > There will be some delay, and it may take up to 10 minutes before the log is available. 
