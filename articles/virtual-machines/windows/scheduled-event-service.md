@@ -117,8 +117,6 @@ To route the Scheduled Events to the Events Log, which will be saved as Applicat
 
 This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md) in your virtual machine. It will take a few minutes to connect your VM to the workspace and install the extension. 
 
-## Configure the workspace
-
 ### Open the workspace settings and configure data collection
 1. Go back to the Log Analytics workspace page.
 1. Under Settings, select Advanced settings.
