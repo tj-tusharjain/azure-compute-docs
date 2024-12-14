@@ -95,33 +95,40 @@ At any point you can stop/remove the Scheduled Event Service by using the switch
 
 ## Connect to the workspace
 
-
 We now want to connect a Log Analytics Workspace to the collector VM. The Log Analytics workspace acts as a repository and we will configure event log collection to capture the application logs from the collector VM. 
 
 To route the Scheduled Events to the Events Log, which is saved as Application log by our service, you will need to connect your virtual machine to your Log Analytics workspace.  
 
-### Open the Log Analytics workspace page:
+### Set up data collection
 
 1. Open the Azure portal.
-1. In the search bar at the top, type Log Analytics Workspaces and select it from the search results.
+
+1. In the search bar at the top, type **Log Analytics Workspaces** and select it from the search results.
+
 1. Choose the workspace you created to open its page.
 
-### Connect a VM as a data source:
+1. Under Settings, select **Agents** and then click **Virtual Machines**.
 
-1. Under Settings, select Data Sources and then click Virtual Machines.
-1. Under Connect to a data source, select Azure virtual machines (VMs).
-1. In the list of available virtual machines, search for and select **myCollectorVM** (the VM you want to connect).
-1. After selecting myCollectorVM, click Connect.
+1. Under the **Windows servers** tab, click **Data Collection Rules**.
+
+1. Enter the **Collect and Deliver** tab and click **Add data source**
+    ![Screenshot of the 'Collect and deliver' tab with an empty data source section](./media/notifications/create-data-collection-rule.png)
+
+1. Under the **Data source** tab, select **Windows Event Logs** from the dropdown.
+
+1. Select the event logs you'd like to collect. Ensure that **ERROR**, **WARNING**, and **INFORMATION** are selected.
+    ![Screenshot of the 'Add data source' tab, showing several selected checkboxes](./media/notifications/add-data-source-windows-event-logs.png)
+
+1. Click **Next : Destination >**
+
+1. Under the **Destination** tab, click **Add destination**.
+
+1. Fill out the **Destination Type**, **Subscription**, and **Destination Details** sections with your subscription's details.
+    ![](./media/notifications/add-destination-details.png)
+
 
 This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md) in your virtual machine. It will take a few minutes to connect your VM to the workspace and install the extension. 
 
-### Open the workspace settings and configure data collection
-1. Go back to the Log Analytics workspace page.
-1. Under Settings, select Advanced settings.
-1. In the Advanced settings page, select Data from the left menu, and then click Windows Event Logs.
-1. In the 'Collect from the following event logs' section, start typing application and select Application from the list.
-1. Ensure that **ERROR**, **WARNING**, and **INFORMATION** are selected.
-1. Click Save to apply the settings.
 
 > [!NOTE]
 > There is some delay, and it may take up to 10 minutes before the log is available. 
