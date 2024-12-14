@@ -90,7 +90,7 @@ VM watch is delivered via the [Application Health VM extension](/azure/virtual-m
 
 | **Signal name** | **Type** | **Description** |
 |:---:|:---:|:---:|
-| **Hardware Health Monitor** | EventLog | Collect hardware health info from the Windows event log. Currently, only disk-related critical events are collected, including events with ID 7, 500, 504, 505, 512 and 549. |
+| **Hardware Health Monitor** | EventLog | Collect hardware health info from the Windows event log. Currently, only disk-related critical events are collected, including events with ID 7, 500, 504, 505, 512, and 549. |
 
 ## Related content
 

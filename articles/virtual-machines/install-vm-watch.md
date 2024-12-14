@@ -18,7 +18,7 @@ The code in this article details the steps to install the Application Health VM 
 | **Parameter** | **Description** |
 |---|---|
 | `<your subscription id>` | The Azure subscription ID in which you want to install VM watch. |
-| `<your vm name>` | The name of your virtual machine to which the extension is being installed.  |
+| `<your vm name>` | The name of the virtual machine to which the extension is being installed.  |
 | `<your resource group name>` | The name of the resource group in your Azure subscription that your VM will be assigned to. |
 | `<your location>` | The Azure region in which your VM is installed. |
 | `<your extension name` | The name that will be assigned to the Application Health VM extension that you're installing. |
@@ -29,7 +29,7 @@ The code in this article details the steps to install the Application Health VM 
 
 ### 1. Register the feature
   
-Register for adopting VM watch by running the following code via the Azure CLI:
+Register for adopting VM watch by running the following commands via the Azure CLI:
   
 ```
 az feature register --name VMWatchPreview --namespace Microsoft.Compute --subscription <your subscription id>
@@ -50,7 +50,7 @@ az feature show --namespace Microsoft.Compute --name VMWatchPreview --subscripti
 
 ### 2. Ensure that a VM is installed
 
-For more information on how to create a VM and/or virtual machine scale set, see the [quickstart guide for Windows](/azure/virtual-machines/windows/quick-create-portal) and the [quickstart guide for Linux](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
+For information on how to create a VM and/or virtual machine scale set, see the [quickstart guide for Windows](/azure/virtual-machines/windows/quick-create-portal) and the [quickstart guide for Linux](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
 
 > [!IMPORTANT]
 > If the Application Health extension is already installed on the VM, ensure that the settings `autoUpgradeMinorVersion` and `enableAutomaticUpgrade` are set to `true`.
@@ -205,7 +205,7 @@ Update-AzVmssInstance -ResourceGroupName $vmScaleSetResourceGroup `
 
 ### Validate that the Application Health VM extension is installed in the virtual machine scale set
 
-Go to the [Azure portal](https://portal.azure.com) and confirm that the Application Health VM extension was successfully installed in the virtual machine scale set.
+Go to the [Azure portal](https://portal.azure.com) and confirm that the Application Health VM extension was successfully installed.
 
 The following screenshot shows a Windows installation.
 
