@@ -66,6 +66,7 @@ For scale set model updates, the upgrade policy mode will determine how the inst
 |**Prioritize unhealthy instances** | Tells the scale set to upgrade instances reporting as unhealthy before upgrading instances reporting as healthy. <br><br>Example: If some instances in your scale are failed or unhealthy when a rolling upgrade begins, the scale set updates those instances first. |
 | **Enable cross-zone upgrade** | Allows the scale set to ignore Availability Zone boundaries when determining batches. This essentially lets the rolling upgrade treat your scale set as a regional deployment instead of a zonal deployment. |
 | **MaxSurge** | New instances are created in batches using the latest scale model. Once the batch of new instances is successfully created and marked as healthy, the scale set then deletes instances in batches matching the old scale set model. This continues until all instances are brought up-to-date. rolling upgrades with MaxSurge can help improve service uptime during upgrade events. <br><br>For more information see [MaxSurge rolling upgrades](virtual-machine-scale-sets-maxsurge.md). |
+| **Rollback Failed Instances On Policy Breach (Uniform Orchestration only)** | Rollback failed instances to previous model if the Rolling Upgrade policy is violated. |
 
 
 ## Setting or updating the rolling upgrade policy
