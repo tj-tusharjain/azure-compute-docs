@@ -70,10 +70,7 @@ The following image shows the home page of the Service Fabric Analytics solution
 
 ### View Service Fabric Events, including actions on nodes
 
-On the Service Fabric Analytics page, click on the graph for **Cluster Events**. The logs for all the system events that have been collected appear. For reference, these are from the **WADServiceFabricSystemEventsTable** in the Azure Storage account, and similarly the reliable services and actors events you see next are from those respective tables.
-    
-![Query Operational Channel](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
-
+On the Service Fabric Analytics page, click on the graph for **Cluster Events**. The logs for all the system events that have been collected appear. 
 The query uses the Kusto query language, which you can modify to refine what you're looking for. For example, to find all actions taken on nodes in the cluster, you can use the following query. The event IDs used below are found in the [operational channel events reference](service-fabric-diagnostics-event-generation-operational.md).
 
 ```kusto
