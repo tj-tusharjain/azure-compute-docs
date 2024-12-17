@@ -19,12 +19,13 @@ This article explains how to migrate your Oracle workload from an on-premises en
 
 Migration begins with a comprehensive assessment of the Oracle product portfolio. This assessment includes evaluating the Oracle database versions, the current and target operating systems, as well as the applications and their dependencies.
 
-when you plan to migrate Oracle applications, such as Oracle ([EBS](https://www.oracle.com/in/applications/ebusiness/), [Siebel](https://www.oracle.com/in/cx/siebel/), [PeopleSoft](https://www.oracle.com/in/applications/peoplesoft/), [JDE](https://www.oracle.com/in/applications/jd-edwards-enterpriseone/), or other non-Microsoft partner solutions like [SAP](https://pages.community.sap.com/topics/oracle) or custom applications, please consider the applications as part of the migration strategy.
+When you plan to migrate Oracle applications, such as Oracle ([EBS](https://www.oracle.com/in/applications/ebusiness/), [Siebel](https://www.oracle.com/in/cx/siebel/), [PeopleSoft](https://www.oracle.com/in/applications/peoplesoft/), [JDE](https://www.oracle.com/in/applications/jd-edwards-enterpriseone/), or other non-Microsoft partner solutions like [SAP](https://pages.community.sap.com/topics/oracle) or custom applications, please consider the applications as part of the migration strategy.
 
 The existing Oracle database environment may be running on standalone servers, Oracle Real Application Clusters (RAC), or non-Microsoft partner RAC solutions.
 
 
->! Please note that Real Application Clustering (RAC) is not supported on Azure virtual machines. If this applies to your environment, ensure you provide RAC reports or PDB/CDB reports (depending on your architecture) from all RAC nodes. These reports must be generated from the same timeframe to ensure consistency. The most accurate sizing recommendations are obtained by generating these reports during peak usage periods.
+> [!Note] 
+> Please note that Real Application Clustering (RAC) is not supported on Azure virtual machine. If this applies to your environment, ensure you provide RAC reports or PDB/CDB reports (depending on your architecture) from all RAC nodes. These reports must be generated from the same timeframe to ensure consistency. The most accurate sizing recommendations are obtained by generating these reports during peak usage periods.
 
 For applications, determining the size of your infrastructure is straightforward using Azure Migrate's discovery capabilities.
 
@@ -62,8 +63,8 @@ The type of data migration depends on the decisions made during the discovery ph
 
 For more guidance, refer to [Oracle Migration Planning](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-migration-planning) to review the characteristics of online and offline migrations.
 
->! Note:
-Offline migrations typically take longer than online migrations. As a result, tools like Data Pump are not recommended for scenarios involving large data sizes and strict low-downtime requirements.
+> [!Note]
+> Offline migrations typically take longer than online migrations. As a result, tools like Data Pump are not recommended for scenarios involving large data sizes and strict low-downtime requirements.
 
 ## Data migration approach
 
@@ -101,9 +102,9 @@ Scenario-3: Alternatively, setup can be modified in multiple different ways as d
 
 :::image type="content" source="./media/oracle-migration/rman-backup-approach-scenario3.png" alt-text="Diagram shows modified versions of scenario 2."Lightbox="./media/oracle-migration/rman-backup-approach-scenario3.png":::
  
-Scenario-4: Data PumpàAzCopy - easy and straight forward approach using Data Pump backup and restore using Azure capabilities.
+Scenario-4: Data Pump and AzCopy - easy and straight forward approach using Data Pump backup and restore using Azure capabilities.
 
-:::image type="content" source="./media/oracle-migration/datapump-backup-approach-scenario4.png" alt-text="Diagram shows Data Pump backup and restore using Azure capabilities."Lightbox="./media/oracle-migration/datapump-backup-approach-scenario4.png":::
+:::image type="content" source="./media/oracle-migration/data-pump-backup-approach-scenario-4.png" alt-text="Diagram shows Data Pump backup and restore using Azure capabilities."Lightbox="./media/oracle-migration/data-pump-backup-approach-scenario-4.png":::
  
 Scenario-5: Data Box - a unique scenario in which data is moved between the locations using a storage device and physical shipment.
 
