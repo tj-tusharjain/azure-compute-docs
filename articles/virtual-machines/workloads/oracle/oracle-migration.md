@@ -96,11 +96,11 @@ Scenario-1: RMAN: Use RMAN backup and restore with Azure features, the setup for
 
 Scenario-2: RMAN Backup Approach
 
-:::image type="content" source="./media/oracle-migration/rman-backup-approach-scenario2.png" alt-text="Diagram shows the RMAN backup and restore approach."Lightbox="./media/oracle-migration/rman-backup-approach-scenario2.png":::
+:::image type="content" source="./media/oracle-migration/rman-backup-approach-scenario-2.png" alt-text="Diagram shows the RMAN backup and restore approach."Lightbox="./media/oracle-migration/rman-backup-approach-scenario-2.png":::
  
 Scenario-3: Alternatively, setup can be modified in multiple different ways as depicted in the following scenario.
 
-:::image type="content" source="./media/oracle-migration/rman-backup-approach-scenario3.png" alt-text="Diagram shows modified versions of scenario 2."Lightbox="./media/oracle-migration/rman-backup-approach-scenario3.png":::
+:::image type="content" source="./media/oracle-migration/rman-backup-approach-scenario-3.png" alt-text="Diagram shows modified versions of scenario 2."Lightbox="./media/oracle-migration/rman-backup-approach-scenario-3.png":::
  
 Scenario-4: Data Pump and AzCopy - easy and straight forward approach using Data Pump backup and restore using Azure capabilities.
 
