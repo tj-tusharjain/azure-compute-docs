@@ -196,7 +196,7 @@ Update the scale set to change the zones parameter.
 ### [Azure portal](#tab/portal-2)
 
 1. Navigate to the scale set you want to update
-1. On the Properties tab of the scale set landing page, find the **Availability zone** property and press **Edit**
+1. On the Availability tab of the scale set landing page, find the **Availability zone** property and press **Edit**
 1. On the **Edit Location** dialog box, select the desired zone(s)
 1. Select **Apply**
 
