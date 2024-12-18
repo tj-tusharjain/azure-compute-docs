@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 10/03/2024
 ---
 
-# Migrate Oracle workloads to Azure VMs  
+# Migrate Oracle workloads to Oracle Database@Azure
 
 This article shows how to move your Oracle workload from your on-premises environment to the [Oracle Database@Azure](/azure/oracle/oracle-db/database-overview). A proven discovery, design, and deployment approach are recommended for the overall migration strategy, followed by data migration, and cut over. 
 
@@ -55,7 +55,7 @@ Scenario-1: ZDM: Use Zero Downtime Migration, which can be a logical or physical
 
 Scenario-2: RMAN: Use RMAN backup and restore with Azure features, the setup for RMAN based recovery. The main thing is the network between on-premises and Azure.
 
-:::image type="content" source="./media/oracle-migration/odaa-rman-direct-migration-2.png" alt-text="Diagram shows the setup for RMAN based recovery."lightbox="./media/oracle-migration/odaa-rman-direct-migration-2.png":::
+:::image type="content" source="./media/oracle-migration/odaa-rman-direct-migration-scenario-2.png" alt-text="Diagram shows the setup for RMAN based recovery."lightbox="./media/odaa-rman-direct-migration-scenario-2.png":::
 
 Scenario-3: RMAN Backup Approach with nfs mount
 
