@@ -55,7 +55,7 @@ Scenario-1: ZDM: Use Zero Downtime Migration, which can be a logical or physical
 
 Scenario-2: RMAN: Use RMAN backup and restore with Azure features, the setup for RMAN based recovery. The main thing is the network between on-premises and Azure.
 
-:::image type="content" source="./media/oracle-migration/odaa-rman-direct-migration-scenario-2.png" alt-text="Diagram shows the setup for RMAN based recovery."lightbox="./media/odaa-rman-direct-migration-scenario-2.png":::
+:::image type="content" source="./media/oracle-migration/odaa-rman-direct-migration-scenario-2.png" alt-text="Diagram shows the setup for RMAN based migration."lightbox="./media/odaa-rman-direct-migration-scenario-2.png":::
 
 Scenario-3: RMAN Backup Approach with nfs mount
 
