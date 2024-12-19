@@ -195,12 +195,12 @@ Current policy is to keep all previously published images. We reserve the right 
 
 ## Network configuration
 
-Current RHEL 8 and RHEL 9 images leverage the network configuration of DHCP on eth0. The default cloud-init network configuration is overridden by setting "apply_network_config: false".
+We are currently overriding the default cloud-init network configuration by setting "apply_network_config: false" to support RHEL 8 and RHEL 9 images and customers.
 
 > [!NOTE]
 > From RHEL 10 onwards, images will use the default cloud-init configuration that leverages Azure's IMDS endpoint for network configuration.
 >
-> We request that customers plan their VM configuration accordingly from RHEL 10 onwards. 
+> We request that customers plan their VM configuration accordingly from RHEL 10 onwards.
 
 ## Next steps
 
