@@ -202,14 +202,13 @@ You've now deployed a VM with a premium SSD v2.
 
 Create a Premium SSD v2 disk in a region without availability zone support by using the [az disk create](/cli/azure/disk#az-disk-create) command. Then create a VM in the same region that supports Premium Storage and attach the disk to it by using the [az vm create](/cli/azure/vm#az-vm-create) command. 
 
-The following script creates a Premium SSD v2disk with a 4k sector size. To create a disk with a 512 sector size, update the `$logicalSectorSize` parameter. Replace the values of all the variables with your own, then run the following script:
+The following script creates a Premium SSD v2 disk with a 4k sector size. To create a disk with a 512 sector size, update the `$logicalSectorSize` parameter. Replace the values of all the variables with your own, then run the following script:
 
 ```azurecli-interactive
 ## Initialize variables
 diskName="yourDiskName"
 resourceGroupName="yourResourceGroupName"
 region="yourRegionName"
-zone="yourZoneNumber"
 ##Replace 4096 with 512 to deploy a disk with 512 sector size
 logicalSectorSize=4096
 vmName="yourVMName"
@@ -224,7 +223,6 @@ az disk create -n $diskName -g $resourceGroupName \
 --disk-iops-read-write 5000 \
 --disk-mbps-read-write 150 \
 --location $region \
---zone $zone \
 --sku PremiumV2_LRS \
 --logical-sector-size $logicalSectorSize
 
@@ -248,7 +246,6 @@ The following script creates a Premium SSD v2 disk with a 4k sector size. To cre
 # Initialize variables
 $resourceGroupName = "yourResourceGroupName"
 $region = "useast"
-$zone = "yourZoneNumber"
 $diskName = "yourDiskName"
 $diskSizeInGiB = 100
 $diskIOPS = 5000
@@ -263,10 +260,9 @@ $vmAdminUser = "yourAdminUserName"
 $vmAdminPassword = ConvertTo-SecureString "yourAdminUserPassword" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential ($vmAdminUser, $vmAdminPassword);
 
-# Create a Premium SSD v2
+# Create a Premium SSD v2 disk
 $diskconfig = New-AzDiskConfig `
 -Location $region `
--Zone $zone `
 -DiskSizeGB $diskSizeInGiB `
 -DiskIOPSReadWrite $diskIOPS `
 -DiskMBpsReadWrite $diskThroughputInMBPS `
@@ -284,7 +280,6 @@ New-AzVm `
     -ResourceGroupName $resourceGroupName `
     -Name $vmName `
     -Location $region `
-    -Zone $zone `
     -Image $vmImage `
     -Size $vmSize `
     -Credential $credential
