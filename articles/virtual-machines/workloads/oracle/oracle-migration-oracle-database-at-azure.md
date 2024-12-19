@@ -24,7 +24,7 @@ For Applications, [Azure Migrate do lift and shift](/azure/migrate/migrate-servi
 
 The data migration process distinct between physical and logical migration. The logical migration is a method for migrating databases where data and schemas are extracted, transformed, and loaded into the target database. It is particularly useful for scenarios where you need to migrate across different architectures, database versions, or platforms. This approach includes Data Pump and GoldenGate. 
 The physical migration involves moving the entire database as-is at the storage or datafile level from a source system to a target system. The database structure remains unchanged. It's ideal when moving to a system with the same database version and compatible architecture. Tools used for this scenario are RMAN and Data Guard.
-Please revist [Oracle logical online migration](https://www.oracle.com/a/otn/docs/database/zdm-logical-online-migration-to-oracle-at-azure.pdf) for further guidance.
+Please revisit [Oracle logical online migration](https://www.oracle.com/a/otn/docs/database/zdm-logical-online-migration-to-oracle-at-azure.pdf) for further guidance.
 
 ## Data migration approach
 
@@ -64,7 +64,7 @@ Scenario-3: RMAN Backup Approach with nfs mount
 > [!Note] 
 > If you plan to use a private endpoint with a Azure Blob Storage and nfs mount, please make sure to deploy a [local NVA](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/creating-a-local-network-virtual-appliance-in-azure-for-oracle-databaseazure/4218101) into a different subnet within the same VNet as your ODAA relies.
 
-Scenario-4: Data Pump with Azure NetApp Files or Azure Vitual Machine with nfs mount
+Scenario-4: Data Pump with Azure NetApp Files or Azure Virtual Machine with nfs mount
 
 :::image type="content" source="./media/oracle-migration/oracle-database-at-azure-data-pump-migration-scenario-4.png" alt-text="Diagram shows modified versions of scenario 2."Lightbox="./media/oracle-migration/oracle-database-at-azure-data-pump-migration-scenario-4.png":::
  
