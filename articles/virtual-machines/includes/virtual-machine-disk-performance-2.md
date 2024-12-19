@@ -8,10 +8,12 @@
  ms.author: albecker1
  ms.custom: include file
 ---
-![Chart showing D s v 3 specifications.](media/vm-disk-performance/dsv3-documentation.jpg)
 
-- The max *uncached* disk throughput is the default storage maximum limit that the virtual machine can handle.
-- The max *cached* storage throughput limit is a separate limit when you enable host caching.
+- The "*Uncached*" disk data under the **Remote Storage** are the default storage maximum limits that the virtual machine can handle.
+    ![Chart showing Dsv3 remote specifications.](media/vm-disk-performance/dsv3-documentation-remote.png)
+
+- The "*Cached*" disk data under the **Local Storage** tab are separate limits when you enable host caching.
+    ![Chart showing Dsv3 local specifications.](media/vm-disk-performance/dsv3-documentation-local.png)
 
 Host caching works by bringing storage closer to the VM that can be written or read to quickly. The amount of storage that is available to the VM for host caching is in the documentation. For example, you can see the Standard_D8s_v3 comes with 200 GiB of cache storage.
 
