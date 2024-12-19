@@ -93,7 +93,7 @@ When events are captured by the Schedule Event service, it will get logged in th
 
 At any point you can stop/remove the Scheduled Event Service by using the switches `–stop` and `–remove`.
 
-## Connect to the workspace
+## Connect to the Log Analytics Workspace
 
 We now want to connect a Log Analytics Workspace to the collector VM. The Log Analytics workspace acts as a repository and we will configure event log collection to capture the application logs from the collector VM. 
 
@@ -112,22 +112,21 @@ To route the Scheduled Events to the Events Log, which is saved as Application l
 1. Under the **Windows servers** tab, click **Data Collection Rules**.
 
 1. Enter the **Collect and Deliver** tab and click **Add data source**
-    ![Screenshot of the 'Collect and deliver' tab with an empty data source section](./media/notifications/create-data-collection-rule.png)
+    ![Screenshot of the 'Collect and deliver' tab with an empty data source section.](./media/notifications/create-data-collection-rule.png)
 
 1. Under the **Data source** tab, select **Windows Event Logs** from the dropdown.
 
 1. Select the event logs you'd like to collect. Ensure that **ERROR**, **WARNING**, and **INFORMATION** are selected.
-    ![Screenshot of the 'Add data source' tab, showing several selected checkboxes](./media/notifications/add-data-source-windows-event-logs.png)
+    ![Screenshot of the 'Add data source' tab, showing several selected checkboxes.](./media/notifications/add-data-source-windows-event-logs.png)
 
 1. Click **Next : Destination >**
 
 1. Under the **Destination** tab, click **Add destination**.
 
-1. Fill out the **Destination Type**, **Subscription**, and **Destination Details** sections with your subscription's details.
-    ![](./media/notifications/add-destination-details.png)
+1. Fill out the **Destination Type**, **Subscription**, and **Destination Details** sections with your collector VM and its subscription's details.
+    ![Screenshot of the Destination tab showing type, subscription, and destination details.](./media/notifications/add-destination-details.png)
 
-
-This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md) in your virtual machine. It will take a few minutes to connect your VM to the workspace and install the extension. 
+1. Once you've selected the correct VM, the [Microsoft Monitoring agent](../extensions/oms-windows.md) will be automatically installed on your virtual machine. It will take a few minutes to connect your VM to the workspace and install the extension.
 
 
 > [!NOTE]
