@@ -14,7 +14,7 @@ This article shows how to move your Oracle workload from your on-premises enviro
 
 ## Discovery
 
-Migration begins with a detailed assessment of the Oracle product portfolio and applications involved. The existing Oracle database can operate Oracle Real Application Clusters (RAC). For applications, we need to discover the size of the infrastructure that can be done easily by using Azure Migrate based discovery. For the database sizing, please ask your Oracle Sales Representative for advice. 
+Migration begins with a detailed assessment of the Oracle product portfolio and applications involved. The existing Oracle database can operate Oracle Real Application Clusters (RAC). For applications, we need to discover the size of the infrastructure that can be done easily by using Azure Migrate based discovery. For the database sizing ask your Oracle Sales Representative for advice. 
 
 ## Design 
 
@@ -22,9 +22,9 @@ For Applications, [Azure Migrate do lift and shift](/azure/migrate/migrate-servi
 
 ## Types for data migration  
 
-The data migration process distincts between physical and logical migration. The logical migration is a method for migrating databases where data and schemas are extracted, transformed, and loaded into the target database. It is particularly useful for scenarios where you need to migrate across different architectures, database versions, or platforms. This approach includes Data Pump and Goldengate. 
-The physical migration involves moving the entire database as-is at the storage or datafile level from a source system to a target system. The database structure remains unchanged.It is ideal when moving to a system with the same database version and compatible architecture. Tools used for this scenario are RMAN and Data Guard.
-Please re-vist [Oracle logical online migration](https://www.oracle.com/a/otn/docs/database/zdm-logical-online-migration-to-oracle-at-azure.pdf) for further guidance.
+The data migration process distinct between physical and logical migration. The logical migration is a method for migrating databases where data and schemas are extracted, transformed, and loaded into the target database. It is particularly useful for scenarios where you need to migrate across different architectures, database versions, or platforms. This approach includes Data Pump and GoldenGate. 
+The physical migration involves moving the entire database as-is at the storage or datafile level from a source system to a target system. The database structure remains unchanged. It's ideal when moving to a system with the same database version and compatible architecture. Tools used for this scenario are RMAN and Data Guard.
+Please revist [Oracle logical online migration](https://www.oracle.com/a/otn/docs/database/zdm-logical-online-migration-to-oracle-at-azure.pdf) for further guidance.
 
 ## Data migration approach
 
@@ -45,38 +45,38 @@ Azure enhances the Oracle tools with the right network connectivity, bandwidth, 
 
 **Oracle tools for data migration**
 
-To migrate there are various options available. The following diagrams will provide an overview of these. 
+To migrate, there are various options available. The following diagrams provide an overview of these. 
 
 You need one of the Oracle Tools plus Azure infrastructures to deploy the correct solution architecture to migrate data. See the following reference solution scenarios:
 
 Scenario-1: ZDM: Use Zero Downtime Migration, which can be a logical or physical migration based upon your Database version, operating systems and downtime requirements. This setup leverages Data Guard in a logical migration.
 
-:::image type="content" source="./media/oracle-migration/zdm-migration-scenario-1.png" alt-text="Diagram shows the setup for ZDM with Data Guard."lightbox="./media/oracle-migration/zdm-migration-scenario-1.png":::
+:::image type="content" source="./media/oracle-migration/zero-downtime-migration-scenario-1.png" alt-text="Diagram shows the setup for ZDM with Data Guard."Lightbox="./media/oracle-migration/zero-downtime-migration-scenario-1.png":::
 
 Scenario-2: RMAN: Use RMAN backup and restore with Azure features, the setup for RMAN based recovery. The main thing is the network between on-premises and Azure.
 
-:::image type="content" source="./media/oracle-migration/odaa-rman-direct-migration-scenario-2.png" alt-text="Diagram shows direct migration by use of RMAN."lightbox="./media/oracle-migration/odaa-rman-direct-migration-scenario-2.png":::
+:::image type="content" source="./media/oracle-migration/oracle-database-at-azure-rman-direct-migration-scenario-2.png" alt-text="Diagram shows direct migration by use of RMAN."Lightbox="./media/oracle-migration/oracle-database-at-azure-rman-direct-migration-scenario-2.png":::
 
 Scenario-3: RMAN Backup Approach with nfs mount
 
-:::image type="content" source="./media/oracle-migration/odaa-rman-migration-nfs-storage-scenario-3.png" alt-text="Diagram shows the RMAN backup and restore approach by using a nfs share."lightbox="./media/oracle-migration/odaa-rman-migration-nfs-storage-scenario-3.png":::
+:::image type="content" source="./media/oracle-migration/oracle-database-at-azure-rman-migration-nfs-storage-scenario-3.png" alt-text="Diagram shows the RMAN backup and restore approach by using a nfs share."Lightbox="./media/oracle-migration/oracle-database-at-azure-rman-migration-nfs-storage-scenario-3.png":::
 
 > [!Note] 
 > If you plan to use a private endpoint with a Azure Blob Storage and nfs mount, please make sure to deploy a [local NVA](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/creating-a-local-network-virtual-appliance-in-azure-for-oracle-databaseazure/4218101) into a different subnet within the same VNet as your ODAA relies.
 
-Scenario-4: Data Pump with Azure Netapp Files or Azure VM with nfs mount
+Scenario-4: Data Pump with Azure NetApp Files or Azure Vitual Machine with nfs mount
 
-:::image type="content" source="./media/oracle-migration/odaa-data-pump-migration-scenario-4.png" alt-text="Diagram shows modified versions of scenario 2."lightbox="./media/oracle-migration/odaa-data-pump-migration-scenario-4.png":::
+:::image type="content" source="./media/oracle-migration/oracle-database-at-azure-data-pump-migration-scenario-4.png" alt-text="Diagram shows modified versions of scenario 2."Lightbox="./media/oracle-migration/oracle-database-at-azure-data-pump-migration-scenario-4.png":::
  
 > [!Note] 
 > If you plan to use a private endpoint with a Azure Blob Storage and nfs mount, please make sure to deploy a [local NVA](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/creating-a-local-network-virtual-appliance-in-azure-for-oracle-databaseazure/4218101) into a different subnet within the same VNet as your ODAA relies.
 
 Scenario-5: Data Box - a unique scenario in which data is moved between the locations using a storage device and physical shipment.
 
-:::image type="content" source="./media/oracle-migration/odaa-data-box-scenario-5.png" alt-text="Diagram shows data moved between locations using a storage device with physical shipment."lightbox="./media/oracle-migration/odaa-data-box-scenario-5.png":::
+:::image type="content" source="./media/oracle-migration/oracle-database-at-azure-data-box-scenario-5.png" alt-text="Diagram shows data moved between locations using a storage device with physical shipment."Lightbox="./media/oracle-migration/oracle-database-at-azure-data-box-scenario-5.png":::
 
 > [!Note] 
-> For planned migration which are performance sensitive, we recommend using Azure Netapp Files.
+> For planned migration which is performance sensitive, we recommend using Azure Netapp Files.
 
 ## Post migration tasks 
 
