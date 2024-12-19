@@ -67,7 +67,7 @@ To programmatically determine the regions and zones you can deploy to, use eithe
 
 Now that you know the region and zone to deploy to, follow the deployment steps in this article to create a Premium SSD v2 disk and attach it to a VM.
 
-## Use a Premium SSD v2 in Regions with Availability Zones
+## Use Premium SSD v2 in Regions with Availability Zones
 
 # [Azure CLI](#tab/azure-cli)
 
