@@ -57,7 +57,7 @@ The following PAYG RHEL and SLES Marketplace offers are AHB eligible:
 
 ## Limitations
 - Only RHEL images **published by Red Hat, Inc.** are AHB eligible
-- Images published by other vendors are not supported
+- Images published by other vendors aren't supported
 
 ##### The following Red Hat published RHEL PAYG offers are ABH eligible:
 
@@ -76,7 +76,7 @@ Within these offers, the associated images will be described as 'Pay-As-You-Go'.
 
 ## Limitations
 - Only SLES images **published by SUSE** are AHB eligible
-- Images published by other vendors are not supported
+- Images published by other vendors aren't supported
 
 ##### The following SUSE published SLES PAYG offers are ABH eligible:
 
@@ -104,8 +104,8 @@ Within these offers, the associated plans and images will be described as a 'Pay
 
 ### BYOS
 Azure Hybrid Benefit is also available for BYOS RHEL and SLES Marketplace images. 
-There is currently one RHEL BYOS offer available, which is a private listing. 
-To gain access to this private listing, it is necessary to join Red Hat's Cloud Access program. 
+There's currently one RHEL BYOS offer available, which is a private listing. 
+To gain access to this private listing, it's necessary to join Red Hat's Cloud Access program. 
 
 SLES BYOS Marketplace offers can be identified by their name, which denotes them as BYOS, for example, 'SUSE Enterprise Linux 12 SP5 - BYOS'.
 
@@ -190,7 +190,7 @@ You can use the `az vm extension` and `az vm update` commands to update existing
 
 ## Check the current licensing model of an AHB enabled VM
 
-It is required the Azure Hybrid Benefit extension be installed on the VM to switch the licensing model from BYOS to PAYG or vice versa. You can view whether the agent is installed using the Azure CLI or the Azure Instance Metadata Service.
+It's required the Azure Hybrid Benefit extension be installed on the VM to switch the licensing model from BYOS to PAYG or vice versa. You can view whether the agent is installed using the Azure CLI or the Azure Instance Metadata Service.
 
 ### [Azure CLI](#tab/licenseazcli)
 
@@ -200,7 +200,7 @@ review the license type to review which licensing model your VM is using.
    ```azurecli
    az vm get-instance-view -g MyResourceGroup -n myVm --query instanceView.extensions
    ```
-1. Once the corresponding Red Hat or SUSE Hybrid beneift extension is installed, use the following command to review the license type the machine is using.
+1. Once the corresponding Red Hat or SUSE Hybrid benefit extension is installed, use the following command to review the license type the machine is using.
 
    ```azurecli
    az vm get-instance-view -g MyResourceGroup -n myVM --query licenseType
@@ -216,7 +216,7 @@ review the license type to review which licensing model your VM is using.
    - For RHEL: `RHEL_BYOS`
    - For SLES: `SLES_BYOS`
 
-If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
+If the license type of the VM hasn't been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
 
 
 ### [Azure PowerShell](#tab/licensepowershell)
@@ -228,7 +228,7 @@ review the license type to review which licensing model your VM is using.
    Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM -Status | Select-Object -ExpandProperty Extensions
    ```
 
-1. Once the corresponding Red Hat or SUSE Hybrid beneift extension is installed, use the following command to review the license type the machine is using.
+1. Once the corresponding Red Hat or SUSE Hybrid benefit extension is installed, use the following command to review the license type the machine is using.
 
    ```azurepowershell
    Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM).LicenseType
@@ -244,7 +244,7 @@ review the license type to review which licensing model your VM is using.
    - For RHEL: `RHEL_BYOS`
    - For SLES: `SLES_BYOS`
 
-If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
+If the license type of the VM hasn't been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
 
 ---
 
