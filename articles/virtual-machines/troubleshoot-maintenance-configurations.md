@@ -21,7 +21,9 @@ A maintenance configuration doesn't install a scheduled patch on the VMs and giv
 
 #### Resolution
 
-In a static scope, it's crucial to avoid relying on outdated VM configurations. So, you have to ensure that the VM is up and running while the patch is getting installed. If the VM instance is recreated with the same name then prioritize reassigning configuration after you re-create VM instance.
+In a static scope, it is essential to avoid relying on outdated VM configurations. Therefore, it is imperative to ensure that the VM is up and running while the patch is being installed. **If the VM instance is recreated with the same name, it is crucial to prioritize reassigning the configuration after the VM instance is recreated.**
+
+**The system will automatically perform this action within 12 hours of recreation if not performed by the user.** If the maintenance configuration of the attached recreated VM is triggered within 12 hours of recreating the VM with the same name, a `ShutdownOrUnresponsive` error will be displayed. Therefore, it is recommended to either perform the aforementioned action or wait for 12 hours before applying the patch to the machine via maintenance configuration.  
 
 ### Scheduled patching times out or fails
 
@@ -31,7 +33,10 @@ Scheduled patching fails with a `TimeOut` or `Failed` error after you move a VM 
 
 #### Resolution
 
-This is a known bug, and we're working on resolving it. If you encounter this problem, contact the support team for assistance.
+If the VM instance is recreated with the same name, it is crucial to prioritize reassigning the configuration after the VM instance is recreated in a different region.
+
+**The system will automatically perform this action within 12 hours of recreation if not performed by the user.** If the maintenance configuration of the attached recreated VM is triggered within 12 hours of recreating the VM with the same name, a `TimeOut` or `Failed` error will be displayed. Therefore, it is recommended to either perform the aforementioned action or wait for 12 hours before applying the patch to the machine via maintenance configuration.  
+
 
 ### Unable to delete configuration assignment
 
@@ -123,7 +128,8 @@ A maintenance configuration doesn't block the update of a dedicated host, and th
 
 #### Resolution
 
-If you re-create a dedicated host with the same name, Maintenance Configurations retains the old dedicated host ID, which prevents it from blocking updates. You can resolve this problem by removing the maintenance configuration and reassigning it. If the problem persists, contact the support team for assistance.
+If you re-create a dedicated host with the same name, Maintenance Configurations retains the old dedicated host ID, which prevents it from blocking updates. You can resolve this problem by removing the maintenance configuration and reassigning it.
+**The system will automatically perform this action within 12 hours of recreation if not performed by the user.** It is recommended to either perform the aforementioned action or wait for 12 hours before this action is performed automatically.
 
 ### A schedule isn't triggered
 
@@ -203,7 +209,7 @@ A newly created maintenance configuration with the same name as a previously del
 
 #### Resolution
 
-Ensure a minimum wait time of 20 minutes between deleting a maintenance configuration and creating a new one with the same name.
+Ensure a minimum wait time of 20 minutes between deleting a maintenance configuration and creating a new one with the same name. If the problem persists, contact the support team for assistance.
 
 ### Maintenance Configurations doesn't support an API
 
