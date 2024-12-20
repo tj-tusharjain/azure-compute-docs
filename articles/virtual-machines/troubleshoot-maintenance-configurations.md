@@ -205,6 +205,16 @@ A newly created maintenance configuration with the same name as a previously del
 
 Ensure a minimum wait time of 20 minutes between deleting a maintenance configuration and creating a new one with the same name.
 
+### Maintenance assignment fails with `InternalServerError` error
+
+#### Problem
+
+Maintenance assignment fails with `InternalServerError` when using either bicep template or MRP API. The assignment can be done successfully using either portal or CLI or PowerShell.
+
+#### Resolution
+
+It is recommended to use the location/region in a normalized form for the bicep template and MRP API. The normalized form involves removing whitespace and converting the text to lowercase. For example, `EAST US 2 EUAP` will result in an internal server error, whereas `eastus2euap` will be processed successfully.
+
 ### Maintenance Configurations doesn't support an API
 
 The feature currently doesn't support the following APIs:
