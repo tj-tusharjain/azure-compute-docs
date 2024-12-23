@@ -321,6 +321,12 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BASESAPHA
    ```
 
+1. You can check if the AHB for RHEL feature flag is enabled:
+
+    ```azurecli
+    az feature list --namespace Microsoft.Compute | grep "AHBEnabledForRHEL" -A 3
+    ```
+
 1. If you desire to return to BYOS model, you need to set up license-type to "None", otherwise, it continues to be PAYG.
     ```azurecli
     # If the image started as BYOS and was converted to PAYG, the following command will revert it back to BYOS.
