@@ -56,11 +56,11 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 #### Generally available: Convert existing disks to Premium SSD v2 disks
 
-Directly converting a disk to a Premium SSD v2 disk is [generally available](https://azure.microsoft.com/updates/v2/Convert-to-Azure-Premium-SSD-v2-disks). Making it easier to move your workloads from Standard HDD, Standard SSD, and Premium Disks, to Premium SSD v2 disks, and take advantage of its balance of price and performance capabilities. To learn more, see [Convert Premium SSD v2 disks](disks-convert-types.md#convert-premium-ssd-v2-disks).
+Directly converting a disk to a Premium SSD v2 disk is [generally available](https://azure.microsoft.com/en-us/updates/?id=466729). Making it easier to move your workloads from Standard HDD, Standard SSD, and Premium Disks, to Premium SSD v2 disks, and take advantage of its balance of price and performance capabilities. To learn more, see [Convert Premium SSD v2 disks](disks-convert-types.md#convert-premium-ssd-v2-disks).
 
 #### Generally available: Expand Ultra Disks and Premium SSD v2 without downtime
 
-Expanding Ultra Disks and Premium SSD v2 disks without downtime is [generally available](https://azure.microsoft.com/updates/v2/Live-Resize-for-Azure-Premium-SSD-v2-and-Ultra-Disks1). This allows you to dynamically increase the capacity of your storage without causing disruptions to existing applications. To learn more, see the [Windows](windows/expand-os-disk.md#expand-without-downtime) or [Linux](linux/expand-disks.md#expand-without-downtime) articles.
+Expanding Ultra Disks and Premium SSD v2 disks without downtime is [generally available](https://azure.microsoft.com/en-us/updates?id=466724). This allows you to dynamically increase the capacity of your storage without causing disruptions to existing applications. To learn more, see the [Windows](windows/expand-os-disk.md#expand-without-downtime) or [Linux](linux/expand-disks.md#expand-without-downtime) articles.
 
 #### Expanded regional availability for Premium SSD v2
 
