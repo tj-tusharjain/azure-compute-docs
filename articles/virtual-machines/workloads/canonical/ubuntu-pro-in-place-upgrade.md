@@ -72,7 +72,7 @@ az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
 Execute these commands inside the VM:
 
 ```bash
-sudo apt install ubuntu-advantage-tools
+sudo apt install ubuntu-pro-client
 sudo pro auto-attach
 
 
@@ -83,7 +83,7 @@ sudo pro auto-attach
 If the `pro --version` is lower than 28, execute this command:
 
 ```bash
-sudo apt install ubuntu-advantage-tools
+sudo apt install ubuntu-pro-client
 ```
 
 ## Validate the license
@@ -127,7 +127,7 @@ Both of the following commands enable Ubuntu Pro on a virtual machine in Azure. 
 Execute these commands inside the VM:
 
 ```bash
-sudo apt install ubuntu-advantage-tools
+sudo apt install ubuntu-pro-client
 sudo pro auto-attach
 ```
 
