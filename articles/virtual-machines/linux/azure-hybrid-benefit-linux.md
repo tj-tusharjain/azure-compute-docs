@@ -231,7 +231,7 @@ review the license type to review which licensing model your VM is using.
 1. Once the corresponding Red Hat or SUSE Hybrid benefit extension is installed, use the following command to review the license type the machine is using.
 
    ```azurepowershell
-   Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM).LicenseType
+   (Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM).LicenseType
    ```
 
 1. The following license types correspond to PAYG model.
