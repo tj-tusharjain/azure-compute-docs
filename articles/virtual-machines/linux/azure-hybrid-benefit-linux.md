@@ -2,13 +2,13 @@
 title: Explore Azure Hybrid Benefit for Linux virtual machines
 description: Learn how Azure Hybrid Benefit can save you money on Linux virtual machines.
 services: virtual-machines
-author: vvarshney06
-manager: gachandw
+author: MarckK
+manager: clausw
 ms.service: azure-virtual-machines
 ms.subservice: billing
 ms.collection: linux
 ms.topic: conceptual
-ms.date: 10/28/2024
+ms.date: 12/19/2024
 ms.author: clausw
 ms.reviewer: mattmcinnes
 ms.custom: kr2b-contr-experiment, linux-related-content, devx-track-azurecli
@@ -20,12 +20,12 @@ Azure Hybrid Benefit (AHB) for Linux lets you easily switch the software subscri
 The conversion between subscription models is accomplished without a redeployment of your VM, avoiding any downtime risk.
 
 There are two subscription models on Azure which you can switch seamlessly between using Azure Hybrid Benefit. 
-* The first enables you to bring your own REHL or SLES subscription directly to Azure.
-With this Bring-Your-Own-Subscription (BYOS) model, you only pay Azure for the infrastructure costs of your VM as the software fee is covered by your RHEL or SLES subscription.
+* The Bring-Your-Own-Subscription (BYOS) model enables you to bring your own REHL or SLES subscription directly to Azure.
+With BYOS, you only pay Azure for the infrastructure costs of your VM as the software fee is covered by your RHEL or SLES subscription.
 
-* The second pay-as-you-go model enables you to pay for RHEL and SLES subscriptions as you use them. 
+* The Pay-As-You-Go (PAYG) model enables you to pay for RHEL and SLES subscriptions as you use them. 
 
-This article further defines BYOS and pay-as-you-go subscription models, compares the benefits of each model, and shows how you can use the Azure Hybrid Benefit to switch between the two at any point. 
+This article further defines BYOS and PAYG subscription models, compares the benefits of each model, and shows how you can use the Azure Hybrid Benefit to switch between the two at any point. 
 This process applies to Virtual Machine Scale Sets, Spot Virtual Machines, and custom images. 
 Azure Hybrid Benefit allows for seamless bi-directional conversions between the two subscription models on eligible VM instances.
 
@@ -36,10 +36,10 @@ Based on Azure pricing as of September 2024. Prices subject to change. Actual sa
 > [!TIP]
 > Try the **[Azure Hybrid Benefit Savings Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator)** to visualize the cost saving benefits of this feature.
 
-## Defining pay-as-you-go and Bring-Your-Own-Subscription (BYOS)
+## Defining Pay-As-You-Go (PAYG) and Bring-Your-Own-Subscription (BYOS)
 
-In Azure, there are two main licensing pricing options: Pay-as-you-go and Bring-Your-Own-Subscription (BYOS). 
-With pay-as-you-go models you only pay for the resources you use and can scale up or down as needed. 
+In Azure, there are two main licensing pricing options: Pay-As-You-Go (PAYG) and Bring-Your-Own-Subscription (BYOS). 
+With PAYG you only pay for the resources you use and can scale up or down as needed. 
 BYOS enables you to use your existing license subscriptions, in this case RHEL and SLES, with no need to pay license fees in Azure.
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-compare.png" alt-text="Diagram that shows the use of Azure Hybrid Benefit to switch Linux virtual machines between pay-as-you-go and bring-your-own-subscription.":::
@@ -47,15 +47,19 @@ BYOS enables you to use your existing license subscriptions, in this case RHEL a
 > [!NOTE]
 > Virtual machines deployed from PAYG images or VMs converted from BYOS models incur *both* an infrastructure fee and a software fee. If you have your own license, use Azure Hybrid Benefit to convert from a PAYG to BYOS model.
 
-You can use Azure Hybrid Benefit to switch between the two license options at any time.
+You can use Azure Hybrid Benefit to switch between the two subscription options at any time.
 
 ## Which Linux Virtual Machines are Eligible for Azure Hybrid Benefit 
-### Pay-as-you-go 
-The following pay-as-you-go RHEL and SLES Marketplace offers are AHB eligible:
+### Pay-As-You-Go (PAYG)
+The following PAYG RHEL and SLES Marketplace offers are AHB eligible:
 
-##### [RHEL pay-as-you-go](#tab/ahbRhelPayg)
-##### RHEL pay-as-you-go offers that are ABH eligible:
-**All of the RHEL pay-as-you-go eligible offers must have Red Hat, Inc. as the publisher.**
+##### [RHEL PAYG](#tab/ahbRhelPayg)
+
+## Limitations
+- Only RHEL images **published by Red Hat, Inc.** are AHB eligible
+- Images published by other vendors aren't supported
+
+##### The following Red Hat published RHEL PAYG offers are ABH eligible:
 
 The names of the eligible offers are listed below, with links to them in the Azure Marketplace.
 Within these offers, the associated images will be described as 'Pay-As-You-Go'.
@@ -68,9 +72,13 @@ Within these offers, the associated images will be described as 'Pay-As-You-Go'.
 * [Red Hat Enterprise Linux Confidential VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-cvm?tab=Overview)
 * [Red Hat Enterprise Linux ( RHEL ) RAW](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-raw?tab=Overview)
 
-##### [SLES pay-as-you-go](#tab/ahbSlesPayg)
-##### SLES pay-as-you-go offers that are ABH eligible:
-**All of the SLES pay-as-you-go eligible offers must have SUSE as the publisher.**
+##### [SLES PAYG](#tab/ahbSlesPayg)
+
+## Limitations
+- Only SLES images **published by SUSE** are AHB eligible
+- Images published by other vendors aren't supported
+
+##### The following SUSE published SLES PAYG offers are ABH eligible:
 
 The names of the eligible offers are listed below, with links to them in the Azure Marketplace.
 Within these offers, the associated plans and images will be described as a 'Pay as You Go' subscription of SLES.
@@ -96,8 +104,8 @@ Within these offers, the associated plans and images will be described as a 'Pay
 
 ### BYOS
 Azure Hybrid Benefit is also available for BYOS RHEL and SLES Marketplace images. 
-There is currently one RHEL BYOS offer available, which is a private listing. 
-To gain access to this private listing, it is necessary to join Red Hat's Cloud Access program. 
+There's currently one RHEL BYOS offer available, which is a private listing. 
+To gain access to this private listing, it's necessary to join Red Hat's Cloud Access program. 
 
 SLES BYOS Marketplace offers can be identified by their name, which denotes them as BYOS, for example, 'SUSE Enterprise Linux 12 SP5 - BYOS'.
 
@@ -182,7 +190,7 @@ You can use the `az vm extension` and `az vm update` commands to update existing
 
 ## Check the current licensing model of an AHB enabled VM
 
-It is required the Azure Hybrid Benefit extension be installed on the VM to switch the licensing model from BYOS to PAYG or vice versa. You can view whether the agent is installed using the Azure CLI or the Azure Instance Metadata Service.
+It's required the Azure Hybrid Benefit extension be installed on the VM to switch the licensing model from BYOS to PAYG or vice versa. You can view whether the agent is installed using the Azure CLI or the Azure Instance Metadata Service.
 
 ### [Azure CLI](#tab/licenseazcli)
 
@@ -192,7 +200,7 @@ review the license type to review which licensing model your VM is using.
    ```azurecli
    az vm get-instance-view -g MyResourceGroup -n myVm --query instanceView.extensions
    ```
-1. Once the corresponding Red Hat or SUSE Hybrid beneift extension is installed, use the following command to review the license type the machine is using.
+1. Once the corresponding Red Hat or SUSE Hybrid benefit extension is installed, use the following command to review the license type the machine is using.
 
    ```azurecli
    az vm get-instance-view -g MyResourceGroup -n myVM --query licenseType
@@ -208,7 +216,7 @@ review the license type to review which licensing model your VM is using.
    - For RHEL: `RHEL_BYOS`
    - For SLES: `SLES_BYOS`
 
-If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
+If the license type of the VM hasn't been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
 
 
 ### [Azure PowerShell](#tab/licensepowershell)
@@ -220,10 +228,10 @@ review the license type to review which licensing model your VM is using.
    Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM -Status | Select-Object -ExpandProperty Extensions
    ```
 
-1. Once the corresponding Red Hat or SUSE Hybrid beneift extension is installed, use the following command to review the license type the machine is using.
+1. Once the corresponding Red Hat or SUSE Hybrid benefit extension is installed, use the following command to review the license type the machine is using.
 
    ```azurepowershell
-   Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM).LicenseType
+   (Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM).LicenseType
    ```
 
 1. The following license types correspond to PAYG model.
@@ -236,7 +244,7 @@ review the license type to review which licensing model your VM is using.
    - For RHEL: `RHEL_BYOS`
    - For SLES: `SLES_BYOS`
 
-If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
+If the license type of the VM hasn't been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
 
 ---
 
@@ -312,6 +320,12 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
     # This will enable Azure Hybrid Benefit to fetch software updates for RHEL BASE SAP HA repositories
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BASESAPHA
    ```
+
+1. You can check if the AHB for RHEL feature flag is enabled:
+
+    ```azurecli
+    az feature list --namespace Microsoft.Compute | grep "AHBEnabledForRHEL" -A 3
+    ```
 
 1. If you desire to return to BYOS model, you need to set up license-type to "None", otherwise, it continues to be PAYG.
     ```azurecli
