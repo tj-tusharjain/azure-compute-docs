@@ -21,7 +21,7 @@ You can use Azure Hybrid Benefit for Windows Server with any VMs running Windows
 
 ## Limitations
 
-To use Azure Hybrid Benefit for Windows Server, you must a minimum of 8 core licenses (Datacenter edition or Standard edition) per VM. For example, even if you run a 4-core instance, 8 core licenses are required. You also can run instances larger than 8 cores by allocating licenses equal to the core size of the instance. For example, 12 core licenses are required for a 12-core instance.
+To use Azure Hybrid Benefit for Windows Server, you must have a minimum of 8 core licenses (Datacenter edition or Standard edition) per VM. For example, even if you run a 4-core instance, 8 core licenses are required. You also can run instances larger than 8 cores by allocating licenses equal to the core size of the instance. For example, 12 core licenses are required for a 12-core instance.
 
 For customers who have processor licenses, each processor license is equivalent to 16 core licenses.
 
