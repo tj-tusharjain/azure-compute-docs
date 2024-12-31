@@ -127,7 +127,7 @@ Azure dedicated host instances and SQL hybrid benefits aren't eligible to use wi
 
 You can enable Azure Hybrid Benefit on new VMs, on existing VMs, and on multiple VMs.
 
-### On new VMs
+### New VM
 
 You can invoke Azure Hybrid Benefit when you create a VM. The benefits of using this approach include:
 
@@ -185,7 +185,9 @@ SLES license types:
 
 ---
 
-### On an existing VM
+### Existing VM
+
+You can enable Azure Hybrid Benefit on an existing VM.
 
 #### [Azure portal](#tab/ahbExistingPortal)
 
@@ -326,11 +328,13 @@ The Azure Hybrid Benefit extension must be installed on the VM to switch the lic
 
 ## Convert PAYG to BYOS
 
+If you deployed an Azure Marketplace image by using a PAYG licensing model and want to convert licensing to BYOS, complete the following steps.
+
 ---
 
 ### Convert a PAYG image to BYOS by using the Azure CLI
 
-If you deployed an Azure Marketplace image by using a PAYG licensing model and want to convert licensing to BYOS, complete the following steps
+Use the Azure CLI to convert a PAYG Azure Marketplace image to a BYOS subscription model.
 
 #### [Red Hat (RHEL)](#tab/rhelAzcliByosConv)
 
@@ -470,7 +474,7 @@ az vm list -o json | jq '.[] | {VirtualMachineName: .name, ResourceID: .id}'
 
 ---
 
-### Operating system instructions
+### Convert the license type in the VM operating system
 
 #### [Red Hat (RHEL)](#tab/rhelpaygconversion)
 
