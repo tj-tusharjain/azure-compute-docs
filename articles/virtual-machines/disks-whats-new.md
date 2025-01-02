@@ -60,7 +60,7 @@ Directly converting a disk to a Premium SSD v2 disk is [generally available](htt
 
 #### Generally available: Expand Ultra Disks and Premium SSD v2 without downtime
 
-Expanding Ultra Disks and Premium SSD v2 disks without downtime is [generally available](https://azure.microsoft.com/en-us/updates?id=466724). This allows you to dynamically increase the capacity of your storage without causing disruptions to existing applications. To learn more, see the [Windows](windows/expand-os-disk.md#expand-without-downtime) or [Linux](linux/expand-disks.md#expand-without-downtime) articles.
+Expanding Ultra Disks and Premium SSD v2 disks without downtime is [generally available](https://azure.microsoft.com/updates?id=466724). This allows you to dynamically increase the capacity of your storage without causing disruptions to existing applications. To learn more, see the [Windows](windows/expand-os-disk.md#expand-without-downtime) or [Linux](linux/expand-disks.md#expand-without-downtime) articles.
 
 #### Expanded regional availability for Premium SSD v2
 
