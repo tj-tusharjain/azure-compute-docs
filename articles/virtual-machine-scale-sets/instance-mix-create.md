@@ -5,7 +5,7 @@ author: brittanyrowe
 ms.author: brittanyrowe
 ms.topic: conceptual
 ms.service: azure-virtual-machine-scale-sets
-ms.date: 11/18/2024
+ms.date: 1/7/2025
 ms.reviewer: jushiman
 ---
 
@@ -64,7 +64,7 @@ az vmss create \
   --skuprofile-allocation-strategy CapacityOptimized
 ```
  
-#### [Azure PowerShell](#tab/powershell-1)
+### [Azure PowerShell](#tab/powershell-1)
 You can use the following basic command to create a scale set using Instance Mix using the following command, which will default to using the `lowestPrice` allocation strategy:
  
 ```azurepowershell-interactive
