@@ -33,10 +33,13 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 
 ### [Azure portal](#tab/portal-1)
 ### [Azure CLI](#tab/cli-1)
+To change the `allocationStrategy` run the following CLI command:
 
- 
 ```azurecli-interactive
-
+az vmss update \
+    --resource-group {resourceGroupName}
+    --name {scaleSetName}
+    -- set sku.allocationStrategy=CapacityOptimized
 ```
  
 ### [Azure PowerShell](#tab/powershell-1)
