@@ -33,6 +33,8 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 
 ### [Azure portal](#tab/portal-1)
 ### [Azure CLI](#tab/cli-1)
+
+#### Change the Allocation Strategy
 You can use the following basic command to update the allocation strategy. In this case, we're updating the scale set to use the `CapacityOptimized` allocation strategy:
 
 ```azurecli-interactive
@@ -41,8 +43,12 @@ az vmss update \
     --name {scaleSetName}
     --set skuProfile.allocationStrategy=CapacityOptimized
 ```
- 
+#### Change the VM Sizes
+You can use the following command to update the VM sizes specified in the `skuProfile`
+
 ### [Azure PowerShell](#tab/powershell-1)
+
+#### Change the Allocation Strategy
 You can use the following basic command to update the allocation strategy:
  
 ```azurepowershell-interactive
@@ -64,12 +70,16 @@ Update-AzVmss `
 -ResourceGroupName $resourceGroupName `
 -VMScaleSetName $vmssName `
 ```
+#### Change the VM Sizes
 
 ### [REST API](#tab/arm-1)
+#### Change the Allocation Strategy
 To deploy an Instance Mix scale set through REST API, use a `PUT` call to and include the following sections in your request body:
 ```json
 
 ```
+
+#### Change the VM Sizes
 
 ---
 
