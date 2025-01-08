@@ -33,20 +33,36 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 
 ### [Azure portal](#tab/portal-1)
 ### [Azure CLI](#tab/cli-1)
-To change the `allocationStrategy` run the following CLI command:
+You can use the following basic command to update the allocation strategy. In this case, we're updating the scale set to use the `CapacityOptimized` allocation strategy:
 
 ```azurecli-interactive
 az vmss update \
     --resource-group {resourceGroupName}
     --name {scaleSetName}
-    -- set sku.allocationStrategy=CapacityOptimized
+    --set skuProfile.allocationStrategy=CapacityOptimized
 ```
  
 ### [Azure PowerShell](#tab/powershell-1)
-You can use the following basic command to create a scale set using Instance Mix using the following command, which will default to using the `lowestPrice` allocation strategy:
+You can use the following basic command to update the allocation strategy:
  
 ```azurepowershell-interactive
+# Set variable values
+$resourceGroupName = "resourceGroupName"
+$vmssName = "scaleSetName"
+$allocationStrategy = "CapacityOptimized";
 
+# Get the scale set information
+$vmss = Get-AzVmss `
+-ResourceGroupName $resourceGroupName `
+-VMScaleSetName $vmssName;
+
+# Update the allocation strategy
+$vmss.Sku.AllocationStrategy = $allocationStrategy
+
+#Update the scale set
+Update-AzVmss `
+-ResourceGroupName $resourceGroupName `
+-VMScaleSetName $vmssName `
 ```
 
 ### [REST API](#tab/arm-1)
