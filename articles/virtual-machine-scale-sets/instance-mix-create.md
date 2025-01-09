@@ -101,7 +101,7 @@ $vmssResult = New-AzVmss -ResourceGroupName $resourceGroupName -Name $vmssName -
 ```
 
 ### [REST API](#tab/arm-1)
-To deploy an Instance Mix scale set through REST API, use a `PUT` call to and include the following sections in your request body:
+To deploy an Instance Mix scale set through REST API, use a `PUT` call to the scale set:
 ```json
 PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{youScaleSetName}?api-version=2023-09-01
 ```
