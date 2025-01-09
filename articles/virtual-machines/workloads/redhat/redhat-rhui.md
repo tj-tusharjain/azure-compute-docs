@@ -114,8 +114,8 @@ Support for EUS RHEL7 ended in June 30, 2024. For more information, see [Red Hat
 #### [Switching to EUS repositories on RHEL8](#tab/rhel8)
 Use the following procedure to lock a RHEL 8.x VM to a particular minor release. Run the commands as `root`:
 
->[!NOTE]
-> This procedure only applies for RHEL 8.x versions for which EUS is available. This includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+> [!NOTE]
+> This procedure only applies for RHEL 8.x versions for which EUS is available. The list of versions includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
 
 1. Disable non-EUS repositories.
 
@@ -153,8 +153,8 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 
 Use the following procedure to lock a RHEL 9.x VM to a particular minor release. Run the commands as `root`:
 
->[!NOTE]
-> This procedure only applies for RHEL 9.x versions for which EUS is available. Currently, this includes RHEL 9.0 and 9.2. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+> [!NOTE]
+> This procedure only applies for RHEL 9.x versions for which EUS is available. Currently, the list of versions includes RHEL 9.0, 9.2, and 9.4. Red Hat also plans to make EUS available for 9.6 and 9.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
 
 1. Disable non-EUS repositories.
 
@@ -169,16 +169,15 @@ Use the following procedure to lock a RHEL 9.x VM to a particular minor release.
    ```
 
 
-1. Lock the `releasever` level, currently it has to be one of 9.0 and 9.2.
+1. Lock the `releasever` level, currently it has to be one of 9.0, 9.2, or 9.4.
 
-
-   ```bash
+      ```bash
    sudo sh -c 'echo 9.2 > /etc/dnf/vars/releasever'
    ```
 
-   If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.
+      If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.
 
-   > [!NOTE]
+      > [!NOTE]
    > This instruction locks the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 9.2 > /etc/yum/vars/releasever` locks your RHEL version to RHEL 9.2.
 
 1. Update your RHEL VM.
