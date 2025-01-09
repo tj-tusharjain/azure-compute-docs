@@ -122,17 +122,45 @@ PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGrou
 The following subsections will walk through what to use if you want to change the allocation strategy or VM sizes through REST APIs.
 
 #### Change the Allocation Strategy
-Be sure to include the properties you'd like to change in the request body. In this example, we're changing the allocation strategy:
+Be sure to include the properties you'd like to change in the request body. In this example, we're changing the allocation strategy to `capactiyOptimized`:
 ```json
-
+{
+	"properties": {
+		"skuProfile": {
+		"allocationStrategy": "capacityOptimized"
+		}
+	}
+}
 ```
 
 #### Change the VM Sizes
 In this example, we're changing the VM sizes specified in the scale set:
 ```json
+{
+	"properties": {
+		"skuProfile": {
+      		"vmSizes": [
+                {
+                    "name": "Standard_D2as_v4"
+                },
+                {
+                    "name": "Standard_D2as_v5"
+                },
+                {
+                    "name": "Standard_D2s_v4"
+                },
+                {
+                    "name": "Standard_D2s_v3"
+                },
+                {
+                    "name": "Standard_D2s_v5"
+                }
+			]
+		}
+    }
+}
 
 ```
-
 ---
 
 ## Update an existing scale set to use Instance Mix
