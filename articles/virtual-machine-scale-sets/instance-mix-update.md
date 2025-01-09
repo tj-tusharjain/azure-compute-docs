@@ -37,12 +37,19 @@ You can use the following basic command to update the allocation strategy. In th
 
 ```azurecli-interactive
 az vmss update \
-    --resource-group {resourceGroupName}
-    --name {scaleSetName}
+    --resource-group {resourceGroupName} \
+    --name {scaleSetName} \
     --set skuProfile.allocationStrategy=CapacityOptimized
 ```
 #### Change the VM Sizes
-You can use the following command to update the VM sizes specified in the `skuProfile`
+You can use the following command to update the VM sizes specified in the `skuProfile`. In this scenario, we are updating the VM sizes to be Standard D2asv4, Standard D2asv5, and Standard D2sv5:
+
+```azurecli-interactive
+az vmss update \
+    --resource-group {resourceGroupName} \
+    --name {scaleSetName} \
+    --skuprofile-vmsizes Standard_D2as_v4 Standard_D2as_v5 Standard_D2s_v5
+```
 
 ### [Azure PowerShell](#tab/powershell-1)
 
@@ -69,6 +76,11 @@ Update-AzVmss `
 -VMScaleSetName $vmssName `
 ```
 #### Change the VM Sizes
+To change the VM sizes specified in your scale set, you can use the following PowerShell command. In this example, we'll be updating th escale set to use Standard D2asv4, Standard D2asv5, and Standard D2sv5.
+
+```azurepowershell-interactive
+
+```
 
 ### [REST API](#tab/arm-1)
 To update the Instance Mix settings through REST API, use a `PATCH` call to the VMSS resource. Be sure to use an API version on or after `2023-09-01`:
