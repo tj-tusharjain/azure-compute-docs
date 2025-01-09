@@ -69,18 +69,43 @@ $vmss = Get-AzVmss `
 -VMScaleSetName $vmssName;
 
 # Update the allocation strategy
-$vmss.Sku.AllocationStrategy = $allocationStrategy
+$vmss.SkuProfile.AllocationStrategy = $allocationStrategy
 
 #Update the scale set
 Update-AzVmss `
 -ResourceGroupName $resourceGroupName `
 -VMScaleSetName $vmssName `
+-VirtualMachineScaleSet $vmss
 ```
 #### Change the VM Sizes
 To change the VM sizes specified in your scale set, you can use the following PowerShell command. In this example, we'll be updating th escale set to use Standard D2asv4, Standard D2asv5, and Standard D2sv5.
 
 ```azurepowershell-interactive
+# Set variable values
+$resourceGroupName = "resourceGroupName"
+$vmssName = "scaleSetName"
 
+# Create a variable to hold the new VM Sizes values
+$vmSizeList = [System.Collections.Generic.List[Microsoft.Azure.Management.Compute.Models.SkuProfileVMSize]]::new() 
+
+# Add the VM sizes to the list
+$vmSizeList.Add("Standard_D2as_v5")
+$vmSizeList.Add("Standard_D2s_v5") 
+$vmSizeList.Add("Standard_D2as_v4")
+
+# Get the scale set information
+$vmss = Get-AzVmss `
+-ResourceGroupName $resourceGroupName `
+-VMScaleSetName $vmssName
+
+# Update the VM sizes in the scale set
+$vmss.SkuProfile.vmSizes = $vmSizeList
+
+#Update the scale set
+Update-AzVmss `
+-ResourceGroupName $resourceGroupName `
+-VMScaleSetName $vmssName `
+-VirtualMachineScaleSet $vmss
 ```
 
 ### [REST API](#tab/arm-1)
