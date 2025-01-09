@@ -30,8 +30,6 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 
 ## Update the Instance Mix settings on an existing scale set
 
-
-### [Azure portal](#tab/portal-1)
 ### [Azure CLI](#tab/cli-1)
 
 #### Change the Allocation Strategy
@@ -73,13 +71,24 @@ Update-AzVmss `
 #### Change the VM Sizes
 
 ### [REST API](#tab/arm-1)
+To update the Instance Mix settings through REST API, use a `PATCH` call to the VMSS resource. Be sure to use an API version on or after `2023-09-01`:
+```json
+PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{youScaleSetName}?api-version=2023-09-01
+```
+
+The following subsections will walk through what to use if you want to change the allocation strategy or VM sizes through REST APIs.
+
 #### Change the Allocation Strategy
-To deploy an Instance Mix scale set through REST API, use a `PUT` call to and include the following sections in your request body:
+Be sure to include the properties you'd like to change in the request body. In this example, we're changing the allocation strategy:
 ```json
 
 ```
 
 #### Change the VM Sizes
+In this example, we're changing the VM sizes specified in the scale set:
+```json
+
+```
 
 ---
 
