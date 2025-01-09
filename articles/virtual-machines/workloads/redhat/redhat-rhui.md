@@ -114,8 +114,8 @@ Support for EUS RHEL7 ended in June 30, 2024. For more information, see [Red Hat
 #### [Switching to EUS repositories on RHEL8](#tab/rhel8)
 Use the following procedure to lock a RHEL 8.x VM to a particular minor release. Run the commands as `root`:
 
->[!NOTE]
-> This procedure only applies for RHEL 8.x versions for which EUS is available. This includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+> [!NOTE]
+> This procedure only applies for RHEL 8.x versions for which EUS is available. The list of versions includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
 
 1. Disable non-EUS repositories.
 
@@ -154,7 +154,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 Use the following procedure to lock a RHEL 9.x VM to a particular minor release. Run the commands as `root`:
 
 > [!NOTE]
-> This procedure only applies for RHEL 9.x versions for which EUS is available. Currently, this includes RHEL 9.0, 9.2, and 9.4. Red Hat also plans to make EUS available for 9.6 and 9.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+> This procedure only applies for RHEL 9.x versions for which EUS is available. Currently, the list of versions includes RHEL 9.0, 9.2, and 9.4. Red Hat also plans to make EUS available for 9.6 and 9.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
 
 1. Disable non-EUS repositories.
 
