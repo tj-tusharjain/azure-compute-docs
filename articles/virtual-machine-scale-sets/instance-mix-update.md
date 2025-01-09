@@ -1,6 +1,6 @@
 ---
 title: Create a Virtual Machine Scale Set with Instance Mix
-description: How to create a virtual machine scale set using Instance Mix on different platforms. 
+description: How to update a virtual machine scale set Instance Mix settings. 
 author: brittanyrowe 
 ms.author: brittanyrowe
 ms.topic: conceptual
@@ -29,6 +29,11 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 ```
 
 ## Update the Instance Mix settings on an existing scale set
+The Instance Mix settings can be updated on your scale set via CLI, PowerShell, and REST API. You can change either the VM sizes or the allocation strategy, or both, in a single call.
+
+When changing allocation strategies, the *new* allocation strategy won't become effecitve until the scale set scales in or out. That is to say, your existing VMs will not be altered based on the allocation strategy until there is a scaling action.
+
+When changing from `Prioritized` to another allocation strategy, you must first nullify the priority ranks associated with the VM sizes. This will be covered in more detail in the code snippets below. 
 
 ### [Azure CLI](#tab/cli-1)
 Before using CLI commands with Instance Mix, please be sure you're using the correct CLI version. Make sure you're using version `2.66.0` or greater.
