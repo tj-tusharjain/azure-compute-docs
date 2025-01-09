@@ -31,6 +31,7 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 ## Update the Instance Mix settings on an existing scale set
 
 ### [Azure CLI](#tab/cli-1)
+Before using CLI commands with Instance Mix, please be sure you're using the correct CLI version. Make sure you're using version `2.66.0` or greater.
 
 #### Change the Allocation Strategy
 You can use the following basic command to update the allocation strategy. In this case, we're updating the scale set to use the `CapacityOptimized` allocation strategy:

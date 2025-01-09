@@ -42,6 +42,8 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 10. You can specify other properties in subsequent tabs, or you can go to **Review + create** and select the **Create** button at the bottom of the page to start your Instance Mix scale set deployment.
 
 ### [Azure CLI](#tab/cli-1)
+Before using CLI commands with Instance Mix, please be sure you're using the correct CLI version. Make sure you're using version `2.66.0` or greater.
+
 You can use the following basic command to create a scale set using Instance Mix using the following command, which will default to using the `lowestPrice` allocation strategy:
  
 ```azurecli-interactive
