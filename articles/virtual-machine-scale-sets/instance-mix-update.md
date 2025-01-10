@@ -227,7 +227,7 @@ In the body, be sure to set `sku.name` to `"Mix"` and include the `skuProfile` w
 				"name": "Standard_D2s_v4"
         	},
         	{
-        	  "name": "Standard_D2s_v5"
+        	    "name": "Standard_D2s_v5"
         	}
 			],
 			"allocationStrategy": "lowestPrice"
