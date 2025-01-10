@@ -1,5 +1,5 @@
 ---
-title: Create a Virtual Machine Scale Set with Instance Mix
+title: Update a Virtual Machine Scale Set with Instance Mix
 description: How to update a virtual machine scale set Instance Mix settings. 
 author: brittanyrowe 
 ms.author: brittanyrowe
