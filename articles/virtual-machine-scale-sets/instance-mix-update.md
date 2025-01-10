@@ -184,9 +184,9 @@ To change the VM Sizes in your deployment, you only need to change the VM Sizes 
 Existing scale sets that don't have instance mix can enable instance mix by specifying the `skuProfile` properties in the scale set. The `skuProfile`, `vmSizes`, and `allocationStrategy` can be specified through REST API and CLI. 
 
 The properties that must be updated are:
-1. `sku.name` must be set to `"Mix"`.
-2. `sku.tier` must be set to `null`.
-3. You must define the `skuProfile` properties. At least one value must be provided in `vmSizes`. An `allocationStrategy` should be set, but if a value isn't provided, Azure defaults to `lowestPrice`.
+* `sku.name` must be set to `"Mix"`.
+* `sku.tier` must be set to `null`.
+* You must define the `skuProfile` properties. At least one value must be provided in `vmSizes`. An `allocationStrategy` should be set, but if a value isn't provided, Azure defaults to `lowestPrice`.
 
 The following sections have sample code snippets to demonstrate enabling instance mix on existing scale sets. 
 
