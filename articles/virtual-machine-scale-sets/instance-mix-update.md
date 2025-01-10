@@ -82,6 +82,7 @@ Update-AzVmss `
 -VMScaleSetName $vmssName `
 -VirtualMachineScaleSet $vmss
 ```
+
 #### Change the VM Sizes
 To change the VM sizes specified in your scale set, you can use the following PowerShell command. In this example, we'll be updating th escale set to use Standard D2asv4, Standard D2asv5, and Standard D2sv5.
 
@@ -122,19 +123,36 @@ PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGrou
 The following subsections will walk through what to use if you want to change the allocation strategy or VM sizes through REST APIs.
 
 #### Change the Allocation Strategy
-Be sure to include the properties you'd like to change in the request body. In this example, we're changing the allocation strategy to `capactiyOptimized`:
+You must specify both the VM sizes you'd like to use, as well as the allocation strategy. In this example, we're changing the allocation strategy to `capactiyOptimized`:
 ```json
 {
 	"properties": {
 		"skuProfile": {
-		"allocationStrategy": "capacityOptimized"
+                "vmSizes": [
+                {
+                    "name": "Standard_D2as_v4"
+                },
+                {
+                    "name": "Standard_D2as_v5"
+                },
+                {
+                    "name": "Standard_D2s_v4"
+                },
+                {
+                    "name": "Standard_D2s_v3"
+                },
+                {
+                    "name": "Standard_D2s_v5"
+                }
+			],
+		    "allocationStrategy": "capacityOptimized"
 		}
 	}
 }
 ```
 
 #### Change the VM Sizes
-In this example, we're changing the VM sizes specified in the scale set:
+To change the VM Sizes in your deployment, you only need to change the VM Sizes in the `skuProfile`.In this example, we're changing the VM sizes specified in the scale set to use D2sv5, D2asv5, D2sv4, D2asv4, and D2sv3:
 ```json
 {
 	"properties": {
@@ -159,24 +177,64 @@ In this example, we're changing the VM sizes specified in the scale set:
 		}
     }
 }
-
 ```
 ---
 
 ## Update an existing scale set to use Instance Mix
-Existing scale sets that do not have Instance Mix can enable Instance Mix by specifying the `skuProfile` properties in the scale set. This can be specified through REST, CLI, and PowerShell. The following sections have sample code snippets to demonstrate enabling Instance Mix on existing scale sets.
+Existing scale sets that do not have Instance Mix can enable Instance Mix by specifying the `skuProfile` properties in the scale set. This can be specified through REST API and CLI. 
 
-### [Azure portal](#tab/portal-2)
+The properties that must be updated are:
+1. `sku.name` must be set to `"Mix"`.
+2. `sku.tier` must be set to `null`.
+3. You must define the `skuProfile` properties. At least one value must be provided in `vmSizes`. An `allocationStrategy` should be set, but if a value isn't provided, Azure defaults to `lowestPrice`.
+
+The following sections have sample code snippets to demonstrate enabling Instance Mix on existing scale sets. 
+
 ### [Azure CLI](#tab/cli-2)
-```azurecli-interactive
+In this snippet, we'll be updating an existing scale set using Flexible Orchestration Mode to use Instance Mix with the VM sizes D2asv4, D2sv5, and D2asv5 and allocation strategy of `capacityOptimized`.
 
-```
-### [Azure PowerShell](#tab/powershell-2)
-```azurepowershell-interactive
+```azurecli-interactive
+az vmss update \
+--name {scaleSetName} \
+--resource-group {resourceGroupName} \
+--set sku.name=Mix sku.tier=null \
+--skuprofile-vmsizes Standard_D2as_v4 Standard_D2s_v5 Standard_D2as_v5 \
+--sku-allocat-strat capacityOptimized
 ```
 
 ### [REST API](#tab/arm-2)
+To update the Instance Mix settings through REST API, use a `PATCH` call to the VMSS resource. Be sure to use an API version on or after `2023-09-01`. 
 ```json
+PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{youScaleSetName}?api-version=2023-09-01
+```
+
+In the body, be sure to set `sku.name` to `"Mix"` and include the `skuProfile` with your inputs for `vmSizes` and `allocationStrategy`:
+```json
+{
+	"sku": {
+		"name": "Mix"
+	},
+	"properties": {
+		"skuProfile": {
+      		"vmSizes": [
+        	{
+          		"name": "Standard_D2as_v4"
+        	},
+        	{
+          		"name": "Standard_D2as_v5"
+        	},
+        	{
+				"name": "Standard_D2s_v4"
+        	},
+        	{
+        	  "name": "Standard_D2s_v5"
+        	}
+			],
+			"allocationStrategy": "lowestPrice"
+		},
+    }
+}
+
 ```
 
 
