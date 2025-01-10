@@ -1,6 +1,6 @@
 ---
-title: Update a Virtual Machine Scale Set with Instance Mix
-description: How to update a virtual machine scale set Instance Mix settings. 
+title: Update a Virtual Machine Scale Set with instance mix
+description: How to update a virtual machine scale set instance mix settings. 
 author: brittanyrowe 
 ms.author: brittanyrowe
 ms.topic: conceptual
@@ -9,14 +9,14 @@ ms.date: 1/10/2025
 ms.reviewer: jushiman
 ---
 
-# Update Instance Mix settings on an existing scale set
-The article walks through how to update the Instance Mix settings on a scale set.
+# Update instance mix settings on an existing scale set
+The article walks through how to update the instance mix settings on a scale set.
 
 > [!IMPORTANT]
-> Instance Mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change before general availability (GA). 
+> Instance mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change before general availability (GA). 
 
 ## Prerequisites
-Before using Instance Mix, complete feature registration for the `FlexVMScaleSetSkuProfileEnabled` feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command:
+Before using instance mix, complete feature registration for the `FlexVMScaleSetSkuProfileEnabled` feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfileEnabled"
@@ -28,15 +28,15 @@ It takes a few moments for the feature to register. Verify the registration stat
 az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfileEnabled"
 ```
 
-## Update the Instance Mix settings on an existing scale set
-The Instance Mix settings can be updated on your scale set via CLI, PowerShell, and REST API. You can change either the virtual machine (VM) sizes or the allocation strategy, or both, in a single call.
+## Update the instance mix settings on an existing scale set
+The instance mix settings can be updated on your scale set via CLI, PowerShell, and REST API. You can change either the virtual machine (VM) sizes or the allocation strategy, or both, in a single call.
 
 When changing allocation strategies, the *new* allocation strategy won't become effective until the scale set scales in or out. That is to say, your existing VMs won't be altered based on the allocation strategy until there's a scaling action.
 
 When changing from `Prioritized` to another allocation strategy, you must first nullify the priority ranks associated with the VM sizes. This will be covered in more detail in the supporting code snippets. 
 
 ### [Azure CLI](#tab/cli-1)
-Before using CLI commands with Instance Mix, be sure you're using the correct CLI version. Make sure you're using version `2.66.0` or greater.
+Before using CLI commands with instance mix, be sure you're using the correct CLI version. Make sure you're using version `2.66.0` or greater.
 
 #### Change the Allocation Strategy
 You can use the following basic command to update the allocation strategy. In this case, we're updating the scale set to use the `CapacityOptimized` allocation strategy:
@@ -115,7 +115,7 @@ Update-AzVmss `
 ```
 
 ### [REST API](#tab/arm-1)
-To update the Instance Mix settings through REST API, use a `PATCH` call to the scale set resource. Be sure to use an API version on or after `2023-09-01`:
+To update the instance mix settings through REST API, use a `PATCH` call to the scale set resource. Be sure to use an API version on or after `2023-09-01`:
 ```json
 PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{youScaleSetName}?api-version=2023-09-01
 ```
@@ -180,18 +180,18 @@ To change the VM Sizes in your deployment, you only need to change the VM Sizes 
 ```
 ---
 
-## Update an existing scale set to use Instance Mix
-Existing scale sets that don't have Instance Mix can enable Instance Mix by specifying the `skuProfile` properties in the scale set. The `skuProfile`, `vmSizes`, and `allocationStrategy` can be specified through REST API and CLI. 
+## Update an existing scale set to use instance mix
+Existing scale sets that don't have instance mix can enable instance mix by specifying the `skuProfile` properties in the scale set. The `skuProfile`, `vmSizes`, and `allocationStrategy` can be specified through REST API and CLI. 
 
 The properties that must be updated are:
 1. `sku.name` must be set to `"Mix"`.
 2. `sku.tier` must be set to `null`.
 3. You must define the `skuProfile` properties. At least one value must be provided in `vmSizes`. An `allocationStrategy` should be set, but if a value isn't provided, Azure defaults to `lowestPrice`.
 
-The following sections have sample code snippets to demonstrate enabling Instance Mix on existing scale sets. 
+The following sections have sample code snippets to demonstrate enabling instance mix on existing scale sets. 
 
 ### [Azure CLI](#tab/cli-2)
-In this snippet, we'll update an existing scale set using Flexible Orchestration Mode to use Instance Mix with the VM sizes D2asv4, D2sv5, and D2asv5 and allocation strategy of `capacityOptimized`.
+In this snippet, we'll update an existing scale set using Flexible Orchestration Mode to use instance mix with the VM sizes D2asv4, D2sv5, and D2asv5 and allocation strategy of `capacityOptimized`.
 
 ```azurecli-interactive
 az vmss update \
@@ -203,7 +203,7 @@ az vmss update \
 ```
 
 ### [REST API](#tab/arm-2)
-To update the Instance Mix settings through REST API, use a `PATCH` call to the scale set resource. Be sure to use an API version on or after `2023-09-01`. 
+To update the instance mix settings through REST API, use a `PATCH` call to the scale set resource. Be sure to use an API version on or after `2023-09-01`. 
 ```json
 PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{youScaleSetName}?api-version=2023-09-01
 ```
@@ -239,4 +239,4 @@ In the body, be sure to set `sku.name` to `"Mix"` and include the `skuProfile` w
 
 
 ## Next steps
-Learn how to [troubleshoot](instance-mix-faq-troubleshooting.md) your Instance Mix enabled scale set.
+Learn how to [troubleshoot](instance-mix-faq-troubleshooting.md) your instance mix enabled scale set.
