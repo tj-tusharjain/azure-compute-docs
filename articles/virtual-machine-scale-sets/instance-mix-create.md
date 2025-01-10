@@ -160,4 +160,4 @@ When using the `prioritized` allocation strategy, you can specify the priority r
 ---
 
 ## Next steps
-Learn how to [troubleshoot](instance-mix-faq-troubleshooting.md) your Instance Mix enabled scale set.
+Learn how to [update](instance-mix-update.md) your Instance Mix enabled scale set.
