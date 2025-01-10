@@ -55,14 +55,10 @@ This allocation strategy allows you to specify a priority ranking to the VM size
 ## Cost
 Following the scale set cost model, usage of Instance Mix is free. You continue to only pay for the underlying resources, like the VM, disk, and networking.
 
-## Limitations
-- Instance Mix is currently available in the following regions: West US, West US2, East US, and East US2. 
+## Limitations 
 - Instance Mix is only available for scale sets using Flexible Orchestration Mode.
 - You must have quota for the VM sizes you're requesting with Instance Mix.
-- You can specify **up to** five VM sizes with Instance Mix at this time.
-- The `Prioritized` allocation strategy is currently only supported via REST and Azure portal deployments. 
-- Existing scale sets can't be updated to use Instance Mix. 
-- VM sizes can't be changed once the scale set is deployed.
+- You can specify **up to** five VM sizes with Instance Mix.
 - For REST API deployments, you must have an existing virtual network inside of the resource group that you're deploying your scale set with Instance Mix in.
 
 ## Next steps
