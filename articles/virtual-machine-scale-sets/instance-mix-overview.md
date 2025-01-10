@@ -18,7 +18,7 @@ Instance Mix enables you to specify multiple different Virtual Machine (VM) size
 Instance Mix is best suited for workloads that are flexible in compute requirements and can be run on various different sized VMs. Using Instance Mix you can:
 - Deploy a heterogeneous mix of VM sizes in a single scale set. You can view max scale set instance counts in the [documentation](./virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
 - Optimize your deployments for cost or capacity through allocation strategies.
-- Continue to make use of scale set features, like [Spot Priority Mix](./spot-priority-mix.md), [Autoscale](./virtual-machine-scale-sets-autoscale-overview.md), or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
+- Continue to make use of scale set features, like [Spot Priority Mix](./spot-priority-mix.md) or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
 - Spread a heterogeneous mix of VMs across Availability Zones and Fault Domains for high availability and reliability.
 
 ## Changes to existing scale set properties
