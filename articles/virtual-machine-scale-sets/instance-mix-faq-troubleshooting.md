@@ -15,9 +15,6 @@ ms.reviewer: jushiman
 ### Can I use Spot and Standard VMs with Instance Mix?
 Yes, you can use both Spot and Standard VMs in your scale set deployments using Instance Mix. To do so, use [Spot Priority Mix](./spot-priority-mix.md) to define a percentage split of Spot and Standard VMs. 
 
-### My region doesn't support Instance Mix today. Will it support Instance Mix in the future?
-Instance Mix is rolling out to all Azure regions during Public Preview. Instance Mix is currently available in the following regions: West US, West US2, East US, and East US2.
-
 ## Troubleshooting
 | Error Code                                 | Error Message                                                                                                        | Troubleshooting options                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
