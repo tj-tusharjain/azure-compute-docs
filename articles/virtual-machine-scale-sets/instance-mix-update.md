@@ -236,7 +236,7 @@ In the body, be sure to set `sku.name` to `"Mix"` and include the `skuProfile` w
 }
 
 ```
-
+---
 
 ## Next steps
 Learn how to [troubleshoot](instance-mix-faq-troubleshooting.md) your instance mix enabled scale set.
