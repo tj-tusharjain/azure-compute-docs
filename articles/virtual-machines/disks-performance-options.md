@@ -10,24 +10,21 @@ ms.author: rogarana
 
 # Performance options
 
-Azure managed disks support a variety of options for changing their performance to accomodate your workload needs. Each disk type has different ways of being adjusted to meet your needs.
+Azure managed disks offer several ways to change their performance and accommodate your workload needs. This article breaks out these ways by disk type.
 
 ## Ultra Disks and Premium SSD v2
 
-Ultra Disks and Premium SSD v2 have been designed from the ground up to both be highly performant and easily adjustable. They offer the most flexibility when it comes to fine tuning your performance needs, allowing you to programmatically (or directly) set the performance of these disk types.
+Ultra Disks and Premium solid-state drives (SSD) v2 are designed from the ground up to be highly performant and easily adjustable. They offer the most flexibility and ease among all the disk types when fine tuning your disk's performance, allowing you to programmatically (or directly) set the performance of these disk types. To learn how to adjust the performance of Ultra Disks and Premium SSD v2, see [Adjust disk performance](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli#adjust-disk-performance) for Premium SSD v2 or [Adjust the performance of an Ultra Disk](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#adjust-the-performance-of-an-ultra-disk).
 
 ## Premium SSD
 
-An on-demand bursting model, where the disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. On-demand bursting is only available for Premium SSDs larger than 512 GiB.
-A credit-based model, where the disk will burst only if it has burst credits accumulated in its credit bucket. This model doesn't incur additional charges when the disk bursts. Credit-based bursting is only available for Premium SSD managed disks 512 GiB and smaller, and standard SSDs 1024 GiB and smaller.
-
 ### On-demand disk bursting
 
-With on-demand disk bursting enabled, the disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. On-demand bursting is only available for Premium SSDs larger than 512 GiB. To learn more about on-demand disk bursting, see the [on-demand bursting](/azure/virtual-machines/disk-bursting#on-demand-bursting) section of the disk bursting models article.
+With on-demand disk bursting enabled, the disk bursts whenever its needs exceed its current capacity. This model incurs extra charges anytime the disk bursts. On-demand bursting is only available for Premium SSDs larger than 512 GiB. To learn more about on-demand disk bursting, see the [on-demand bursting](/azure/virtual-machines/disk-bursting#on-demand-bursting) section of the disk bursting models article.
 
 ### Credit-based disk bursting
 
-With credit-based bursting, a disk bursts only if it has burst credits accumulated in its credit bucket. This model doesn't incur additional charges when the disk bursts. For Premium SSD managed disks, credit-based bursting is available for disk sizes P20 and smaller. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. For more information, see the [credit-based bursting](/azure/virtual-machines/disk-bursting#credit-based-bursting) section of the disk bursting models article.
+With credit-based bursting, a disk bursts only if it has burst credits accumulated in its credit bucket. This model doesn't incur extra charges when the disk bursts. For Premium SSD managed disks, credit-based bursting is available for disk sizes P20 and smaller. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. For more information, see the [credit-based bursting](/azure/virtual-machines/disk-bursting#credit-based-bursting) section of the disk bursting models article.
 
 ### Change performance tiers
 
@@ -45,15 +42,14 @@ Enabling performance plus (preview) increases the Input/Output Operations Per Se
 
 ### Credit-based bursting
 
-With credit-based bursting, a disk bursts only if it has burst credits accumulated in its credit bucket. This model doesn't incur additional charges when the disk bursts. For Standard SSDs, credit-based bursting is available for disk sizes E30 and smaller. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. For more information, see the [credit-based bursting](/azure/virtual-machines/disk-bursting#credit-based-bursting) section of the disk bursting models article.
+With credit-based bursting, a disk bursts only if it has burst credits accumulated in its credit bucket. This model doesn't incur extra charges when the disk bursts. For Standard SSDs, credit-based bursting is available for disk sizes E30 and smaller. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. For more information, see the [credit-based bursting](/azure/virtual-machines/disk-bursting#credit-based-bursting) section of the disk bursting models article.
 
 ### (Preview) performance plus
 
 Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard SSDs that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
 
-
 ## Standard HDD
 
 ### (Preview) performance plus
 
-Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard HDDs that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
+Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard hard disk drives (HDD) that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
