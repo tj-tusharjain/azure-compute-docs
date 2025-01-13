@@ -20,7 +20,7 @@ VM watch is delivered via the [Application Health VM extension](/azure/virtual-m
 - **Flexible deployment**: You can enable VM watch by using an Azure Resource Manager template (ARM template), PowerShell, or the Azure CLI.
 - **Compatibility**: VM watch operates seamlessly in both Linux and Windows environments. It's suitable for individual VMs and virtual machine scale sets alike.
 - **Resource governance**: VM watch provides efficient monitoring without affecting system performance. Resource caps on the CPU and memory utilization of the VM watch process help protect VMs.
-- **Out-of-the-box readiness**: VM watch comes equipped with a suite of default tests that you can configure for your scenarios. It includes detailed information about the tests (checks, metrics, and event logs).
+- **Out-of-the-box readiness**: VM watch comes equipped with a suite of default tests that you can configure for your scenarios.
 
 ### Network
 
