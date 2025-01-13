@@ -219,7 +219,7 @@ Maintenance assignment fails with `InternalServerError` when using either bicep 
 
 #### Resolution
 
-It is recommended to use the location/region in a normalized form for the bicep template and MRP API. The normalized form involves removing whitespace and converting the text to lowercase. For example, `EAST US 2 EUAP` will result in an internal server error, whereas `eastus2euap` will be processed successfully.
+It is recommended to use the location/region in a normalized form for the bicep template and MRP API. The normalized form involves removing whitespace and converting the text to lowercase. For example, `EAST US 2` will result in an internal server error, whereas `eastus2` will be processed successfully.
 
 ### Maintenance Configurations doesn't support an API
 
