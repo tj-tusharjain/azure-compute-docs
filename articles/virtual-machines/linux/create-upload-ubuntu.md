@@ -19,7 +19,7 @@ Ubuntu now publishes official Azure virtual hard disks (VHDs) for download at th
 
 * Ubuntu 20.04/Focal: [focal-server-cloudimg-amd64-azure.vhd.tar.gz](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.tar.gz)
 * Ubuntu 22.04/Jammy: [jammy-server-cloudimg-amd64-azure.vhd.tar.gz](https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-azure.vhd.tar.gz)
-* Ubuntu 24.04/Jammy: [jammy-server-cloudimg-amd64-azure.vhd.tar.gz](https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64-azure.vhd.tar.gz)
+* Ubuntu 24.04/Jammy: [noble-server-cloudimg-amd64-azure.vhd.tar.gz](https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64-azure.vhd.tar.gz)
 
 ## Prerequisites
 

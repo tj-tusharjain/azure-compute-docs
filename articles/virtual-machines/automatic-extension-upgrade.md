@@ -68,7 +68,7 @@ The scale set upgrade orchestrator checks for the overall scale set health befor
 ## Supported extensions
 To check if your extensions are supported for automatic upgrade, view Automatic Upgrade status on Azure Portal - Extension blade.
 
-:::image type="content" source="media/auto-extension-upgrade.png" alt-text="Screenshot that shows Enable automatic upgrade in the Azure portal.":::
+:::image type="content" source="media/auto-extension.png" alt-text="Screenshot that shows if extension is supported for automatic upgrade in the Azure portal.":::
 
 Following are popular extensions supported for automatic upgrades (and more are added periodically):
 
