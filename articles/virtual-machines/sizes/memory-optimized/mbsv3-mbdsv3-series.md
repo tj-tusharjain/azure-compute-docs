@@ -40,7 +40,7 @@ The resource allocation and high-performance capabilities of the Mbv3 VM series 
 | **Standard_M128bs_v3**<sup>1</sup> | 128 | 1024 | 64 | 260,000/4,000 | 400,000/4,000 | 8 | 40,000 |
 | **Standard_M176bs_v3**<sup>1</sup> | 176 | 1536 | 64 | 260,000/6,000 | 650,000/6,000 | 8 | 50,000 |
 
-<sup>1</sup> [Disable SMT](/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server#disable-smt-in-an-azure-virtual-machine) to run SQL Server on a VM with more than 64 vCores per NUMA node. 
+<sup>1</sup> [Disable SMT](/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server#limit-number-of-logical-cores-per-numa-node-to-64) to run SQL Server on a VM with more than 64 vCores per NUMA node. 
 
 ## Mbdsv3 series (NVMe)
 
@@ -69,7 +69,7 @@ The resource allocation and high-performance capabilities of the Mbv3 VM series 
 | **Standard_M128bds_3_v3**<sup>1</sup> | 128 | 2794 | 6000 | 64 | 160,000/1600 | 260,000/8,000 | 400,000/10,000 | 8 | 40,000 |
 | **Standard_M176bds_4_v3**<sup>1</sup> | 176 | 3892 | 8000 | 64 | 160,000/1600 | 260,000/8,000 | 650,000/10,000 | 8 | 40,000 |
 
-<sup>1</sup> [Disable SMT](/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server#disable-smt-in-an-azure-virtual-machine) to run SQL Server on a VM with more than 64 vCores per NUMA node. 
+<sup>1</sup> [Disable SMT](/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server#limit-number-of-logical-cores-per-numa-node-to-64) to run SQL Server on a VM with more than 64 vCores per NUMA node. 
 
 ## Size table definitions
 
