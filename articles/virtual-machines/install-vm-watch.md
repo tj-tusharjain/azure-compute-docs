@@ -57,7 +57,8 @@ For information on how to create a VM and/or virtual machine scale set, see the 
 
 ## Install VM watch on an Azure virtual machine
 
-The following code segments are identical for both Windows and Linux, except for the value of the parameter `<application health extension type>` passed in to the extension type. Replace `<application health extension type>` with `"ApplicationHealthLinux"` for Linux installations and `"ApplicationHealthWindows"` for Windows installations.
+> [!IMPORTANT]
+> The code segment is identical for both Windows and Linux, except for the value of the parameter `<application health extension type>` passed in to the extension type. Replace `<application health extension type>` with `"ApplicationHealthLinux"` for Linux installations and `"ApplicationHealthWindows"` for Windows installations.
 
 #### [CLI](#tab/cli-1)
 
@@ -122,7 +123,8 @@ To confirm that VM watch was enabled on this VM, go back to the overview page an
 
 ## Install VM watch on an Azure virtual machine scale set
 
-The following code segments are identical for both Windows and Linux, except for the value of the parameter `<application health extension type>` passed in to the extension type. Replace `<application health extension type>` with `"ApplicationHealthLinux"` for Linux installations and `"ApplicationHealthWindows"` for Windows installations.
+> [!IMPORTANT]
+> The code segment is identical for both Windows and Linux, except for the value of the parameter `<application health extension type>` passed in to the extension type. Replace `<application health extension type>` with `"ApplicationHealthLinux"` for Linux installations and `"ApplicationHealthWindows"` for Windows installations.
 
 #### [CLI](#tab/cli-2)
 
