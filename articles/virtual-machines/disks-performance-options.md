@@ -18,6 +18,8 @@ Ultra Disks and Premium solid-state drives (SSD) v2 are designed from the ground
 
 ## Premium SSD
 
+Premium SSD supports several performance options, each geared towards different use cases. At a high level, bursting is ideal for short-term or unplanned demands on performance, and changing the performance tier is ideal when facing planned periods that demand more performance. 
+
 ### On-demand disk bursting
 
 With on-demand disk bursting enabled, the disk bursts whenever its needs exceed its current capacity. This model incurs extra charges anytime the disk bursts. On-demand bursting is only available for Premium SSDs larger than 512 GiB. To learn more about on-demand disk bursting, see the [on-demand bursting](/azure/virtual-machines/disk-bursting#on-demand-bursting) section of the disk bursting models article.
@@ -28,15 +30,15 @@ With credit-based bursting, a disk bursts only if it has burst credits accumulat
 
 ### Change performance tiers
 
-The performance of Premium solid-state drives (SSD) is set when you create your disk, in the form of their performance tier. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier determines the IOPS and throughput your managed disk has. For Premium SSD disks only, the performance tier can be changed at deployment or afterwards, without changing the size of the disk, and without downtime.
+The performance of a Premium SSD is set when you create your disk, in the form of their performance tier. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier determines the IOPS and throughput your managed disk has. For Premium SSD disks only, the performance tier can be changed at deployment or afterwards, without changing the size of the disk, and without downtime.
 
 ### Write accelerator
 
-Write Accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks. Write accelerator improves the I/O latency of writes against Azure Premium Storage. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
+Write accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks. Write accelerator improves the I/O latency of writes against Azure Premium Storage. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
 
 ### (Preview) performance plus
 
-Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium solid-state drives (SSD) that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
+Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium SSDs that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
 
 ## Standard SSD
 
