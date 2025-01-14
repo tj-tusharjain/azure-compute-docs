@@ -161,6 +161,9 @@ Now that you have a SAS for your empty managed disk, you can use it to set your 
 
 Use AzCopy v10 to upload your local VHD or VHDX file to a managed disk by specifying the SAS URI you generated.
 
+> [!NOTE]
+> If you need to upload VHDx files larger than 2TB (exceeding the VHD format limit) and cannot convert the file to VHD due to its size, it is important to note that VHDx files are supported for upload to PremiumSSDv2 and UltraSSD disk SKUs. For files smaller than 2TB, it is recommended to convert them to the VHD format before proceeding with the upload.
+
 This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
 ```
