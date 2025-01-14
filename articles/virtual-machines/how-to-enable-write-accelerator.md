@@ -25,14 +25,14 @@ Write Accelerator is generally available for M-series VMs in the Public Cloud.
 
 ## Planning for using Write Accelerator
 
-Write Accelerator should be used for the volumes that contain the transaction log or redo logs of a DBMS. It isn't recommended to use Write Accelerator for the data volumes of a DBMS as the feature has been optimized to be used against log disks.
+Write Accelerator should be used for the volumes that contain the transaction log or redo logs of a DBMS. You shouldn't use Write Accelerator for the data volumes of a DBMS as the feature is optimized to be used against log disks.
 
 > [!IMPORTANT]
 > Enabling Write Accelerator for the operating system disk of the VM reboots the VM.
 >
-> To enable Write Accelerator to an existing Azure disk that isn't part of a volume build out of multiple disks with Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM, or MDADM, the workload accessing the Azure disk needs to be shut down. Database applications using the Azure disk MUST be shut down.
+> To enable Write Accelerator to an existing Azure disk that isn't part of a volume build out of multiple disks with Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM, or MDADM, the workload accessing the Azure disk needs to be shut down. Database applications using the Azure disk must be shut down.
 >
-> If you want to enable or disable Write Accelerator for an existing volume that is built out of multiple Azure Premium SSD disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. Shut down the VM Before enabling or disabling Write Accelerator in such a configuration.
+> To enable or disable Write Accelerator for an existing volume that is built out of multiple Azure Premium SSD disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. Shut down the VM Before enabling or disabling Write Accelerator in such a configuration.
 
 Enabling Write Accelerator for OS disks shouldn't be necessary for SAP-related VM configurations.
 
