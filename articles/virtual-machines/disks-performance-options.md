@@ -18,7 +18,7 @@ Ultra Disks and Premium solid-state drives (SSD) v2 are designed from the ground
 
 ## Premium SSD
 
-Premium SSD supports several performance options, each geared towards different use cases. At a high level, bursting is ideal for short-term or unplanned demands on performance, and changing the performance tier is ideal when facing planned periods that demand more performance. 
+Premium SSD supports several performance options, each geared towards different use cases. At a high level, bursting is ideal for short-term or unplanned demands on performance, and changing the performance tier is ideal when facing planned periods of performance increases. 
 
 ### On-demand disk bursting
 
@@ -34,7 +34,7 @@ The performance of a Premium SSD is set when you create your disk, in the form o
 
 ### Write accelerator
 
-Write accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks. Write accelerator improves the I/O latency of writes against Azure Premium Storage. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
+Write accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks. Write accelerator improves the I/O latency of writes against Premium SSD disks. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
 
 ### (Preview) performance plus
 

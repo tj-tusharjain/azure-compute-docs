@@ -3,7 +3,7 @@ title: Enable on-demand disk bursting
 description: Enable on-demand disk bursting on your managed disk.
 author: roygara
 ms.author: rogarana
-ms.date: 09/25/2024
+ms.date: 01/14/2025
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -23,10 +23,6 @@ For the max burst targets on each supported disk, see [Scalability and performan
 Before you enable on-demand bursting, understand the following:
 
 [!INCLUDE [managed-disk-bursting-regions-limitations](./includes/managed-disk-bursting-regions-limitations.md)]
-
-### Regional availability
-
-[!INCLUDE [managed-disk-bursting-availability](./includes/managed-disk-bursting-availability.md)]
 
 ## Get started
 
