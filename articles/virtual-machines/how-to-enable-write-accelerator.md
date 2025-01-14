@@ -1,13 +1,11 @@
 ---
 title: Azure Write Accelerator
 description: Learn how to enable and use Write Accelerator
-author: raiye
-manager: markkie
-ms.service: azure-virtual-machines
+author: roygara
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 04/11/2023
-ms.author: raiye
-ms.subservice: disks
+ms.date: 01/14/2025
+ms.author: rogarana
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
