@@ -290,7 +290,7 @@ $disk = Get-AzDisk -ResourceGroupName $resourceGroupName -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 ```
-
+---
 
 ## Adjust disk performance
 
