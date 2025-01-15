@@ -2692,7 +2692,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/disks-performance-tiers-portal.md",
-            "redirect_url": "/azure/virtual-machines/windows/disks-performance-tiers",
+            "redirect_url": "/azure/virtual-machines/disks-performance-tiers",
             "redirect_document_id": true
         },
         {
