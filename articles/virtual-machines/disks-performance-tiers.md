@@ -1,6 +1,6 @@
 ---
-title: Change the performance of Azure managed disks - CLI/PowerShell
-description: Learn how to change performance tiers for existing managed disks using either the Azure PowerShell module or the Azure CLI.
+title: Change the performance of Azure managed disks
+description: Learn how to change performance tiers for existing managed disks using the Azure PowerShell module, the Azure CLI, or the Azure portal.
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
