@@ -17,7 +17,7 @@
 
 Host caching works by bringing storage closer to the VM that can be written or read to quickly. The amount of storage that is available to the VM for host caching is in the documentation. For example, you can see the Standard_D8s_v3 comes with 200 GiB of cache storage.
 
-You can enable host caching when you create your virtual machine and attach disks. You can also turn on and off host caching on your disks on an existing VM. By default, cache-capable data disks have read-only caching enabled. Cache-capable OS disks have read/write caching enabled.
+You can enable host caching when you create your virtual machine and attach disks. You can also turn on and off host caching on your disks on an existing VM. By default, cache-capable data disks do not have caching enabled. Cache-capable OS disks have read/write caching enabled.
 
 ![Screenshot showing host caching.](media/vm-disk-performance/host-caching.jpg)
 
