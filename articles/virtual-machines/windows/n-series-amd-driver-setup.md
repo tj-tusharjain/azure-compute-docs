@@ -71,8 +71,8 @@ During the preview program manually download and install the following Windows d
 | OS | Driver |
 | -------- |------------- |
 | Windows 10, Windows 11 64-bit 21H2, 22H2, 23H2<br/><br/>Windows 10 64-bit 21H2, 22H2, 20H2 <br/><br/> | [24.Q3](https://go.microsoft.com/fwlink/?linkid=2291063) (.exe) |
-| Windows Server 2022 <br/><br/> | [24.Q3](https://go.microsoft.com/fwlink/?linkid=2292204) (.exe)
-| Windows Server 2019<br/><br/> | [24.Q3](https://go.microsoft.com/fwlink/?linkid=2292402) (.exe)
+| Windows Server 2022, Windows 11 EMS <br/><br/> | [24.Q3](https://go.microsoft.com/fwlink/?linkid=2292204) (.exe)
+| Windows Server 2019, Windows 10 EMS <br/><br/> | [24.Q3](https://go.microsoft.com/fwlink/?linkid=2292402) (.exe)
  
 ### Driver installation
 > [!NOTE]
