@@ -1638,13 +1638,8 @@
       href: disks-change-performance.md
       displayName: Performance, cost, perf, disks, disk
     - name: Change disk performance tier
-      items:
-      - name: CLI and PowerShell
-        href: disks-performance-tiers.md
-        displayName: Performance, cost, perf, disks, disk, change disk performance tier
-      - name: Portal
-        href: disks-performance-tiers-portal.md
-        displayName: Performance, cost, perf, disks, disk, change disk performance tier
+      href: disks-performance-tiers.md
+      displayName: Performance, cost, perf, disks, disk, change disk performance tier
     - name: Enable write accelerator
       href: how-to-enable-write-accelerator.md
     - name: Benchmark a disk

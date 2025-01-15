@@ -2691,6 +2691,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/disks-performance-tiers-portal.md",
+            "redirect_url": "/azure/virtual-machines/disks-performance-tiers",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/classic/capture-image.md",
             "redirect_url": "/azure/virtual-machines/windows/capture-image-resource",
             "redirect_document_id": true
