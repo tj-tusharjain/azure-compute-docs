@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Change your performance tier without downtime using the Azure PowerShell module or the Azure CLI
+# Change your performance tier without downtime
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
