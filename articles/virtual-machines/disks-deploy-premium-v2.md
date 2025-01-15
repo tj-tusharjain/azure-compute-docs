@@ -290,6 +290,21 @@ $disk = Get-AzDisk -ResourceGroupName $resourceGroupName -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 ```
+
+
+# [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to **Disks** and create a new disk.
+1. Select a [supported region](#regional-availability).
+1. Select **Change size** and change the disk type to **Premium SSD v2**.
+1. If you like, change the size of the disk, as well as the performance, then select **OK**.
+1. Set **Availability zone** to **No infrastructure redundancy required**.
+1. Proceed through the rest of the deployment, making any choices that you desire.
+1. On the **Advanced** tab, select whether you'd like to deploy a 4k or 512 logical sector size, then deploy the disk.
+
+ Once the disk is successfully deployed, attach it to a new or existing VM.
+
 ---
 
 ## Adjust disk performance
