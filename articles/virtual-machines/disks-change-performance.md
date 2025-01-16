@@ -59,5 +59,4 @@ The following table depicts which tiers each baseline performance tier can upgra
 
 ## Next steps
 
-To learn how to change your performance tier, see [portal](disks-performance-tiers-portal.md) or [PowerShell/CLI](disks-performance-tiers.md) articles.
-
+To learn how to change your performance tier, see [Change your performance tier without downtime](disks-performance-tiers.md).

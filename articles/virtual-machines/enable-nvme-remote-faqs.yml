@@ -154,7 +154,7 @@ sections:
       - question: |
           Are shared disks in remote disks supported with NVMe-enabled VMs?
         answer: |
-          The shared disk feature is supported for Premium SSD, Premium SSD v2, and Ultra Disk Storage disks.
+          The shared disk feature is supported for Premium SSD, Premium SSD v2, and Ultra Disk Storage disks. Shared Disks using NVME is not supported with the OS Windows Server 2019.
       - question: |
           Can I use Azure PowerShell or the Azure CLI to create a VM with an OS disk from an existing blob with NVMe enabled?
         answer: |
