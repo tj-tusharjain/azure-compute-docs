@@ -618,10 +618,6 @@ Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
 In this example, replace the value for **Path** with the path to the virtual hard disk that you want
 to resize. Replace the value for **SizeBytes** with the new size in bytes for the disk.
 
-### Convert from VMware VMDK disk format
-
-If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), then you can use [Azure Migrate](/azure/migrate/server-migrate-overview) to convert the VMDK and upload it to Azure.
-
 ## Complete the recommended configurations
 
 The following settings don't affect VHD uploading. However, we strongly recommend that you
