@@ -5,12 +5,12 @@
  author: roygara
  ms.service: azure-virtual-machines
  ms.topic: include
- ms.date: 10/24/2023
+ ms.date: 01/16/2025
  ms.author: rogarana
  ms.custom: include file
 ---
 
-- This feature is currently supported only for premium SSD managed disks.
+- Changing the performance tier is currently only supported for Premium SSD managed disks.
 - Performance tiers of shared disks can't be changed while attached to running VMs.
     - To change the performance tier of a shared disk, stop all the VMs it's attached to.
 - The P60, P70, and P80 performance tiers can only be used by disks that are larger than 4,096 GiB.
