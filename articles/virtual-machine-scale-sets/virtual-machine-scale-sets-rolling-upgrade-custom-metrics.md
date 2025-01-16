@@ -255,8 +255,7 @@ def generate_response_json():
         "ApplicationHealthState": "Healthy",
         "CustomMetrics": json.dumps({
             "RollingUpgrade": {
-                "PhaseOrderingNumber": 1,
-                "SkipUpgrade": "false"
+                "PhaseOrderingNumber": 1
             }
         })
     })
@@ -332,7 +331,7 @@ This sample application can be installed on a virtual machine in a scale set to 
 #!/bin/bash
 
 # Open firewall port (replace with your firewall rules as needed)
-sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 # Create Python HTTP server for responding with JSON
 cat <<EOF > server.py
@@ -343,11 +342,11 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 def generate_response_json():
     return json.dumps({
         "ApplicationHealthState": "Healthy",
-        "CustomMetrics": {
+        "CustomMetrics": json.dumps({
             "RollingUpgrade": {
-                "SkipUpgrade": "true"
+                "SkipUpgrade": "false"
             }
-        }
+        })
     })
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -361,9 +360,9 @@ class RequestHandler(BaseHTTPRequestHandler):
 
 # Set up the HTTP server
 def run(server_class=HTTPServer, handler_class=RequestHandler):
-    server_address = ('localhost', 8000)
+    server_address = ('localhost', 80)
     httpd = server_class(server_address, handler_class)
-    print('Starting server on port 8000...')
+    print('Starting server on port 80...')
     httpd.serve_forever()
 
 if __name__ == "__main__":
@@ -421,7 +420,7 @@ This sample application includes phase order and skip upgrade parameters into th
 #!/bin/bash
 
 # Open firewall port (replace with your firewall rules as needed)
-sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 # Create Python HTTP server for responding with JSON
 cat <<EOF > server.py
@@ -432,12 +431,12 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 def generate_response_json():
     return json.dumps({
         "ApplicationHealthState": "Healthy",
-        "CustomMetrics": {
+        "CustomMetrics": json.dumps({
             "RollingUpgrade": {
                 "PhaseOrderingNumber": 1,
                 "SkipUpgrade": "false"
             }
-        }
+        })
     })
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -451,9 +450,9 @@ class RequestHandler(BaseHTTPRequestHandler):
 
 # Set up the HTTP server
 def run(server_class=HTTPServer, handler_class=RequestHandler):
-    server_address = ('localhost', 8000)
+    server_address = ('localhost', 80)
     httpd = server_class(server_address, handler_class)
-    print('Starting server on port 8000...')
+    print('Starting server on port 80...')
     httpd.serve_forever()
 
 if __name__ == "__main__":
