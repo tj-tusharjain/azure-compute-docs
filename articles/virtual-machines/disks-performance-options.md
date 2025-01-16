@@ -18,11 +18,11 @@ Ultra Disks and Premium solid-state drives (SSD) v2 are designed from the ground
 
 ## Premium SSD
 
-Premium SSD supports several performance options, each geared towards different use cases. At a high level, bursting is ideal for short-term or unplanned demands on performance, and changing the performance tier is ideal when facing planned periods of performance increases that would otherwise require constant bursting.
+Premium SSD supports several performance options, each geared towards different use cases. The following table outlines the main differences and ideal uses, at a glance.
 
 |  |Credit-based bursting  |On-demand bursting  |Changing performance tier  |
 |---------|---------|---------|---------|
-| **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling(Not time restricted).|Ideal if your workload would otherwise continually be running in burst.|
+| **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling(Not time restricted).|Ideal if your workload would otherwise continually be running in burst. |
 |**Cost**     |Free         |Cost is variable, see the [Billing](/azure/virtual-machines/disk-bursting#billing) section of the bursting article for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |
 |**Availability**     |Only available for premium SSD managed disks 512 GiB and smaller, and standard SSDs 1024 GiB and smaller.         |Only available for premium SSD managed disks larger than 512 GiB.         |Available to all premium SSD sizes.         |
 |**Enablement**     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
@@ -41,9 +41,9 @@ The performance of a Premium SSD is set when you create your disk, in the form o
 
 ### Write accelerator
 
-Write accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks. Write accelerator improves the I/O latency of writes against Premium SSD disks. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
+Write accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium SSD managed disks. Write accelerator improves the I/O latency of writes against Premium SSD disks. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
 
-### (Preview) performance plus
+### Performance plus (preview)
 
 Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium SSDs that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
 
@@ -53,12 +53,12 @@ Enabling performance plus (preview) increases the Input/Output Operations Per Se
 
 With credit-based bursting, a disk bursts only if it has burst credits accumulated in its credit bucket. This model doesn't incur extra charges when the disk bursts. For Standard SSDs, credit-based bursting is available for disk sizes E30 and smaller. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. For more information, see the [credit-based bursting](/azure/virtual-machines/disk-bursting#credit-based-bursting) section of the disk bursting models article.
 
-### (Preview) performance plus
+### Performance plus (preview)
 
 Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard SSDs that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
 
 ## Standard HDD
 
-### (Preview) performance plus
+### Performance plus (preview)
 
 Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard hard disk drives (HDD) that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
