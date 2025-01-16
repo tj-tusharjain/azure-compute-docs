@@ -18,15 +18,22 @@ Ultra Disks and Premium solid-state drives (SSD) v2 are designed from the ground
 
 ## Premium SSD
 
-Premium SSD supports several performance options, each geared towards different use cases. At a high level, bursting is ideal for short-term or unplanned demands on performance, and changing the performance tier is ideal when facing planned periods of performance increases. 
+Premium SSD supports several performance options, each geared towards different use cases. At a high level, bursting is ideal for short-term or unplanned demands on performance, and changing the performance tier is ideal when facing planned periods of performance increases that would otherwise require constant bursting.
 
-### On-demand disk bursting
-
-With on-demand disk bursting enabled, the disk bursts whenever its needs exceed its current capacity. This model incurs extra charges anytime the disk bursts. On-demand bursting is only available for Premium SSDs larger than 512 GiB. To learn more about on-demand disk bursting, see the [on-demand bursting](/azure/virtual-machines/disk-bursting#on-demand-bursting) section of the disk bursting models article.
+|  |Credit-based bursting  |On-demand bursting  |Changing performance tier  |
+|---------|---------|---------|---------|
+| **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling(Not time restricted).|Ideal if your workload would otherwise continually be running in burst.|
+|**Cost**     |Free         |Cost is variable, see the [Billing](/azure/virtual-machines/disk-bursting#billing) section of the bursting article for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |
+|**Availability**     |Only available for premium SSD managed disks 512 GiB and smaller, and standard SSDs 1024 GiB and smaller.         |Only available for premium SSD managed disks larger than 512 GiB.         |Available to all premium SSD sizes.         |
+|**Enablement**     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
 
 ### Credit-based disk bursting
 
 With credit-based bursting, a disk bursts only if it has burst credits accumulated in its credit bucket. This model doesn't incur extra charges when the disk bursts. For Premium SSD managed disks, credit-based bursting is available for disk sizes P20 and smaller. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. For more information, see the [credit-based bursting](/azure/virtual-machines/disk-bursting#credit-based-bursting) section of the disk bursting models article.
+
+### On-demand disk bursting
+
+With on-demand disk bursting enabled, the disk bursts whenever its needs exceed its current capacity. This model incurs extra charges anytime the disk bursts. On-demand bursting is only available for Premium SSDs larger than 512 GiB. To learn more about on-demand disk bursting, see the [on-demand bursting](/azure/virtual-machines/disk-bursting#on-demand-bursting) section of the disk bursting models article.
 
 ### Change performance tiers
 
