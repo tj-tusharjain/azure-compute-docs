@@ -540,7 +540,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    sudo -i
    ```
 
-1. When the VM restarts completely, perform the following steps:
+1. Perform the following steps:
 
    1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts. This package is preinstalled on most marketplace images
 
