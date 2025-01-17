@@ -327,6 +327,18 @@ There are multiple ways of deploying the Application Health extension to your sc
 > [!NOTE]
 > Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you will need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades.
 
+
+## Configure custom metrics for rolling upgrades on Virtual Machine Scale Sets (Preview)
+
+> [!NOTE]
+>**Custom metrics for rolling upgrades on Virtual Machine Scale Sets is currently in preview.** Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+
+Custom metrics for rolling upgrades enables you to utilize the [application health extension](virtual-machine-scale-sets-health-extension.md) to emit custom metrics to your Virtual Machine Scale Set. These custom metrics can be used to tell the scale set the order in which virtual machines should be updated when a rolling upgrade is triggered. The custom metrics can also inform your scale set when an upgrade should be skipped on a specific instance. This allows you to have more control over the ordering and the update process itself. 
+
+Custom metrics can be used in combination with other rolling upgrade functionality such as [automatic OS upgrades](virtual-machine-scale-sets-automatic-upgrade.md), [automatic extension upgrades](../virtual-machines/automatic-extension-upgrade.md) and [MaxSurge rolling upgrades](virtual-machine-scale-sets-maxsurge.md). 
+
+For more information, see [custom metrics for rolling upgrades on Virtual Machine Scale Sets](virtual-machine-scale-sets-rolling-upgrade-custom-metrics.md)
+
 ## Get the history of automatic OS image upgrades
 You can check the history of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs. You can get history for the last five OS upgrade attempts within the past two months.
 
