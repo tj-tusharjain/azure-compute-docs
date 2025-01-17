@@ -242,7 +242,7 @@ This sample application can be installed on a virtual machine in a scale set to 
 #!/bin/bash
 
 # Open firewall port (replace with your firewall rules as needed)
-sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
 
 # Create Python HTTP server for responding with JSON
 cat <<EOF > server.py
@@ -255,7 +255,7 @@ def generate_response_json():
         "ApplicationHealthState": "Healthy",
         "CustomMetrics": json.dumps({
             "RollingUpgrade": {
-                "PhaseOrderingNumber": 1
+                "SkipUpgrade": "false"
             }
         })
     })
@@ -271,17 +271,26 @@ class RequestHandler(BaseHTTPRequestHandler):
 
 # Set up the HTTP server
 def run(server_class=HTTPServer, handler_class=RequestHandler):
-    server_address = ('localhost', 80)
+    server_address = ('localhost', 8000)
     httpd = server_class(server_address, handler_class)
-    print('Starting server on port 80...')
+    print('Starting server on port 8000...')
     httpd.serve_forever()
 
 if __name__ == "__main__":
     run()
 EOF
 
-# Run the server
-python3 server.py
+# Run the server in the background
+python3 server.py &
+
+# Store the process ID of the server
+SERVER_PID=$!
+
+# Wait a few seconds to ensure the server starts
+sleep 2
+
+# Confirm execution
+echo "Server has been started on port 8000 with PID $SERVER_PID"
 ```
 
 ##### [PowerShell](#tab/powershell)
@@ -331,7 +340,7 @@ This sample application can be installed on a virtual machine in a scale set to 
 #!/bin/bash
 
 # Open firewall port (replace with your firewall rules as needed)
-sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
 
 # Create Python HTTP server for responding with JSON
 cat <<EOF > server.py
@@ -360,17 +369,26 @@ class RequestHandler(BaseHTTPRequestHandler):
 
 # Set up the HTTP server
 def run(server_class=HTTPServer, handler_class=RequestHandler):
-    server_address = ('localhost', 80)
+    server_address = ('localhost', 8000)
     httpd = server_class(server_address, handler_class)
-    print('Starting server on port 80...')
+    print('Starting server on port 8000...')
     httpd.serve_forever()
 
 if __name__ == "__main__":
     run()
 EOF
 
-# Run the server
-python3 server.py
+# Run the server in the background
+python3 server.py &
+
+# Store the process ID of the server
+SERVER_PID=$!
+
+# Wait a few seconds to ensure the server starts
+sleep 2
+
+# Confirm execution
+echo "Server has been started on port 8000 with PID $SERVER_PID"
 
 ```
 
@@ -420,7 +438,7 @@ This sample application includes phase order and skip upgrade parameters into th
 #!/bin/bash
 
 # Open firewall port (replace with your firewall rules as needed)
-sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
 
 # Create Python HTTP server for responding with JSON
 cat <<EOF > server.py
@@ -450,17 +468,26 @@ class RequestHandler(BaseHTTPRequestHandler):
 
 # Set up the HTTP server
 def run(server_class=HTTPServer, handler_class=RequestHandler):
-    server_address = ('localhost', 80)
+    server_address = ('localhost', 8000)
     httpd = server_class(server_address, handler_class)
-    print('Starting server on port 80...')
+    print('Starting server on port 8000...')
     httpd.serve_forever()
 
 if __name__ == "__main__":
     run()
 EOF
 
-# Run the server
-python3 server.py
+# Run the server in the background
+python3 server.py &
+
+# Store the process ID of the server
+SERVER_PID=$!
+
+# Wait a few seconds to ensure the server starts
+sleep 2
+
+# Confirm execution
+echo "Server has been started on port 8000 with PID $SERVER_PID"
 
 ```
 
