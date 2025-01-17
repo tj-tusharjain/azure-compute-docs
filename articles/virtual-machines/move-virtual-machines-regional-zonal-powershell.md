@@ -466,8 +466,10 @@ Check whether the regional VMs you added have any dependencies on other resource
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell-interactive
-    $list = Get-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" $list.Name
+    $list = Get-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" 
     ```
+    
+    ```$list.Name```
 
     **Output:**
 
