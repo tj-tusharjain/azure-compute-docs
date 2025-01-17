@@ -233,204 +233,7 @@ Request body
 ### Configure the application health extension response
 Configuring the custom metrics response can be accomplished in many different ways. It can be integrated into existing applications, dynamically updated and be used along side various functions to provide an output based on a specific situation. 
 
-#### Example 1: Phase order
-This sample application can be installed on a virtual machine in a scale set to emit the phase belongs to. The simpliest way to apply this application is via custom data. 
-
-##### [Bash](#tab/bash)
-
-```bash
-#!/bin/bash
-
-# Open firewall port (replace with your firewall rules as needed)
-sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
-
-# Create Python HTTP server for responding with JSON
-cat <<EOF > server.py
-import json
-from http.server import BaseHTTPRequestHandler, HTTPServer
-
-# Function to generate the JSON response
-def generate_response_json():
-    return json.dumps({
-        "ApplicationHealthState": "Healthy",
-        "CustomMetrics": json.dumps({
-            "RollingUpgrade": {
-                "SkipUpgrade": "false"
-            }
-        })
-    })
-
-class RequestHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        # Respond with HTTP 200 and JSON content
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.end_headers()
-        response = generate_response_json()
-        self.wfile.write(response.encode('utf-8'))
-
-# Set up the HTTP server
-def run(server_class=HTTPServer, handler_class=RequestHandler):
-    server_address = ('localhost', 8000)
-    httpd = server_class(server_address, handler_class)
-    print('Starting server on port 8000...')
-    httpd.serve_forever()
-
-if __name__ == "__main__":
-    run()
-EOF
-
-# Run the server in the background
-python3 server.py &
-
-# Store the process ID of the server
-SERVER_PID=$!
-
-# Wait a few seconds to ensure the server starts
-sleep 2
-
-# Confirm execution
-echo "Server has been started on port 8000 with PID $SERVER_PID"
-```
-
-##### [PowerShell](#tab/powershell)
-
-```powershell
- New-NetFirewallRule -DisplayName 'HTTP(S) Inbound' -Direction Inbound -Action Allow -Protocol TCP -LocalPort @('8000')
-                $Hso = New-Object Net.HttpListener
-                $Hso.Prefixes.Add('http://localhost:8000/')
-                $Hso.Start()
-                function GenerateResponseJson()
-                {
-                    $appHealthState = "Healthy"
-                    $phaseOrderingNumber = 0
-                    $hashTable = @{
-                        'ApplicationHealthState' = $appHealthState
-                        'CustomMetrics' = @{
-                            'RollingUpgrade' = @{
-                                'PhaseOrderingNumber' = $phaseOrderingNumber
-                            }
-                        }
-                    } 
-                    $hashTable.CustomMetrics = ($hashTable.CustomMetrics | ConvertTo-Json)
-                    return ($hashTable | ConvertTo-Json)
-                }
-                While($Hso.IsListening)
-                {
-                    $context = $Hso.GetContext()
-                    $response = $context.Response
-                    $response.StatusCode = 200
-                    $response.ContentType = 'application/json'
-                    $responseJson = GenerateResponseJson
-                    $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($responseJson)
-                    $response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
-                    $response.Close()
-                }
-                $Hso.Stop()
-```
-
----
-
-#### Example 2: Skip upgrade
-This sample application can be installed on a virtual machine in a scale set to emit that the instance should be omitted from the upcoming rolling upgrade. 
-
-##### [Bash](#tab/bash)
-
-```bash
-#!/bin/bash
-
-# Open firewall port (replace with your firewall rules as needed)
-sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
-
-# Create Python HTTP server for responding with JSON
-cat <<EOF > server.py
-import json
-from http.server import BaseHTTPRequestHandler, HTTPServer
-
-# Function to generate the JSON response
-def generate_response_json():
-    return json.dumps({
-        "ApplicationHealthState": "Healthy",
-        "CustomMetrics": json.dumps({
-            "RollingUpgrade": {
-                "SkipUpgrade": "false"
-            }
-        })
-    })
-
-class RequestHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        # Respond with HTTP 200 and JSON content
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.end_headers()
-        response = generate_response_json()
-        self.wfile.write(response.encode('utf-8'))
-
-# Set up the HTTP server
-def run(server_class=HTTPServer, handler_class=RequestHandler):
-    server_address = ('localhost', 8000)
-    httpd = server_class(server_address, handler_class)
-    print('Starting server on port 8000...')
-    httpd.serve_forever()
-
-if __name__ == "__main__":
-    run()
-EOF
-
-# Run the server in the background
-python3 server.py &
-
-# Store the process ID of the server
-SERVER_PID=$!
-
-# Wait a few seconds to ensure the server starts
-sleep 2
-
-# Confirm execution
-echo "Server has been started on port 8000 with PID $SERVER_PID"
-
-```
-
-##### [PowerShell](#tab/powershell)
-
-```powershell
- New-NetFirewallRule -DisplayName 'HTTP(S) Inbound' -Direction Inbound -Action Allow -Protocol TCP -LocalPort @('8000')
-                $Hso = New-Object Net.HttpListener
-                $Hso.Prefixes.Add('http://localhost:8000/')
-                $Hso.Start()
-                function GenerateResponseJson()
-                {
-                    $appHealthState = "Healthy"
-                    $hashTable = @{
-                        'ApplicationHealthState' = $appHealthState
-                        'CustomMetrics' = @{
-                            'RollingUpgrade' = @{
-                                'SkipUpgrade' = "true"
-                            }
-                        }
-                    } 
-                    $hashTable.CustomMetrics = ($hashTable.CustomMetrics | ConvertTo-Json)
-                    return ($hashTable | ConvertTo-Json)
-                }
-                While($Hso.IsListening)
-                {
-                    $context = $Hso.GetContext()
-                    $response = $context.Response
-                    $response.StatusCode = 200
-                    $response.ContentType = 'application/json'
-                    $responseJson = GenerateResponseJson
-                    $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($responseJson)
-                    $response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
-                    $response.Close()
-                }
-                $Hso.Stop()
-```
----
-
-
-#### Example 3: Combined phase order and skip upgrade
-This sample application includes phase order and skip upgrade parameters into the custom metrics response. 
+These sample applications includes phase order and skip upgrade parameters into the custom metrics response. 
 
 ##### [Bash](#tab/bash)
 
@@ -494,37 +297,70 @@ echo "Server has been started on port 8000 with PID $SERVER_PID"
 ##### [PowerShell](#tab/powershell)
 
 ```powershell
- New-NetFirewallRule -DisplayName 'HTTP(S) Inbound' -Direction Inbound -Action Allow -Protocol TCP -LocalPort @('8000')
-                $Hso = New-Object Net.HttpListener
-                $Hso.Prefixes.Add('http://localhost:8000/')
-                $Hso.Start()
-                function GenerateResponseJson()
-                {
-                    $appHealthState = "Healthy"
-                    $hashTable = @{
-                        'ApplicationHealthState' = $appHealthState
-                        'CustomMetrics' = @{
-                            'RollingUpgrade' = @{
-                                'PhaseOrderingNumber' = 1
-                                'SkipUpgrade' = "false"
-                            }
-                        }
-                    } 
-                    $hashTable.CustomMetrics = ($hashTable.CustomMetrics | ConvertTo-Json)
-                    return ($hashTable | ConvertTo-Json)
-                }
-                While($Hso.IsListening)
-                {
-                    $context = $Hso.GetContext()
-                    $response = $context.Response
-                    $response.StatusCode = 200
-                    $response.ContentType = 'application/json'
-                    $responseJson = GenerateResponseJson
-                    $responseBytes = [System.Text.Encoding]::UTF8.GetBytes($responseJson)
-                    $response.OutputStream.Write($responseBytes, 0, $responseBytes.Length)
-                    $response.Close()
-                }
-                $Hso.Stop()
+# Define the script path
+$scriptPath = "$env:TEMP\server.ps1"
+
+# Create the PowerShell HTTP Server Script
+$serverScript = @"
+`$Hso = New-Object Net.HttpListener
+`$Hso.Prefixes.Add('http://localhost:8000/')
+`$Hso.Start()
+
+Write-Host 'Starting server on port 8000...'
+
+# Function to Generate JSON Response (Matching Python Format)
+function GenerateResponseJson {
+    # Create JSON string for CustomMetrics
+    `$customMetricsJson = (@{
+        'RollingUpgrade' = @{
+            'PhaseOrderingNumber' = 1
+            'SkipUpgrade' = 'false'
+        }
+    } | ConvertTo-Json -Depth 10) -replace "`n", "" -replace "\s{2,}", ""  # Ensuring a single-line JSON string
+
+    # Create main JSON response
+    `$response = @{
+        'ApplicationHealthState' = 'Healthy'
+        'CustomMetrics' = `$customMetricsJson  # Embed JSON string inside JSON
+    }
+
+    return (`$response | ConvertTo-Json -Depth 10)
+}
+
+# Keep the server running
+while (`$Hso.IsListening) {
+    try {
+        `$context = `$Hso.GetContext()
+        `$response = `$context.Response
+        `$response.StatusCode = 200
+        `$response.ContentType = 'application/json'
+        `$responseJson = GenerateResponseJson
+        `$responseBytes = [System.Text.Encoding]::UTF8.GetBytes(`$responseJson)
+        `$response.OutputStream.Write(`$responseBytes, 0, `$responseBytes.Length)
+        `$response.Close()
+        Write-Host "Responded to request at $(Get-Date)"
+    }
+    catch {
+        Write-Host "Error occurred: $_"
+    }
+}
+"@
+
+# Write the script to a file
+$serverScript | Out-File -FilePath $scriptPath -Encoding UTF8
+
+# Verify if the file exists before starting the process
+if (Test-Path $scriptPath) {
+    Write-Host "Server script successfully created at $scriptPath"
+    Start-Process -NoNewWindow -FilePath "powershell.exe" -ArgumentList "-ExecutionPolicy Bypass -File `"$scriptPath`"" -PassThru | ForEach-Object {
+        # Store Process ID
+        $SERVER_PID = $_.Id
+        Write-Host "Server has been started on port 8000 with PID $SERVER_PID"
+    }
+} else {
+    Write-Host "Error: Server script not found at $scriptPath"
+}
+
 ```
 
 ---
