@@ -233,7 +233,7 @@ Request body
 ### Configure the application health extension response
 Configuring the custom metrics response can be accomplished in many different ways. It can be integrated into existing applications, dynamically updated and be used along side various functions to provide an output based on a specific situation. 
 
-These sample applications includes phase order and skip upgrade parameters into the custom metrics response. 
+These sample applications include phase order and skip upgrade parameters into the custom metrics response. 
 
 ##### [Bash](#tab/bash)
 
