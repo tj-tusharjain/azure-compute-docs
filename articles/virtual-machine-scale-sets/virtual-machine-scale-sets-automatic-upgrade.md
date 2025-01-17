@@ -1,6 +1,6 @@
 ---
 title: Automatic OS image upgrades with Azure Virtual Machine Scale Sets
-description: Learn how to automatically upgrade the OS image on virtual machine instances in a scale set
+description: Learn how to automatically upgrade the OS image on virtual machines  in a scale set
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
@@ -60,7 +60,7 @@ The platform orchestrated updates process is followed for rolling out supported 
 The region of a scale set becomes eligible to get image upgrades either through the availability-first process for platform images or replicating new custom image versions for Share Image Gallery. The image upgrade is then applied to an individual scale set in a batched manner as follows:
 
 1. Before you begin the upgrade process, the orchestrator ensures that no more than 20% of instances in the entire scale set are unhealthy (for any reason).
-2. The upgrade orchestrator identifies the batch of virtual machine instances to upgrade, with any one batch having a maximum of 20% of the total instance count, subject to a minimum batch size of one virtual machine. There is no minimum scale set size requirement and scale sets with 5 or fewer instances have 1 virtual machine  per upgrade batch (minimum batch size).
+2. The upgrade orchestrator identifies the batch of virtual machines to upgrade, with any one batch having a maximum of 20% of the total instance count, subject to a minimum batch size of one virtual machine. There is no minimum scale set size requirement and scale sets with 5 or fewer instances have 1 virtual machine  per upgrade batch (minimum batch size).
 3. The OS disk of every virtual machine in the selected upgrade batch is replaced with a new OS disk created from the  image. All specified extensions and configurations in the scale set model are applied to the upgraded instance.
 4. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes for the instance to become healthy, before moving on to upgrade the next batch. If an instance does not recover its health in 5 minutes after an upgrade, then by default the previous OS disk for the instance is restored.
 5. The upgrade orchestrator also tracks the percentage of instances that become unhealthy post an upgrade. The upgrade stops if more than 20% of upgraded instances become unhealthy during the upgrade process.
@@ -77,17 +77,17 @@ To modify the default settings associated with Rolling Upgrades, review Azure's 
 
 Both **OS Image Upgrade** and **[Reimage](/rest/api/compute/virtual-machine-scale-sets/reimage)** are methods used to update virtual machines within a scale set, but they serve different purposes and have distinct impacts.
 
-OS image upgrade involves updating the underlying operating system image that is used to create new instances in a scale set. When you perform an OS image upgrade, Azure creates new virtual machine instances with the updated OS image and gradually replace the old virtual machine instances in the scale set with the new ones. This process is typically performed in stages to ensure high availability. OS image upgrades are a non-disruptive way to apply updates or changes to the underlying OS of the virtual machines in a scale set. Existing virtual machine instances are not affected until they are replaced with the new instances.
+OS image upgrade involves updating the underlying operating system image that is used to create new instances in a scale set. When you perform an OS image upgrade, Azure creates new virtual machines with the updated OS image and gradually replace the old virtual machines in the scale set with the new ones. This process is typically performed in stages to ensure high availability. OS image upgrades are a non-disruptive way to apply updates or changes to the underlying OS of the virtual machines in a scale set. Existing virtual machines are not affected until they are replaced with the new instances.
 
-Reimaging a virtual machine instance in a scale set is a more immediate and disruptive action. When you choose to reimage a virtual machine instance, Azure stops the selected virtual machine instance, perform the reimage operation, and then restart the virtual machine using the same OS image. This effectively reinstalls the OS on that specific virtual machine instance. Reimaging is typically used when you need to troubleshoot or reset a specific virtual machine instance due to issues with that instance.
+Reimaging a virtual machine in a scale set is a more immediate and disruptive action. When you choose to reimage a virtual machine , Azure stops the selected virtual machine, perform the reimage operation, and then restart the virtual machine using the same OS image. This effectively reinstalls the OS on that specific virtual machine. Reimaging is typically used when you need to troubleshoot or reset a specific virtual machine due to issues with that instance.
 
 **Key differences:**
 - OS Image Upgrade is a gradual and non-disruptive process that updates the OS image for the entire Virtual Machine Scale Set over time, ensuring minimal impact on running workloads.
-- Reimage is a more immediate and disruptive action that affects only the selected virtual machine instance, stopping it temporarily and reinstalling the OS.
+- Reimage is a more immediate and disruptive action that affects only the selected virtual machine, stopping it temporarily and reinstalling the OS.
 
 **When to use each method:**
 - Use OS Image Upgrade when you want to update the OS image for the entire scale set while maintaining high availability.
-- Use Reimage when you need to troubleshoot or reset a specific virtual machine instance within the virtual Machine Scale Set.
+- Use Reimage when you need to troubleshoot or reset a specific virtual machine within the virtual Machine Scale Set.
 
 It's essential to carefully plan and choose the appropriate method based on your specific requirements to minimize any disruption to your applications and services running in a Virtual Machine Scale Set.
 
@@ -288,9 +288,9 @@ properties: {
 
 ## Using Application Health Extension
 
-During an OS Upgrade, virtual machine instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded virtual machine instances. We recommend that the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers virtual machine power state and extension provisioning state to determine if a virtual machine instance is healthy after an upgrade. During the OS Upgrade of a virtual machine instance, the OS disk on a virtual machine instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these virtual machines. The application is considered healthy only when all the extensions on the instance are successfully provisioned.
+During an OS Upgrade, virtual machines in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded virtual machines. We recommend that the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers virtual machine power state and extension provisioning state to determine if a virtual machine is healthy after an upgrade. During the OS Upgrade of a virtual machine, the OS disk on a virtual machine is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these virtual machines. The application is considered healthy only when all the extensions on the instance are successfully provisioned.
 
-A scale set can optionally be configured with Application Health Probes to provide the platform with accurate information on the ongoing state of the application. Application Health Probes are Custom Load Balancer Probes that are used as a health signal. The application running on a scale set virtual machine instance can respond to external HTTP or TCP requests indicating whether it's healthy. For more information on how Custom Load Balancer Probes work, see to [Understand load balancer probes](/azure/load-balancer/load-balancer-custom-probe-overview). Application Health Probes are not supported for Service Fabric scale sets. Non-Service Fabric scale sets require either Load Balancer application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md).
+A scale set can optionally be configured with Application Health Probes to provide the platform with accurate information on the ongoing state of the application. Application Health Probes are Custom Load Balancer Probes that are used as a health signal. The application running on a scale set virtual machine can respond to external HTTP or TCP requests indicating whether it's healthy. For more information on how Custom Load Balancer Probes work, see to [Understand load balancer probes](/azure/load-balancer/load-balancer-custom-probe-overview). Application Health Probes are not supported for Service Fabric scale sets. Non-Service Fabric scale sets require either Load Balancer application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md).
 
 If the scale set is configured to use multiple placement groups, probes using a [Standard Load Balancer](/azure/load-balancer/load-balancer-overview) need to be used.
 
@@ -351,7 +351,7 @@ The recommended steps to recover virtual machines and re-enable automatic OS upg
 * Regenerate the token (or any other credentials) passed into your extensions.
 * Ensure that any credential used from inside the virtual machine to talk to external entities is up to date.
 * Update extensions in the scale set model with any new tokens.
-* Deploy the updated scale set, which updates all virtual machine instances including the failed ones.
+* Deploy the updated scale set, which updates all virtual machines including the failed ones.
 
 ### REST API
 The following example uses [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) to check the status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
