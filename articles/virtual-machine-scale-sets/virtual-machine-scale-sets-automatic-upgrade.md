@@ -60,7 +60,7 @@ The platform orchestrated updates process is followed for rolling out supported 
 The region of a scale set becomes eligible to get image upgrades either through the availability-first process for platform images or replicating new custom image versions for Share Image Gallery. The image upgrade is then applied to an individual scale set in a batched manner as follows:
 
 1. Before you begin the upgrade process, the orchestrator ensures that no more than 20% of instances in the entire scale set are unhealthy (for any reason).
-2. The upgrade orchestrator identifies the batch of virtual machine instances to upgrade, with any one batch having a maximum of 20% of the total instance count, subject to a minimum batch size of one virtual machine. There is no minimum scale set size requirement and scale sets with 5 or fewer instances will have 1 virtual machine  per upgrade batch (minimum batch size).
+2. The upgrade orchestrator identifies the batch of virtual machine instances to upgrade, with any one batch having a maximum of 20% of the total instance count, subject to a minimum batch size of one virtual machine. There is no minimum scale set size requirement and scale sets with 5 or fewer instances have 1 virtual machine  per upgrade batch (minimum batch size).
 3. The OS disk of every virtual machine in the selected upgrade batch is replaced with a new OS disk created from the  image. All specified extensions and configurations in the scale set model are applied to the upgraded instance.
 4. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes for the instance to become healthy, before moving on to upgrade the next batch. If an instance does not recover its health in 5 minutes after an upgrade, then by default the previous OS disk for the instance is restored.
 5. The upgrade orchestrator also tracks the percentage of instances that become unhealthy post an upgrade. The upgrade stops if more than 20% of upgraded instances become unhealthy during the upgrade process.
@@ -156,7 +156,7 @@ If you are using Service Fabric, ensure the following conditions are met:
 -	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold. If Service Fabric durability is Bronze, only Stateless-only node types support automatic OS image upgrades).
 -	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
-- An additional health probe or use of application health extension is not required for Silver or Gold durability. Bronze durability with Stateless-only node types requires an additional health probe.
+- More health probes or use of application health extension is not required for Silver or Gold durability. Bronze durability with Stateless-only node types requires an additional health probe.
 - The property *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property must set to *false* in the scale set model definition. The *enableAutomaticUpdates* property enables in-VM patching using "Windows Update" and is not supported on Service Fabric scale sets. You should use the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property instead.
 
 Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch results in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
@@ -295,7 +295,7 @@ A scale set can optionally be configured with Application Health Probes to provi
 If the scale set is configured to use multiple placement groups, probes using a [Standard Load Balancer](/azure/load-balancer/load-balancer-overview) need to be used.
 
 > [!NOTE]
-> Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you will need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades.
+> Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades.
 
 ### Configuring a Custom Load Balancer Probe as Application Health Probe on a scale set
 
@@ -314,7 +314,7 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 ```
 
 > [!NOTE]
-> When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster node type must be configured to use the Silver Durability Tier or higher. For Bronze Durability tier, automatic OS image upgrade is only supported for Stateless node types. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
+> When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster node type must be configured to use the Silver Durability Tier or higher. For Bronze Durability tier, automatic OS image upgrade is only supported for Stateless node types. For more information on the durability characteristics of Service Fabric clusters, see [this documentation](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ## Using Application Health extension
 
@@ -344,13 +344,13 @@ You can check the history of the most recent OS upgrade performed on your scale 
 
 ### Keep credentials up to date
 
-If your scale set uses any credentials to access external resources, such as a virtual machine extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade fails and the first batch of virtual machines are left in a failed state.
+If your scale set uses any credentials to access external resources, such as a virtual machine extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials including certificates and tokens have expired, the upgrade fails and the first batch of virtual machines are left in a failed state.
 
 The recommended steps to recover virtual machines and re-enable automatic OS upgrade if there's a resource authentication failure are:
 
-* Regenerate the token (or any other credentials) passed into your extension(s).
+* Regenerate the token (or any other credentials) passed into your extensions.
 * Ensure that any credential used from inside the virtual machine to talk to external entities is up to date.
-* Update extension(s) in the scale set model with any new tokens.
+* Update extensions in the scale set model with any new tokens.
 * Deploy the updated scale set, which updates all virtual machine instances including the failed ones.
 
 ### REST API
