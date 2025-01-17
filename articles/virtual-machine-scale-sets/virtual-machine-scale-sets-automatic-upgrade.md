@@ -41,9 +41,9 @@ You must integrate an Azure Load Balancer application health probe or [Applicati
 The availability-first model for platform orchestrated updates described below ensures that availability configurations in Azure are respected across multiple availability levels.
 
 **Across regions:**
-- An update will move across Azure globally in a phased manner to prevent Azure-wide deployment failures.
+- An update moves across Azure globally in a phased manner to prevent Azure-wide deployment failures.
 - A 'phase' can have one or more regions, and an update moves across phases only if eligible virtual machines in the previous phase update successfully.
-- Geo-paired regions will not be updated concurrently and cannot be in the same regional phase.
+- Geo-paired regions won't be updated concurrently and cannot be in the same regional phase.
 - The success of an update is measured by tracking the health of a virtual machine post update.
 
 **Within a region:**
@@ -59,11 +59,11 @@ The platform orchestrated updates process is followed for rolling out supported 
 
 The region of a scale set becomes eligible to get image upgrades either through the availability-first process for platform images or replicating new custom image versions for Share Image Gallery. The image upgrade is then applied to an individual scale set in a batched manner as follows:
 
-1. Before you begin the upgrade process, the orchestrator will ensure that no more than 20% of instances in the entire scale set are unhealthy (for any reason).
+1. Before you begin the upgrade process, the orchestrator ensures that no more than 20% of instances in the entire scale set are unhealthy (for any reason).
 2. The upgrade orchestrator identifies the batch of virtual machine instances to upgrade, with any one batch having a maximum of 20% of the total instance count, subject to a minimum batch size of one virtual machine. There is no minimum scale set size requirement and scale sets with 5 or fewer instances will have 1 virtual machine  per upgrade batch (minimum batch size).
 3. The OS disk of every virtual machine in the selected upgrade batch is replaced with a new OS disk created from the  image. All specified extensions and configurations in the scale set model are applied to the upgraded instance.
 4. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes for the instance to become healthy, before moving on to upgrade the next batch. If an instance does not recover its health in 5 minutes after an upgrade, then by default the previous OS disk for the instance is restored.
-5. The upgrade orchestrator also tracks the percentage of instances that become unhealthy post an upgrade. The upgrade will stop if more than 20% of upgraded instances become unhealthy during the upgrade process.
+5. The upgrade orchestrator also tracks the percentage of instances that become unhealthy post an upgrade. The upgrade stops if more than 20% of upgraded instances become unhealthy during the upgrade process.
 6. The above process continues until all instances in the scale set have been upgraded.
 
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While you're upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
@@ -77,9 +77,9 @@ To modify the default settings associated with Rolling Upgrades, review Azure's 
 
 Both **OS Image Upgrade** and **[Reimage](/rest/api/compute/virtual-machine-scale-sets/reimage)** are methods used to update virtual machines within a scale set, but they serve different purposes and have distinct impacts.
 
-OS image upgrade involves updating the underlying operating system image that is used to create new instances in a scale set. When you perform an OS image upgrade, Azure will create new virtual machine instances with the updated OS image and gradually replace the old virtual machine instances in the scale set with the new ones. This process is typically performed in stages to ensure high availability. OS image upgrades are a non-disruptive way to apply updates or changes to the underlying OS of the virtual machines in a scale set. Existing virtual machine instances are not affected until they are replaced with the new instances.
+OS image upgrade involves updating the underlying operating system image that is used to create new instances in a scale set. When you perform an OS image upgrade, Azure creates new virtual machine instances with the updated OS image and gradually replace the old virtual machine instances in the scale set with the new ones. This process is typically performed in stages to ensure high availability. OS image upgrades are a non-disruptive way to apply updates or changes to the underlying OS of the virtual machines in a scale set. Existing virtual machine instances are not affected until they are replaced with the new instances.
 
-Reimaging a virtual machine instance in a scale set is a more immediate and disruptive action. When you choose to reimage a virtual machine instance, Azure will stop the selected virtual machine instance, perform the reimage operation, and then restart the virtual machine using the same OS image. This effectively reinstalls the OS on that specific virtual machine instance. Reimaging is typically used when you need to troubleshoot or reset a specific virtual machine instance due to issues with that instance.
+Reimaging a virtual machine instance in a scale set is a more immediate and disruptive action. When you choose to reimage a virtual machine instance, Azure stops the selected virtual machine instance, perform the reimage operation, and then restart the virtual machine using the same OS image. This effectively reinstalls the OS on that specific virtual machine instance. Reimaging is typically used when you need to troubleshoot or reset a specific virtual machine instance due to issues with that instance.
 
 **Key differences:**
 - OS Image Upgrade is a gradual and non-disruptive process that updates the OS image for the entire Virtual Machine Scale Set over time, ensuring minimal impact on running workloads.
@@ -159,7 +159,7 @@ If you are using Service Fabric, ensure the following conditions are met:
 - An additional health probe or use of application health extension is not required for Silver or Gold durability. Bronze durability with Stateless-only node types requires an additional health probe.
 - The property *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property must set to *false* in the scale set model definition. The *enableAutomaticUpdates* property enables in-VM patching using "Windows Update" and is not supported on Service Fabric scale sets. You should use the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property instead.
 
-Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch results in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 
 ## Automatic OS image upgrade for custom images
@@ -168,7 +168,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 
 ### Additional requirements for custom images
 - The setup and configuration process for automatic OS image upgrade is the same for all scale sets as detailed in the [configuration section](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) of this page.
-- Scale sets instances configured for automatic OS image upgrades will be upgraded to the  version of the Azure Compute Gallery image when a new version of the image is published and [replicated](../virtual-machines/azure-compute-gallery.md#replication) to the region of that scale set. If the new image is not replicated to the region where the scale is deployed, the scale set instances will not be upgraded to the version. Regional image replication allows you to control the rollout of the new image for your scale sets.
+- Scale sets instances configured for automatic OS image upgrades are upgraded to the  version of the Azure Compute Gallery image when a new version of the image is published and [replicated](../virtual-machines/azure-compute-gallery.md#replication) to the region of that scale set. If the new image is not replicated to the region where the scale is deployed, the scale set instances are not upgraded to the version. Regional image replication allows you to control the rollout of the new image for your scale sets.
 - The new image version should not be excluded from the  version for that gallery image. Image versions excluded from the gallery image's  version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
@@ -179,7 +179,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition.
 
 > [!NOTE]
-> **Upgrade Policy mode** and **Automatic OS Upgrade Policy** are separate settings and control different aspects of the scale set. When there are changes in the scale set template, the Upgrade Policy `mode` will determine what happens to existing instances in the scale set. However, Automatic OS Upgrade Policy `enableAutomaticOSUpgrade` is specific to the OS image and tracks changes the image publisher has made and determines what happens when there is an update to the image.
+> **Upgrade Policy mode** and **Automatic OS Upgrade Policy** are separate settings and control different aspects of the scale set. When there are changes in the scale set template, the Upgrade Policy `mode` determines what happens to existing instances in the scale set. However, Automatic OS Upgrade Policy `enableAutomaticOSUpgrade` is specific to the OS image and tracks changes the image publisher has made and determines what happens when there is an update to the image.
 
 > [!Note]
 > If `enableAutomaticOSUpgrade` is set to *true*, `enableAutomaticUpdates` is automatically set to *false* and cannot be set to *true*.
@@ -325,7 +325,7 @@ As the extension reports health from within a virtual machine, the extension can
 There are multiple ways of deploying the Application Health extension to your scale sets as detailed in the examples in [this article](virtual-machine-scale-sets-health-extension.md#deploy-the-application-health-extension).
 
 > [!NOTE]
-> Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you will need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades.
+> Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades.
 
 
 ## Configure custom metrics for rolling upgrades on Virtual Machine Scale Sets (Preview)
@@ -344,14 +344,14 @@ You can check the history of the most recent OS upgrade performed on your scale 
 
 ### Keep credentials up to date
 
-If your scale set uses any credentials to access external resources, such as a virtual machine extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail and the first batch of virtual machines will be left in a failed state.
+If your scale set uses any credentials to access external resources, such as a virtual machine extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade fails and the first batch of virtual machines are left in a failed state.
 
 The recommended steps to recover virtual machines and re-enable automatic OS upgrade if there's a resource authentication failure are:
 
 * Regenerate the token (or any other credentials) passed into your extension(s).
 * Ensure that any credential used from inside the virtual machine to talk to external entities is up to date.
 * Update extension(s) in the scale set model with any new tokens.
-* Deploy the updated scale set, which will update all virtual machine instances including the failed ones.
+* Deploy the updated scale set, which updates all virtual machine instances including the failed ones.
 
 ### REST API
 The following example uses [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) to check the status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
@@ -431,9 +431,9 @@ az vm image list --location "westus" --publisher "Canonical" --offer "0001-com-u
 ```
 
 ## Manually trigger OS image upgrades
-With automatic OS image upgrade enabled on your scale set, you do not need to manually trigger image updates on your scale set. The OS upgrade orchestrator will automatically apply the latest available image version to your scale set instances without any manual intervention.
+With automatic OS image upgrade enabled on your scale set, you don't need to manually trigger image updates on your scale set. The OS upgrade orchestrator automatically applies the latest available image version to your scale set instances without any manual intervention.
 
-For specific cases where you do not want to wait for the orchestrator to apply the latest image, you can trigger an OS image upgrade manually using the below examples.
+For specific cases where you don't want to wait for the orchestrator to apply the latest image, you can trigger an OS image upgrade manually using the below examples.
 
 > [!NOTE]
 > Manual trigger of OS image upgrades does not provide automatic rollback capabilities. If an instance does not recover its health after an upgrade operation, its previous OS disk can't be restored.
@@ -466,7 +466,7 @@ az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScale
 * Create action groups to tune notification methods like email, sms, webhooks, or ITSM
 *  Set up suitable alerts using different criteria using Portal, ARM resource template, PowerShell or CLI to be sent to action groups
 
-Customers will receive three types of notifications related to Automatic OS Upgrade operation:
+Customers receive three types of notifications related to Automatic OS Upgrade operation:
 * Submission of upgrade request for a particular resource
 * Outcome of submission request along with any error details
 * Outcome of upgrade completion along with any error details
@@ -495,7 +495,7 @@ The platform can return errors on virtual machines while performing Automatic Im
 
 **RollingUpgradeInProgressWithFailedUpgradedVMs**
 - Error is triggered for a virtual machine failure.
-- The detailed error message mentions whether the rollout will continue/pause based on the configured threshold.
+- The detailed error message mentions whether the rollout continues/pauses based on the configured threshold.
 
 **MaxUnhealthyUpgradedInstancePercentExceededInRollingUpgrade**
 - Error is triggered when the percent of upgraded virtual machines exceed the max threshold allowed for unhealthy virtual machines.
