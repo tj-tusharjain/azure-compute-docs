@@ -25,7 +25,7 @@ Let's explore some of the benefits of managed disks.
 
 Managed disks are designed for 99.999% availability. Managed disks achieve this availability by providing three replicas of your data. If one or even two replicas experience problems, the remaining replicas help ensure persistence of your data and high tolerance against failures.
 
-This architecture has helped Azure consistently deliver high durability for infrastructure as a service (IaaS) disks, with a 0% annualized failure rate. Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a year. Zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a year.
+This architecture helps Azure consistently deliver high durability for infrastructure as a service (IaaS) disks, with a 0% annualized failure rate. Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a year. Zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a year.
 
 ### Simple and scalable VM deployment
 
