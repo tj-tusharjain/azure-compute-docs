@@ -180,7 +180,7 @@ To delete a service fabric application that was deployed by using the applicatio
 1. Use the [Remove-AzServiceFabricManagedClusterApplication](/powershell/module/az.servicefabric/remove-azservicefabricmanagedclusterapplication) cmdlet to delete the application resources:
 
     ```powershell
-    Remove-AzServiceFabricApplication -ResourceId <String> [-Force]
+    Remove-AzServiceFabricManagedClusterApplication -ResourceId <String> [-Force]
     ```
 
 ## Migration from classic to managed clusters
