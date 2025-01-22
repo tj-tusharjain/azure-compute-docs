@@ -16,7 +16,7 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 ## Update summary
 
 - [What's new in 2025](#whats-new-in-2025)
-  - [Quarter 1 (January, February, March)](quarter-1-january-february-march-2)
+  - [Quarter 1 (January, February, March)](#quarter-1-january-february-march-2)
     - [Public Preview: Troubleshoot Disk Performance with Copilot in Azure](#public-preview-troubleshoot-disk-performance-with-copilot-in-azure)
 - [What's new in 2024](#whats-new-in-2024)
   - [Quarter 4 (October, November, December)](#quarter-4-october-november-december)
