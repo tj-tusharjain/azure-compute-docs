@@ -5,7 +5,7 @@ author: ju-shim
 ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.date: 01/04/2024
+ms.date: 01/22/2025
 ms.author: jushiman
 ms.reviewer: jushiman
 ms.custom: mvc, mode-ui
@@ -18,6 +18,9 @@ ms.custom: mvc, mode-ui
 Azure virtual machines (VMs) can be created through the Azure portal. This method provides a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a virtual machine (VM) in Azure that runs Windows Server 2022 Datacenter. To see your VM in action, you then RDP to the VM and install the IIS web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!IMPORTANT]
+> The steps outlined in this quickstart are solely for education purposes and aren't intended for deployments to a production environment.
 
 ## Sign in to Azure
 

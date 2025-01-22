@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including Ultra Disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 08/12/2024
+ms.date: 01/21/2025
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -184,7 +184,7 @@ Standard SSDs offer disk bursting, which provides better tolerance for the unpre
 
 ## Standard HDDs
 
-Azure standard HDDs deliver reliable, low-cost disk support for VMs running latency-tolerant workloads. With standard storage, your data is stored on HDDs, and performance may vary more widely than that of SSD-based disks. Standard HDDs are designed to deliver write latencies of less than 10 ms and read latencies of less than 20 ms for most IO operations. Actual performance may vary depending on IO size and workload pattern, however. When working with VMs, you can use standard HDD disks for dev/test scenarios and less critical workloads. Standard HDDs are available in all Azure regions and can be used with all Azure VMs. Standard HDDs support the [512E sector size](https://en.wikipedia.org/wiki/Advanced_Format#512_emulation_(512e)).
+Azure standard HDDs deliver reliable, low-cost disk support for VMs running latency-tolerant workloads. With standard storage, your data is stored on HDDs, and performance may vary more widely than that of SSD-based disks. Standard HDDs are designed to deliver write latencies of less than 10 ms and read latencies of less than 20 ms for most IO operations. However, actual performance may vary depending on IO size and workload pattern. When working with VMs, you can use standard HDD disks for dev/test scenarios and less critical workloads. Standard HDDs are available in all Azure regions and can be used with all Azure VMs. Standard HDDs support the [512E sector size](https://en.wikipedia.org/wiki/Advanced_Format#512_emulation_(512e)).
 
 ### Standard HDD size
 [!INCLUDE [disk-storage-standard-hdd-sizes](~/reusable-content/ce-skilling/azure/includes/disk-storage-standard-hdd-sizes.md)]
