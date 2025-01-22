@@ -18,13 +18,13 @@ Ultra Disks and Premium solid-state drives (SSD) v2 are designed from the ground
 
 ## Premium SSD
 
-Premium SSD supports several performance options, each geared towards different use cases. The following table outlines the main differences and ideal uses, at a glance.
+Premium SSD supports several performance options, each geared towards different use cases. The following table outlines the main differences and ideal uses.
 
 |  |Credit-based bursting  |On-demand bursting  |Changing performance tier  |
 |---------|---------|---------|---------|
 | **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling(Not time restricted).|Ideal if your workload would otherwise continually be running in burst. |
 |**Cost**     |Free         |Cost is variable, see the [Billing](/azure/virtual-machines/disk-bursting#billing) section of the bursting article for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |
-|**Availability**     |Only available for premium SSD managed disks 512 GiB and smaller, and standard SSDs 1024 GiB and smaller.         |Only available for premium SSD managed disks larger than 512 GiB.         |Available to all premium SSD sizes.         |
+|**Availability**     |Only available for Premium SSD managed disks 512 GiB and smaller, and Standard SSDs 1024 GiB and smaller.         |Only available for Premium SSD managed disks larger than 512 GiB.         |Available to all Premium SSD sizes.         |
 |**Enablement**     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
 
 ### Credit-based disk bursting
@@ -37,7 +37,7 @@ With on-demand disk bursting enabled, the disk bursts whenever its needs exceed 
 
 ### Change performance tiers
 
-The performance of a Premium SSD is set when you create your disk, in the form of their performance tier. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier determines the IOPS and throughput your managed disk has. For Premium SSD disks only, the performance tier can be changed at deployment or afterwards, without changing the size of the disk, and without downtime.
+The performance of a Premium SSD is set when you create your disk, in the form of their performance tier. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier determines the IOPS and throughput your managed disk has. For Premium SSD disks only, the performance tier can be changed at deployment or afterwards, without changing the size of the disk, and without downtime. To learn more, see [Performance tiers for managed disks](/azure/virtual-machines/disks-change-performance).
 
 ### Write accelerator
 
