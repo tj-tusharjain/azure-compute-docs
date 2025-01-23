@@ -31,9 +31,9 @@ Running an existing application in a Windows container on a Service Fabric clust
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
   *  Docker for Windows. [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
-* A Windows cluster with three or more nodes running on Windows Server with Containers. 
+* A Windows cluster with three or more nodes running on Windows Server that support containers. For more info on how to install Docker on the cluster, refer to [Installing Mirantis Runtime](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Deployment/Mirantis-Installation.md). 
 
-  For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
+  For this article, the version (build) of Windows Server running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
   
     To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine. Refer to [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility) before you [creating a cluster](service-fabric-cluster-creation-via-portal.md).
 
@@ -541,7 +541,6 @@ You can configure the Service Fabric cluster to remove unused container images f
                 "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
-          }
         ]
 	} 
 ]
@@ -564,6 +563,7 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
+          ...
         ]
 	}
 ]
@@ -595,7 +595,8 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
           { 
             "name": "ContainerServiceArguments", 
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
-          } 
+          }
+          ...
         ] 
 	} 
 ]
@@ -691,6 +692,41 @@ Similarly, below is an example on how to override the **ExeHost**:
 ```
 > [!NOTE]
 > Entry point override is not supported for SetupEntryPoint.
+
+## Configure Ktl logger to use user mode
+Stateful services can experience an error when running in containers because of the differences in the file system.
+This error will be visible inside the Service Fabric Explorer as follows:
+```
+'System.RA' reported Warning for property 'ReplicaOpenStatus'.
+Replica had multiple failures during open on _Type309_0. API call: IStatefulServiceReplica.Open(); Error = System.Fabric.FabricException (-2147024463)
+An error occurred during this operation.  Please check the trace logs for more details.
+System.Runtime.InteropServices.COMException (-2147024463)
+A device which does not exist was specified. (0x800701B1)
+...
+```
+The error can be fixed by updating the cluster manifest to set the **UseUserModeKtlLogger** to **true** under the **TransactionalReplicator** section.
+```json
+"fabricSettings": [
+	...,
+	{
+        "name": "TransactionalReplicator",
+        "parameters": [
+          {
+              "name": "UseUserModeKtlLogger",
+              "value": "true"
+          }
+          ...
+        ]
+	}
+]
+```
+
+## Primary certificate inside the container
+By default, the primary cluster certificate is needed for communication between nodes, and this certificate is not installed inside the containers. This means that Service Fabric Services running inside a container cannot talk to services on other nodes.
+
+A way to fix this is to include the pfx file inside the container along with a powershell script to install the certificate inside the container.
+
+Learn more about [Service Fabric cluster security scenarios](service-fabric-cluster-security.md).
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
