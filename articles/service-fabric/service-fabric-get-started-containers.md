@@ -693,41 +693,6 @@ Similarly, below is an example on how to override the **ExeHost**:
 > [!NOTE]
 > Entry point override is not supported for SetupEntryPoint.
 
-## Configure Ktl logger to use user mode
-Stateful services can experience an error when running in containers because of the differences in the file system.
-This error will be visible inside the Service Fabric Explorer as follows:
-```
-'System.RA' reported Warning for property 'ReplicaOpenStatus'.
-Replica had multiple failures during open on _Type309_0. API call: IStatefulServiceReplica.Open(); Error = System.Fabric.FabricException (-2147024463)
-An error occurred during this operation.  Please check the trace logs for more details.
-System.Runtime.InteropServices.COMException (-2147024463)
-A device which does not exist was specified. (0x800701B1)
-...
-```
-The error can be fixed by updating the cluster manifest to set the **UseUserModeKtlLogger** to **true** under the **TransactionalReplicator** section.
-```json
-"fabricSettings": [
-	...,
-	{
-        "name": "TransactionalReplicator",
-        "parameters": [
-          {
-              "name": "UseUserModeKtlLogger",
-              "value": "true"
-          }
-          ...
-        ]
-	}
-]
-```
-
-## Primary certificate inside the container
-By default, the primary cluster certificate is needed for communication between nodes, and this certificate is not installed inside the containers. This means that Service Fabric Services running inside a container cannot talk to services on other nodes.
-
-A way to fix this is to include the pfx file inside the container along with a powershell script to install the certificate inside the container.
-
-Learn more about [Service Fabric cluster security scenarios](service-fabric-cluster-security.md).
-
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
