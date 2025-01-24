@@ -4,17 +4,17 @@ description: Learn about the available options for increasing Azure managed disk
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 01/13/2025
+ms.date: 01/24/2025
 ms.author: rogarana
 ---
 
 # Performance options
 
-Azure managed disks offer several ways to change their performance and accommodate your workload needs. This article breaks out these ways by disk type.
+The demands and needs of your workload can shift over time, either due to high demand during a holiday, scaling up, or sudden bursts of traffic. Azure managed disks have several capabilities you can take advantage of to ensure their performance can rapidly shift to meet the demands of your workload. This article lists off the capabilities each disk type offers.
 
 ## Ultra Disks and Premium SSD v2
 
-Ultra Disks and Premium solid-state drives (SSD) v2 are designed from the ground up to be highly performant and easily adjustable. They offer the most flexibility and ease among all the disk types when fine tuning your disk's performance, allowing you to programmatically (or directly) set the performance of these disk types. To learn how to adjust the performance of Ultra Disks and Premium SSD v2, see [Adjust disk performance](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli#adjust-disk-performance) for Premium SSD v2 or [Adjust the performance of an Ultra Disk](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#adjust-the-performance-of-an-ultra-disk).
+Ultra Disks and Premium solid-state drives (SSD) v2 are designed to be highly performant and easily adjustable. They offer the most flexibility and ease among all the disk types when fine tuning your disk's performance, letting you programmatically (or directly) set the performance of these disk types. Within every 24 hours, you can adjust the performance of these disks up to four times. If you just created one of these disks, for the first 24 hours you can only adjust its performance up to three times. To learn how to adjust the performance of Ultra Disks and Premium SSD v2, see [Adjust disk performance](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli#adjust-disk-performance) for Premium SSD v2 or [Adjust the performance of an Ultra Disk](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#adjust-the-performance-of-an-ultra-disk).
 
 ## Premium SSD
 
@@ -22,7 +22,7 @@ Premium SSD supports several performance options, each geared towards different 
 
 |  |Credit-based bursting  |On-demand bursting  |Changing performance tier  |
 |---------|---------|---------|---------|
-| **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling(Not time restricted).|Ideal if your workload would otherwise continually be running in burst. |
+| **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling (Not time restricted).|Ideal if your workload would otherwise continually be running in burst. |
 |**Cost**     |Free         |Cost is variable, see the [Billing](/azure/virtual-machines/disk-bursting#billing) section of the bursting article for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |
 |**Availability**     |Only available for Premium SSD managed disks 512 GiB and smaller, and Standard SSDs 1024 GiB and smaller.         |Only available for Premium SSD managed disks larger than 512 GiB.         |Available to all Premium SSD sizes.         |
 |**Enablement**     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
