@@ -201,4 +201,4 @@ Similarly, Azure Storage handles resource contentions and other issues in the ba
 
 - If you want to watch a video that gives more detail on managed disks, check out [Better Azure VM Resiliency with Managed Disks](/shows/azure/managed-disks-azure-resiliency).
 - To learn more about the individual disk types that Azure offers, which type is a good fit for your needs, and their performance targets, see [Select a disk type for IaaS VMs](disks-types.md).
-- To learn the best practices for optimizing VM and disk configurations so that you can achieve your desired performance, see [Design for high performance](premium-storage-performance.md).
+- Learn the [Best practices for achieving high availability with Azure virtual machines and managed disks](disks-high-availability.md).
