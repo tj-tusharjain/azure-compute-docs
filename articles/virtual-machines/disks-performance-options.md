@@ -8,9 +8,9 @@ ms.date: 01/24/2025
 ms.author: rogarana
 ---
 
-# Performance options
+# Options for improving performance of Azure managed disks
 
-The demands and needs of your workload can shift over time, either due to high demand during a holiday, scaling up, or sudden bursts of traffic. Azure managed disks have several capabilities you can take advantage of to ensure their performance can rapidly shift to meet the demands of your workload. This article lists off the capabilities each disk type offers.
+The demands and needs of your workload can shift over time, either due to high demand during a holiday, sudden bursts of traffic, or scaling up to meet client needs. Azure managed disks have several capabilities to improve their performance, different disk types offer different capabilities that serve different needs. Some disks even have capabilities you can use to ensure their performance rapidly shifts to meet the changing demands of your workload. Once you've determined which [disk type](disks-types.md) is ideal for you, you can use this article to identify the options your disk has to improve performance.
 
 ## Ultra Disks and Premium SSD v2
 
@@ -24,7 +24,7 @@ Premium SSD supports several performance options, each geared towards different 
 |---------|---------|---------|---------|
 | **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling (Not time restricted).|Ideal if your workload would otherwise continually be running in burst. |
 |**Cost**     |Free         |Cost is variable, see the [Billing](/azure/virtual-machines/disk-bursting#billing) section of the bursting article for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |
-|**Availability**     |Only available for Premium SSD managed disks 512 GiB and smaller, and Standard SSDs 1024 GiB and smaller.         |Only available for Premium SSD managed disks larger than 512 GiB.         |Available to all Premium SSD sizes.         |
+|**Availability**     |Only available for Premium SSD managed disks 512 GiB and smaller, and Standard SSDs 1,024 GiB and smaller.         |Only available for Premium SSD managed disks larger than 512 GiB.         |Available to all Premium SSD sizes.         |
 |**Enablement**     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
 
 ### Credit-based disk bursting
