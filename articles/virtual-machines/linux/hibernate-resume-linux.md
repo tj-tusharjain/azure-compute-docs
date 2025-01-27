@@ -33,7 +33,7 @@ The following Linux operating systems support hibernation:
 - Debian 11
 - Debian 10 (with backports kernel)
 - RHEL 9.0 and higher (with minimum kernel version 5.14.0-70)
-- RHEL 8.3 and higher (with minimum kernel version 4.18.0.240)
+- RHEL 8.5 and higher (with minimum kernel version 4.18.0-348)
 
 ### Prerequisites and configuration limitations
 -	Hibernation isn't supported with Trusted Launch for Linux VMs  
