@@ -26,7 +26,7 @@ Because conversion requires a restart of the virtual machine (VM), schedule the 
 
 - You can only change disk type twice per day.
 - You can only change the disk type of managed disks. If your disk is unmanaged, convert it to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to switch between disk types.
-- You can't migrate a disk to Premium SSD v2 if your original disk is attached to a VM that was created from an Azure Compute Gallery image.
+- You can't migrate a disk to Premium SSD v2 and deallocate your VM if your original disk was attached to a VM that was created from an Azure Compute Gallery image.
 
 ## Change the type of an individual managed disk
 
