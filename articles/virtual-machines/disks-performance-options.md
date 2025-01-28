@@ -64,3 +64,9 @@ Enabling performance plus (preview) increases the Input/Output Operations Per Se
 ### Performance plus (preview)
 
 Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard hard disk drives (HDD) that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
+
+## Next steps
+
+- Learn about [managed disk bursting](/azure/virtual-machines/disk-bursting)
+- [Benchmark a disk](disks-benchmarks.md)
+- Learn about [disk performance metrics](disks-metrics.md)
