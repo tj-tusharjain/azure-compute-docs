@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/01/2024
+ms.date: 01/28/2025
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 ---
@@ -90,7 +90,7 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
-| Size Name | Max NICs (Qty.) | RDMA Performance (GB/s) |
+| Size Name | Max NICs (Qty.) | RDMA Performance (Gb/s) |
 | --- | --- | --- |
 | Standard_HB176rs_v4 | 8 | 400 |
 | Standard_HB176-144rs_v4 | 8 | 400 |
