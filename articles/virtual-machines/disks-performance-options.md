@@ -10,9 +10,7 @@ ms.author: rogarana
 
 # Improve Azure managed disk performance
 
-The demands and needs of your workload can shift over time, either due to high demand during a holiday, sudden bursts of traffic, or scaling up to meet client needs. Azure managed disks have several capabilities you can take advantage of to improve their performance and match the shifting needs of your workloads. Different disks offer different capabilities, some disks have capabilities you can use to ensure their performance automatically shifts to meet the changing demands of your workload, others require manual adjustment, and other disk types can't do either.
-
-Once you've selected the ideal [disk type](disks-types.md) for your needs, you can use this article to identify the options your disk has to improve performance.
+The demands and needs of your workload can shift over time, either due to high demand during a holiday, sudden bursts of traffic, or scaling up to meet client needs. Azure managed disks have several capabilities you can take advantage of to improve their performance and match the shifting needs of your workloads. Different disk types offer different capabilities, some disk types have capabilities you can use to ensure their performance automatically shifts to meet the changing demands of your workload, others require manual adjustment, and other disk types can't do either. This article outlines the options each disk type offers to adjust its performance.
 
 ## Ultra Disks and Premium SSD v2
 
