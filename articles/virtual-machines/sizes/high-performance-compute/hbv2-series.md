@@ -90,7 +90,7 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
-| Size Name | Max NICs (Qty.) | RDMA Performance (GB/s) |
+| Size Name | Max NICs (Qty.) | RDMA Performance (Gb/s) |
 | --- | --- | --- |
 | Standard_HB120rs_v2 | 8 |  200 |
 | Standard_HB120-96rs_v2 | 8  | 200 |
