@@ -90,7 +90,7 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
-| Size Name | Max NICs (Qty.) | RDMA Performance (GB/s) |
+| Size Name | Max NICs (Qty.) | RDMA Performance (Gb/s) |
 | --- | --- | --- |
 | Standard_HX176rs | 8 |  400 |
 | Standard_HX176-144rs | 8 |  400 |

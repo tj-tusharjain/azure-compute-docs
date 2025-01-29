@@ -90,6 +90,7 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
+
 | Size Name | Max NICs (Qty.) | Max Network Bandwidth (Mb/s) |
 | --- | --- | --- |
 | Standard_HB120rs_v2 | 8 |  40000 |

@@ -557,12 +557,12 @@
         items:
         - name: HB series
           items:
-          - name: Overview
-            href: hb-series-overview.md
-          - name: HB series
-            href: ./sizes/high-performance-compute/hb-series.md
-          - name: Performance
-            href: hb-series-performance.md
+ #         - name: Overview
+ #           href: hb-series-overview.md
+ #         - name: HB series
+ #           href: ./sizes/high-performance-compute/hb-series.md
+ #         - name: Performance
+ #           href: hb-series-performance.md
           - name: HB series retirement
             href: ./sizes/migration-guides/hb-series-retirement.md
         - name: HBv2 series
