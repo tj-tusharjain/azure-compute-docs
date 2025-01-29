@@ -16,5 +16,5 @@ ms.custom: include file
 | Memory         | 456 GiB        |    |
 | Local Storage  | 1 Temp Disk <br> 1 NVMe Disk         | 480 GiB  <br>960 GiB  |
 | Remote Storage | 8 Disks        |  |
-| Network        | 8 NICs        |  |
+| Network        | 8 vNICs <br> 1 InfiniBand HDR NIC       |  |
 | Accelerators   | None            |     |
