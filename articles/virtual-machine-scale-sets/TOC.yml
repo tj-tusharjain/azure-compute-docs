@@ -149,10 +149,35 @@
       href: azure-hybrid-benefit-linux.md
 - name: Management
   items:
+  - name: Upgrade Policies
+    items:
+    - name: Overview
+      href: virtual-machine-scale-sets-upgrade-policy.md
+    - name: Setting the upgrade policy mode
+      href: virtual-machine-scale-sets-set-upgrade-policy.md
+    - name: Changing the upgrade policy mode
+      href: virtual-machine-scale-sets-change-upgrade-policy.md
+    - name: Configure rolling upgrade policy
+      href: virtual-machine-scale-sets-configure-rolling-upgrades.md
+    - name: Custom metrics for rolling upgrades (preview)
+      href: virtual-machine-scale-sets-rolling-upgrade-custom-metrics.md
+    - name: Rolling upgrades with MaxSurge
+      href: virtual-machine-scale-sets-maxsurge.md
+    - name: Performing manual upgrades
+      href: virtual-machine-scale-sets-perform-manual-upgrades.md
+    - name: Reimage a virtual machine
+      href: virtual-machine-scale-sets-reimage-virtual-machine.md
   - name: Modify a scale set
     href: virtual-machine-scale-sets-upgrade-scale-set.md
   - name: Understand instance IDs
     href: virtual-machine-scale-sets-instance-ids.md
+  - name: Manage fault domains
+    href: virtual-machine-scale-sets-manage-fault-domains.md
+  - name: Relocate to another region
+    href: /azure/operational-excellence/relocation-virtual-machine-scale-sets
+    maintainContext: true
+  - name: Proximity placement groups
+    href: proximity-placement-groups.md
   - name: Connect to Virtual Machines
     items:
     - name: Linux
@@ -189,13 +214,6 @@
       - name: WinRM
         href: ../virtual-machines/windows/connect-winrm.md
         maintainContext: true
-  - name: Manage fault domains
-    href: virtual-machine-scale-sets-manage-fault-domains.md
-  - name: Relocate to another region
-    href: /azure/operational-excellence/relocation-virtual-machine-scale-sets
-    maintainContext: true
-  - name: Proximity placement groups
-    href: proximity-placement-groups.md
   - name: Common management tasks
     items:
     - name: Use the Azure CLI
@@ -210,24 +228,6 @@
       href: virtual-machine-scale-sets-deploy-app.md
     - name: Custom image templates
       href: virtual-machine-scale-sets-mvss-custom-image.md
-  - name: Upgrade Policies
-    items:
-    - name: Overview
-      href: virtual-machine-scale-sets-upgrade-policy.md
-    - name: Setting the upgrade policy mode
-      href: virtual-machine-scale-sets-set-upgrade-policy.md
-    - name: Changing the upgrade policy mode
-      href: virtual-machine-scale-sets-change-upgrade-policy.md
-    - name: Configure rolling upgrade policy
-      href: virtual-machine-scale-sets-configure-rolling-upgrades.md
-    - name: Custom metrics for rolling upgrades (preview)
-      href: virtual-machine-scale-sets-rolling-upgrade-custom-metrics.md
-    - name: Rolling upgrades with MaxSurge
-      href: virtual-machine-scale-sets-maxsurge.md
-    - name: Performing manual upgrades
-      href: virtual-machine-scale-sets-perform-manual-upgrades.md
-    - name: Reimage a virtual machine
-      href: virtual-machine-scale-sets-reimage-virtual-machine.md
   - name: Extensions
     items:
     - name: Extensions Overview
