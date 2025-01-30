@@ -21,9 +21,11 @@ Data in Azure managed disks is encrypted transparently using 256-bit [AES encryp
 
 Azure Storage encryption doesn't impact the performance of managed disks and there's no extra cost. For more information about Azure Storage encryption, see [Azure Storage encryption](/azure/storage/common/storage-service-encryption).
 
-> [!NOTE]
+> [!IMPORTANT]
 > Temporary disks are not managed disks and are not encrypted by SSE, unless you enable encryption at host.
+> 
 > Azure VMs that are version 5 and above (such as Dsv5 or Dsv6) automatically encrypt their temporary disks and (if in use) their ephemeral OS disks with encryption-at-rest. This encryption happens at the hardware level, it's not performed by SSE. If you enable encryption at host on these VMs, you may experience performance problems if you're using them with ephemeral OS disks, or their temporary disks.
+
 
 ## About encryption key management
 
