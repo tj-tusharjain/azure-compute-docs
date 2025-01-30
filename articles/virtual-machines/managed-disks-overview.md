@@ -148,6 +148,7 @@ Data on the temporary disk might be lost during a [maintenance event](./understa
 
 On Azure Linux VMs, the temporary disk is typically */dev/sdb*. On Windows VMs, the temporary disk is drive D by default. The temporary disk is not encrypted unless:
 
+- You're using an Azure VM that is version 5 and above (such as Dsv5 or Dsv6). Azure VMs version 5 and above automatically encrypt their temporary disks and (if in use) their ephemeral OS disks with encryption-at-rest. This encryption happens at the hardware level, it doesn't come from the Azure Storage service.
 - For server-side encryption, you enable encryption at the host.
 - For Azure Disk Encryption, you set the `VolumeType` parameter to [All](./windows/disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk) on Windows or [EncryptFormatAll](./linux/disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms) on Linux.
 
