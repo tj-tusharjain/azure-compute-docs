@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/01/2024
+ms.date: 01/28/2025
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 ---
@@ -18,7 +18,7 @@ ms.reviewer: mattmcinnes
 [!INCLUDE [hc-series-specs](./includes/hc-series-specs.md)]
 
 ## Feature support
-[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Not Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Not Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Not Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Not Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br> [Backend Network](./hc-series.md): InfiniBand EDR
 
 ## Sizes in series
 
@@ -84,11 +84,11 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
-| Size Name | Max NICs (Qty.) | RDMA Performance (GB/s) |
+| Size Name | Max NICs (Qty.) | Max Network Bandwidth (Mb/s) |
 | --- | --- | --- |
-| Standard_HC44rs | 8 | 100 |
-| Standard_HC44-16rs | 8 | 100 |
-| Standard_HC44-32rs | 8 | 100 |
+| Standard_HC44rs | 8 | 40000 |
+| Standard_HC44-16rs | 8 | 40000 |
+| Standard_HC44-32rs | 8 | 40000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
@@ -98,6 +98,21 @@ Network interface info for each size
 - Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](/azure/virtual-network/virtual-machine-network-throughput)
 - Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](/azure/virtual-network/virtual-network-optimize-network-bandwidth). 
 -  To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](/azure/virtual-network/virtual-network-bandwidth-testing).
+
+
+### [Backend Network](#tab/sizebacknetwork)
+
+Network interface info for each size
+
+| Size Name | Backend NICs (Qty.) | RDMA Performance (Gb/s) |
+| --- | --- | --- |
+| Standard_HC44rs | 1 | 100 |
+| Standard_HC44-16rs | 1 | 100 |
+| Standard_HC44-32rs | 1 | 100 |
+
+#### Backend Networking resources
+- [Set up Infiniband on HPC VMs](/azure/virtual-machines/setup-infiniband)
+
 
 ### [Accelerators](#tab/sizeaccelerators)
 

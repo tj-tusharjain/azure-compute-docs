@@ -6549,6 +6549,36 @@
             "source_path_from_root": "/articles/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md",
             "redirect_url": "/azure/virtual-machines/sizes/b-series-cpu-credit-model",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/sizes/high-performance-compute/hb-family.md",
+            "redirect_url": "/azure/virtual-machines/sizes/overview#high-performance-compute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/sizes/high-performance-compute/hc-family.md",
+            "redirect_url": "/azure/virtual-machines/sizes/overview#high-performance-compute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/sizes/high-performance-compute/hx-family.md",
+            "redirect_url": "/azure/virtual-machines/sizes/overview#high-performance-compute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/sizes/high-performance-compute/hb-series.md",
+            "redirect_url": "/azure/virtual-machines/sizes/migration-guides/hb-series-retirement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/hb-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/sizes/migration-guides/hb-series-retirement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/hb-series-performance.md",
+            "redirect_url": "/azure/virtual-machines/sizes/migration-guides/hb-series-retirement",
+            "redirect_document_id": false
         }
     ]
 }
