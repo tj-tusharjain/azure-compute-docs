@@ -13,8 +13,9 @@ ms.custom: include file
 | Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
 | Processor      | 32 - 44 vCPUs     | Intel Xeon Platinum 8168 [x86-64] |
-| Memory         | 352 GiB        |    |
+| L3 Cache       |               |    |
+| Memory         | 352 GB        | 190 GB/s  |
 | Local Storage  | 1 Disk         | 700 GiB  |
 | Remote Storage | 4 Disks        |  |
-| Network        | 8 vNICs <br> 1 InfiniBand EDR NIC       |  |
+| Network        | 8 vNICs <br> 1 InfiniBand EDR NIC       | 40 Gb/s <br> 100 Gb/s |
 | Accelerators   | None            |     |
