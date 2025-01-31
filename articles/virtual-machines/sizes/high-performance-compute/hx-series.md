@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 01/28/2025
-ms.author: mattmcinnes
+ms.author: padmalathas
 ms.reviewer: mattmcinnes
 ---
 
