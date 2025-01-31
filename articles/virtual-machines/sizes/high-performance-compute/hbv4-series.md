@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 01/28/2025
-ms.author: mattmcinnes
+ms.author: padmalathas
 ms.reviewer: mattmcinnes
 ---
 
@@ -26,13 +26,13 @@ ms.reviewer: mattmcinnes
 
 vCPUs (Qty.) and Memory for each size
 
-| Size Name | vCPUs (Qty.) | Memory (GB) | Memory Bandwidth (GB/s) | Base CPU Frequency (GHz) | Single-core Frequency Peak (GHz) |
-| --- | --- | --- | --- | --- | --- |
-| Standard_HB176rs_v4 | 176 | 768 | 780 | 2.4 | 3.7 |
-| Standard_HB176-144rs_v4 | 144 | 768 | 780 | 2.4 | 3.7 |
-| Standard_HB176-96rs_v4 | 96 | 768 | 780 | 2.4 | 3.7 |
-| Standard_HB176-48rs_v4 | 48 | 768 | 780 | 2.4 | 3.7 |
-| Standard_HB176-24rs_v4 | 24 | 768 | 780 | 2.4 | 3.7 |
+| Size Name | vCPUs (Qty.) | Memory (GB) | L3 Cache (MB) | Memory Bandwidth (GB/s) | Base CPU Frequency (GHz) | All-cores Frequency (GHz, peak) | Single-core Frequency Peak (GHz) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HB176rs_v4 | 176 | 768 | 2304 | 780 | 2.4 |  | 3.7 |
+| Standard_HB176-144rs_v4 | 144 | 768 | 2304 | 780 | 2.4 |  |  3.7 |
+| Standard_HB176-96rs_v4 | 96 | 768 | 2304 | 780 | 2.4 |  | 3.7 |
+| Standard_HB176-48rs_v4 | 48 | 768 | 2304 | 780 | 2.4 |  | 3.7 |
+| Standard_HB176-24rs_v4 | 24 | 768 | 2304 | 780 | 2.4 |  | 3.7 |
 
 #### VM Basics resources
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
