@@ -2,7 +2,7 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 01/08/2025
+ms.date: 01/31/2025
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: azure-disk-storage
@@ -24,7 +24,7 @@ Azure Storage encryption doesn't impact the performance of managed disks and the
 > [!IMPORTANT]
 > Temporary disks are not managed disks and are not encrypted by SSE, unless you enable encryption at host.
 > 
-> Azure VMs that are version 5 and above (such as Dsv5 or Dsv6) automatically encrypt their temporary disks and (if in use) their ephemeral OS disks with encryption-at-rest. This encryption happens at the hardware level, it's not performed by SSE. If you enable encryption at host on these VMs, you may experience performance problems if you're using them with ephemeral OS disks, or their temporary disks.
+> Azure VMs that are version 5 and above (such as Dsv5 or Dsv6) automatically encrypt their temporary disks and (if in use) their ephemeral OS disks with encryption-at-rest.
 
 
 ## About encryption key management
