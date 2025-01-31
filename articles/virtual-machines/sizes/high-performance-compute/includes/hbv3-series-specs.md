@@ -14,7 +14,7 @@ ms.custom: include file
 |---|---|---|
 | Processor      | 16 - 120 vCPUs     | AMD EPYC 7V73X (Milan-X) [x86-64] |
 | L3 Cache       | 1536 MB       |    |
-| Memory         | 448 GB        |    |
+| Memory         | 448 GB        | 350 GB/s   |
 | Local Storage  | 1 Temp Disk <br> 2 NVMe Disks         | 480 GiB  <br> 960 GiB  |
 | Remote Storage | 32 Disks      |    |
 | Network        | 8 vNICs <br> 1 InfiniBand HDR NIC        | 40 Gb/s <br> 200 Gb/s |
