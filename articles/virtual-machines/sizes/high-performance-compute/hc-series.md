@@ -28,9 +28,9 @@ vCPUs (Qty.) and Memory for each size
 
 | Size Name | vCPUs (Qty.) | Memory (GB) | L3 Cache (MB) | Memory Bandwidth (GB/s) | Base CPU Frequency (GHz) |  Single-core Frequency Peak (GHz) | All-core Frequency Peak (GHz) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HC44rs | 44 | 352    | | 191 | 2.7 | 3.7 | 3.4 | 
-| Standard_HC44-16rs | 16 | 352 | | 191 | 2.7 | 3.7 | 3.4 | 
-| Standard_HC44-32rs | 32 | 352 | | 191 | 2.7 | 3.7 | 3.4 | 
+| Standard_HC44rs | 44 | 352    | 60.5  | 191 | 2.7 | 3.7 | 3.4 | 
+| Standard_HC44-16rs | 16 | 352 | 60.5 | 191 | 2.7 | 3.7 | 3.4 | 
+| Standard_HC44-32rs | 32 | 352 | 60.5 | 191 | 2.7 | 3.7 | 3.4 | 
 
 #### VM Basics resources
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
