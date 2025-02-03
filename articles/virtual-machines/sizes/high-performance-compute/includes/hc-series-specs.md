@@ -13,7 +13,7 @@ ms.custom: include file
 | Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
 | Processor      | 32 - 44 vCPUs     | Intel Xeon Platinum 8168 (Skylake) [x86-64] |
-| L3 Cache       | 60 MB      |    |
+| L3 Cache       | 60.5 MB      |    |
 | Memory         | 352 GB        | 190 GB/s  |
 | Local Storage  | 1 Disk         | 700 GiB  |
 | Remote Storage | 4 Disks        |  |
