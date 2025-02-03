@@ -6579,6 +6579,11 @@
             "source_path_from_root": "/articles/virtual-machines/hb-series-performance.md",
             "redirect_url": "/azure/virtual-machines/sizes/migration-guides/hb-series-retirement",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/acu.md",
+            "redirect_url": "/azure/virtual-machines/sizes/resize-vm",
+            "redirect_document_id": false
         }
     ]
 }
