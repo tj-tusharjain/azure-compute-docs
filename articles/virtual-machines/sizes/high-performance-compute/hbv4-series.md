@@ -41,7 +41,7 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GB) | Local Solid State Disks (Qty.) | Local Solid State Disk Size (GB) |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Local Solid State Disks (Qty.) | Local Solid State Disk Size (GiB) |
 | --- | --- | --- | --- | --- |
 | Standard_HB176rs_v4 | 1 | 480 | 2 | 1800 |
 | Standard_HB176-144rs_v4 | 1 | 480 | 2 | 1800 |
