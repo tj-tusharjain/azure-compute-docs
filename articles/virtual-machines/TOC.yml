@@ -685,8 +685,6 @@
     - name: Isolated sizes
       displayName: isolated VM, sole-tenant, sole
       href: isolation.md
-    - name: Azure compute units (ACU)
-      href: acu.md
     - name: Benchmark scores
       displayName: benchmark, coremark
       items:
