@@ -27,6 +27,7 @@ Currently only available in the following regions:
 - Japan East (Three availability zones)
 - Korea Central (Three availability zones)
 - Mexico Central (Three availability zones)
+- New Zealand North (Three availability zones)
 - North Central US (region without availability zone support, sign up through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_qDQoBfgNxGj84DlI3mGbtUOTRZN1FTWkdNVzRESEI2SzVENjE3SDJFOC4u))
 - North Europe (Three availability zones)
 - Norway East (Three availability zones)
