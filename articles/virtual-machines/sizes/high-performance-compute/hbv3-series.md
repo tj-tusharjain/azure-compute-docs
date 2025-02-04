@@ -26,13 +26,13 @@ ms.reviewer: mattmcinnes
 
 vCPUs (Qty.) and Memory for each size
 
-| Size Name | vCPUs (Qty.) | Memory (GB) | Memory Bandwidth (GB/s) | Base CPU Frequency (GHz) | Single-core Frequency Peak (GHz) | All-core Frequency Peak (GHz) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB120rs_v3 | 120 | 448 | 350 | 1.9 | 3.5 | 3 |
-| Standard_HB120-96rs_v3 | 96 | 448 | 350 | 1.9 | 3.5 | 3 |
-| Standard_HB120-64rs_v3 | 64 | 448 | 350 | 1.9 | 3.5 | 3 |
-| Standard_HB120-32rs_v3 | 32 | 448 | 350 | 1.9 | 3.5 | 3 |
-| Standard_HB120-16rs_v3 | 16 | 448 | 350 | 1.9 | 3.5 | 3 |
+| Size Name | vCPUs (Qty.) | Memory (GB) | L3 Cache (MB) |Memory Bandwidth (GB/s) | Base CPU Frequency (GHz) | Single-core Frequency Peak (GHz) | All-core Frequency Peak (GHz) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HB120rs_v3 | 120 | 448 | 1536 | 350 | 1.9 | 3.5 | 3 |
+| Standard_HB120-96rs_v3 | 96 | 448 | 1536 | 350 | 1.9 | 3.5 | 3 |
+| Standard_HB120-64rs_v3 | 64 | 448 | 1536 | 350 | 1.9 | 3.5 | 3 |
+| Standard_HB120-32rs_v3 | 32 | 448 | 1536 | 350 | 1.9 | 3.5 | 3 |
+| Standard_HB120-16rs_v3 | 16 | 448 | 1536 | 350 | 1.9 | 3.5 | 3 |
 
 #### VM Basics resources
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
@@ -41,7 +41,7 @@ vCPUs (Qty.) and Memory for each size
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Local Solid State Disks (Qty.) | Local Solid State Disk Size (GB) |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Local Solid State Disks (Qty.) | Local Solid State Disk Size (GiB) |
 | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v3 | 1 | 480 | 2 | 960 |
 | Standard_HB120-96rs_v3 | 1 | 480 | 2 | 960 |
