@@ -1,6 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: NVMe - Remote NVMe Disks FAQ
+  ms.date: 01/31/2025
   description: Get answers to common questions about working with remote NVMe disks on virtual machines.
   ms.service: azure-virtual-machines
   ms.topic: faq
