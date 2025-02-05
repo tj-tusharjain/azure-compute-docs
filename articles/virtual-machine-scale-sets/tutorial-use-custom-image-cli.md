@@ -12,6 +12,9 @@ ms.custom: mvc, devx-track-azurecli, innovation-engine
 ---
 
 # Tutorial: Create and use a custom image for Virtual Machine Scale Sets with the Azure CLI
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2303113)
+
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
