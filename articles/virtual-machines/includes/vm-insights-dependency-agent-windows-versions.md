@@ -8,8 +8,6 @@ ms.date: 02/27/2024
 
 | Operating system | Azure VM Dependency agent |
 |:---|:---:|
-| Windows Server 2022                                      | ✓ |
-| Windows Server 2022 Core                                 | ✓ |
 | Windows Server 2019                                      | ✓ | 
 | Windows Server 2019 Core                                 | ✓ |
 | Windows Server 2016                                      | ✓ | 

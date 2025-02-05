@@ -15,8 +15,10 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 ## Update summary
 
+- [What's new in 2025](#whats-new-in-2025)
+  - [Quarter 1 (January, February, March)](#quarter-1-january-february-march-2)
+    - [Public Preview: Troubleshoot Disk Performance with Copilot in Azure](#public-preview-troubleshoot-disk-performance-with-copilot-in-azure)
 - [What's new in 2024](#whats-new-in-2024)
-
   - [Quarter 4 (October, November, December)](#quarter-4-october-november-december)
     - [Generally available: Convert existing disks to Premium SSD v2 disks](#generally-available-convert-existing-disks-to-premium-ssd-v2-disks)
     - [Generally available: Expand Ultra Disks and Premium SSD v2 without downtime](#generally-available-expand-ultra-disks-and-premium-ssd-v2-without-downtime)
@@ -49,6 +51,14 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
         - [More transactions at no extra cost - Standard SSDs](#more-transactions-at-no-extra-cost---standard-ssds)
         - [GA: Create disks from snapshots encrypted with customer-managed keys across subscriptions](#ga-create-disks-from-snapshots-encrypted-with-customer-managed-keys-across-subscriptions)
         - [GA: Entra ID support for managed disks](#ga-entra-id-support-for-managed-disks)
+
+## What's new in 2025
+
+### Quarter 1 (January, February, March)
+
+#### Public Preview: Troubleshoot Disk Performance with Copilot in Azure
+
+The Disk Performance Troubleshooting Capability for Copilot in Azure is now available in [Public Preview](https://azure.microsoft.com/updates?id=474649). Now, you can use Copilot in Azure to analyze your [disk metrics](https://learn.microsoft.com/azure/virtual-machines/disks-metrics) and resolve any performance degredation issues when your application requires higher performance than what you have configured for your VMs and disks. To learn more, see [Troubleshoot Disk Performance using Microsoft Copilot in Azure](https://learn.microsoft.com/azure/copilot/troubleshoot-disk-performance).
 
 ## What's new in 2024
 
