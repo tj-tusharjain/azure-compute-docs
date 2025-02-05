@@ -6,6 +6,7 @@ ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 01/27/2025
 ms.author: rogarana
+ms.custom: accpeerreview2025-2
 ---
 
 # Improve Azure managed disk performance
