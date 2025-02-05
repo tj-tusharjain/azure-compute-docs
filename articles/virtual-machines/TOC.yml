@@ -1955,7 +1955,7 @@
           - name: Generation 2 VM
             href: trusted-launch-existing-vm.md
           - name: Generation 1 VM
-            href: trusted-launch-existing-vm-gen1.md
+            href: trusted-launch-existing-vm-gen-1.md
       - name: Enable Trusted launch on existing Virtual Machine Scale Sets
         href: trusted-launch-existing-vmss.md
     - name: Boot integrity monitoring

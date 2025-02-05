@@ -356,7 +356,7 @@ Windows 10 Gen1 VM is successfully upgraded to Trusted launch followed by succes
 
 **Resolution**: This issue is fixed with [24H2 build version 26100.2314](/windows/release-health/windows11-release-information#windows-11-current-versions-by-servicing-option).
 
-:::image type="content" source="./media/trusted-launch/01-errorwindows11boot.jpg" alt-text="Screenshot that shows boot failure of Azure Windows VM.":::
+:::image type="content" source="./media/trusted-launch/01-error-windows-11-boot.jpg" alt-text="Screenshot that shows boot failure of Azure Windows VM.":::
 
 ### [Windows] MBR to GPT conversion fails with error Cannot find room for the EFI system partition
 
