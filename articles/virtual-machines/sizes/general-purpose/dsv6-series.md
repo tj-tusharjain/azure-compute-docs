@@ -10,7 +10,7 @@ ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 ---
 
-# Dsv6 sizes series (Preview)
+# Dsv6 sizes series 
 
 [!INCLUDE [dsv6-summary](./includes/dsv6-series-summary.md)]
 
