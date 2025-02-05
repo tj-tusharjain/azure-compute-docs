@@ -230,4 +230,4 @@ Disk reservation provides you with a discount on the advance purchase of one yea
 
 ## Next steps
 
-See [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) to get started.
+To learn more about how managed disks are billed, see [Understand Azure Disk Storage billing](disks-understand-billing.md).
