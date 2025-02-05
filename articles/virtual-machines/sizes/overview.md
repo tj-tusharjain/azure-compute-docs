@@ -303,7 +303,7 @@ List of high performance computing optimized VM size families:
 
 To learn more about a specific size family or series, click the tab for that family and scroll to find your desired size series. 
 
-#### [H family](#tab/hpc-h-fam)
+#### [HB family](#tab/hpc-hb-fam)
 [!INCLUDE [hb-family-summary](./high-performance-compute/includes/hb-family-summary.md)]
 
 [View the full 'HB' family page](./high-performance-compute/hb-family.md)
