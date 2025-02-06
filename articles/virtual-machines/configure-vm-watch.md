@@ -16,7 +16,7 @@ ms.date:     10/28/2024
 
 VM watch signals are logically grouped into Collector Suites, which can be categorized into two groups: Core and Optional<link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
 
-This article describes on how to configure VM watch to suit specific requirements.
+This article describes how to configure VM watch to suit specific requirements.
 
 ### Pre-requisites
 This article assumes that you are familiar with:
