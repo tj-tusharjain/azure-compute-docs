@@ -19,15 +19,16 @@ Scale set orchestration modes allow you to have greater control over how virtual
 > [!IMPORTANT]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
 
+## Scale Sets with Flexible Orchestration (Recommended)
+Optimized for high availability and scalability with identical or mixed virtual machine types. Flexible Orchestration is the reccomended orchestration mode when deploying scale sets in Azure. 
+
+Flexible orchestration provides a unified experience across the Azure VM ecosystem while offering enhanced availability guarantees (up to 1,000 VMs). VMs are automatically distributed across fault domains within a region or Availability Zone, ensuring resilience for both stateless and stateful applications. Flexible orchestration supports a broad range of workloads, including quorum-based applications, open-source databases, and high-availability services. Additionally, it allows for dynamic instance mixing, enabling the use of different VM types, as well as a combination of Spot and on-demand instances, for optimized performance and cost efficiency.
+
+
 ## Scale Sets with Uniform Orchestration
 Optimized for large-scale workloads with identical virtual machine instances.
 
-Uniform orchestration ensures consistency by using a predefined virtual machine profile to deploy identical instances within a scale set. While some customization of individual VMs is possible, Uniform orchestration primarily manages VMs as a group. Individual instances are accessible via Virtual Machine Scale Set VM API commands but lack compatibility with standard Azure IaaS VM API commands, Azure Resource Manager tagging, RBAC, Azure Backup, or Azure Site Recovery. Uniform orchestration provides built-in high availability guarantees for deployments with fewer than 100 instances and supports key scale set features, including metrics-based autoscaling, instance protection, and automatic OS upgrades.
-
-## Scale Sets with Flexible Orchestration (Recommended)
-Optimized for high availability and scalability with identical or mixed virtual machine types.
-
-Flexible orchestration provides a unified experience across the Azure VM ecosystem while offering enhanced availability guarantees (up to 1,000 VMs). VMs are automatically distributed across fault domains within a region or Availability Zone, ensuring resilience for both stateless and stateful applications. Flexible orchestration supports a broad range of workloads, including quorum-based applications, open-source databases, and high-availability services. Additionally, it allows the combination of different VM types, as well as Spot and on-demand instances, offering greater flexibility for dynamic scaling and cost optimization.
+Uniform orchestration ensures consistency by using a predefined virtual machine profile to deploy identical instances within a scale set. While some customization of individual VMs is possible, Uniform orchestration primarily manages VMs as a group. Individual instances are accessible via Virtual Machine Scale Set VM API commands but lack compatibility with standard Azure IaaS VM API commands, Azure Resource Manager tagging, RBAC, Azure Backup, or Azure Site Recovery. Uniform orchestration supports key scale set features, including metrics-based autoscaling, instance protection, and automatic OS upgrades.
 
 
 ## What has changed with Flexible orchestration mode?
