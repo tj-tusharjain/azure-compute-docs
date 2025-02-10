@@ -80,7 +80,7 @@ az vm disk attach --vm-name <yourVMName> --name <yourDiskName> --resource-group 
 A managed disk must be larger than 512 GiB to enable on-demand bursting. Replace the `<myResourceGroupDisk>` and `<yourDiskName>` parameters and run this command to enable on-demand bursting on an existing disk:
 
 ```azurecli
-az disk update --name <yourDiskName> --resource-group <yourResourceGroup> --enable-bursting true //Set the flag to false to disable on-demand bursting
+az disk update --name <yourDiskName> --resource-group <yourResourceGroup> --enable-bursting true #Set the flag to false to disable on-demand bursting
 ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
