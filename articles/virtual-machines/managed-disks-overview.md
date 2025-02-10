@@ -4,7 +4,7 @@ description: Get an overview Azure managed disks, which handle the storage accou
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: overview
-ms.date: 01/31/2025
+ms.date: 02/05/2025
 ms.author: rogarana
 ---
 # Introduction to Azure managed disks
@@ -201,5 +201,6 @@ Similarly, Azure Storage handles resource contentions and other issues in the ba
 ## Related content
 
 - If you want to watch a video that gives more detail on managed disks, check out [Better Azure VM Resiliency with Managed Disks](/shows/azure/managed-disks-azure-resiliency).
-- To learn more about the individual disk types that Azure offers, which type is a good fit for your needs, and their performance targets, see [Select a disk type for IaaS VMs](disks-types.md).
+- Learn more about the individual disk types that Azure offers, which type is a good fit for your needs, and their performance targets, see [Select a disk type for IaaS VMs](disks-types.md).
 - Learn the [Best practices for achieving high availability with Azure virtual machines and managed disks](disks-high-availability.md).
+- Learn more about how managed disks are billed, see [Understand Azure Disk Storage billing](disks-understand-billing.md).

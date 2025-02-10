@@ -11,6 +11,7 @@
 Currently only available in the following regions:
 
 - Australia East (Three availability zones)
+- Australia South East (region without availability zone support, sign up through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_qDQoBfgNxGj84DlI3mGbtUOTRZN1FTWkdNVzRESEI2SzVENjE3SDJFOC4u))
 - Brazil South (Three availability zones)
 - Canada Central (Three availability zones)
 - Canada East (region without availability zone support, sign up through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_qDQoBfgNxGj84DlI3mGbtUOTRZN1FTWkdNVzRESEI2SzVENjE3SDJFOC4u))
@@ -42,6 +43,7 @@ Currently only available in the following regions:
 - UK South (Three availability zones)
 - UK West (region without availability zone support, sign up through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_qDQoBfgNxGj84DlI3mGbtUOTRZN1FTWkdNVzRESEI2SzVENjE3SDJFOC4u))
 - US Gov Virginia (Three availability zones)
+- West Central US (region without availability zone support, sign up through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_qDQoBfgNxGj84DlI3mGbtUOTRZN1FTWkdNVzRESEI2SzVENjE3SDJFOC4u))
 - West Europe (Three availability zones)
 - West US (region without availability zone support, sign up through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_qDQoBfgNxGj84DlI3mGbtUOTRZN1FTWkdNVzRESEI2SzVENjE3SDJFOC4u))
 - West US 2 (Three availability zones)
