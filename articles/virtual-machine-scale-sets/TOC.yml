@@ -175,6 +175,8 @@
     href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: Relocate to another region
     href: /azure/operational-excellence/relocation-virtual-machine-scale-sets
+  - name: Migrate to Flexible Orchestration
+    href: flexible-virtual-machine-scale-sets-migration-resources.md
     maintainContext: true
   - name: Proximity placement groups
     href: proximity-placement-groups.md
