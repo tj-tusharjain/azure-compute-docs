@@ -14,14 +14,14 @@ ms.date:     10/28/2024
 
 # Configure VM watch
 
-VM watch signals are logically grouped into Collector Suites, which can be categorized into two groups: Core and Optional<link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
+VM watch signals are logically grouped into Collector Suites, which can be categorized into two groups: core and optional<link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
 
 This article describes how to configure VM watch to suit specific requirements.
 
 ### Pre-requisites
 This article assumes that you are familiar with:
-- VM watch [Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch) and their descriptions
-- [Installing VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) to Virtual Machines and Scale Sets
+- [VM watch Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch)
+- [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 - VM watch Collector Suite <insert link to collector page here>
 
 ### Access `vmWatchSettings` on Azure Virtual Machines
@@ -65,7 +65,7 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
 | **environmentAttributes** | `object` | This specifies any environment attributes that will help decide if a test is eligible to execute or not. | false
 
 > [!IMPORTANT]
-> See VM watch Collector Suite <insert link to collector page> for a full list of collectors, associated signals and tags, overwritable parameters and environment attributes.
+> For the full list of collectors, associated signals, tags, overwritable parameters and environment attributes, please visit VM watch Collector Suite page <insert link to collector page> 
 >
  
 #### Switch On/Off VM watch 
