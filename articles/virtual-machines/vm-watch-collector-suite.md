@@ -22,7 +22,7 @@ This article provides a summary of all available collectors in VM watch, along w
 ### Pre-requisites
 This article assumes that you are familiar with:
 - [VM watch Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch) 
-- [Installing VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) to Virtual Machines and Scale Sets
+- [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 
 > [!NOTE]
 > | **Name**  | **Description** |
