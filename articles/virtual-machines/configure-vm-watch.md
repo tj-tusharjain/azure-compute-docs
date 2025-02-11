@@ -54,7 +54,7 @@ Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your
 ---
 
 ### Customize VM watch configurations 
-VM watch signals can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. Below is a list of properties for `vmWatchSettings`.
+VM watch signals can be customized by configuring the `vmWatchSettings` properties to meet specific requirements. The following table lists the properties for `vmWatchSettings`.
 
 #### vmWatchSettings Properties 
 | **Name** | **Type** | **Description** | **Is Required**
@@ -167,7 +167,7 @@ Signal execution parameters can be overwritten by setting the `parameterOverride
 
 #### Environment attribute enrichments 
 
-In addition to tags, VM watch also checks the eligibility <insert link to collector page> of the signals before execution. The environment attributes can be specified to help VM watch determine the eligibility of each signal for execution. 
+In addition to tags, VM watch also checks the eligibility <insert link to collector page> of the signals before execution. The `environmentattributes` can be specified to help VM watch determine the eligibility of each signal for execution. 
 For instance, if outbound traffic has been disabled on a VM, this information can be provided to VM watch. This will ensure that any outbound network-related signal execution will be marked as ineligible.
 ```
 {
