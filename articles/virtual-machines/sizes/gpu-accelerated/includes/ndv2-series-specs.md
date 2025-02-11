@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 02/10/2025
-ms.author: mattmcinnes
+ms.author: padmalathas
 ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
