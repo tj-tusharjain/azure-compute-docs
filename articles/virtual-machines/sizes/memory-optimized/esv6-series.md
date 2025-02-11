@@ -1,5 +1,5 @@
 ---
-title: Esv6 size series (Preview)
+title: Esv6 size series
 description: Information on and specifications of the Esv6-series sizes
 author: mattmcinnes
 ms.service: azure-virtual-machines
@@ -19,7 +19,7 @@ ms.reviewer: mattmcinnes
 [!INCLUDE [esv6-series-specs](./includes/esv6-series-specs.md)]
 
 ## Feature support
-[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Not Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Not Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Not Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Not Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Not Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 
 ## Sizes in series
 
@@ -40,6 +40,10 @@ vCPUs (Qty.) and Memory for each size
 | Standard_E96s_v6 | 96 | 768 |
 | Standard_E128s_v6 | 128 | 1024 |
 | Standard_E192is_v6 | 128 | 1832 |
+
+> [!NOTE]
+> - The E128 and E192i sizes will be available later in GA
+> 
 #### VM Basics resources
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
@@ -51,9 +55,6 @@ Local (temp) storage info for each size
 > No local storage present in this series.
 >
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](../../azure-vms-no-temp-disk.yml).
-
-> [!NOTE]
-> - The E128 and E192i sizes will be available later in GA
 
 ### [Remote storage](#tab/sizestorageremote)
 
