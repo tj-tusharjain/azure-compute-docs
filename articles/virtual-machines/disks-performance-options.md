@@ -1,17 +1,17 @@
 ---
-title: Improve Azure managed disk performance
+title: Overview - Options to improve Azure managed disk performance
 description: Learn the available options for improving Azure managed disk performance, organized by disk type.
 author: roygara
 ms.service: azure-disk-storage
-ms.topic: how-to
-ms.date: 01/27/2025
+ms.topic: conceptual
+ms.date: 02/11/2025
 ms.author: rogarana
 ms.custom: accpeerreview2025-2
 ---
 
-# Improve Azure managed disk performance
+# Overview of options to improve Azure managed disk performance
 
-This article outlines the capabilities each disk type offers to adjust its performance.
+This article outlines the capabilities each disk type offers to adjust its performance. Use the headings to navigate to the disk types you're interested in to get a quick overview of the capabilities available to it.
 
 The demands and needs of your workload can shift over time, either due to high demand during a holiday, sudden bursts of traffic, or scaling up to meet client needs. Azure managed disks have several capabilities you can take advantage of to improve their performance and match the shifting needs of your workloads. Different disk types offer different capabilities, some disk types have capabilities you can use to ensure their performance automatically shifts to meet the changing demands of your workload, others require manual adjustment, and other disk types can't do either.
 
