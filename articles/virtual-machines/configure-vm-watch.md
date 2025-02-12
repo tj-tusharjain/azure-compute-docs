@@ -22,7 +22,7 @@ This article describes how to configure VM watch to suit specific requirements.
 This article assumes that you are familiar with:
 - [VM watch Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch)
 - [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
-- VM watch Collector Suite <insert link to collector page here>
+- VM watch Collector Suites <insert link to collector page here>
 
 ### Access `vmWatchSettings` on Azure Virtual Machines
 
@@ -115,7 +115,7 @@ For instance, to enable signals in the optional group containing `Network` tag a
 }
 ```
 
-Similarly, to enable an optional group signal with name `hardware`, and disable signals with name `process` and `dns`, specify such names under the `enabledOptionalSignals` and `disabledSignals` as shown below:  
+Similarly, to enable an optional group signal with name `hardware_health_monitor`, and disable signals with name `process` and `dns`, specify such names under the `enabledOptionalSignals` and `disabledSignals` as shown below:  
 
 ```
 {
@@ -123,7 +123,7 @@ Similarly, to enable an optional group signal with name `hardware`, and disable 
       "enabled": true,
       "signalFilters": {
          "enabledOptionalSignals": [
-            "hardware"
+            "hardware_health_monitor"
          ],
          "disabledSignals": [
             "process",
@@ -137,13 +137,13 @@ Similarly, to enable an optional group signal with name `hardware`, and disable 
 #### Configure signal execution frequency 
 
 The signal execution frequency can be customized by adjusting the `parameterOverrides` property. 
-For instance, to set the `outbound connectivity` test execution frequency to 60 seconds, specify the following configuration below:
+For instance, to set the `outbound connectivity` test execution frequency to 120 seconds, specify the following configuration below:
 ```
 {
    "vmWatchSettings": {
       "enabled": true,
       "parameterOverrides ": {
-         "OUTBOUND_CONNECTIVITY_INTERVAL": "60s"
+         "OUTBOUND_CONNECTIVITY_INTERVAL": "120s"
       }
    }
 }
