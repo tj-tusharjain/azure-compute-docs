@@ -8,7 +8,7 @@ ms.subservice: oracle
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: vamckMS
+ms.author: vakavuru
 ms.reviewer: mattmcinnes
 ---
 
