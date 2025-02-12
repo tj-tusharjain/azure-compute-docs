@@ -73,7 +73,7 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 1. On the page for the VM, click **Disks** in the left menu.
 1. Select the operating system disk for the VM.
 1. On the page for the disk, select **Disk Export** from the left menu.
-1. The default expiration time of the URL is *3600* seconds (one hour). You may need to increase this for Windows OS disks or large data disks. **36000** seconds (10 hours) is usually sufficient.
+1. The default expiration time of the URL is *3600* seconds (one hour). You may need to increase this for Windows OS disks or large data disks, in these situations, **36000** seconds (10 hours) is usually sufficient.
 1. Click **Generate URL**.
 
 # [PowerShell](#tab/azure-powershell)
@@ -96,7 +96,7 @@ az disk grant-access --duration-in-seconds 86400 --access-level Read --name your
 
 
 > [!NOTE]
-> The expiration time is increased from the default to provide enough time to download the large VHD file for a Windows Server operating system. Large VHDs can take up to several hours to download depending on your connection and the size of the VM.
+> When downloading a Windows OS disk, you may need a longer expiration time to download a large VHD file. Large VHDs can take up to several hours to download depending on your connection and the size of the VM.
 >
 > While the SAS URL is active, attempting to start the VM will result in the error **There is an active shared access signature outstanding for disk** *diskname*. You can revoke the SAS URL by selecting **Cancel export** on the **Disk Export** page.  
 
