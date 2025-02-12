@@ -182,7 +182,7 @@ For instance, if outbound traffic has been disabled on a VM, this information ca
 
 ### Next Steps
 
-- Link to VM watch Collector Suite Page
+- Link to VM watch Collector Suites Page
 
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 
