@@ -15,6 +15,7 @@
     - [HSM](/azure/key-vault/keys/hsm-protected-keys) keys require the **premium** tier of Azure Key vaults.
 - For Ultra Disks and Premium SSD v2 disks only:
     - Disks created from snapshots that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same disk encryption set.
+    - (Preview) You can create disks from snapshots that are encrypted with different disk encryption sets.
     - User-assigned managed identities aren't supported for Ultra Disks and Premium SSD v2 disks encrypted with customer-managed keys.
     - Encrypting Ultra Disks and Premium SSD v2 disks with customer-managed keys using Azure Key Vaults stored in a different Microsoft Entra ID tenant isn't currently supported.
 - Most resources related to your customer-managed keys (disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
