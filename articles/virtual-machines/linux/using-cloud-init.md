@@ -8,7 +8,7 @@ ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 06/03/2024
-ms.author: vamckMS
+ms.author: vakavuru
 ---
 # cloud-init support for virtual machines in Azure
 
