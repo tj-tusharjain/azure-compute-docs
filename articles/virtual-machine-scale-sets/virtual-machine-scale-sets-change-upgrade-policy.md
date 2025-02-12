@@ -22,7 +22,7 @@ If using a rolling upgrade policy mode, see [configure rolling upgrade policy](v
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/change-upgrade-policy.png" alt-text="Screenshot showing changing the upgrade policy mode and enabling MaxSurge in the Azure portal.":::
 
 ### [CLI](#tab/cli)
-Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and the `--set` parameter. 
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and the `--upgrade-policy-mode` parameter. 
 
 If using a rolling upgrade policy mode, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for more configuration options and suggestions.
 
@@ -30,7 +30,7 @@ If using a rolling upgrade policy mode, see [configure rolling upgrade policy](v
 az vmss update \
     --name myScaleSet \
     --resource-group myResourceGroup \
-    --set upgradePolicy.mode=Automatic
+    --upgrade-policy-mode Automatic
 ```
 
 ### [PowerShell](#tab/powershell)
