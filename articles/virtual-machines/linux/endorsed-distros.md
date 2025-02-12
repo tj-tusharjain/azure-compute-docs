@@ -7,7 +7,7 @@ ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: conceptual
 ms.date: 11/14/2024
-ms.author: vamckMS
+ms.author: vakavuru
 ms.reviewer: cynthn
 ms.custom: engagement-fy23, linux-related-content
 ---
