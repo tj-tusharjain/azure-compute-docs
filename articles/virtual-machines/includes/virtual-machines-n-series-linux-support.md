@@ -36,14 +36,14 @@ For more information on the specific vGPU and driver branch versions, visit the 
 
 |Distribution|Driver|
 | --- | -- |
-|Ubuntu 20.04 LTS, 22.04 LTS<br/><br/>Red Hat Enterprise Linux 7.9, 8.6, 8.8, 8.9, 8.10<br/><br/>SUSE Linux Enterprise Server 15 SP2, 12 SP2,12 SP5<br/><br/>Rocky Linux 8.4| NVIDIA vGPU 17.3, driver branch [R550](https://go.microsoft.com/fwlink/?linkid=874272) <br/><br/> NVIDIA vGPU 16.5, driver branch [R535](https://go.microsoft.com/fwlink/?linkid=874272)
+|Ubuntu 20.04 LTS, 22.04 LTS, 24.02 LTS<br/><br/>Red Hat Enterprise Linux 8.6, 8.8, 8.9, 8.10, 9.0, 9.2, 9.3, 9.4, 9.5<br/><br/>SUSE Linux Enterprise Server 15 SP2, 12 SP2,12 SP5<br/><br/>Rocky Linux 8.4| NVIDIA vGPU 17.5, driver branch [R550](https://download.microsoft.com/download/c/3/4/c3484f19-fe76-4495-a65d-a5222ead9517/NVIDIA-Linux-x86_64-550.144.03-grid-azure.run) <br/><br/> NVIDIA vGPU 17.5, driver branch [R550](https://download.microsoft.com/download/c/3/4/c3484f19-fe76-4495-a65d-a5222ead9517/NVIDIA-Linux-x86_64-550.144.03-grid-azure.run)
 
 > [!Note]
 >For Azure NVads A10 v5 VMs we recommend customers to always be on the latest driver version. The latest NVIDIA major driver branch(n) is only backward compatbile with the previous major branch(n-1). For eg, vGPU 17.x is backward compatible with vGPU 16.x only. Any VMs still runnig n-2 or lower may see driver failures when the latest drive branch is rolled out to Azure hosts.
 >>
 >NVs_v3 VMs only support **vGPU 16 or lower** driver version.
->
-
+>>
+> GRID Driver 17.3 currently supports only NCasT4_v3 series of VMs. To use this driver, [download and install GRID Driver 17.3 manually](https://download.microsoft.com/download/7/e/c/7ec792c9-3654-4f78-b1a0-41a48e10ca6d/NVIDIA-Linux-x86_64-550.127.05-grid-azure.run) . We have licensing issues on the NVv5 A10 series and Azure is actively working with Nvidia to resolve it. Use versions lower than v17.x on NVv5 A10 series. The extension currently installs 16.5 GRID drivers.
 
 Visit [GitHub](https://raw.githubusercontent.com/Azure/azhpc-extensions/refs/heads/master/NvidiaGPU/Nvidia-GPU-Linux-Resources.json) for the complete list of all previous Nvidia GRID driver links.
 

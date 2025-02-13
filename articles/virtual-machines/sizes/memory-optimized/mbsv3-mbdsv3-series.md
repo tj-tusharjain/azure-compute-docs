@@ -37,10 +37,8 @@ The resource allocation and high-performance capabilities of the Mbv3 VM series 
 | **Standard_M48bs_v3** | 48 | 384 | 64 | 88,000/2,000 | 120,000/2,000 | 8 | 16,000 |
 | **Standard_M64bs_v3** | 64 | 512 | 64 | 88,000/2, 000 | 160,000/2, 000 | 8 | 16,000 |
 | **Standard_M96bs_v3** | 96 | 768 | 64 | 260,000/4,000 | 260,000/4,000 | 8 | 25,000 |
-| **Standard_M128bs_v3**<sup>1</sup> | 128 | 1024 | 64 | 260,000/4,000 | 400,000/4,000 | 8 | 40,000 |
-| **Standard_M176bs_v3**<sup>1</sup> | 176 | 1536 | 64 | 260,000/6,000 | 650,000/6,000 | 8 | 50,000 |
-
-<sup>1</sup> [Disable SMT](/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server#disable-smt-in-an-azure-virtual-machine) to run SQL Server on a VM with more than 64 vCores per NUMA node. 
+| **Standard_M128bs_v3** | 128 | 1024 | 64 | 260,000/4,000 | 400,000/4,000 | 8 | 40,000 |
+| **Standard_M176bs_v3** | 176 | 1536 | 64 | 260,000/6,000 | 650,000/6,000 | 8 | 50,000 |
 
 ## Mbdsv3 series (NVMe)
 
@@ -66,10 +64,8 @@ The resource allocation and high-performance capabilities of the Mbv3 VM series 
 | **Standard_M176bds_v3** | 176 | 1,536 | 400 | 64 | 160,000/1600 | 260,000/6,000 | 650,000/6,000 | 8 | 50,000 |
 | **Standard_M64bds_1_v3** | 64 | 1397 | 3000 | 64 | 40,000/400 | 130,000/6,000 | 160, 000/6,000 | 8 | 20,000 |
 | **Standard_M96bds_2_v3** | 96 | 1946 | 4500 | 64 | 40,000/400 | 130,000/8,000 | 260,000/8,000 | 8 | 20,000 |
-| **Standard_M128bds_3_v3**<sup>1</sup> | 128 | 2794 | 6000 | 64 | 160,000/1600 | 260,000/8,000 | 400,000/10,000 | 8 | 40,000 |
-| **Standard_M176bds_4_v3**<sup>1</sup> | 176 | 3892 | 8000 | 64 | 160,000/1600 | 260,000/8,000 | 650,000/10,000 | 8 | 40,000 |
-
-<sup>1</sup> [Disable SMT](/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server#disable-smt-in-an-azure-virtual-machine) to run SQL Server on a VM with more than 64 vCores per NUMA node. 
+| **Standard_M128bds_3_v3**| 128 | 2794 | 6000 | 64 | 160,000/1600 | 260,000/8,000 | 400,000/10,000 | 8 | 40,000 |
+| **Standard_M176bds_4_v3** | 176 | 3892 | 8000 | 64 | 160,000/1600 | 260,000/8,000 | 650,000/10,000 | 8 | 40,000 |
 
 ## Size table definitions
 

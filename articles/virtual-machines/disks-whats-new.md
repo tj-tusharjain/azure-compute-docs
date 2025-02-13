@@ -15,8 +15,10 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 ## Update summary
 
+- [What's new in 2025](#whats-new-in-2025)
+  - [Quarter 1 (January, February, March)](#quarter-1-january-february-march-2)
+    - [Public Preview: Troubleshoot Disk Performance with Copilot in Azure](#public-preview-troubleshoot-disk-performance-with-copilot-in-azure)
 - [What's new in 2024](#whats-new-in-2024)
-
   - [Quarter 4 (October, November, December)](#quarter-4-october-november-december)
     - [Generally available: Convert existing disks to Premium SSD v2 disks](#generally-available-convert-existing-disks-to-premium-ssd-v2-disks)
     - [Generally available: Expand Ultra Disks and Premium SSD v2 without downtime](#generally-available-expand-ultra-disks-and-premium-ssd-v2-without-downtime)
@@ -50,17 +52,25 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
         - [GA: Create disks from snapshots encrypted with customer-managed keys across subscriptions](#ga-create-disks-from-snapshots-encrypted-with-customer-managed-keys-across-subscriptions)
         - [GA: Entra ID support for managed disks](#ga-entra-id-support-for-managed-disks)
 
+## What's new in 2025
+
+### Quarter 1 (January, February, March)
+
+#### Public Preview: Troubleshoot Disk Performance with Copilot in Azure
+
+The Disk Performance Troubleshooting Capability for Copilot in Azure is now available in [Public Preview](https://azure.microsoft.com/updates?id=474649). Now, you can use Copilot in Azure to analyze your [disk metrics](https://learn.microsoft.com/azure/virtual-machines/disks-metrics) and resolve any performance degredation issues when your application requires higher performance than what you have configured for your VMs and disks. To learn more, see [Troubleshoot Disk Performance using Microsoft Copilot in Azure](https://learn.microsoft.com/azure/copilot/troubleshoot-disk-performance).
+
 ## What's new in 2024
 
 ### Quarter 4 (October, November, December)
 
 #### Generally available: Convert existing disks to Premium SSD v2 disks
 
-Directly converting a disk to a Premium SSD v2 disk is [generally available](https://azure.microsoft.com/updates/v2/Convert-to-Azure-Premium-SSD-v2-disks). Making it easier to move your workloads from Standard HDD, Standard SSD, and Premium Disks, to Premium SSD v2 disks, and take advantage of its balance of price and performance capabilities. To learn more, see [Convert Premium SSD v2 disks](disks-convert-types.md#convert-premium-ssd-v2-disks).
+Directly converting a disk to a Premium SSD v2 disk is [generally available](https://azure.microsoft.com/updates/?id=466729). Making it easier to move your workloads from Standard HDD, Standard SSD, and Premium Disks, to Premium SSD v2 disks, and take advantage of its balance of price and performance capabilities. To learn more, see [Convert Premium SSD v2 disks](disks-convert-types.md#convert-premium-ssd-v2-disks).
 
 #### Generally available: Expand Ultra Disks and Premium SSD v2 without downtime
 
-Expanding Ultra Disks and Premium SSD v2 disks without downtime is [generally available](https://azure.microsoft.com/updates/v2/Live-Resize-for-Azure-Premium-SSD-v2-and-Ultra-Disks1). This allows you to dynamically increase the capacity of your storage without causing disruptions to existing applications. To learn more, see the [Windows](windows/expand-os-disk.md#expand-without-downtime) or [Linux](linux/expand-disks.md#expand-without-downtime) articles.
+Expanding Ultra Disks and Premium SSD v2 disks without downtime is [generally available](https://azure.microsoft.com/updates?id=466724). This allows you to dynamically increase the capacity of your storage without causing disruptions to existing applications. To learn more, see the [Windows](windows/expand-os-disk.md#expand-without-downtime) or [Linux](linux/expand-disks.md#expand-without-downtime) articles.
 
 #### Expanded regional availability for Premium SSD v2
 
