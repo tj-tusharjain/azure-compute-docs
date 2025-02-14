@@ -246,7 +246,7 @@ If you want to exclude a version in a specific region, use `regionalExcludeFromL
 )
 
 - Set `BlockDeletionBeforeEndOfLife` to block deletion of image before it's End of life date, ensuring protection against accidental deletion. You can set this feature via Rest API [blockdeletionbeforeendoflife](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update?view=rest-compute&tabs=HTTP#galleryimageversionsafetyprofile)
-  
+
 
 ## SDK support
 
