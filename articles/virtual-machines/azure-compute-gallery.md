@@ -209,10 +209,11 @@ If you want to exclude a version in a specific region, use `regionalExcludeFromL
       "excludeFromLatest": true,
       "storageAccountType": "Standard_LRS"
     }
-    ```
+    ```)
+
 
 - Set `safetyProfile.allowDeletionOfReplicatedLocations` to false on Image versions to prevent accidental deletion of replicated regions and prevent outage. You can also set this using CLI [allow-replicated-location-deletion](/cli/azure/sig/image-version#az-sig-image-version-create)
-
+(
 ```
 { 
   "properties": { 
@@ -242,7 +243,8 @@ If you want to exclude a version in a specific region, use `regionalExcludeFromL
   "name": "1.0.0" 
 } 
 ```
-- Set `BlockDeletionBeforeEndOfLife` to block deletion of image before it's End of life date, ensuring protection against accidental deletion. You can set this feature via Rest API [blockdeletionbeforeendoflife](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update?view=rest-compute-2024-11-04&tabs=HTTP#galleryimageversionsafetyprofile)
+)
+- Set `BlockDeletionBeforeEndOfLife` to block deletion of image before it's End of life date, ensuring protection against accidental deletion. You can set this feature via Rest API [blockdeletionbeforeendoflife](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update?view=rest-compute&tabs=HTTP#galleryimageversionsafetyprofile)
   
 
 ## SDK support
