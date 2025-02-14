@@ -39,9 +39,37 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 ### [Azure CLI](#tab/cli-1)
 
 #### skuProfile
-To view all properties in the `skuProfile`, run the following command
+To view all properties in the `skuProfile`, run the following command:
 ```azurecli-interactive
 az vmss show --resource-group resourceGroupName --name scaleSetName --query "skuProfile"
+```
+
+#### VM Sizes
+To view just the VM sizes, run the following command:
+```azurecli-interactive
+az vmss show --resource-group resourceGroupName --name scaleSetName --query "skuProfile.vmSizes"
+```
+
+#### Allocation Strategy
+To view just the allocation strategy, run the following command:
+```azurecli-interactive
+az vmss show --resource-group resourceGroupName --name scaleSetName --query "skuProfile.allocationStrategy"
+```
+
+### [PowerShell](#tab/powershell-1)
+#### skuProfile
+```azurepowershell-interactive
+Get-AzVmss -ResourceGroupName "resourceGroupName" -VMScaleSetName "scaleSetName" | Select-Object -ExpandProperty skuProfile
+```
+
+#### VM Sizes
+```azurepowershell-interactive
+Get-AzVmss -ResourceGroupName "resourceGroupName" -VMScaleSetName "scaleSetName" | Select-Object -ExpandProperty skuProfile | Select-Object -ExpandProperty vmSizes
+```
+
+#### Allocation Strategy
+```azurepowershell-interactive
+Get-AzVmss -ResourceGroupName "resourceGroupName" -VMScaleSetName "scaleSetName" | Select-Object -ExpandProperty SkuProfile | Select-Object -ExpandProperty AllocationStrategy
 ```
 
 ---
