@@ -73,3 +73,6 @@ Get-AzVmss -ResourceGroupName "resourceGroupName" -VMScaleSetName "scaleSetName"
 ```
 
 ---
+
+## Next steps
+Learn how to [update](instance-mix-update.md) your instance mix enabled scale set.
