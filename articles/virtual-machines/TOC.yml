@@ -2188,8 +2188,6 @@
     href: resource-graph-availability.md
   - name: VM watch
     items: 
-    - name: Configure EventHub
-      href: ../../../../ofemifowode/azure-compute-docs-pr/articles/virtual-machines/configure-eventhub-vm-watch.md
     - name: Overview
       href: azure-vm-watch.md
     - name: Install VM watch
@@ -2221,6 +2219,8 @@
     href: ./linux/metrics-vm-usage-rest.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
+    - name: Configure EventHub
+      href: ../../../../ofemifowode/azure-compute-docs-pr/articles/virtual-machines/configure-eventhub-vm-watch.md
 - name: Backup and recovery
   items:
   - name: Overview
