@@ -52,11 +52,7 @@ For all authentication methods, the following parameter set applies:
 |`SEND_INTERNAL_TELEMETRY_TO_EVENT_HUB`|No|To receive VM watch internal metrics (startup and heartbeat events), set this value to "true". Default is "false"|
 
 
-> [!IMPORTANT]
-> The code segment is identical for both Windows and Linux except for the value of the parameter `<application health extension type>` passed into the Extension Type. Please replace `<application health extension type>` with `ApplicationHealthLinux` for Linux and `ApplicationHealthWindows` for Windows installations.  
-
 #### [Managed Identity](#tab/managedidentity-1)
-Case 1: Authenticate Event Hub through Managed Identity
 |**Parameter**|**Is required**|**Description**|
 | -------- | -------- | -------- |
 |`EVENT_HUB_OUTPUT_USE_MANAGED_IDENTITY`|No|Set this value to "true". Default is "false"|
@@ -78,49 +74,11 @@ For example, the following VM watch JSON configuration sets the environment vari
 ```
 
 #### [SAS Token](#tab/sastoken-1)
-```
-az vm extension show -g <your resource group name> --vm-name <your vm name> -n <application health extension type>
-```
-#### [Connection String](#tab/connectionstring-1)
-```
-Get-AzVMExtension -ResourceGroupName "<your resource group name>" -VMName "<your vm name>" -Name "<application health extension type>" 
-```
----
-
-
-
-##### Case 1: Authenticate Event Hub through Managed Identity
-
-|**Parameter**|**Is required**|**Description**|
-| -------- | -------- | -------- |
-|`EVENT_HUB_OUTPUT_USE_MANAGED_IDENTITY`|No|Set this value to "true". Default is "false"|
-|`EVENT_HUB_OUTPUT_MANAGED_IDENTITY_CLIENT_ID`|No|If you are using a specific managed identity to authenticate, specify this value|
-
-For example, the following VM watch JSON configuration sets the environment variables `EVENT_HUB_OUTPUT_NAMESPACE`, `EVENT_HUB_OUTPUT_NAME`, and `EVENT_HUB_OUTPUT_USE_MANAGED_IDENTITY`. This allows the Event Hub to use managed identity as the authentication method without needing to specify a managed identity client ID.
-
-
-```
-{
-  "vmWatchSettings": {
-    "enabled": true,
-    "parameterOverrides": {
-      "EVENT_HUB_OUTPUT_NAMESPACE": "<example event hub namespace>",
-      "EVENT_HUB_OUTPUT_NAME": "<example event hub name>",
-      "EVENT_HUB_OUTPUT_USE_MANAGED_IDENTITY": "true"
-    }
-  }
-}
-    
-```
-
-##### Case 2: Authenticate Event Hub through SAS token
-
 |**Parameter**|**Is required**|**Description**|
 | -------- | -------- | -------- |
 |`EVENT_HUB_OUTPUT_SAS_TOKEN_BASE64`|No|If using SAS token to authenticate, specify this value|
 
 For example, the following VM watch JSON configuration enables Event Hub as an output by using a SAS token for authentication.
-
 
 ```
 {
@@ -133,11 +91,9 @@ For example, the following VM watch JSON configuration enables Event Hub as an o
     }
   }
 }
-    
 ```
 
-##### Case 3: Authenticate Event Hub through connection string
-
+#### [Connection String](#tab/connectionstring-1)
 |**Parameter**|**Is required**|**Description**|
 | -------- | -------- | -------- |
 |`EVENT_HUB_OUTPUT_CONNECTION_STRING_BASE64`|No|If using connection string token to authenticate, encode it with base64.|
@@ -155,8 +111,9 @@ For example, the following VM watch JSON configuration enables Event Hub as an o
     }
   }
 }
-    
 ```
+---
+
 
 #### Step 3: Examine Events in Event Hub
 
