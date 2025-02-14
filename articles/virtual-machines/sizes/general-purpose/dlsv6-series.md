@@ -10,13 +10,9 @@ ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 ---
 
-# Dlsv6 sizes series (Preview)
+# Dlsv6 sizes series
 
-[!INCLUDE [dlsv6-summary](./includes/dlsv6-series-summary.md)]
-
-> [!NOTE]
-> - This VM series is currently in **Preview**. 
-> - See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+[!INCLUDE [dlsv6-summary](./includes/dlsv6-series-summary.md)] 
 
 ## Host specifications
 [!INCLUDE [dlsv6-series-specs](./includes/dlsv6-series-specs.md)]

@@ -555,17 +555,14 @@
         href: ./sizes/overview.md#high-performance-compute
       - name: HB family
         items:
-        - name: Overview
-          displayName: HB-series, sizes, size, vm size
-          href: ./sizes/high-performance-compute/hb-family.md
         - name: HB series
           items:
-          - name: Overview
-            href: hb-series-overview.md
-          - name: HB series
-            href: ./sizes/high-performance-compute/hb-series.md
-          - name: Performance
-            href: hb-series-performance.md
+ #         - name: Overview
+ #           href: hb-series-overview.md
+ #         - name: HB series
+ #           href: ./sizes/high-performance-compute/hb-series.md
+ #         - name: Performance
+ #           href: hb-series-performance.md
           - name: HB series retirement
             href: ./sizes/migration-guides/hb-series-retirement.md
         - name: HBv2 series
@@ -594,9 +591,6 @@
             href: hbv4-performance.md
       - name: HC family
         items:
-        - name: Overview
-          displayName: HC-series, sizes, size, vm size
-          href: ./sizes/high-performance-compute/hc-family.md
         - name: HC series
           items:
           - name: Overview
@@ -607,9 +601,6 @@
             href: hc-series-performance.md
       - name: HX family
         items:
-        - name: Overview
-          displayName: HX-series, sizes, size, vm size
-          href: ./sizes/high-performance-compute/hx-family.md
         - name: HX series
           items:
           - name: Overview
@@ -694,8 +685,6 @@
     - name: Isolated sizes
       displayName: isolated VM, sole-tenant, sole
       href: isolation.md
-    - name: Azure compute units (ACU)
-      href: acu.md
     - name: Benchmark scores
       displayName: benchmark, coremark
       items:
@@ -1638,13 +1627,8 @@
       href: disks-change-performance.md
       displayName: Performance, cost, perf, disks, disk
     - name: Change disk performance tier
-      items:
-      - name: CLI and PowerShell
-        href: disks-performance-tiers.md
-        displayName: Performance, cost, perf, disks, disk, change disk performance tier
-      - name: Portal
-        href: disks-performance-tiers-portal.md
-        displayName: Performance, cost, perf, disks, disk, change disk performance tier
+      href: disks-performance-tiers.md
+      displayName: Performance, cost, perf, disks, disk, change disk performance tier
     - name: Enable write accelerator
       href: how-to-enable-write-accelerator.md
     - name: Benchmark a disk
@@ -1967,7 +1951,11 @@
     - name: Enable Trusted launch on existing Compute
       items:
       - name: Enable Trusted launch on existing VM
-        href: trusted-launch-existing-vm.md
+        items:
+          - name: Generation 2 VM
+            href: trusted-launch-existing-vm.md
+          - name: Generation 1 VM
+            href: trusted-launch-existing-vm-gen-1.md
       - name: Enable Trusted launch on existing Virtual Machine Scale Sets
         href: trusted-launch-existing-vmss.md
     - name: Boot integrity monitoring
@@ -1976,7 +1964,6 @@
       href: trusted-launch-faq.md
     - name: Secure Boot UEFI Keys 
       href: trusted-launch-secure-boot-custom-uefi.md
-
   - name: Just-in-time access
     href: /azure/security-center/security-center-just-in-time
   - name: Policy
