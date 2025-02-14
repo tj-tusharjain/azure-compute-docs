@@ -45,6 +45,8 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 | Windows Server 2019 Core |	Supported |
 | Windows Server 2022 |	Supported |
 | Windows Server 2022 Core |	Supported |
+| Windows Server 2025 | Supported |
+| Windows Server 2025 Core | Supported |
 
 ## Limiting access to Run Command
 
@@ -111,6 +113,12 @@ Set-AzVMRunCommand -ResourceGroupName "myRg" `
 -ErrorBlobUri “<SAS_URI_of_a_storage_append_blob_with_read_add_create_write_access>”
 ```
 
+### Execute a long running Run Command on a VM
+The below execution should run longer than default timeout of 90 minutes. It should run for 100 minutes (refer 6000 seconds -TimeoutInSecond parameter below) provided script is expected to run that long. After 100 minutes, the script execution should stop.
+
+```powershell-interactive
+Set-AzVMRunCommand -ResourceGroupName MyRG -VMName MyVM -RunCommandName MyRunCommand -Location EastUS2EUAP -SourceScriptUri <SourceScriptUri> -AsyncExecution -TimeoutInSecond 6000
+```
 
 ### List all deployed RunCommand resources on a VM 
 This command will return a full list of previously deployed Run Commands along with their properties.

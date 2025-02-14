@@ -39,6 +39,8 @@ This capability is useful in all scenarios where you want to run a script within
 | Windows Server 2019 Core |	Supported |
 | Windows Server 2022 |	Supported |
 | Windows Server 2022 Core |	Supported |
+| Windows Server 2025 | Supported |
+| Windows Server 2025 Core | Supported |
 
 ## Restrictions
 

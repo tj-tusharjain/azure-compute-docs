@@ -110,6 +110,12 @@ Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Location "EastUS" -
 Set-AzVMRunCommand -ResourceGroupName -VMName -RunCommandName -SourceScriptUri “< SAS URI of a storage blob with read access or public URI>" -OutputBlobUri “< SAS URI of a storage append blob with read, add, create, write access>” -ErrorBlobUri “< SAS URI of a storage append blob with read, add, create, write access>”
 ```
 
+### Execute a long running Run Command on a VM
+The below execution should run longer than default timeout of 90 minutes. It should run for 100 minutes (refer 6000 seconds -TimeoutInSecond parameter below) provided script is expected to run that long. After 100 minutes, the script execution should stop.
+
+```powershell-interactive
+Set-AzVMRunCommand -ResourceGroupName MyRG -VMName MyVM -RunCommandName MyRunCommand -Location EastUS2EUAP -SourceScriptUri <SourceScriptUri> -AsyncExecution -TimeoutInSecond 6000
+```
 
 ### List all deployed RunCommand resources on a VM 
 This command will return a full list of previously deployed Run Commands along with their properties.
