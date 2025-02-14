@@ -86,6 +86,8 @@
       href: instance-mix-create.md
     - name: Update instance mix settings
       href: instance-mix-update.md
+    - name: View instance mix settings
+      href: instance-mix-view.md
     - name: FAQs and troubleshooting
       href: instance-mix-faq-troubleshooting.md
   - name: Scaling Profile

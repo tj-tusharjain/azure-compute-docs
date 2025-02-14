@@ -9,7 +9,7 @@ ms.date: 1/10/2025
 ms.reviewer: jushiman
 ---
 
-# Deploy a scale set using instance mix
+# Create a scale set using instance mix
 The article walks through how to deploy a scale set using instance mix.
 
 > [!IMPORTANT]
