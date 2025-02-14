@@ -10,10 +10,10 @@ ms.reviewer: jushiman
 ---
 
 # Create a scale set using instance mix
-The article walks through how to deploy a scale set using instance mix.
+The article walks through how to deploy a scale set using instance mix, using different virtual machine (VM) sizes and an allocation strategy.
 
 > [!IMPORTANT]
-> Instance mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+> Instance mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change before general availability (GA). 
 
 ## Prerequisites
 Before using instance mix, complete feature registration for the `FlexVMScaleSetSkuProfileEnabled` feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command:
@@ -36,15 +36,15 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 4. Ensure that you select a region that instance mix is supported in.
 5. Be sure **Orchestration mode** is set to **Flexible**.
 6. In the **Size** section, click **Select up to 5 sizes (preview)** and the **Select a VM size** page appears.
-7. Use the size picker to select up to five VM sizes. Once you've selected your VM sizes, click the **Select** button at the bottom of the page to return to the scale set Basics tab.
+7. Use the size picker to select up to five VM sizes. Once you selecte your VM sizes, click the **Select** button at the bottom of the page to return to the scale set Basics tab.
 8. In the **Allocation strategy (preview)** field, select your allocation strategy.
-9. When using the `Prioritized` allocation strategy, the **Rank size** section appears below the Allocation strategy section. Clicking on the bottom **Rank priority** brings up the prioritization blade, where you can adjust the priority of your VM sizes.
+9. Using the `Prioritized` allocation strategy, the **Rank size** section appears below the Allocation strategy section. Clicking on the bottom **Rank priority** brings up the prioritization blade, where you can adjust the priority of your VM sizes.
 10. You can specify other properties in subsequent tabs, or you can go to **Review + create** and select the **Create** button at the bottom of the page to start your instance mix scale set deployment.
 
 ### [Azure CLI](#tab/cli-1)
-Before using CLI commands with instance mix, please be sure you're using the correct CLI version. Make sure you're using version `2.66.0` or greater.
+Before using CLI commands with instance mix, be sure you're using the correct CLI version. Make sure you're using version `2.66.0` or greater.
 
-You can use the following basic command to create a scale set using instance mix using the following command, which will default to using the `lowestPrice` allocation strategy:
+You can use the following basic command to create a scale set using instance mix, which defaults to using the `lowestPrice` allocation strategy:
  
 ```azurecli-interactive
 az vmss create \
@@ -55,7 +55,7 @@ az vmss create \
   --skuprofile-vmsizes Standard_DS1_v2 Standard_D2s_v4
 ```
  
-To specify the allocation strategy, use the `--skuprofile-allocation-strategy` parameter, like the following:
+To specify the allocation strategy, use the `--skuprofile-allocation-strategy` parameter, like the following command:
 ```azurecli-interactive
 az vmss create \
   --name {myVMSS} \
@@ -79,7 +79,7 @@ New-AzVmss `
   -SkuProfileVmSize @("Standard_D4s_v3", "Standard_D4s_v4");
 ```
  
-To specify the allocation strategy, use the `SkuProfileAllocationStrategy` parameter, like the following:
+To specify the allocation strategy, use the `SkuProfileAllocationStrategy` parameter, like the following command:
 ```azurepowershell-interactive
 New-AzVmss `
 -ResourceGroupName $resourceGroupName `
