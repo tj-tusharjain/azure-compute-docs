@@ -171,7 +171,7 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 ## Best practices
 
-- Resource Locks can be set at the Gallery level protect from accidental user deletions and modifications. For more information, see [Protect your Azure resources with a lock](/azure/azure-resource-manager/management/lock-resources).
+- To prevent images from being accidentally deleted, use resource locks at the Gallery level. For more information, see [Protect your Azure resources with a lock](/azure/azure-resource-manager/management/lock-resources).
 
 - Use ZRS wherever available for high availability. You can configure ZRS in the replication tab when you create a version of the image or VM application.
  For more information about which regions support ZRS, see [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
