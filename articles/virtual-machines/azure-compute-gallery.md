@@ -189,7 +189,6 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 If you want to exclude a version in a specific region, use `regionalExcludeFromLatest`   instead of the global `excludeFromLatest`.  You can set both global and regional `excludeFromLatest` flag, but the regional flag will take precedence when both are specified.
 
-    ```
     "publishingProfile": {
       "targetRegions": [
         {
