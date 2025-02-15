@@ -180,7 +180,7 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 - Maintain separate galleries for production and test images, don’t put them in a single gallery.
 
-- For disaster recovery scenarios, it's a best practice is to have at least two galleries, in different regions. You can still use image versions in other regions, but if the region your gallery is in goes down, you can't create new gallery resources or update existing ones.
+- For disaster recovery scenarios, it's best practice to have at least two galleries, in different regions. You can still use image versions in other regions, but if the region your gallery is in goes down, you can't create new gallery resources or update existing ones.
 
 - When creating an image definition, keep the Publisher/Offer/SKU consistent with Marketplace images to easily identify OS versions.  For example, if you're customizing a Windows server 2019 image from Marketplace and store it as a Compute gallery image, please use the same Publisher/Offer/SKU that is used in the Marketplace image in your compute gallery image.
  
