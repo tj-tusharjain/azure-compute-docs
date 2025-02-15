@@ -209,7 +209,7 @@ If you want to exclude a version in a specific region, use `regionalExcludeFromL
       "excludeFromLatest": true,
       "storageAccountType": "Standard_LRS"
     }
-    ```)
+    ```
 
 
 - Set `safetyProfile.allowDeletionOfReplicatedLocations` to false on Image versions to prevent accidental deletion of replicated regions and prevent outage. You can also set this using CLI [allow-replicated-location-deletion](/cli/azure/sig/image-version#az-sig-image-version-create)
