@@ -116,9 +116,7 @@ Following are popular extensions supported for automatic upgrades (and more are 
 | Microsoft.CPlat.Core                              | LinuxHibernateExtension       |
 | Microsoft.CPlat.Core                              | WindowsHibernateExtension     |
 | Microsoft.CPlat.ProxyAgent                        | ProxyAgentLinux               |
-| Microsoft.CPlat.ProxyAgent                        | ProxyAgentLinuxTest           |
 | Microsoft.CPlat.ProxyAgent                        | ProxyAgentWindows             |
-| Microsoft.CPlat.ProxyAgent                        | ProxyAgentWindowsTest         |
 | Microsoft.EnterpriseCloud.Monitoring              | [MicrosoftMonitoringAgent](./extensions/oms-windows.md)      |
 | Microsoft.EnterpriseCloud.Monitoring              | [OmsAgentForLinux](./extensions/oms-linux.md)              |
 | Microsoft.GuestConfiguration                      | [ConfigurationForLinux](./extensions/guest-configuration.md)         |
