@@ -114,13 +114,9 @@ Following are popular extensions supported for automatic upgrades (and more are 
 | Microsoft.Azure.Workloads                         | MonitoringExtensionLinux      |
 | Microsoft.Azure.Workloads                         | MonitoringExtensionWindows    |
 | Microsoft.CPlat.Core                              | LinuxHibernateExtension       |
-| Microsoft.CPlat.Core                              | NullWindows                   |
-| Microsoft.CPlat.Core                              | OtherNullWindows              |
 | Microsoft.CPlat.Core                              | WindowsHibernateExtension     |
 | Microsoft.CPlat.ProxyAgent                        | ProxyAgentLinux               |
-| Microsoft.CPlat.ProxyAgent                        | ProxyAgentLinuxTest           |
 | Microsoft.CPlat.ProxyAgent                        | ProxyAgentWindows             |
-| Microsoft.CPlat.ProxyAgent                        | ProxyAgentWindowsTest         |
 | Microsoft.EnterpriseCloud.Monitoring              | [MicrosoftMonitoringAgent](./extensions/oms-windows.md)      |
 | Microsoft.EnterpriseCloud.Monitoring              | [OmsAgentForLinux](./extensions/oms-linux.md)              |
 | Microsoft.GuestConfiguration                      | [ConfigurationForLinux](./extensions/guest-configuration.md)         |
@@ -128,7 +124,6 @@ Following are popular extensions supported for automatic upgrades (and more are 
 | Microsoft.ManagedServices                         | [ApplicationHealthLinux](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)        |
 | Microsoft.ManagedServices                         | [ApplicationHealthWindows](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)      |
 | Microsoft.OSTCExtensions                          | DSCForLinux                   |
-| Microsoft.OSTCExtensions                          | Null                          |
 | Microsoft.Sentinel.AzureMonitorAgentExtensions    | MicrosoftDnsAgent             |
 | Microsoft.SqlServer.Management                    | SqlIaaSAgent                  |
 | Microsoft.SqlServer.Management                    | SqlIaaSAgentLinux             |
