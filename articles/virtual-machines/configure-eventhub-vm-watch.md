@@ -3,8 +3,8 @@ title:       Configure EventHubs for Vm watch
 description: Get started to configure EventHubs for VM watch
 author:      ofemifowode
 ms.author:   ofemifowode 
-ms.service:   Add the ms.service or ms.prod value
-ms.topic:     Get-Started
+ms.service:   azure-virtual-machines
+ms.topic:     get-started
 ms.date:     02/05/2025
 ---
 
