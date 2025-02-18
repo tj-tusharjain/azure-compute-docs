@@ -187,8 +187,9 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 - Use `excludeFromLatest` when publishing images if you want to exclude a specific image version during VM or scale set creation. 
 [Gallery Image Versions - Create Or Update](/rest/api/compute/gallery-image-versions/create-or-update#galleryimageversionpublishingprofile).
 
-If you want to exclude a version in a specific region, use `regionalExcludeFromLatest`   instead of the global `excludeFromLatest`.  You can set both global and regional `excludeFromLatest` flag, but the regional flag will take precedence when both are specified.
+- If you want to exclude a version in a specific region, use `regionalExcludeFromLatest`   instead of the global `excludeFromLatest`.  You can set both global and regional `excludeFromLatest` flag, but the regional flag will take precedence when both are specified.
 
+   ```
     "publishingProfile": {
       "targetRegions": [
         {
@@ -208,13 +209,13 @@ If you want to exclude a version in a specific region, use `regionalExcludeFromL
       "excludeFromLatest": true,
       "storageAccountType": "Standard_LRS"
     }
-
+   ```
 
 - Set `safetyProfile.allowDeletionOfReplicatedLocations` to false on Image versions to prevent accidental deletion of replicated regions and prevent outage. You can also set this using CLI [allow-replicated-location-deletion](/cli/azure/sig/image-version#az-sig-image-version-create)
-(
-```
-{ 
-  "properties": { 
+
+   ```
+   {
+   "properties": { 
     "publishingProfile": { 
       "targetRegions": [ 
         { 
@@ -224,24 +225,23 @@ If you want to exclude a version in a specific region, use `regionalExcludeFromL
           // encryption info         
         }
       ], 
-      "replicaCount": 1, 
-      "publishedDate": "2018-01-01T00:00:00Z", 
-      "storageAccountType": "Standard_LRS" 
+       "replicaCount": 1, 
+       "publishedDate": "2018-01-01T00:00:00Z", 
+       "storageAccountType": "Standard_LRS" 
     }, 
     "storageProfile": { 
-      "source": { 
-        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}" 
+       "source": { 
+         "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}" 
       }, 
     }, 
-   “safetyProfile”: { 
-      “allowDeletionOfReplicatedLocations” : false 
-    }, 
-  }, 
-  "location": "West US", 
-  "name": "1.0.0" 
-} 
-```
-)
+    “safetyProfile”: { 
+       “allowDeletionOfReplicatedLocations” : false 
+     }, 
+   }, 
+   "location": "West US", 
+   "name": "1.0.0" 
+   } 
+   ```
 
 - Set `BlockDeletionBeforeEndOfLife` to block deletion of the image before it's *end of life* date, ensuring protection against accidental deletion. Set this feature through [Rest API `blockdeletionbeforeendoflife`](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update?view=rest-compute&tabs=HTTP#galleryimageversionsafetyprofile).
 
