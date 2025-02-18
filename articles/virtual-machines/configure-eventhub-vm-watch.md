@@ -10,27 +10,27 @@ ms.date:     02/05/2025
 
 # Configure EventHubs for VM watch
 
-VM watch can send signal data to a pre-configured [Event Hub](/azure/event-hubs/event-hubs-about).
+VM watch can send signal data to a preconfigured [Event Hub](/azure/event-hubs/event-hubs-about).
 
-This article describes how to configure an EventHub in order to access signals collected by VM watch.
+This article describes how to configure an Event Hub in order to access signals collected by VM watch.
 
-### Pre-requisites
+### Prerequisites
 This article assumes that you are familiar with:
 - [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
-- [VM watch Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch)
+- [VM watch Checks, Metrics, and Logs](/azure/virtual-machines/azure-vm-watch)
 - [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) 
 
 ### Enable EventHubs Output
 
-#### Step 1: Prepare an EventHub for VM watch
+#### Step 1: Prepare an Event Hub for VM watch
 - Deploy an [Event Hub](/azure/event-hubs/event-hubs-create)
 - [Authorize access to the Azure Event Hub](/azure/event-hubs/authorize-access-event-hubs)
 > [!IMPORTANT]
-> VM watch supports managed identity, SAS token and connection string as authentication methods. Please be aware that if multiple authentication methods are provided, managed identity will be given the highest priority, while the connection string will be given the lowest priority
+> VM watch supports managed identity, SAS token, and connection string as authentication methods. Be aware that if multiple authentication methods are provided, managed identity is given the highest priority, while the connection string will be given the lowest priority
 
 #### Step 2: Enable Event Hub output for VM watch
 
-For each Event Hub authentication method, you will need to combine both the common and authentication specific parameter settings. Instructions are given below for each authentication scenario. To apply this to Virtual Machines and Virtual Machine Scale Sets, specify the following settings within `vmWatchSettings` in the JSON configurations. See Configure VM watch `<insert link to configure vm watch page>` for instructions on how to access `vmWatchSettings` using [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
+For each Event Hub authentication method, you need to combine both the common and authentication specific parameter settings. Instructions are given below for each authentication scenario. To apply this to Virtual Machines and Virtual Machine Scale Sets, specify the following settings within `vmWatchSettings` in the JSON configurations. See Configure VM watch `<insert link to configure vm watch page>` for instructions on how to access `vmWatchSettings` using [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/), or [Powershell](/powershell/).
 
 ##### Common parameters for authentication methods
 
@@ -43,7 +43,7 @@ For all authentication methods, the following parameter set applies:
 |`EVENT_HUB_OUTPUT_DOMAIN_NAME`|No|Event hub domain name. Default value `"servicebus.windows.net"`|
 |`EVENT_HUB_OUTPUT_CLOSE_TIMEOUT`|No|Client close timeout. Default is 30s|
 |`EVENT_HUB_OUTPUT_PARTITION_ID`|No|Metric tag or field name to use for the event partition key. Default is null|
-|`EVENT_HUB_OUTPUT_MAX_MESSAGE_SIZE`|No|The maximum batch message size in bytes. Setting this to 0 means using the default size from the Azure Event Hubs Client library (1000000 bytes). Default is 0|
+|`EVENT_HUB_OUTPUT_MAX_MESSAGE_SIZE`|No|The maximum batch message size in bytes. Setting this to 0 means using the default size from the Azure Event Hubs Client library (1,000,000 bytes). Default is 0|
 |`SEND_INTERNAL_TELEMETRY_TO_EVENT_HUB`|No|To receive VM watch internal metrics (startup and heartbeat events), set this value to "true". Default is "false"|
 
 
@@ -112,7 +112,7 @@ For example, the following VM watch JSON configuration enables Event Hub as an o
 
 #### Step 3: Examine Events in Event Hub
 
-Once VM watch settings have been successfully configured to use Event Hub as the output, VM watch will restart. Events will start flowing into Event Hub within a few minutes. You can use the [Azure Portal](https://portal.azure.com/) to observe the incoming messages. 
+Once VM watch settings have been successfully configured to use Event Hub as the output, VM watch restarts. Events start flowing into Event Hub within a few minutes. You can use the [Azure Portal](https://portal.azure.com/) to observe the incoming messages. 
 The following screenshot shows data flowing into the Event Hub
 
 Also, you can use the [Event Hub's Data Explorer](/azure/event-hubs/event-hubs-data-explorer) feature to view incoming event and content, as shown in the screenshot below.
@@ -127,7 +127,7 @@ Each Event Hub event has the following schema:
 |**Field Name**|**Data Type**|**Description**|
 | -------- | -------- | -------- |
 |`DateTime`|time|The time this signal was emitted|
-|`SignalType`|string|The type of this signal, which can be either "StartUp", "Heartbeat", "Check", "Metric" or "EventLog"|
+|`SignalType`|string|The type of this signal, which can be either "StartUp," "Heartbeat," "Check," "Metric," or "EventLog"|
 |`SignalName`|string|The name of this signal|
 |`SubscriptionId`|string|The VM subscription Id|
 |`ResourceGroup`|string|The VM resource group name|
