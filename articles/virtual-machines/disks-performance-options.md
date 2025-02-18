@@ -42,6 +42,10 @@ With on-demand disk bursting enabled, the disk bursts whenever its needs exceed 
 
 The performance of a Premium SSD is set when you create your disk, in the form of their performance tier. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier determines the IOPS and throughput your managed disk has. For Premium SSD disks only, the performance tier can be changed at deployment or afterwards, without changing the size of the disk, and without downtime. To learn more, see [Performance tiers for managed disks](/azure/virtual-machines/disks-change-performance).
 
+### Caching
+
+High-scale VMs that use premium storage have a multitier caching technology called **BlobCache**. **BlobCache** uses a combination of the host RAM and local SSD for caching. This cache is available for Premium SSD managed disks and the VM local disks. With disk caching enabled on Premium SSD managed disks, the high-scale VMs can achieve levels of performance that exceed the underlying disk performance. Using To learn more about caching, see [Disk caching](premium-storage-performance.md#disk-caching).
+
 ### Write accelerator
 
 Write accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium SSD managed disks. Write accelerator improves the I/O latency of writes against Premium SSD disks. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
