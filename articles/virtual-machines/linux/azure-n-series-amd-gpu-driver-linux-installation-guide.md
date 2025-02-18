@@ -1,5 +1,5 @@
 ---
-title: Azure N-series GPU driver setup for Linux
+title: Azure N-series AMD GPU driver setup for Linux
 description: How to set up AMD GPU drivers for N-series VMs running Linux in Azure
 services: virtual-machines
 author: nmagatala-MSFT
