@@ -27,7 +27,7 @@ This article assumes that you are familiar with:
 
 #### [ARM Template](#tab/ARM-template-1)
 1. Navigate back to the Overview Page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below.
-2. Copy the code segment to an IDE such as [Visual Studio Code](/visualstudio/ide/?view=vs-2022) and make the necessary customizations
+2. Copy the code segment to an IDE such as Visual Studio Code and make the necessary customizations
 
 ```
 {
