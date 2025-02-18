@@ -5,7 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 12/09/2024
+ms.date: 02/13/2025
 ---
 
 # Create a snapshot of a virtual hard disk
@@ -13,6 +13,8 @@ ms.date: 12/09/2024
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 A snapshot is a full, read-only copy of a virtual hard disk (VHD). You can use a snapshot as a point-in-time backup, or to help troubleshoot virtual machine (VM) issues. You can take a snapshot of both operating system (OS) or data disk VHDs.
+
+Snapshots are billed separately from their original disk. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## Create a snapshot of a VHD
 
