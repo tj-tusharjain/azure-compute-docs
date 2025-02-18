@@ -91,7 +91,7 @@ For example, the following VM watch JSON configuration enables Event Hub as an o
 #### [Connection String](#tab/connectionstring-1)
 |**Parameter**|**Is required**|**Description**|
 | -------- | -------- | -------- |
-|`EVENT_HUB_OUTPUT_CONNECTION_STRING_BASE64`|No|If using connection string token to authenticate, encode it with base64. This should **not** include the entity path `EntityPath = <EventHubName>;` in the connection string.|
+|`EVENT_HUB_OUTPUT_CONNECTION_STRING_BASE64`|No|If using connection string token to authenticate, encode it with base64. The connection string should follow the following format: `Endpoint=sb://<NamespaceName>.<DomainName>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>`. This should **not** include the entity path `;EntityPath=<EventHubName>` in the connection string.|
 
 For example, the following VM watch JSON configuration enables Event Hub as an output by using a connection string for authentication
 
