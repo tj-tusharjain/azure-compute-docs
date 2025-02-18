@@ -94,12 +94,12 @@ $ sudo apt update
 
 To install the latest AMD Linux driver, it's crucial to exclude the default AMD GPU driver found in Linux OS distributions such as Ubuntu or RHEL. The default AMD GPU driver in Linux OS distributions isn't certified for use with the AMD Radeon&trade; PRO V710 GPU on an NVv5-V710 GPU Linux instance. This Linux driver, on the other hand, is optimized explicitly for Azure NVv5-V710 GPU Linux workloads. Follow the steps below to exclude the driver: 
 
-Open/etc/modprobe.d/blacklist.conf file and append the following line:
+Open/etc/modprobe.d/exclude.conf file and append the following line:
 
 ```bash
-blacklist amdgpu
+exclude amdgpu
 ```
-After updating the blacklist.conf file as above, run the following command for the change to take effect after reboot:
+After updating the exclude.conf file as above, run the following command for the change to take effect after reboot:
 
 ```Bash
 $ sudo update-initramfs -uk all
