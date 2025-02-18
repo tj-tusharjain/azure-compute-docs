@@ -180,14 +180,16 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 - Maintain separate galleries for production and test images, don’t put them in a single gallery.
 
+- For disaster recovery scenarios, it's best practice to have at least two galleries, in different regions. You can still use image versions in other regions, but if the region your gallery is in goes down, you can't create new gallery resources or update existing ones.
+
 - When creating an image definition, keep the Publisher/Offer/SKU consistent with Marketplace images to easily identify OS versions.  For example, if you're customizing a Windows server 2019 image from Marketplace and store it as a Compute gallery image, please use the same Publisher/Offer/SKU that is used in the Marketplace image in your compute gallery image.
  
 - Use `excludeFromLatest` when publishing images if you want to exclude a specific image version during VM or scale set creation. 
 [Gallery Image Versions - Create Or Update](/rest/api/compute/gallery-image-versions/create-or-update#galleryimageversionpublishingprofile).
 
-    If you want to exclude a version in a specific region, use `regionalExcludeFromLatest`   instead of the global `excludeFromLatest`.  You can set both global and regional `excludeFromLatest` flag, but the regional flag will take precedence when both are specified.
+- If you want to exclude a version in a specific region, use `regionalExcludeFromLatest`   instead of the global `excludeFromLatest`.  You can set both global and regional `excludeFromLatest` flag, but the regional flag will take precedence when both are specified.
 
-    ```
+   ```
     "publishingProfile": {
       "targetRegions": [
         {
@@ -207,16 +209,13 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
       "excludeFromLatest": true,
       "storageAccountType": "Standard_LRS"
     }
-    ```
-
-
-- For disaster recovery scenarios, it's a best practice is to have at least two galleries, in different regions. You can still use image versions in other regions, but if the region your gallery is in goes down, you can't create new gallery resources or update existing ones.
+   ```
 
 - Set `safetyProfile.allowDeletionOfReplicatedLocations` to false on Image versions to prevent accidental deletion of replicated regions and prevent outage. You can also set this using CLI [allow-replicated-location-deletion](/cli/azure/sig/image-version#az-sig-image-version-create)
 
-```
-{ 
-  "properties": { 
+   ```
+   {
+   "properties": { 
     "publishingProfile": { 
       "targetRegions": [ 
         { 
@@ -226,23 +225,25 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
           // encryption info         
         }
       ], 
-      "replicaCount": 1, 
-      "publishedDate": "2018-01-01T00:00:00Z", 
-      "storageAccountType": "Standard_LRS" 
+       "replicaCount": 1, 
+       "publishedDate": "2018-01-01T00:00:00Z", 
+       "storageAccountType": "Standard_LRS" 
     }, 
     "storageProfile": { 
-      "source": { 
-        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}" 
+       "source": { 
+         "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}" 
       }, 
     }, 
-   “safetyProfile”: { 
-      “allowDeletionOfReplicatedLocations” : false 
-    }, 
-  }, 
-  "location": "West US", 
-  "name": "1.0.0" 
-} 
-```
+    “safetyProfile”: { 
+       “allowDeletionOfReplicatedLocations” : false 
+     }, 
+   }, 
+   "location": "West US", 
+   "name": "1.0.0" 
+   } 
+   ```
+
+- Set `BlockDeletionBeforeEndOfLife` to block deletion of the image before it's *end of life* date, ensuring protection against accidental deletion. Set this feature through [Rest API `blockdeletionbeforeendoflife`](https://learn.microsoft.com/rest/api/compute/gallery-image-versions/create-or-update?view=rest-compute&tabs=HTTP#galleryimageversionsafetyprofile).
 
 
 ## SDK support
