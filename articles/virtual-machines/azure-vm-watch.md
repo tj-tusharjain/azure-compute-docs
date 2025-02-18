@@ -5,7 +5,7 @@ author: iamwilliew
 ms.author: wwilliams
 ms.service: azure-virtual-machines
 ms.topic: conceptual
-ms.date: 09/20/2024
+ms.date: 02/18/2025
 ---
 
 # VM watch: Enhancing VM health monitoring (preview)
