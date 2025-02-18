@@ -158,3 +158,13 @@ If there are no events in Event Hub after several minutes, check the VM watch lo
 C:/WindowsAzure/Logs/Plugins/Microsoft.ManagedServices.Edp.ApplicationHealthWindows/vmwatch.log
 ```
 ---
+
+### Next Steps
+
+- Configure VM watch (insert link)
+
+- VM watch Collector Suites (insert link)
+
+- [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
+
+- [VM watch overview](/azure/virtual-machines/azure-vm-watch)
