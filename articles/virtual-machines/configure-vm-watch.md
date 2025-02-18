@@ -14,7 +14,7 @@ VM watch signals are logically grouped into Collector Suites, which can be categ
 
 This article describes how to configure VM watch to suit specific requirements.
 
-### Pre-requisites
+### Prerequisites
 This article assumes that you're familiar with:
 - [VM watch Checks, Metrics, and Logs](/azure/virtual-machines/azure-vm-watch)
 - [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
@@ -23,7 +23,7 @@ This article assumes that you're familiar with:
 ### Access `vmWatchSettings` on Azure Virtual Machines
 
 > [!IMPORTANT]
-> The code segment is identical for both Windows and Linux except for the value of the parameter `<application health extension type>` passed into the Extension Type. Please replace `<application health extension type>` with `ApplicationHealthLinux` for Linux and `ApplicationHealthWindows` for Windows installations.  
+> The code segment is identical for both Windows and Linux except for the value of the parameter `<application health extension type>` passed into the Extension Type. Replace `<application health extension type>` with `ApplicationHealthLinux` for Linux and `ApplicationHealthWindows` for Windows installations.  
 
 #### [ARM Template](#tab/ARM-template-1)
 1. Navigate back to the Overview Page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below.
@@ -58,10 +58,10 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
 | **enabled** | `bool` | This allows you to enable or disable VM watch | true
 | **signalFilters** | `object` | This filters the enabled / disabled signals, either by tag or collector suite name. | false
 | **parameterOverrides** | `object` | This specifies the parameters that can be overwritten for each signal execution. The full list of overwritable parameters can be found in the VM watch Collector Suites page `<link to collector page>`. | false
-| **environmentAttributes** | `object` | This specifies any environment attributes that will help decide if a test is eligible to execute or not. | false
+| **environmentAttributes** | `object` | This specifies any environment attributes that help decide if a test is eligible to execute or not. | false
 
 > [!IMPORTANT]
-> For the full list of collectors, associated signals, tags, overwritable parameters, and environment attributes, please visit VM watch Collector Suites page `<insert link to collector page>` 
+> For the full list of collectors, associated signals, tags, overwritable parameters, and environment attributes, visit VM watch Collector Suites page `<insert link to collector page>` 
 >
  
 #### Switch On/Off VM watch 
