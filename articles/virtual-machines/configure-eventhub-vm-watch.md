@@ -26,7 +26,7 @@ This article assumes that you are familiar with:
 - Deploy an [Event Hub](/azure/event-hubs/event-hubs-create)
 - [Authorize access to the Azure Event Hub](/azure/event-hubs/authorize-access-event-hubs)
 > [!IMPORTANT]
-> VM watch supports managed identity, SAS token, and connection string as authentication methods. Be aware that if multiple authentication methods are provided, managed identity is given the highest priority, while the connection string will be given the lowest priority
+> VM watch supports managed identity, SAS token, and connection string as authentication methods. If multiple authentication methods are provided, managed identity is given the highest priority, while the connection string will be given the lowest priority
 
 #### Step 2: Enable Event Hub output for VM watch
 
