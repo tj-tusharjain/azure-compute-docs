@@ -41,7 +41,7 @@ When you're using customer-managed keys for encrypting images in an Azure Comput
 
 - After you've used your own keys to encrypt an image, you can't go back to using platform-managed keys for encrypting those images.
 
-- VM image version source doesn't currently support customer-managed key encryption.
+- Existing ACG Image version source encrypted with CMK cannot be used as source to create another ACG Image version.
 
 - Some of the features like replicating an SSE+CMK image, creating an image from SSE+CMK encrypted disk etc. are not supported through portal.
 
