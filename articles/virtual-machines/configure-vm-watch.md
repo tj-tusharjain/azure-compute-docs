@@ -57,11 +57,11 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
 |---|---|---|---|
 | **enabled** | `bool` | This allows you to enable or disable VM watch | true
 | **signalFilters** | `object` | This filters the enabled / disabled signals, either by tag or collector suite name. | false
-| **parameterOverrides** | `object` | This specifies the parameters that can be overwritten for each signal execution. The full list of overwritable parameters can be found in the VM watch Collector Suite page <link to collector page>. | false
+| **parameterOverrides** | `object` | This specifies the parameters that can be overwritten for each signal execution. The full list of overwritable parameters can be found in the VM watch Collector Suite page `<link to collector page>`. | false
 | **environmentAttributes** | `object` | This specifies any environment attributes that will help decide if a test is eligible to execute or not. | false
 
 > [!IMPORTANT]
-> For the full list of collectors, associated signals, tags, overwritable parameters and environment attributes, please visit VM watch Collector Suite page <insert link to collector page> 
+> For the full list of collectors, associated signals, tags, overwritable parameters and environment attributes, please visit VM watch Collector Suite page `<insert link to collector page>` 
 >
  
 #### Switch On/Off VM watch 
@@ -84,7 +84,7 @@ VM watch can be switched on / off by configuring the `enabled` property, as show
 
 #### Enable/Disable signal execution 
 
-By default, only the core group signals <link> are enabled. However, the `signalFilters` property can be used to control and configure the signals to be executed. This property includes the following subfields.
+By default, only the core group signals `<link>` are enabled. However, the `signalFilters` property can be used to control and configure the signals to be executed. This property includes the following subfields.
 
 | **Subfields** | **Description** |
 |---|------|
