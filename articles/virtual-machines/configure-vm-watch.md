@@ -1,12 +1,8 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
 title: Configure VM watch
 description: Getting started guide on how to configure VM watch on virtual machines
-author:      ofemifowode # GitHub alias
-ms.author:   ofemifowode # Microsoft alias
+author:      ofemifowode 
+ms.author:   ofemifowode 
 ms.service: azure-virtual-machines
 ms.topic: get-started
 ms.date:     10/28/2024
@@ -14,7 +10,7 @@ ms.date:     10/28/2024
 
 # Configure VM watch
 
-VM watch signals are logically grouped into Collector Suites, which can be categorized into two groups: core and optional<link to collector page>. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
+VM watch signals are logically grouped into Collector Suites, which can be categorized into two groups: core and optional`<link to collector page>`. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
 
 This article describes how to configure VM watch to suit specific requirements.
 
@@ -22,7 +18,7 @@ This article describes how to configure VM watch to suit specific requirements.
 This article assumes that you are familiar with:
 - [VM watch Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch)
 - [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
-- VM watch Collector Suites <insert link to collector page here>
+- VM watch Collector Suites `<insert link to collector page here>`
 
 ### Access `vmWatchSettings` on Azure Virtual Machines
 
@@ -31,7 +27,7 @@ This article assumes that you are familiar with:
 
 #### [ARM Template](#tab/ARM-template-1)
 1. Navigate back to the Overview Page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below.
-2. Copy the code segment to an IDE such as [Visual Studio Code](https://learn.microsoft.com/en-us/visualstudio/ide/?view=vs-2022) and make the necessary customizations
+2. Copy the code segment to an IDE such as [Visual Studio Code](/visualstudio/ide/?view=vs-2022) and make the necessary customizations
 
 ```
 {
@@ -167,7 +163,7 @@ Signal execution parameters can be overwritten by setting the `parameterOverride
 
 #### Environment attribute enrichments 
 
-In addition to tags, VM watch also checks the eligibility <insert link to collector page> of the signals before execution. The `environmentattributes` can be specified to help VM watch determine the eligibility of each signal for execution. 
+In addition to tags, VM watch also checks the eligibility `<insert link to collector page>` of the signals before execution. The `environmentattributes` can be specified to help VM watch determine the eligibility of each signal for execution. 
 For instance, if outbound traffic has been disabled on a VM, this information can be provided to VM watch. This will ensure that any outbound network-related signal execution will be marked as ineligible.
 ```
 {
