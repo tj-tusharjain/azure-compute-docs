@@ -161,9 +161,9 @@ C:/WindowsAzure/Logs/Plugins/Microsoft.ManagedServices.Edp.ApplicationHealthWind
 
 ### Next Steps
 
-- Configure VM watch (insert link)
+- Configure VM watch <insert link>
 
-- VM watch Collector Suites (insert link)
+- VM watch Collector Suites <insert link>
 
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 
