@@ -20,7 +20,7 @@ VM watch collectors are designed to gather VM health data on various resources l
 This article provides a summary of all available collectors in VM watch, along with the corresponding checks, metrics, logs, and parameter configurations. For detailed descriptions of each check, metric, and log, refer to the [VM watch Overview](/azure/virtual-machines/azure-vm-watch) page.
 
 ### Prerequisites
-This article assumes that you are familiar with:
+This article assumes that you're familiar with:
 - [VM watch Checks, Metrics, and Logs](/azure/virtual-machines/azure-vm-watch) 
 - [Install VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 
