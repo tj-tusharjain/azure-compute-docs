@@ -21,15 +21,15 @@ This article describes how to configure an EventHub in order to access signals c
 
 ### Pre-requisites
 This article assumes that you are familiar with:
-- [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about)
+- [Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-about)
 - [VM watch Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch)
 - [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) 
 
 ### Enable EventHubs Output
 
 #### Step 1: Prepare an EventHub for VM watch
-- Deploy an [Event Hub](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
-- [Authorize access to the Azure Event Hub](https://learn.microsoft.com/en-us/azure/event-hubs/authorize-access-event-hubs)
+- Deploy an [Event Hub](https://learn.microsoft.com/azure/event-hubs/event-hubs-create)
+- [Authorize access to the Azure Event Hub](https://learn.microsoft.com/azure/event-hubs/authorize-access-event-hubs)
 > [!IMPORTANT]
 > VM watch supports managed identity, SAS token and connection string as authentication methods. Please be aware that if multiple authentication methods are provided, managed identity will be given the highest priority, while the connection string will be given the lowest priority
 
