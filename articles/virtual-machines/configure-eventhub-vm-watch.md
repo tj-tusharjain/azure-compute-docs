@@ -18,7 +18,7 @@ This article describes how to configure an Event Hub in order to access signals 
 This article assumes that you are familiar with:
 - [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
 - [VM watch Checks, Metrics, and Logs](/azure/virtual-machines/azure-vm-watch)
-- [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) 
+- [Install VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) 
 
 ### Enable EventHubs Output
 
@@ -44,13 +44,13 @@ For all authentication methods, the following parameter set applies:
 |`EVENT_HUB_OUTPUT_CLOSE_TIMEOUT`|No|Client close timeout. Default is 30s|
 |`EVENT_HUB_OUTPUT_PARTITION_ID`|No|Metric tag or field name to use for the event partition key. Default is null|
 |`EVENT_HUB_OUTPUT_MAX_MESSAGE_SIZE`|No|The maximum batch message size in bytes. Setting this to 0 means using the default size from the Azure Event Hubs Client library (1,000,000 bytes). Default is 0|
-|`SEND_INTERNAL_TELEMETRY_TO_EVENT_HUB`|No|To receive VM watch internal metrics (startup and heartbeat events), set this value to "true". Default is "false"|
+|`SEND_INTERNAL_TELEMETRY_TO_EVENT_HUB`|No|To receive VM watch internal metrics (startup and heartbeat events), set this value to "true." Default is "false"|
 
 
 #### [Managed Identity](#tab/managedidentity-1)
 |**Parameter**|**Is required**|**Description**|
 | -------- | -------- | -------- |
-|`EVENT_HUB_OUTPUT_USE_MANAGED_IDENTITY`|No|Set this value to "true". Default is "false"|
+|`EVENT_HUB_OUTPUT_USE_MANAGED_IDENTITY`|No|Set this value to "true." Default is "false"|
 |`EVENT_HUB_OUTPUT_MANAGED_IDENTITY_CLIENT_ID`|No|If you are using a specific managed identity to authenticate, specify this value|
 
 For example, the following VM watch JSON configuration sets the environment variables `EVENT_HUB_OUTPUT_NAMESPACE`, `EVENT_HUB_OUTPUT_NAME`, and `EVENT_HUB_OUTPUT_USE_MANAGED_IDENTITY`. This allows the Event Hub to use managed identity as the authentication method without needing to specify a managed identity client ID.
