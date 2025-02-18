@@ -80,7 +80,7 @@ This article assumes that you are familiar with:
 
 ### Next Steps
 
-- Configure VM watch (insert Link)
+- Configure VM watch <insert Link>
 
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 
