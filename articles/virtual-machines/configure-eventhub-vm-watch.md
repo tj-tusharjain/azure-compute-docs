@@ -30,7 +30,7 @@ This article assumes that you are familiar with:
 
 #### Step 2: Enable Event Hub output for VM watch
 
-For each Event Hub authentication method, you will need to combine both the common and authentication specific parameter settings. Instructions are given below for each authentication scenario. **To apply the such config to VM/VMSS, specify the setting JSON as VM extension settings via CLI/PowerShell/ARM template. See [Install VM watch (preview)](/azure/virtual-machines/install-vm-watch?tabs=cli-1%2Ccli-2) for details.** NOT SURE WHAT THIS MEANS
+For each Event Hub authentication method, you will need to combine both the common and authentication specific parameter settings. Instructions are given below for each authentication scenario. To apply this to Virtual Machines and Virtual Machine Scale Sets, specify the following settings within `vmWatchSettings` in the JSON configurations. See Configure VM watch `<insert link to configure vm watch page>` for instructions on how to access `vmWatchSettings` using [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/) or [Powershell](/powershell/).
 
 ##### Common parameters for authentication methods
 
