@@ -1,8 +1,12 @@
 ---
-title:       # Configure Eventhubs for VM watch
-description: # Configure Eventhubs for VM watch
-author:      ofemifowode 
-ms.author:   ofemifowode 
+# Required metadata
+# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
+# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
+
+title:       # Add a title for the browser tab
+description: # Add a meaningful description for search results
+author:      ofemifowode # GitHub alias
+ms.author:   ofemifowode # Microsoft alias
 ms.service:  # Add the ms.service or ms.prod value
 # ms.prod:   # To use ms.prod, uncomment it and delete ms.service
 ms.topic:    # Add the ms.topic value
@@ -17,15 +21,15 @@ This article describes how to configure an EventHub in order to access signals c
 
 ### Pre-requisites
 This article assumes that you are familiar with:
-- [Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-about)
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
 - [VM watch Checks, Metrics and Logs](/azure/virtual-machines/azure-vm-watch)
 - [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) 
 
 ### Enable EventHubs Output
 
 #### Step 1: Prepare an EventHub for VM watch
-- Deploy an [Event Hub](https://learn.microsoft.com/azure/event-hubs/event-hubs-create)
-- [Authorize access to the Azure Event Hub](https://learn.microsoft.com/azure/event-hubs/authorize-access-event-hubs)
+- Deploy an [Event Hub](/azure/event-hubs/event-hubs-create)
+- [Authorize access to the Azure Event Hub](/azure/event-hubs/authorize-access-event-hubs)
 > [!IMPORTANT]
 > VM watch supports managed identity, SAS token and connection string as authentication methods. Please be aware that if multiple authentication methods are provided, managed identity will be given the highest priority, while the connection string will be given the lowest priority
 
@@ -157,9 +161,9 @@ C:/WindowsAzure/Logs/Plugins/Microsoft.ManagedServices.Edp.ApplicationHealthWind
 
 ### Next Steps
 
-- Configure VM watch <insert link>
+- Configure VM watch 
 
-- VM watch Collector Suites <insert link>
+- VM watch Collector Suites 
 
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 
