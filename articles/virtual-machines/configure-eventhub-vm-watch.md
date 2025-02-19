@@ -12,7 +12,7 @@ ms.date:     02/05/2025
 
 VM watch can send signal data to a preconfigured [Event Hub](/azure/event-hubs/event-hubs-about).
 
-This article describes how to configure an Event Hub in order to access signals collected by VM watch.
+This article provides instructions on configuring an Event Hub to access signals collected by VM watch
 
 ### Prerequisites
 This article assumes that you are familiar with:
@@ -126,19 +126,19 @@ Each Event Hub event has the following schema:
 
 |**Field Name**|**Data Type**|**Description**|
 | -------- | -------- | -------- |
-|`DateTime`|time|The time this signal was emitted|
-|`SignalType`|string|The type of this signal, which can be either "StartUp," "Heartbeat," "Check," "Metric," or "EventLog"|
-|`SignalName`|string|The name of this signal|
-|`SubscriptionId`|string|The VM subscription Id|
+|`DateTime`|time|The time the signal was emitted|
+|`SignalType`|string|The type of the signal, which can be either "StartUp," "Heartbeat," "Check," "Metric," or "EventLog"|
+|`SignalName`|string|The name of the signal|
+|`SubscriptionId`|string|The VM subscription ID|
 |`ResourceGroup`|string|The VM resource group name|
 |`ResourceId`|string|The azure resource URI of the VM|
-|`VmId`|string|The unique Id of the VM queried from IMDS endpoint within the VM|
+|`VmId`|string|The unique ID of the VM queried from IMDS endpoint within the VM|
 |`Vmss`|string|The VMSS name, if applicable|
 |`Offer`|string|The Azure VM offer|
 |`VmSize`|string|The VM size|
-|`MeasurementTarget`|string|The target that the Signal is measuring at. `Name` field and `MeasurementTarget` are used together for raw Signal aggregation|
-|`SignalValue`|json|The value of this signal, where the schema depends on the SignalType.
-|`Version`|string|The Event Hub output event schema version|
+|`MeasurementTarget`|string|The target that the signal is measuring at. `Name` field and `MeasurementTarget` are used together for raw signal aggregation|
+|`SignalValue`|json|The value of this signal, where the schema depends on the SignalType|
+|`Version`|string|The version of the Event Hub output event schema|
 
 #### Debug Event Hub connection issues
 
