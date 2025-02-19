@@ -341,20 +341,14 @@ Calling the [Resource Skus API](/rest/api/compute/resourceskus/list) and checkin
 Or, calling the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) PowerShell cmdlet.
 
 ```powershell
-$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
-
-foreach($vmSize in $vmSizes)
-{
-    foreach($capability in $vmSize.capabilities)
-    {
-        if($capability.Name -eq 'EncryptionAtHostSupported' -and $capability.Value -eq 'true')
-        {
-            $vmSize
-
+Get-AzComputeResourceSku -Location "centralus" |
+    Where-Object ResourceType -eq 'virtualMachines' |
+    Select-Object Name, @{
+        Name       = 'EncryptionAtHostSupported';
+        Expression = {
+            $_.capabilities.where({ $_.Name -eq 'EncryptionAtHostSupported' }, 'First').Value
         }
-
     }
-}
 ```
 
 ## Next steps
