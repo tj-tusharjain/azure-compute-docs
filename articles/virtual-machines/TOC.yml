@@ -524,7 +524,7 @@
         - name: Windows
           displayName: NVIDIA GPU drivers, GPU drivers, GPU
           href: ./windows/n-series-driver-setup.md
-      - name: Setup AMD GPU drivers
+      - name: Set up AMD GPU drivers
         displayName: AMD GPU drivers, AMD, GPU drivers, GPU
         href: ./linux/azure-n-series-amd-gpu-driver-linux-installation-guide.md
       - name: Setup AMD GPU drivers
