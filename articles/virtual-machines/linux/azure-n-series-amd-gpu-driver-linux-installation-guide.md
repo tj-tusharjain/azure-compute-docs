@@ -1,6 +1,6 @@
 ---
-title: Azure N-series AMD GPU driver setup for Linux
-description: How to set up AMD GPU drivers for N-series VMs running Linux in Azure
+title: Azure N-series AMD GPU Driver Setup for Linux
+description: How to set up AMD Radeon PRO V710 NVv5 Linux Installation Guide.
 services: virtual-machines
 author: nmagatala-MSFT
 ms.service: azure-virtual-machines
@@ -13,7 +13,7 @@ ms.author: v-nmagatala
 ms.reviewer: vikancha
 ---
 
-# Install AMD GPU drivers on N-series VMs running Linux
+# Install AMD GPU drivers on Azure NVv5_V710 Linux VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -81,7 +81,8 @@ $ sudo lspci -d 1002:7461
 c3:00.0 Display controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 7461
 ```
 
-Note: 7461 is the Virtual Function Device ID. This confirms that the Virtual Machine is configured with the AMD Radeon&trade; PRO V710 GPU.
+>[!NOTE]
+> 7461 is the Virtual Function Device ID. This confirms that the Virtual Machine is configured with the AMD Radeon&trade; PRO V710 GPU.
 
 ### 3.4 Virtual Machine Update
 
@@ -132,15 +133,17 @@ sudo apt install ./${LATEST_DEB}
 sudo amdgpu-install --usecase=rocm
 ```
 
-Note: If needed, this can be used to create a script to automate the installation process.
+>[!NOTE]
+> If needed, this can be used to create a script to automate the installation process.
 
-## 4.2 Load AMD GPU driver
+### 4.2 Load AMD GPU driver
 
 ```bash
 $ sudo modprobe amdgpu
 ```
 
-Note: The AMD GPU driver needs to be loaded on every boot.
+>[!NOTE]
+> The AMD GPU driver needs to be loaded on every boot.
 
 Review the output of **" dmesg | grep amdgpu "** to confirm that the GPU driver is loaded and initialized successfully.
 
