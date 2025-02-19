@@ -2219,8 +2219,8 @@
     href: ./linux/metrics-vm-usage-rest.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
-    - name: Configure EventHub
-    href: ../../../../ofemifowode/azure-compute-docs-pr/articles/virtual-machines/configure-eventhub-vm-watch.md
+  - name: Configure EventHub
+    href: configure-eventhub-vm-watch.md
 - name: Backup and recovery
   items:
   - name: Overview
