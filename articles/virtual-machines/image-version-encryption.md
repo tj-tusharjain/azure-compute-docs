@@ -120,9 +120,10 @@ az sig image-version create \
    --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage 
-   
 ```
+
 Create the VM
+
 You can create a VM from an Azure Compute Gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) VM with the addition of the `--os-disk-encryption-set` parameter. For data disks, add `--data-disk-encryption-sets` with a space-delimited list of the disk encryption sets for the data disks.
 
 
@@ -134,7 +135,10 @@ When you create your image version in the portal, you can use the **Encryption**
 3. For each disk in the image, select an encryption set from the **Disk encryption set** drop-down list. 
 
 Create the VM
+
 You can create a VM from an image version and use customer-managed keys to encrypt the disks. When you create the VM in the portal, on the **Disks** tab, select **Encryption at-rest with customer-managed keys** or **Double encryption with platform-managed and customer-managed keys** for **Encryption type**. You can then select the encryption set from the drop-down list.
+
+---
 
 ## Next steps
 
