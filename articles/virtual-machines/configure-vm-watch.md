@@ -138,7 +138,7 @@ For instance, to set the `outbound connectivity` test execution frequency to 120
 {
    "vmWatchSettings": {
       "enabled": true,
-      "parameterOverrides ": {
+      "parameterOverrides": {
          "OUTBOUND_CONNECTIVITY_INTERVAL": "120s"
       }
    }
@@ -153,7 +153,7 @@ Signal execution parameters can be overwritten by setting the `parameterOverride
 {
    "vmWatchSettings": {
       "enabled": true,
-      "parameterOverrides ": {
+      "parameterOverrides": {
          "DISK_IO_MOUNT_POINTS": "/mnt"
       }
    }
@@ -169,7 +169,7 @@ For instance, if outbound traffic has been disabled on a VM, this information ca
 {
    "vmWatchSettings": {
       "enabled": true,
-      "environmentAttributes ": {
+      "environmentAttributes": {
          "OutboundConnectivityDisabled": true
       }
    }
