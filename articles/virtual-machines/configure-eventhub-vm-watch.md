@@ -46,6 +46,7 @@ For all authentication methods, the following parameter set applies:
 |`EVENT_HUB_OUTPUT_MAX_MESSAGE_SIZE`|No|The maximum batch message size in bytes. Setting this to 0 means using the default size from the Azure Event Hubs Client library (1,000,000 bytes). Default is 0|
 |`SEND_INTERNAL_TELEMETRY_TO_EVENT_HUB`|No|To receive VM watch internal metrics (startup and heartbeat events), set this value to "true." Default is "false"|
 
+##### Authentication specific parameters for Event Hub output
 
 #### [Managed Identity](#tab/managedidentity-1)
 |**Parameter**|**Is required**|**Description**|
