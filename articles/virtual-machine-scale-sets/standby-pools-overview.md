@@ -35,14 +35,6 @@ To allow standby pools to create and manage virtual machines in your subscriptio
 
 For more information on assigning roles, see [assign Azure roles using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
-
-> [!NOTE]
-> To create and manage standby pools in the Azure portal, register the following feature flag:
-> `Register-AzProviderFeature -FeatureName StandbyVMPoolPreview -ProviderNamespace Microsoft.StandbyPool`
-
-For more information on assigning roles, see [assign Azure roles using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal).
-
-
 ## Scaling
 
 Moving virtual machines between the standby pool into the scale set happens automatically whenever a scale out event is triggered. There is no extra configuration required. As long as there is an available instance in the standby pool that has completed all provisioning steps, the scale set by default uses that instance when scaling up. 
