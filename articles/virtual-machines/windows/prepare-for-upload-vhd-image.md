@@ -268,7 +268,7 @@ Make sure the following settings are configured correctly for remote access:
  > [!IMPORTANT]
  > 168.63.129.16 is a special public IP address that is owned by Microsoft for Azure. For more information, see [What is IP address 168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
-1. If the VM is part of a domain, check the following Microsoft Entra policies to make sure the previous
+1. If the VM is part of a domain, check the following Active Directory policies to make sure the previous
    settings aren't reverted.
 
     |                 Goal                 |                                                                         Policy                                                                          |                  Value                  |
@@ -374,7 +374,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
 
    - `Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment`
 
-1. Check the following Microsoft Entra policies to make sure they're not blocking RDP access:
+1. Check the following Active Directory policies to make sure they're not blocking RDP access:
 
    - `Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights
       Assignment\Deny access to this computer from the network`
@@ -382,7 +382,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
    - `Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights
       Assignment\Deny log on through Remote Desktop Services`
 
-1. Check the following Microsoft Entra policy to make sure they're not removing any of the required access
+1. Check the following Active Directory policy to make sure they're not removing any of the required access
    accounts:
 
    - `Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this computer from the network`
