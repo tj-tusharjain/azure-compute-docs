@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 > [!IMPORTANT]
-> **Managed Run Command**  is currently available in Azure CLI, PowerShell, and API at this time. Portal functionality will soon be available.
+> **Managed Run Command**  is currently available in Azure CLI, PowerShell, and API at this time. Portal functionality is on the roadmap.
 
 The Run Command feature uses the virtual machine (VM) agent to execute scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
@@ -61,21 +61,21 @@ You can use one of the [built-in roles](/azure/role-based-access-control/built-i
 The following examples use [az vm run-command](/cli/azure/vm/run-command) to run shell script on an Azure Windows VM.
 
 ### Execute a script with the VM
-This command will deliver the script to the VM, execute it, and return the captured output.
+This command delivers the script to the VM, execute it, and return the captured output.
 
 ```azurecli-interactive
 az vm run-command create --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --script "Write-Host Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a VM 
-This command will return a full list of previously deployed Run Commands along with their properties.
+This command returns a full list of previously deployed Run Commands along with their properties.
 
 ```azurecli-interactive
 az vm run-command list --vm-name "myVM" --resource-group "myRG"
 ```
 
 ### Get execution status and results 
-This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
+This command retrieves current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```azurecli-interactive
 az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand instanceView
@@ -86,7 +86,7 @@ az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "
 > If you'd like to access the full output and error, you have the option of forwarding the output and error data to storage append blobs using `-outputBlobUri` and `-errorBlobUri` parameters while executing Run Command using `Set-AzVMRunCommand` or `Set-AzVMssRunCommand`.
 
 ### Delete RunCommand resource from the VM
-Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution will be terminated. 
+Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution is terminated. 
 
 ```azurecli-interactive
 az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group "myRG"
@@ -96,7 +96,7 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 ## PowerShell 
 
 ### Execute a script with the VM
-This command will deliver the script to the VM, execute it, and return the captured output.
+This command delivers the script to the VM, execute it, and return the captured output.
 
 ```powershell-interactive
 Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Location "EastUS" -RunCommandName "RunCommandName" –SourceScript "echo Hello World!"
@@ -114,21 +114,21 @@ Set-AzVMRunCommand -ResourceGroupName "myRg" `
 ```
 
 ### Execute a long running Run Command on a VM
-The below execution should run longer than default timeout of 90 minutes. It should run for 100 minutes (refer 6000 seconds -TimeoutInSecond parameter below) provided script is expected to run that long. After 100 minutes, the script execution should stop.
+The execution time should run longer than default timeout of 90 minutes. It should run for 100 minutes (refer 6000 seconds -TimeoutInSecond parameter) provided script is expected to run that long. After 100 minutes, the script execution should stop.
 
 ```powershell-interactive
 Set-AzVMRunCommand -ResourceGroupName MyRG -VMName MyVM -RunCommandName MyRunCommand -Location EastUS2EUAP -SourceScriptUri <SourceScriptUri> -AsyncExecution -TimeoutInSecond 6000
 ```
 
 ### List all deployed RunCommand resources on a VM 
-This command will return a full list of previously deployed Run Commands along with their properties.
+This command returns a full list of previously deployed Run Commands along with their properties.
 
 ```powershell-interactive
 Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 ```
 
 ### Get execution status and results 
-This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
+This command retrieves current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```powershell-interactive
 Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName" -Expand InstanceView
@@ -201,7 +201,7 @@ Set-AzVMRunCommand -ResourceGroupName MyRG0 -VMName MyVML -RunCommandName MyRunC
 ```
 
 >[!NOTE]
-> Output and error blobs must be the AppendBlob type and their SAS URLs must provide read, append, create, write access to the blob. An expiration time of 24 hours is suggested for SAS URL. If output or error blob does not exist, a blob of type AppendBlob will be created. SAS URLs can be generated on Azure portal using blob's options , or SAS token from using `New-AzStorageBlobSASToken`.
+> Output and error blobs must be the AppendBlob type and their SAS URLs must provide read, append, create, write access to the blob. An expiration time of 24 hours is suggested for SAS URL. If output or error blob does not exist, a blob of type AppendBlob is created. SAS URLs can be generated on Azure portal using blob's options , or SAS token from using `New-AzStorageBlobSASToken`.
 
 ### Create or update Run Command on a VM as a different user using RunAsUser and RunAsPassword parameters
 Create or update Run Command on a VM as a different user using `RunAsUser` and `RunAsPassword` parameters. For RunAs to work properly, contact admin of VM and make sure user is added on the VM, user has access to resources accessed by the Run Command (Directories, Files, Network etc.), and in case of Windows VM, 'Secondary Logon' service is running on the VM.
@@ -238,7 +238,7 @@ Set-AzVMRunCommand -ResourceGroupName MyRG0 -VMName MyVMEE -RunCommandName MyRun
 
 
 ### Delete RunCommand resource from the VM
-Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution will be terminated. 
+Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution is terminated. 
 
 ```powershell-interactive
 Remove-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName"

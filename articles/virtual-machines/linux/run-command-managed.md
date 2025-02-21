@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-conten
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 > [!IMPORTANT]
-> **Managed Run Command**  is currently available in Azure CLI, PowerShell, and API at this time. Portal functionality will soon be available.
+> **Managed Run Command**  is currently available in Azure CLI, PowerShell, and API at this time. Portal functionality is on the roadmap.
 
 The Run Command feature uses the virtual machine (VM) agent to run scripts within an Azure Linux VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
@@ -61,21 +61,21 @@ You can use one of the [built-in roles](/azure/role-based-access-control/built-i
 The following examples use [az vm run-command](/cli/azure/vm/run-command) to run shell script on an Azure Linux VM.
 
 ### Execute a script with the VM
-This command will deliver the script to the VM, execute it, and return the captured output.
+This command delivers the script to the VM, execute it, and return the captured output.
 
 ```azurecli-interactive
 az vm run-command create --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --script "echo Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a VM 
-This command will return a full list of previously deployed Run Commands along with their properties. 
+This command returns a full list of previously deployed Run Commands along with their properties. 
 
 ```azurecli-interactive
 az vm run-command list --vm-name "myVM" --resource-group "myRG"
 ```
 
 ### Get execution status and results 
-This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
+This command retrieves current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```azurecli-interactive
 az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand instanceView
@@ -96,7 +96,7 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 ## PowerShell 
 
 ### Execute a script with the VM
-This command will deliver the script to the VM, execute it, and return the captured output.
+This command delivers the script to the VM, execute it, and return the captured output.
 
 
 ```azurepowershell-interactive
@@ -111,21 +111,21 @@ Set-AzVMRunCommand -ResourceGroupName -VMName -RunCommandName -SourceScriptUri â
 ```
 
 ### Execute a long running Run Command on a VM
-The below execution should run longer than default timeout of 90 minutes. It should run for 100 minutes (refer 6000 seconds -TimeoutInSecond parameter below) provided script is expected to run that long. After 100 minutes, the script execution should stop.
+The execution time should run longer than default timeout of 90 minutes. It should run for 100 minutes (refer 6000 seconds -TimeoutInSecond parameter) provided script is expected to run that long. After 100 minutes, the script execution should stop.
 
 ```powershell-interactive
 Set-AzVMRunCommand -ResourceGroupName MyRG -VMName MyVM -RunCommandName MyRunCommand -Location EastUS2EUAP -SourceScriptUri <SourceScriptUri> -AsyncExecution -TimeoutInSecond 6000
 ```
 
 ### List all deployed RunCommand resources on a VM 
-This command will return a full list of previously deployed Run Commands along with their properties.
+This command returns a full list of previously deployed Run Commands along with their properties.
 
 ```azurepowershell-interactive
 Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 ```
 
 ### Get execution status and results 
-This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
+This command retrieves current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```azurepowershell-interactive
 Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName" -Expand instanceView
@@ -227,7 +227,7 @@ Use `ProtectedParameter` to pass any sensitive inputs to script such as password
 
 
 ### Delete RunCommand resource from the VM
-Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution will be terminated. 
+Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution is terminated. 
 
 ```azurepowershell-interactive
 Remove-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName"
