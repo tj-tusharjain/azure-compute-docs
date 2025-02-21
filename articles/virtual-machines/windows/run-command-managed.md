@@ -24,7 +24,7 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 - Support for updated Run Command through ARM deployment template 
 - Parallel execution of multiple scripts 
 - Sequential execution of scripts   
-- User specified script timeout 
+- User specified script time-out 
 - Support for long running (hours/days) scripts 
 - Passing secrets (parameters, passwords) in a secure manner
 
