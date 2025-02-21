@@ -67,7 +67,7 @@ $encryption2 = @{OSDiskImage=$eastUS2osDiskImageEncryption;DataDiskImages=$eastU
 $region2 = @{Name='East US 2';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption2}
 $targetRegion = @($region1, $region2)
 ```
-Create the image
+**Create the image**
 ```
 New-AzGalleryImageVersion `
    -ResourceGroupName $rgname `
@@ -80,7 +80,8 @@ New-AzGalleryImageVersion `
    -PublishingProfileEndOfLifeDate '2020-12-01' `
    -TargetRegion $targetRegion
 ```
-Create the VM
+**Create the VM**
+
 You can create a virtual machine (VM) from an Azure Compute Gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) VM from an image. Use the extended parameter set and add `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` to the VM configuration.
 
 For data disks, add the `-DiskEncryptionSetId $setID` parameter when you use [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
@@ -122,7 +123,7 @@ az sig image-version create \
    --gallery-image-definition MyImage 
 ```
 
-Create the VM
+**Create the VM**
 
 You can create a VM from an Azure Compute Gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) VM with the addition of the `--os-disk-encryption-set` parameter. For data disks, add `--data-disk-encryption-sets` with a space-delimited list of the disk encryption sets for the data disks.
 
@@ -134,7 +135,7 @@ When you create your image version in the portal, you can use the **Encryption**
 2. In **Encryption type**, select **Encryption at-rest with a customer-managed key** or **Double encryption with platform-managed and customer-managed keys**. 
 3. For each disk in the image, select an encryption set from the **Disk encryption set** drop-down list. 
 
-Create the VM
+**Create the VM**
 
 You can create a VM from an image version and use customer-managed keys to encrypt the disks. When you create the VM in the portal, on the **Disks** tab, select **Encryption at-rest with customer-managed keys** or **Double encryption with platform-managed and customer-managed keys** for **Encryption type**. You can then select the encryption set from the drop-down list.
 
