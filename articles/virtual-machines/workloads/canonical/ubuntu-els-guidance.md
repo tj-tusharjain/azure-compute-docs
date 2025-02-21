@@ -27,7 +27,7 @@ You can only directly upgrade one version of Ubuntu LTS to the next version. For
 
 See the [Ubuntu Server upgrade guide](https://ubuntu.com/server/docs/how-to-upgrade-your-release) for more information.  
 
-## Ubuntu Pro – Extended security maintenance for LTS releases 
+## Ubuntu Pro – extended security maintenance for LTS releases 
 
 Ubuntu Pro includes security patching for all Ubuntu packages due to Extended Security Maintenance (ESM) for Infrastructure and Applications and optional 24/7 phone and ticket support. Ubuntu Pro adds an extra five years of support to an Ubuntu LTS release, for a total of 10 years of support. 
 
