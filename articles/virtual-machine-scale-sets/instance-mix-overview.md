@@ -65,6 +65,7 @@ Following the scale set cost model, usage of instance mix is free. You continue 
 - You can specify **up to** five VM sizes with instance mix.
 - For REST API deployments, you must have an existing virtual network inside of the resource group that you're deploying your scale set with instance mix in.
 - You can't mix VM architecture in the same instance mix deployment; you can't mix Arm64 and x64.
+- You can't mix VMs that use SCSI and NVMe storage interfaces.
 
 ## Next steps
 Learn how to [create a scale set using instance mix](instance-mix-create.md).
