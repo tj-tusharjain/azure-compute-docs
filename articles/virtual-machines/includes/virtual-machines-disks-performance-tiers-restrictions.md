@@ -16,3 +16,4 @@
 - Only disks larger than 4,096 GiB can use the P60, P70, and P80 performance tiers.
 - A disk's performance tier can be downgraded only once every 12 hours.
 - The system doesn't return `Performance Tier` for disks created before June 2020. You can take advantage of `Performance Tier` for an older disk by updating it with the baseline Tier.
+- Changing the performance tier of an attached managed disk will trigger a restart of the virtual machine causing downtime.
