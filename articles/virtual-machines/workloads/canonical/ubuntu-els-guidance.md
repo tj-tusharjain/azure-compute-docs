@@ -1,6 +1,6 @@
 ---
-title: Canonical Ubuntu LTS End of Standard Support Guidance 
-description: Understand End of Standard Support for Ubuntu
+title: Canonical Ubuntu LTS end of standard support guidance 
+description: Understand end of standard support for Ubuntu
 author: fossygirl
 ms.service: azure-virtual-machines
 ms.subservice: vm-linux-setup-configuration
@@ -11,7 +11,7 @@ ms.date: 02/21/2025
 ms.author: carols
 ---
 
-# Canonical Ubuntu LTS End of Standard Support Guidance 
+# Canonical Ubuntu LTS end of standard spport guidance 
 
 Long-term support (LTS) releases of Ubuntu Server receive standard security updates for five years by default. Every six months, interim releases bring new features, while hardware enablement updates add support for the latest machines to all supported LTS releases. 
 
@@ -27,7 +27,7 @@ You can only directly upgrade one version of Ubuntu LTS to the next version. For
 
 See the [Ubuntu Server upgrade guide](https://ubuntu.com/server/docs/how-to-upgrade-your-release) for more information.  
 
-## Ubuntu Pro – Extended Security Maintenance for LTS releases 
+## Ubuntu Pro – Extended security maintenance for LTS releases 
 
 Ubuntu Pro includes security patching for all Ubuntu packages due to Extended Security Maintenance (ESM) for Infrastructure and Applications and optional 24/7 phone and ticket support. Ubuntu Pro adds an extra five years of support to an Ubuntu LTS release, for a total of 10 years of support. 
 
@@ -36,14 +36,14 @@ Ubuntu Pro is available for free for personal and small-scale commercial users o
 New virtual machines can be deployed with Ubuntu Pro from the Azure Marketplace. You can also upgrade existing virtual machines to Ubuntu Pro by purchasing from Canonical.   
 
 
-| Ubuntu LTS Release   | End of Standard Support   |  End of Ubuntu Pro Support  |
+| **Ubuntu LTS Release** | **End of Standard Support** | **End of Ubuntu Pro Support** |
 |---|---|---|
-| 24.04   | April 2029  | April 2034  |
-| 22.04   |  May 2027 | April 2032  |
-| 20.04   | May 2025  | April 2030  |
+| 24.04   | April 2029 | April 2034|
+| 22.04   |  May 2027 | April 2032 |
+| 20.04   | May 2025  | April 2030 |
 | 18.04   | May 2023  | April 2028 |
 
 
-## More Information  
+## More information  
 
 More information covering the Ubuntu LTS lifecycle can be found here: https://ubuntu.com/server
