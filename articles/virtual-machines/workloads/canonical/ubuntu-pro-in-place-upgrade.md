@@ -14,12 +14,12 @@ ms.author: anujmaurya
 # Ubuntu Server to Ubuntu Pro in-place upgrade on Azure
 
 Customers can now upgrade their Ubuntu Server (version 16.04 or higher) virtual machines to Ubuntu
-Pro without redeployment or downtime. This method has proven useful for customers wishing to convert
-their servers from versions that have reached End of Life (EOL) status.
+Pro without redeployment or downtime. This method is recommended for customers wishing to convert
+their servers from versions that are End of Life (EOL) status.
 
 > [!IMPORTANT]
 > EOL versions are not officially supported unless they have the PRO entitlement.
-> For an updated list of versions that have reached EOL , please check the official [Canonical Release Cycle](https://ubuntu.com/about/release-cycle) page.
+> For an updated list of versions that are EOL, check the official [Canonical Release Cycle](https://ubuntu.com/about/release-cycle) page.
 
 > [!WARNING]
 > - Only Ubuntu images on the Azure Marketplace **published by Canonical** can be converted to "UBUNTU_PRO"
