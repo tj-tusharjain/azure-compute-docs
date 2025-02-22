@@ -36,15 +36,15 @@ packages.
 
 ## Why developers and devops choose Ubuntu Pro for Azure
 
-- Access to security updates for 23,000+ packages including Apache Kafka, NGINX, MongoDB, Redis and
-  PostgreSQL, integrated into system tools (for example Azure Update Manager, apt)
-- Security hardening and audit tools (CIS) to establish a security baseline across your systems (and
-  help you meet the Azure Linux Security Baseline policy)
+- Access to security updates for 23,000+ packages including Apache Kafka, NGINX, MongoDB, Redis, and
+  PostgreSQL integrated into system tools (for example Azure Update Manager, apt)
+- Security hardening and audit tools (CIS) to establish a security baseline across your systems (
+  helps meeting the Azure Linux Security Baseline policy)
 - Federal Information Processing Standard (FIPS) 140-2 certified modules
 - Common Criteria (CC) EAL2 provisioning packages
 - Kernel Live patch: kernel patches delivered immediately, without the need to reboot
-- Optimized performance: optimized kernel, with improved boot speed, outstanding runtime performance
-  and advanced device support
+- Optimized performance: optimized kernel, with improved boot speed, outstanding runtime performance, and
+  advanced device support
 - 10-year security maintenance: Ubuntu Pro 18.04 Long-Term Support (LTS) provides security maintenance until April 2028
 - Developer friendly: Ubuntu offers developers the latest libraries and tools to innovate with the latest technologies
 - Nonstop security: Canonical publishes images ensuring security is present from the moment an instance launches
@@ -72,7 +72,7 @@ sudo pro auto-attach
 ```
 
 > [!IMPORTANT]
-> The change of the "licenseType" property may take some time to propagate thru the system. If the auto-attach process fails, wait for a few minutes and try again. If the auto-attach process continues to fail, open a support ticket with Microsoft.
+> The change of the "licenseType" property may take some time to propagate thru the system. If the auto-attach process fails, wait for a few minutes, and try again. If the auto-attach process continues to fail, open a support ticket with Microsoft.
 If the `pro --version` is lower than 28, execute this command:
 
 ```bash
