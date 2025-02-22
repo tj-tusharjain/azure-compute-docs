@@ -15,26 +15,22 @@ ms.author: anujmaurya
 
 Customers can now upgrade their Ubuntu Server (version 16.04 or higher) virtual machines to Ubuntu
 Pro without redeployment or downtime. This method has proven useful for customers wishing to convert
-their servers from Ubuntu 18.04 LTS now that it's reached End of Life (EOL).
+their servers from versions that have reached End of Life (EOL) status.
 
 > [!IMPORTANT]
-> Canonical has announced that Ubuntu 18.04 LTS (Bionic Beaver) OS images are now
-> [out of standard support][01]. This means that Canonical will no longer offer technical support,
-> software updates, or security patches for this version. Customers wishing to continue using Ubuntu
-> 18.04 LTS need to upgrade to Ubuntu Pro for continued supportability.
+> EOL versions are not officially supported unless they have the PRO entitlement.
+> For an updated list of versions that have reached EOL , please check the official [Canonical Release Cycle](https://ubuntu.com/about/release-cycle) page.
 
-## Limitations
-- Only Ubuntu images **published by Canonical** can be converted to "UBUNTU_PRO"
-- Images published by other vendors or custom images are not supported
+> [!WARNING]
+> - Only Ubuntu images on the Azure Marketplace **published by Canonical** can be converted to "UBUNTU_PRO"
+> 
+> - Images published by any other vendors or custom images are not supported
 
 ## What's Ubuntu Pro?
 
 Ubuntu Pro is a cross-cloud OS, optimized for Azure, and security maintained for 10 years. The
 secure use of open-source software allows the operating system to use the latest technologies while
-meeting internal governance and compliance requirements. Ubuntu Pro 18.04 LTS remains fully
-compatible with Ubuntu Server 18.04 LTS, with more security enabled by default. It includes
-compliance and management tools in a form suitable for small to large-scale Linux operations. Ubuntu
-Pro 18.04 LTS is fully supported until April 2028. Ubuntu Pro provides Extended Security Maintenance
+meeting internal governance and compliance requirements. Ubuntu Pro provides Extended Security Maintenance
 (ESM) for infrastructure and applications support, providing security patching for all Ubuntu
 packages.
 
@@ -56,9 +52,6 @@ packages.
 - Consistent experience across platforms: from edge to multicloud, Ubuntu provides the same experience regardless of the platform. It ensures consistency of your CI/CD pipelines and management mechanisms.
 
 > [!IMPORTANT]
-> This document provides instructions to upgrade Ubuntu Server (16.04 or higher) to
-> Ubuntu Pro.
-> 
 > Converting to Ubuntu Pro is an **irreversible** process.
 
 ## Convert to Ubuntu Pro using the Azure CLI
@@ -182,8 +175,8 @@ Yes.
 If the customer doesn't perform the _auto attach_, they still get the Pro attached upon reboot.
 However, this action only applies if they're using version 28 of the Pro client.
 
-- For Ubuntu Jammy and Focal, this process works as expected.
-- For Ubuntu Bionic and Xenial, this process doesn't work due to older versions of the Pro client installed.
+- For Ubuntu 20.04+, this process works as expected.
+- For Ubuntu 16.04 and 18.04, this process doesn't work due to older versions of the Pro client installed.
 
 <!-- link references -->
 [01]: https://ubuntu.com/18-04/azure
