@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/f2c3509f-09f6-442c-9e3a-e39321a39819)---
 title: Use Azure Spot Virtual Machines
 description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: ju-shim
