@@ -4,7 +4,7 @@ description: Learn the available options for improving Azure managed disk perfor
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 02/11/2025
+ms.date: 02/24/2025
 ms.author: rogarana
 ms.custom: accpeerreview2025-2
 ---
