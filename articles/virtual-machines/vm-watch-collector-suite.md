@@ -1,12 +1,8 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
 title: VM watch Collector Suite
 description: Learn more information about VM watch Collector Suite
-author:      ofemifowode # GitHub alias
-ms.author:   ofemifowode # Microsoft alias
+author:      ofemifowode 
+ms.author:   ofemifowode 
 ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date:     02/05/2025
