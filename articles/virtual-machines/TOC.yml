@@ -2195,7 +2195,7 @@
       href: install-vm-watch.md
   - name: Monitor availability
     items:
-    - name: VM watch Collector Suite
+    - name: VM watch Collector Suites
       href: vm-watch-collector-suite.md
     - name: Overview
       href: flash-overview.md
