@@ -28,7 +28,7 @@ Premium SSD supports several performance options, each geared towards different 
 | **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term scaling (Not time restricted).|Ideal if your workload would otherwise continually be running in burst. |
 |**Cost**     |Free         |Cost is variable, see the [Billing](/azure/virtual-machines/disk-bursting#billing) section of the bursting article for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |
 |**Availability**     |Only available for Premium SSD managed disks 512 GiB and smaller, and Standard SSDs 1,024 GiB and smaller.         |Only available for Premium SSD managed disks larger than 512 GiB.         |Available to all Premium SSD sizes.         |
-|**Enablement**     |Enabled by default on eligible disks.         |Must be enabled by user.         |User must manually change their tier.         |
+|**Enablement**     |Enabled by default on eligible disks.         |User must enable manually.         |User must manually change their tier.         |
 
 ### Credit-based disk bursting
 
@@ -36,7 +36,7 @@ With credit-based bursting, a disk bursts only if it has burst credits accumulat
 
 ### On-demand disk bursting
 
-With on-demand disk bursting enabled, the disk bursts whenever its needs exceed its current capacity. This model incurs extra charges anytime the disk bursts. On-demand bursting is only available for Premium SSDs larger than 512 GiB. To learn more about on-demand disk bursting, see the [on-demand bursting](/azure/virtual-machines/disk-bursting#on-demand-bursting) section of the disk bursting models article.
+With on-demand disk bursting enabled, the disk bursts whenever its needs exceed its current capacity. This model incurs extra charges anytime the disk bursts. On-demand bursting is only available for Premium SSDs larger than 512 GiB. To learn more, see the [on-demand bursting](/azure/virtual-machines/disk-bursting#on-demand-bursting) section of the disk bursting models article.
 
 ### Change performance tiers
 
@@ -44,11 +44,11 @@ The performance of a Premium SSD is set when you create your disk, in the form o
 
 ### Caching
 
-High-scale VMs that use premium storage have a multitier caching technology called **BlobCache**. **BlobCache** uses a combination of the host RAM and local SSD for caching. This cache is available for Premium SSD managed disks and the VM local disks. With disk caching enabled on Premium SSD managed disks, the high-scale VMs can achieve levels of performance that exceed the underlying disk performance. Using To learn more about caching, see [Disk caching](premium-storage-performance.md#disk-caching).
+High-scale Azure Virtual Machines that use premium storage have a multitier caching technology called **BlobCache**. **BlobCache** uses a combination of the host RAM and local SSD for caching. This cache is available for Premium SSD managed disks and the virtual machine (VM) local disks. With disk caching enabled on Premium SSD managed disks, high-scale VMs can achieve levels of performance that exceed the underlying disk performance. To learn more, see [Disk caching](premium-storage-performance.md#disk-caching).
 
 ### Write accelerator
 
-Write accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium SSD managed disks. Write accelerator improves the I/O latency of writes against Premium SSD disks. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
+Write accelerator is a disk capability for M-Series VMs on Premium SSD managed disks. Write accelerator improves the I/O latency of writes against Premium SSD disks. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
 
 ### Performance plus (preview)
 
