@@ -343,9 +343,7 @@ Or, calling the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azc
 ```powershell
 Get-AzComputeResourceSku -Location "centralus" |
     Where-Object { $_.ResourceType -eq 'virtualMachines' -and $_.capabilities.where({ $_.Name -eq 'EncryptionAtHostSupported' }, 'First').Value -eq 'True' } |
-     Select-Object -ExpandProperty Name
-        }
-    }
+    Select-Object -ExpandProperty Name
 ```
 
 ## Next steps
