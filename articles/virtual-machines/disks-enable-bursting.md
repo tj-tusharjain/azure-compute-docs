@@ -40,7 +40,8 @@ To enable on-demand bursting for an existing disk:
 
 # [PowerShell](#tab/azure-powershell)
 
-On-demand bursting cmdlets are available in version 5.5.0 and newer of the Az PowerShell module module. Alternatively, you may use the [Azure Cloud Shell](https://shell.azure.com/).
+On-demand bursting cmdlets are available in version 5.5.0 and newer of the Az PowerShell module. Alternatively, you may use the [Azure Cloud Shell](https://shell.azure.com/).
+
 ### Create an empty data disk with on-demand bursting
 
 A managed disk must be larger than 512 GiB to enable on-demand bursting. Replace the `<myResourceGroupDisk>` and `<myDataDisk>` parameters then run the following script to create a premium SSD with on-demand bursting:
