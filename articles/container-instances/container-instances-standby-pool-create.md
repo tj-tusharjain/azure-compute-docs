@@ -79,7 +79,7 @@ Create a container group profile and save the template file. Deploy the template
   "contentVersion": "1.0.0.0",
   "resources": [
     {
-      "type": "Microsoft.ContainerInstance/containerGroups",
+      "type": "Microsoft.ContainerInstance/containerGroupProfiles",
       "apiVersion": "2024-05-01-preview",
       "name": "[parameters('profileName')]",
       "location": "[parameters('location')]",
