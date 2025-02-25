@@ -211,7 +211,7 @@ az standby-container-group-pool create \
    --name myStandbyPool \
    --max-ready-capacity 20 \
    --refill-policy always \
-   --container-profile-id "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroupProfiles/myContainerGroupProfile"
+   --container-profile-id "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroupProfiles/mycontainergroupprofile"
 ```
 ### [PowerShell](#tab/powershell)
 Create a standby pool and associate it with a container group profile using [New-AzStandbyContainerGroupPool](/powershell/module/az.standbypool/new-AzStandbyContainerGroupPool).
