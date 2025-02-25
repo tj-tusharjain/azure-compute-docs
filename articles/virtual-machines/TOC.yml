@@ -525,8 +525,13 @@
           displayName: NVIDIA GPU drivers, GPU drivers, GPU
           href: ./windows/n-series-driver-setup.md
       - name: Setup AMD GPU drivers
-        displayName: AMD GPU drivers, AMD, GPU drivers, GPU
-        href: ./windows/n-series-amd-driver-setup.md
+        items:
+        - name: Linux
+          displayName: AMD GPU drivers, AMD, GPU drivers, GPU
+          href: ./linux/azure-n-series-amd-gpu-driver-linux-installation-guide.md
+        - name: Windows
+          displayName: AMD GPU drivers, AMD, GPU drivers, GPU
+          href: ./windows/n-series-amd-driver-setup.md
       - name: GPU compute migration guide
         displayName: GPU compute migration guide
         href: ./n-series-migration.md
@@ -1600,6 +1605,8 @@
             href: ./windows/disk-encryption-windows-aad.md
   - name: Performance and cost optimization
     items:
+    - name: Performance options for managed disks
+      href: disks-performance-options.md
     - name: Increase performance of premium SSD and standard SSD/HDDs
       href: disks-enable-performance.md
     - name: Virtual machine and disk performance
