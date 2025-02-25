@@ -206,7 +206,7 @@ Create a standby pool and associate it with a container group profile using [az 
 
 ```azurecli-interactive
 az standby-container-group-pool create \
-   --resource-group myResourceGroup 
+   --resource-group myResourceGroup \
    --location WestCentralUS \
    --name myStandbyPool \
    --max-ready-capacity 20 \
