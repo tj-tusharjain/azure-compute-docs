@@ -12,7 +12,7 @@ ms.date:     02/05/2025
 
 VM watch can send signal data to a preconfigured [Event Hub](/azure/event-hubs/event-hubs-about).
 
-This article provides instructions on configuring an Event Hub to access signals collected by VM watch
+This article provides instructions on configuring Event Hubs to access signals collected by VM watch
 
 ### Prerequisites
 This article assumes that you're familiar with:
@@ -22,7 +22,7 @@ This article assumes that you're familiar with:
 
 ### Enable Event Hubs Output
 
-#### Step 1: Prepare an Event Hub for VM watch
+#### Step 1: Prepare Event Hubs for VM watch
 - Deploy an [Event Hub](/azure/event-hubs/event-hubs-create)
 - [Authorize access to the Azure Event Hub](/azure/event-hubs/authorize-access-event-hubs)
 > [!IMPORTANT]
@@ -113,11 +113,11 @@ For example, the following VM watch JSON configuration enables Event Hub as an o
 
 #### Step 3: Examine Events in Event Hubs
 
-Once VM watch settings are successfully configured to use Event Hub as the output, VM watch restarts. Events start flowing into Event Hub within a few minutes. You can use the [Azure portal](https://portal.azure.com/) to observe the incoming messages. 
+Once VM watch settings are successfully configured to use Event Hub as the output, VM watch restarts. Events start flowing into Event Hubs within a few minutes. You can use the [Azure portal](https://portal.azure.com/) to observe the incoming messages. 
 The following screenshot shows data flowing into the Event Hub
 
 Also, you can use the [Event Hubs' Data Explorer](/azure/event-hubs/event-hubs-data-explorer) feature to view incoming event and content. 
-The following screenshot shows an Event Hubs Data Explorer.
+The following screenshot shows Event Hubs Data Explorer.
 
 
 
@@ -135,7 +135,7 @@ Each Event Hub event has the following schema:
 |`ResourceGroup`|string|The VM resource group name|
 |`ResourceId`|string|The Azure resource URI of the VM|
 |`VmId`|string|The unique ID of the VM queried from IMDS endpoint within the VM|
-|`Vmss`|string|The VMSS name, if applicable|
+|`Vmss`|string|The virtual machine scale set name, if applicable|
 |`Offer`|string|The Azure VM offer|
 |`VmSize`|string|The VM size|
 |`MeasurementTarget`|string|The target that the signal is measuring at. `Name` field and `MeasurementTarget` are used together for raw signal aggregation|
@@ -144,7 +144,7 @@ Each Event Hub event has the following schema:
 
 #### Debug Event Hubs connection issues
 
-If there are no events in Event Hub after several minutes, check the VM watch logs in the following directories on the Virtual Machine or Virtual Machine Scale Set to diagnose the issue:
+If there are no events in Event Hubs after several minutes, check the VM watch logs in the following directories on the Virtual Machine or Virtual Machine Scale Set to diagnose the issue:
 
 #### [Linux](#tab/linux-1)
 ```
