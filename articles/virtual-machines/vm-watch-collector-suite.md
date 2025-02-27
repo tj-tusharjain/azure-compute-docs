@@ -9,7 +9,7 @@ ms.date:     02/05/2025
 ms.subservice: monitoring
 ---
 
-# VM watch Collector Suites 
+# VM watch Collectors Suite 
 
 VM watch collectors are designed to gather VM health data on various resources like disk and network, by running health checks within the VM. This suite of collectors aid in identifying issues, monitoring performance trends, and optimizing resources to enhance the overall user experience.
 
