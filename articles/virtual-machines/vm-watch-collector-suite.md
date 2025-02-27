@@ -1,6 +1,6 @@
 ---
 title: VM watch Collectors Suite
-description: Learn more information about VM watch Collectors Suite
+description: Learn more information about VM watch Collectors Suite.
 author:      ofemifowode 
 ms.author:   ofemifowode 
 ms.service: azure-virtual-machines
