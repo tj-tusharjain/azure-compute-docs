@@ -32,7 +32,7 @@ This article assumes that you're familiar with:
 > | **Overwritable Parameters** | These are associated parameters that can be customized to override the default configuration |
 
 
-### Groups, Tags and Corresponding Checks, Metrics, and Event Logs
+### Groups, tags and corresponding checks, metrics, and event logs
 
 | Collector Name | Group | Tags | Checks | Metrics | Event Logs |
 |---|---|---|---|---|---|
@@ -54,7 +54,7 @@ This article assumes that you're familiar with:
 
 
 
-### Eligibility, Default Behavior, and Overwritable Parameters
+### Eligibility, default behavior, and overwritable parameters
 | Collector Name | Eligibility | Default Behavior | Overwritable Parameters |
 |---|---|---|---|
 | outbound_connectivity| Eligible if EnvironmentAttribute "OutboundConnectivityDisabled" isn't set or set to "false" |This collector is executed every 60s. In each execution, it sends an http GET request to `http://www.msftconnecttest.com/connecttest.txt` with a time-out of 5s. If the request fails, it retries at most two more times with and interval of 10s. The verification is marked as "Failed" if all the retries fail.                                                                                                                                                               | <ul> <li>OUTBOUND_CONNECTIVITY_INTERVAL: the execution interval of the Collector. Default: 60s</li> <li>OUTBOUND_CONNECTIVITY_URLS: the URLs that this Collector sends http GET requests to. URLs are provided as a string using `,` as separator. Default: `http://www.msftconnecttest.com/connecttest.txt`</li> <li>OUTBOUND_CONNECTIVITY_TIMEOUT_IN_MILLISECONDS: the http GET request time-out in milliseconds. Default: 5000</li> <li>OUTBOUND_CONNECTIVITY_TOTAL_ATTEMPTS: the total number of attempts to send http request if the previous one fails. Default: 3</li> <li>OUTBOUND_CONNECTIVITY_RETRY_INTERVAL_IN_SECONDS: the retry interval in seconds if the previous http request fails. Default: 10</li> </ul> |
@@ -74,7 +74,7 @@ This article assumes that you're familiar with:
 | hardware_health_nvidia_smi | Eligible in Linux Ubuntu machine|Not executed. If explicitly enabled by the user, this collector collects hardware health info from Windows event log, currently only disk related critical events are collected, including events with ID 7, 500, 504, 505, 512 and 549.                                                                                                                                                                                                                                                                                                                                                                                                                                                            | <ul> <li>HARDWARE_HEALTH_NVIDIA_SMI_INTERVAL: the execution interval of the Collector. Default: 60s</li><li>HARDWARE_HEALTH_NVIDIA_SMI_INTERVAL: the time-out of running /usr/bin/nvidia-smi command. Default: 10s</li> </ul> |
 
 
-### Next Steps
+### Next steps
 
 - Configure VM watch
 - Configure Event Hubs for VM watch
