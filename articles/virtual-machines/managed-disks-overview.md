@@ -51,7 +51,7 @@ For information about the service-level agreement (SLA) for VM uptime with avail
 
 ### Azure Backup support
 
-To help protect against regional disasters, you use [Azure Backup](/azure/backup/backup-overview) to create a backup job with time-based backups and backup retention policies. You can then perform VM or managed disk restorations at will.
+To help protect against regional disasters, use [Azure Backup](/azure/backup/backup-overview) to create a backup job with time-based backups and backup retention policies. You can then perform VM or managed disk restorations at will.
 
 Currently, Azure Backup supports disk sizes up to 32 tebibytes (TiB). [Learn more about Azure VM backup support](/azure/backup/backup-support-matrix-iaas).
 
@@ -69,7 +69,7 @@ Managed disks expose various operations, including read, write (create/update), 
 
 For example, if you don't want a person to copy a managed disk to a storage account, don't grant access to the export action for that managed disk. Similarly, if you don't want a person to use a SAS URI to copy a managed disk, don't grant that permission to the managed disk.
 
-### Ability to upload your VHD
+### Upload your VHD or VHDX
 
 You can use direct upload to transfer your VHD to an Azure managed disk. Previously, you had to follow a process that included staging your data in a storage account. Now, there are fewer steps. It's easier to upload on-premises VMs to Azure and upload VMs to large managed disks. The backup and restore process is also simplified.
 
@@ -89,26 +89,7 @@ To learn how to enable Private Link for importing or exporting a managed disk, s
 
 ### Encryption
 
-Managed disks offer two kinds of encryption. The first is server-side encryption, which the storage service performs. The second is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs.
-
-#### Server-side encryption
-
-Server-side encryption provides encryption at rest and helps safeguard your data to meet your organizational security and compliance commitments. Server-side encryption is enabled by default for all managed disks, snapshots, and images, in all the regions where managed disks are available.
-
-Server-side encryption doesn't encrypt temporary disks unless you enable encryption at the host. For more information, see the [Temporary disk](#temporary-disk) section later in this article.
-
-You have these options for key management:
-
-- **Platform-managed keys**: Azure manages your keys for you.
-- **Customer-managed keys**: You manage the keys yourself.
-
-For more information, see [Server-side encryption of Azure Disk Storage](./disk-encryption.md).
-
-#### Azure Disk Encryption
-
-You can use Azure Disk Encryption to encrypt the OS and data disks that an IaaS virtual machine uses. This encryption includes managed disks.
-
-On Windows VMs, the drives are encrypted through industry-standard BitLocker encryption technology. On Linux VMs, the disks are encrypted through DM-Crypt technology. The encryption process is integrated with Azure Key Vault so that you can control and manage the disk encryption keys. For more information, see [Azure Disk Encryption for Linux VMs](linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](windows/disk-encryption-overview.md).
+Several kinds of encryption are available for your managed disks, including Server-Side Encryption (SSE), Azure Disk Encryption (ADE), encryption at host, and confidential disk encryption. To learn more, see [Overview of managed disk encryption options](disk-encryption-overview.md)
 
 ## Disk roles
 
