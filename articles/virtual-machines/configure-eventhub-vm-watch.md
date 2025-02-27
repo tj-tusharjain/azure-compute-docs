@@ -1,6 +1,6 @@
 ---
 title:       Configure Event Hubs for VM watch
-description: Get started to configure Event Hubs for VM watch
+description: Get started to configure Event Hubs for VM watch.
 author:      ofemifowode
 ms.author:   ofemifowode 
 ms.service:   azure-virtual-machines
@@ -111,7 +111,7 @@ For example, the following VM watch JSON configuration enables Event Hubs as an 
 ---
 
 
-#### Step 3: Examine Events in Event Hubs
+#### Step 3: Examine events in Event Hubs
 
 Once VM watch settings are successfully configured to use Event Hubs as the output, VM watch restarts. Events start flowing into Event Hubs within a few minutes. You can use the [Azure portal](https://portal.azure.com/) to observe the incoming messages. 
 The following screenshot shows data flowing into the Event Hub
@@ -122,7 +122,7 @@ The following screenshot shows Event Hubs Data Explorer.
 
 
 
-#### Event Hubs Events Schema
+#### Event Hubs Events schema
 
 Each Event Hub event has the following schema:
 
@@ -156,7 +156,7 @@ C:/WindowsAzure/Logs/Plugins/Microsoft.ManagedServices.ApplicationHealthWindows/
 ```
 ---
 
-### Next Steps
+### Next steps
 
 - Configure VM watch 
 
