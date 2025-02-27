@@ -18,5 +18,6 @@
 - The system doesn't return `Performance Tier` for disks created before June 2020. You can take advantage of `Performance Tier` for an older disk by updating it with the baseline Tier.
 
 
-> [!CAUTION]
-> If you use [Terraform](https://www.terraform.io/) to change the performance tier while a VM is running, Terraform shuts down your VM and attempts to restart it after the process is completed. Changing the performance tier with other methods avoids this.
+[!CAUTION]
+If you use [Terraform](https://www.terraform.io/) to change the performance tier while a VM is running, Terraform shuts down your VM and attempts to restart it after the process is completed. Changing the performance tier with other methods avoids this.
+
