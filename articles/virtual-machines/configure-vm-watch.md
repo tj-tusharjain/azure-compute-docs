@@ -64,7 +64,7 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
 > For the full list of collectors, associated signals, tags, overwritable parameters, and environment attributes, visit VM watch Collectors Suite page 
 >
  
-#### Switch On/Off VM watch 
+#### Switch on/off VM watch 
 
 VM watch can be switched on / off by configuring the `enabled` property, as shown in the code segment below. 
 
@@ -176,11 +176,10 @@ For instance, if outbound traffic has been disabled on a VM, this information ca
 }
 ```
 
-### Next Steps
+### Next steps
 
 - VM watch Collectors Suite
-
+- Configure Event Hubs for VM watch
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
-
 - [VM watch overview](/azure/virtual-machines/azure-vm-watch)
 
