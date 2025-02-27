@@ -39,6 +39,8 @@ This capability is useful in all scenarios where you want to run a script within
 | Windows Server 2019 Core |	Supported |
 | Windows Server 2022 |	Supported |
 | Windows Server 2022 Core |	Supported |
+| Windows Server 2025 | Supported |
+| Windows Server 2025 Core | Supported |
 
 ## Restrictions
 
@@ -52,7 +54,7 @@ The following restrictions apply when you're using Run Command:
 * You can't cancel a running script.
 * The maximum time a script can run is 90 minutes. After that, it will time out.
 * Outbound connectivity from the VM is required to return the results of the script.
-* It isn't recommended to run a script that will cause a stop or update of the VM Agent. This can let the extension in a Transitioning state, leading to a timeout.
+* It isn't recommended to run a script that will cause a stop or update of the VM Agent. This can let the extension in a Transitioning state, leading to a time-out.
 
 > [!NOTE]
 > To function correctly, Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts might run successfully but not return the results. If you're blocking traffic on the virtual machine, you can use [service tags](/azure/virtual-network/network-security-groups-overview#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.

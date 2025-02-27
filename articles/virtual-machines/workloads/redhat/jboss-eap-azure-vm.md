@@ -47,6 +47,9 @@ Replace the placeholders with the following values, which are used throughout th
 - `<database-server-name>`: The name of your PostgreSQL server, which should be unique across Azure - for example, `ejb040323postgresqlserver`.
 - `<postgresql-admin-password>`: The password of your PostgreSQL server. That password must be at least eight characters and at most 128 characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and nonalphanumeric characters (!, $, #, %, and so on).
 
+> [!NOTE]
+> Microsoft recommends using the most secure authentication flow available. The authentication flow described in this procedure, such as for databases, caches, messaging, or AI services, requires a very high degree of trust in the application and carries risks not present in other flows. Use this flow only when more secure options, like managed identities for passwordless or keyless connections, are not viable. For local machine operations, prefer user identities for passwordless or keyless connections.
+
 Next, use the following steps to create an Azure Database for PostgreSQL flexible server:
 
 1. Use the following command to create an Azure Database for PostgreSQL flexible server:
