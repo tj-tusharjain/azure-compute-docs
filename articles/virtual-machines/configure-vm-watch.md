@@ -10,7 +10,7 @@ ms.date:     10/28/2024
 
 # Configure VM watch
 
-VM watch signals are logically grouped into Collectors Suite, which can be categorized into two groups: core and optional. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/), or [Powershell](/powershell/).
+VM watch signals are logically grouped into Collectors Suite, which can be categorized into two groups: core and optional. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [Azure CLI](/cli/azure/), or [PowerShell](/powershell/).
 
 This article describes how to configure VM watch to suit specific requirements.
 
@@ -163,7 +163,7 @@ Signal execution parameters can be overwritten by setting the `parameterOverride
 
 #### Environment attribute enrichments 
 
-In addition to tags, VM watch also checks the eligibility of the signals before execution. The `environmentattributes` can be specified to help VM watch determine the eligibility of each signal for execution. 
+In addition to tags, VM watch also checks the eligibility of the signals before execution. The `environmentAttributes` can be specified to help VM watch determine the eligibility of each signal for execution. 
 For instance, if outbound traffic has been disabled on a VM, this information can be provided to VM watch. This ensures that any outbound network-related signal execution will be marked as ineligible.
 ```
 {
