@@ -116,9 +116,12 @@ For example, the following VM watch JSON configuration enables Event Hubs as an 
 Once VM watch settings are successfully configured to use Event Hubs as the output, VM watch restarts. Events start flowing into Event Hubs within a few minutes. You can use the [Azure portal](https://portal.azure.com/) to observe the incoming messages. 
 The following screenshot shows data flowing into the Event Hub
 
-Also, you can use the [Event Hubs Data Explorer](/azure/event-hubs/event-hubs-data-explorer) feature to view incoming event and content. 
-The following screenshot shows Event Hubs Data Explorer.
+:::image type="content" source="./media/vm-watch-data-view.png" alt-text="Screenshot that shows VM watch data flowing into the Event Hub." lightbox="./media/vm-watch-data-view.png":::
 
+Also, you can use the [Event Hubs Data Explorer](/azure/event-hubs/event-hubs-data-explorer) feature to view incoming event and content. 
+The following screenshot shows Event Hubs Data Explorer
+
+:::image type="content" source="./media/vm-watch-data-explorer.png" alt-text="Screenshot that shows Event Hub data explorer." lightbox="./media/vm-watch-data-explorer.png":::
 
 
 
