@@ -30,7 +30,7 @@ This article assumes that you're familiar with:
 
 #### Step 2: Enable Event Hubs output for VM watch
 
-For each Event Hub authentication method, you need to combine both the common and authentication specific parameter settings. Instructions are given below for each authentication scenario. To apply this to Virtual Machines and Virtual Machine Scale Sets, specify the following settings within `vmWatchSettings` in the JSON configurations. See Configure VM watch `<insert link to configure vm watch page>` for instructions on how to access `vmWatchSettings` using [ARM template](/azure/azure-resource-manager/templates/), [AZ CLI](/cli/azure/), or [PowerShell](/powershell/).
+For each Event Hub authentication method, you need to combine both the common and authentication specific parameter settings. Instructions are given for each authentication scenario. To apply this to Virtual Machines and Virtual Machine Scale Sets, specify the following settings within `vmWatchSettings` in the JSON configurations. See Configure VM watch `<insert link to configure vm watch page>` for instructions on how to access `vmWatchSettings` using [ARM template](/azure/azure-resource-manager/templates/), [Azure CLI](/cli/azure/), or [PowerShell](/powershell/).
 
 ##### Common parameters for Event Hubs output
 
@@ -43,7 +43,7 @@ For all authentication methods, the following parameter set applies:
 |`EVENT_HUB_OUTPUT_DOMAIN_NAME`|No|Event hub domain name. Default value `"servicebus.windows.net"`|
 |`EVENT_HUB_OUTPUT_CLOSE_TIMEOUT`|No|Client close time-out. Default is 30s|
 |`EVENT_HUB_OUTPUT_PARTITION_ID`|No|Metric tag or field name to use for the event partition key. Default is null|
-|`EVENT_HUB_OUTPUT_MAX_MESSAGE_SIZE`|No|The maximum batch message size in bytes. Setting this to 0 means using the default size from the Azure Event Hubs Client library (1,000,000 bytes). Default is 0|
+|`EVENT_HUB_OUTPUT_MAX_MESSAGE_SIZE`|No|The maximum batch message size in bytes. Setting this parameter to 0 means using the default size from the Azure Event Hubs Client library (1,000,000 bytes). Default is 0|
 |`SEND_INTERNAL_TELEMETRY_TO_EVENT_HUB`|No|To receive VM watch internal metrics (startup and heartbeat events), set this value to "true." Default is "false"|
 
 ##### Authentication specific parameters for Event Hubs output
@@ -113,10 +113,11 @@ For example, the following VM watch JSON configuration enables Event Hub as an o
 
 #### Step 3: Examine Events in Event Hubs
 
-Once VM watch settings have been successfully configured to use Event Hub as the output, VM watch restarts. Events start flowing into Event Hub within a few minutes. You can use the [Azure portal](https://portal.azure.com/) to observe the incoming messages. 
+Once VM watch settings are successfully configured to use Event Hub as the output, VM watch restarts. Events start flowing into Event Hub within a few minutes. You can use the [Azure portal](https://portal.azure.com/) to observe the incoming messages. 
 The following screenshot shows data flowing into the Event Hub
 
-Also, you can use the [Event Hub's Data Explorer](/azure/event-hubs/event-hubs-data-explorer) feature to view incoming event and content, as shown in the screenshot below.
+Also, you can use the [Event Hubs' Data Explorer](/azure/event-hubs/event-hubs-data-explorer) feature to view incoming event and content. 
+The following screenshot shows an Event Hubs Data Explorer.
 
 
 
