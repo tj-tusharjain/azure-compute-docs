@@ -76,8 +76,7 @@ This article assumes that you're familiar with:
 
 ### Next Steps
 
-- Configure VM watch 
-
+- Configure VM watch
+- Configure EventHubs for VM watch
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
-
 - [VM watch overview](/azure/virtual-machines/azure-vm-watch)
