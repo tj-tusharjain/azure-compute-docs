@@ -159,7 +159,7 @@ C:/WindowsAzure/Logs/Plugins/Microsoft.ManagedServices.ApplicationHealthWindows/
 
 - Configure VM watch 
 
-- VM watch Collector Suites 
+- VM watch Collectors Suite 
 
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 
