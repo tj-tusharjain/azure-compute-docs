@@ -113,6 +113,6 @@ VM watch is delivered via the [Application Health VM extension](/azure/virtual-m
 
 ## Related content
 
-- VM watch Collector Suites
+- VM watch Collectors Suite
 - [Install VM watch](install-vm-watch.md)
 - Configure VM watch
