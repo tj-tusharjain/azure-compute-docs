@@ -2203,6 +2203,8 @@
       href: install-vm-watch.md
   - name: Monitor availability
     items:
+    - name: VM watch Collectors Suite
+      href: vm-watch-collector-suite.md
     - name: Overview
       href: flash-overview.md
     - name: Use Azure Resource Graph
