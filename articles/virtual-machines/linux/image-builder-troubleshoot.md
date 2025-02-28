@@ -29,7 +29,7 @@ When you're creating a build, do the following:
   - Deploy [Azure Virtual Network resources](/azure/virtual-network/virtual-networks-overview) (and subnets therein).
   - Deploy [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) resources.
   - Deploy [Azure Files](/azure/storage/files/storage-files-introduction).
-- Verify that Azure Policy doesn't install unintended features on the build VM, such as Azure Extensions.
+- Ensure that Azure Policy does not install unintended features on the build VM or other staging resources, such as Azure Extensions or tag modifications.
 - Ensure that VM Image Builder has the correct permissions to read/write images and to connect to the storage account. For more information, review the permissions documentation for the [Azure CLI](./image-builder-permissions-cli.md) or [Azure PowerShell](./image-builder-permissions-powershell.md).
 - VM Image Builder fails the build if the scripts or inline commands fail with errors (nonzero exit codes). Ensure that you've tested the custom scripts and verified that they run without error (exit code 0) or require user input. For more information, see [Create an Azure Virtual Desktop image by using VM Image Builder and PowerShell](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
 - Ensure your subscription has sufficient [quota](../../container-instances/container-instances-resource-and-quota-limits.md) of Azure Container Instances.
