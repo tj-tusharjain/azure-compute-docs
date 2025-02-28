@@ -17,8 +17,8 @@ This article provides instructions on configuring Event Hubs to access signals c
 ### Prerequisites
 This article assumes that you're familiar with:
 - [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
-- [VM watch Checks, Metrics, and Logs](/azure/virtual-machines/azure-vm-watch)
-- [Install VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) 
+- [VM watch checks, metrics, and logs](/azure/virtual-machines/azure-vm-watch)
+- [Install VM watch to virtual machines and Scale sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2) 
 
 ### Enable Event Hubs Output
 
@@ -121,7 +121,7 @@ The following screenshot shows data flowing into the Event Hub
 Also, you can use the [Event Hubs Data Explorer](/azure/event-hubs/event-hubs-data-explorer) feature to view incoming event and content. 
 The following screenshot shows Event Hubs Data Explorer
 
-:::image type="content" source="./media/vm-watch-data-explorer.png" alt-text="Screenshot that shows Event Hub data explorer." lightbox="./media/vm-watch-data-explorer.png":::
+:::image type="content" source="./media/vm-watch-data-explorer-view.png" alt-text="Screenshot that shows Event Hub data explorer." lightbox="./media/vm-watch-data-explorer-view.png":::
 
 
 
