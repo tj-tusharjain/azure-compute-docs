@@ -89,7 +89,7 @@ To learn how to enable Private Link for importing or exporting a managed disk, s
 
 ### Encryption
 
-Several kinds of encryption are available for your managed disks, including Server-Side Encryption (SSE), Azure Disk Encryption (ADE), encryption at host, and confidential disk encryption. To learn more, see [Overview of managed disk encryption options](disk-encryption-overview.md)
+Several kinds of encryption are available for your managed disks, including Server-Side Encryption (SSE), Azure Disk Encryption (ADE), encryption at host, and confidential disk encryption. You can use either platform-managed keys or customer-managed keys with these encryption options. To learn more about your encryption options, see [Overview of managed disk encryption options](disk-encryption-overview.md)
 
 ## Disk roles
 
