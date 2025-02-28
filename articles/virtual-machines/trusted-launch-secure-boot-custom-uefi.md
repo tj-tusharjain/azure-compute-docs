@@ -64,6 +64,7 @@ A generic ARM template is provided as a sample for creating an image version res
         "securityProfile": {}
     },
     "tags": {}
+}
 ```
 
 ## Scenarios
