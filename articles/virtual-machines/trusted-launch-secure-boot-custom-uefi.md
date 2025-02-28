@@ -14,7 +14,7 @@ ms.custom: template-concept, devx-track-azurecli
 
 For certain advanced scenarios, it's necessary for customizing secure boot keys. The secure boot UEFI keys customization allows you to modify unified extensible firmware interface (UEFI) keys – PK, KEK, DB, DBX – in your image for a secure boot capable Azure virtual machine (VM) (Trusted Launch and Confidential VM). With this feature, UEFI keys can be fully replaced or appended to default key databases.
 
-When a secure boot Azure VM is deployed, signatures of all the boot components such as UEFI, shim/bootloader, kernel, and kernel modules/drivers are verified during the boot process. Verification fails if the boot component signatures don't match with a key in the trusted key databases, and the VM fails to boot. This failure can occur if a component is: signed by a key not found in the trusted key databases, the signing key is listed in the revoked key database, or unsigned. Through custom secure boot UEFI keys, the necessary signatures can be supplied for a successful VM boot.
+When a secure boot Azure VM is deployed, signatures of all the boot components such as UEFI, shim/bootloader, kernel, and kernel modules/drivers are verified during the boot process. Verification fails if the boot component signatures don't match with a key in the trusted key databases, and the VM fails to boot. This failure can occur if: a component is signed by a key not found in the trusted key databases, the signing key is listed in the revoked key database, or a component is unsigned. Through custom secure boot UEFI keys, the necessary signatures can be supplied for a successful VM boot.
 
 UEFI key customization is offered through [Azure compute gallery](azure-compute-gallery.md) resources. If you currently use a Marketplace image to create a Trusted Launch VM, you must first create Azure compute gallery resources using the Marketplace image to modify UEFI keys.
 
@@ -24,7 +24,7 @@ UEFI key customization is offered through [Azure compute gallery](azure-compute-
 
 ## Prerequisites
 
-The folling Azure Compute Gallery resources are necessary for customizing UEFI keys: 
+The following Azure Compute Gallery resources are necessary for customizing UEFI keys: 
 - [Gallery](/azure/templates/microsoft.compute/galleries)
 - [Image definition](/azure/templates/microsoft.compute/galleries/images)
 - [Image version](/azure/templates/microsoft.compute/galleries/images/versions)
@@ -130,7 +130,7 @@ In this scenario, you fully replace all default keys (PK, KEK, DB, DBX) availabl
 ```
 
 3. Create a Trusted Launch VM using Azure portal, PowerShell, CLI, or REST API with the same source image as the one you created using Azure compute gallery resources.
-4. Once the Trusted Launch VM is in the *running* state, verify that your custom UEFI keys are in the UEFI key databases. For detailed instructions, see the [Verify keys in UEFI databases](#verify-keys-in-uefi-databases) section.
+4. Once the Trusted Launch VM is in the *running* state, [verify that your custom UEFI keys are in the UEFI key databases](#verify-keys-in-uefi-databases).
 
 ### Scenario 2: Append keys to DB and DBX to a signature template
 
@@ -170,7 +170,7 @@ In this scenario, you append DB and DBX keys to the default values available in 
 ```
 
 3. Create a Trusted Launch VM using Azure portal, PowerShell, CLI, or REST API with the same source image as the one you created using Azure compute gallery resources.
-4. Once the Trusted Launch VM is in the *running* state, verify that your custom UEFI keys are in the UEFI key databases. For detailed instructions, see the [Verify keys in UEFI databases](#verify-keys-in-uefi-databases) section.
+4. Once the Trusted Launch VM is in the *running* state, [verify that your custom UEFI keys are in the UEFI key databases](#verify-keys-in-uefi-databases).
 
 ### Scenario 3: Apply multiple signature templates
 
@@ -190,7 +190,7 @@ In this scenario, you replace default signature templates and inject multiple si
 ```
 
 2. Create a Trusted Launch VM using Azure portal, PowerShell, CLI, or REST API with the same source image as the one you created using Azure compute gallery resources.
-3. Once the Trusted Launch VM is in the *running* state, verify that your custom UEFI keys are in the UEFI key databases. For detailed instructions, see the [Verify keys in UEFI databases](#verify-keys-in-uefi-databases) section.
+3. Once the Trusted Launch VM is in the *running* state, [verify that your custom UEFI keys are in the UEFI key databases](#verify-keys-in-uefi-databases).
 
 ## Verify keys in UEFI databases
 
@@ -209,8 +209,8 @@ Verify that the displayed keys are the ones supplied with the image version.
 ## Considerations 
 
 - Clouds and regions are supported
-- For public cloud, all regions are supported except the following: Austria East, Belgium Central, Chile Central, Indonesia Central, Israel Northwest, Jio India Central, Jio India West, Malaysia South, Malaysia West, Mexico Central, Qatar Central, South Central US 2, Southeast US, Southeast US 3, Switzerland West, Taiwan North, Taiwan Northwest, UK West, and West India
-- USGov and China clouds are currently not suported
+- For public cloud, all regions are supported except the following regions: Austria East, Belgium Central, Chile Central, Indonesia Central, Israel Northwest, Jio India Central, Jio India West, Malaysia South, Malaysia West, Mexico Central, Qatar Central, South Central US 2, Southeast US, Southeast US 3, Switzerland West, Taiwan North, Taiwan Northwest, UK West, and West India
+- USGov and China clouds are currently not supported
 
 ## Useful links
 
