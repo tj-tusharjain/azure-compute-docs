@@ -2201,6 +2201,8 @@
       href: azure-vm-watch.md
     - name: Install VM watch
       href: install-vm-watch.md
+    - name: VM watch Collectors Suite
+      href: vm-watch-collector-suite.md
   - name: Monitor availability
     items:
     - name: Overview
