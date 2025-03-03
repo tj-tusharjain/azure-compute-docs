@@ -10,24 +10,24 @@ ms.date:     10/28/2024
 
 # Configure VM watch
 
-VM watch signals are logically grouped into Collectors Suite, which can be categorized into two groups: core and optional. By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [Azure CLI](/cli/azure/), or [PowerShell](/powershell/).
+VM watch signals are logically grouped into Collectors Suite, which can be categorized into two groups: [core and optional](/azure/virtual-machines/vm-watch-collector-suite). By default, only core group collectors are enabled with default configurations. However, these default settings can be easily overwritten from `vmWatchSettings` using either [ARM template](/azure/azure-resource-manager/templates/), [Azure CLI](/cli/azure/), or [PowerShell](/powershell/).
 
-This article describes how to configure VM watch to suit specific requirements.
+This article describes how to configure VM watch to suit your specific requirements.
 
 ### Prerequisites
 This article assumes that you're familiar with:
-- [VM watch Checks, Metrics, and Logs](/azure/virtual-machines/azure-vm-watch)
-- [Installing VM watch to Virtual Machines and Scale Sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
-- VM watch Collectors Suite 
+- [VM watch checks, metrics, and logs](/azure/virtual-machines/azure-vm-watch)
+- [Installing VM watch to virtual machines and scale sets](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
+- [VM watch Collectors Suite](/azure/virtual-machines/vm-watch-collector-suite)
 
-### Access `vmWatchSettings` on Azure Virtual Machines
+### Access `vmWatchSettings` on Azure virtual machines
 
 > [!IMPORTANT]
 > The code segment is identical for both Windows and Linux except for the value of the parameter `<application health extension type>` passed into the Extension Type. Replace `<application health extension type>` with `ApplicationHealthLinux` for Linux and `ApplicationHealthWindows` for Windows installations.  
 
 #### [ARM Template](#tab/ARM-template-1)
-1. Navigate back to the Overview Page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below.
-2. Copy the code segment to an IDE such as Visual Studio Code and make the necessary customizations
+1. Navigate to the Overview page on [Azure portal](https://portal.azure.com/) and click on the JSON view for the VM to find the code segment below.
+2. Copy the code segment to an IDE such as Visual Studio Code and make customizations as needed
 
 ```
 {
@@ -56,17 +56,17 @@ VM watch signals can be customized by configuring the `vmWatchSettings` properti
 | **Name** | **Type** | **Description** | **Is Required**
 |---|---|---|---|
 | **enabled** | `bool` | This allows you to enable or disable VM watch | true
-| **signalFilters** | `object` | This filters the enabled / disabled signals, either by tag or collector suite name. | false
-| **parameterOverrides** | `object` | This specifies the parameters that can be overwritten for each signal execution. The full list of overwritable parameters can be found in the VM watch Collectors Suite page. | false
+| **signalFilters** | `object` | This filters the enabled / disabled signals, either by tag or collector name. | false
+| **parameterOverrides** | `object` | This specifies the parameters that can be overwritten for each signal execution. The full list of overwritable parameters can be found in the [VM watch Collectors Suite](/azure/virtual-machines/vm-watch-collector-suite) page. | false
 | **environmentAttributes** | `object` | This specifies any environment attributes that help decide if a test is eligible to execute or not. | false
 
 > [!IMPORTANT]
-> For the full list of collectors, associated signals, tags, overwritable parameters, and environment attributes, visit VM watch Collectors Suite page 
+> For the full list of collectors, associated signals, tags, overwritable parameters, and environment attributes, visit [VM watch Collectors Suite](/azure/virtual-machines/vm-watch-collector-suite) page 
 >
  
 #### Switch on/off VM watch 
 
-VM watch can be switched on / off by configuring the `enabled` property, as shown in the code segment below. 
+VM watch can be switched on / off by configuring the `enabled` property, as shown in the code segment. 
 
 ```
 {
@@ -90,11 +90,11 @@ By default, only the core group signals are enabled. However, the `signalFilters
 |---|------|
 | **enabledTags** | This enables the signals in the optional group specified with tags provided by the user |  
 | **disabledTags** | This disables the signals in the core and optional groups specified with tags provided by the user | 
-| **enabledOptionalSignals** | This enables signals specified in optional group. Provide collector suite name(s) as parameter | 
-| **disabledSignals** | This disables the signals specified in the core and optional groups. Provide collector suite name(s) as parameter | 
+| **enabledOptionalSignals** | This enables signals specified in optional group. Provide collector name(s) as parameter | 
+| **disabledSignals** | This disables the signals specified in the core and optional groups. Provide collector name(s) as parameter | 
 
 
-For instance, to enable signals in the optional group containing `Network` tag and disable signals containing `Disk` tag, specify such tags under the `enabledTags` and `disabledTags` as shown below:
+For instance, to enable signals in the optional group containing `Network` tag and disable signals containing `Disk` tag, specify such tags under the `enabledTags` and `disabledTags` as shown:
 ```
 {
    "vmWatchSettings": {
@@ -111,7 +111,7 @@ For instance, to enable signals in the optional group containing `Network` tag a
 }
 ```
 
-Similarly, to enable an optional group signal with name `hardware_health_monitor`, and disable signals with name `process` and `dns`, specify such names under the `enabledOptionalSignals` and `disabledSignals` as shown below:  
+Similarly, to enable an optional group signal with name `hardware_health_monitor`, and disable signals with name `process` and `dns`, specify such names under the `enabledOptionalSignals` and `disabledSignals` as shown:  
 
 ```
 {
@@ -133,7 +133,7 @@ Similarly, to enable an optional group signal with name `hardware_health_monitor
 #### Configure signal execution frequency 
 
 The signal execution frequency can be customized by adjusting the `parameterOverrides` property. 
-For instance, to set the `outbound connectivity` test execution frequency to 120 seconds, specify the following configuration below:
+For instance, to set the `outbound_connectivity` test execution frequency to 120 seconds, specify the following configuration:
 ```
 {
    "vmWatchSettings": {
@@ -148,7 +148,7 @@ For instance, to set the `outbound connectivity` test execution frequency to 120
 
 #### Override default signal execution parameters 
 
-Signal execution parameters can be overwritten by setting the `parameterOverrides` property. For instance, to set `disk_io` signal mount point to `/mnt`, the following configuration can be used: 
+Signal execution parameters can be overwritten by setting the `parameterOverrides` property. For instance, to set `disk_io` signal mount point to `/mnt`, the following configuration can be specified: 
 ```
 {
    "vmWatchSettings": {
@@ -178,8 +178,8 @@ For instance, if outbound traffic has been disabled on a VM, this information ca
 
 ### Next steps
 
-- VM watch Collectors Suite
-- Configure Event Hubs for VM watch
+- [VM watch Collectors Suite](/azure/virtual-machines/vm-watch-collector-suite)
+- [Configure Event Hubs for VM watch](/azure/virtual-machines/configure-eventhub-vm-watch)
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 - [VM watch overview](/azure/virtual-machines/azure-vm-watch)
 
