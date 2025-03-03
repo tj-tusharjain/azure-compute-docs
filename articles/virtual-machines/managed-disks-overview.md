@@ -4,18 +4,18 @@ description: Get an overview Azure managed disks, which handle the storage accou
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: overview
-ms.date: 02/05/2025
+ms.date: 03/03/2025
 ms.author: rogarana
 ---
 # Introduction to Azure managed disks
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like physical disks in an on-premises server, but they're virtualized. With managed disks, all you have to do is specify the disk type and the disk size, then provision the disk. After you provision the disk, Azure handles the rest.
+Azure managed disks are block-level storage volumes managed by Azure and used with Azure Virtual Machines. Managed disks are like physical disks in an on-premises server, but they're virtualized. With managed disks, all you have to do is specify the disk type and the disk size, then provision the disk. After you provision the disk, Azure handles the rest.
 
 The available types of managed disks are Ultra Disks, Premium solid-state drives (SSD) v2, Premium SSD, Standard SSD, and Standard hard disk drives (HDD). For information about each disk type, see [Azure managed disk types](disks-types.md).
 
-An alternative is to use Azure Elastic SAN as the storage for your virtual machine (VM). With Elastic SAN, you can consolidate the storage for all your workloads into a single storage back end. This can be more cost effective if you have many large-scale, I/O-intensive workloads and top-tier databases. To learn more, see [What is Azure Elastic SAN?](/azure/storage/elastic-san/elastic-san-introduction).
+An alternative is to use Azure Elastic SAN as the storage for your virtual machine (VM). With Elastic SAN, you can consolidate the storage for all your workloads into a single storage back end. Elastic SAN can be more cost effective if you have many large-scale, I/O-intensive workloads and top-tier databases. To learn more, see [What is Azure Elastic SAN?](/azure/storage/elastic-san/elastic-san-introduction).
 
 ## Benefits of managed disks
 
@@ -53,11 +53,11 @@ For information about the service-level agreement (SLA) for VM uptime with avail
 
 ### Backup and disaster recovery options
 
-Managed disks support several backup and disaster recovery options. These include built-in redundancy options (locally redundant storage, and zone-redundant storage), Azure Backup, managed disk snapshots, restore points, and Azure Site Recovery. The ideal configuration of backup and disaster recovery options for your needs will vary. To decide what works best for you, see [Backup and disaster recovery for Azure managed disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Managed disks support several backup and disaster recovery options. These include built-in redundancy options (locally redundant storage, and zone-redundant storage), Azure Backup, managed disk snapshots, restore points, and Azure Site Recovery. The ideal configuration of backup and disaster recovery options for your needs vary. To decide what works best for you, see [Backup and disaster recovery for Azure managed disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 #### Managed disk snapshots
 
-A managed disk snapshot is a read-only, crash-consistent full copy of a managed disk that's stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independently of the source disk, and you can use them to create new managed disks.
+A managed disk snapshot is a read-only, crash-consistent full copy of a managed disk that's stored as a standard managed disk by default. These snapshots exist independently of the source disk, and you can use them to create new managed disks.
 
 To learn more about how to create snapshots for managed disks, see [Create a snapshot of a virtual hard disk](snapshot-copy-managed-disk.md).
 
@@ -75,19 +75,17 @@ A snapshot is a copy of a disk at a point in time. It applies only to one disk. 
 
 A snapshot doesn't have awareness of any disk except the one that it contains. Using snapshots in scenarios that require the coordination of multiple disks, such as striping, is problematic. Snapshots would need to be able to coordinate with each other, and that's currently not supported.
 
-### Upload your VHD or VHDX
+## Upload your VHD or VHDX
 
-You can use direct upload to transfer your VHD to an Azure managed disk. Previously, you had to follow a process that included staging your data in a storage account. Now, there are fewer steps. It's easier to upload on-premises VMs to Azure and upload VMs to large managed disks. The backup and restore process is also simplified.
+You can reduce costs by uploading data to managed disks directly, without attaching them to VMs. With direct upload, you can upload VHDs up to 32 TiB in size. To learn how to upload your VHD to Azure, see the [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md) articles.
 
-You can reduce costs by uploading data to managed disks directly, without attaching them to VMs. With direct upload, you can upload VHDs up to 32 TiB in size.
+## Security
 
-To learn how to transfer your VHD to Azure, see the [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md) article.
-
-#### Control access to managed disk imports and exports
+### Control access to managed disk imports and exports
 
 You have several options for protecting your managed disks from being imported or exported. You can create a custom Azure role-based access control (RBAC) role with a limited permission set, you can use Microsoft Entra ID, Private Links, Azure Policy, or configure the `NetworkAccessPolicy` parameter on your disk resources. To learn more, see [Restrict managed disks from being imported or exported](disks-restrict-import-export-overview.md).
 
-## Encryption
+### Encryption
 
 Several kinds of encryption are available for your managed disks, including Server-Side Encryption (SSE), Azure Disk Encryption (ADE), encryption at host, and confidential disk encryption. You can use either platform-managed keys or customer-managed keys with these encryption options. To learn more about your encryption options, see [Overview of managed disk encryption options](disk-encryption-overview.md)
 
@@ -99,7 +97,7 @@ There are three main disk roles in Azure: the OS disk, the data disk, and the te
 
 ### OS disk
 
-Every virtual machine has one attached OS disk. This disk has a pre-installed operating system, which was selected when the VM was created. This disk contains the boot volume.
+Every virtual machine has one attached OS disk. This disk has a preinstalled operating system, which was selected when the VM was created. This disk contains the boot volume.
 
 Generally, you should store only your OS information on the OS disk. You should store all applications and data on data disks. But if cost is a concern, you can use the OS disk instead of creating a data disk.
 
@@ -127,7 +125,7 @@ Most VMs contain a temporary disk, which isn't a managed disk. The temporary dis
 
 Data on the temporary disk might be lost during a [maintenance event](./understand-vm-reboots.md), when you [redeploy a VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or when you stop the VM. During a successful standard restart of the VM, data on the temporary disk persists. For more information about VMs without temporary disks, see [Azure VM sizes with no local temporary disk](azure-vms-no-temp-disk.yml).
 
-On Azure Linux VMs, the temporary disk is typically */dev/sdb*. On Windows VMs, the temporary disk is drive D by default. The temporary disk is not encrypted unless:
+On Azure Linux VMs, the temporary disk is typically */dev/sdb*. On Windows VMs, the temporary disk is drive D by default. The temporary disk isn't encrypted unless:
 
 - You're using an Azure VM that is version 5 and above (such as Dsv5 or Dsv6). Azure VMs version 5 and above automatically encrypt their temporary disks and (if in use) their ephemeral OS disks with encryption-at-rest.
 - For server-side encryption, you enable encryption at the host.
@@ -153,7 +151,7 @@ The following diagram shows an example of these limitations. The system prevents
 
 ![Diagram of the three-level provisioning system with a Standard_D2s_v3 example allocation.](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
 
-Azure uses a prioritized network channel for disk traffic. Disk traffic takes precedence over low-priority network traffic. This prioritization helps disks maintain their expected performance if there is network contentions.
+Azure uses a prioritized network channel for disk traffic. Disk traffic takes precedence over low-priority network traffic. This prioritization helps disks maintain their expected performance if there's network contentions.
 
 Similarly, Azure Storage handles resource contentions and other issues in the background with automatic load balancing. Azure Storage allocates required resources when you create a disk, and it applies proactive and reactive balancing of resources to handle the traffic level. This behavior further ensures that disks can sustain their expected IOPS and throughput targets. You can use the VM-level and disk-level metrics to track the performance and set up alerts as needed.
 
