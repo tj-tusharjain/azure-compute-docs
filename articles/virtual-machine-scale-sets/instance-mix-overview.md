@@ -66,6 +66,9 @@ Following the scale set cost model, usage of instance mix is free. You continue 
 - For REST API deployments, you must have an existing virtual network inside of the resource group that you're deploying your scale set with instance mix in.
 - You can't mix VM architecture in the same instance mix deployment; you can't mix Arm64 and x64.
 - You can't mix VMs that use SCSI and NVMe storage interfaces.
+- All VMs specified in `skuProfile` must use the same Security Profile.
+- Instance mix does not support Standby Pools, Azure Dedicated Host, or Proximity Placement Groups.
+- When using MaxSurge, instance mix will replace the VM with the size it was before the scaling action.
 
 ## Next steps
 Learn how to [create a scale set using instance mix](instance-mix-create.md).
