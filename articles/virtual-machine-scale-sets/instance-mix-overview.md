@@ -11,7 +11,7 @@ ms.reviewer: jushiman
 
 # Use multiple Virtual Machine sizes with instance Mix (Preview)
 > [!IMPORTANT]
-> Instance mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+> Instance mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change before general availability (GA). 
 
 Instance mix enables you to specify multiple different Virtual Machine (VM) sizes in your Virtual Machine Scale Set with Flexible Orchestration Mode, and an allocation strategy to further optimize your deployments. 
 
@@ -23,7 +23,8 @@ Instance mix is best suited for workloads that are flexible in compute requireme
 
 ## Changes to existing scale set properties
 ### sku.name
-The `sku.name` property should be set to `"Mix"`. VM sizes will be defined in the `skuProfile`.
+The `sku.name` property should be set to `"Mix"`. VM sizes are defined in the `skuProfile`.
+
 ### sku.tier
 The `sku.tier` property is currently an optional scale set property and should be set to `null` for instance mix scenarios.
 
@@ -63,12 +64,12 @@ Following the scale set cost model, usage of instance mix is free. You continue 
 - Instance mix is only available for scale sets using Flexible Orchestration Mode.
 - You must have quota for the VM sizes you're requesting with instance mix.
 - You can specify **up to** five VM sizes with instance mix.
-- For REST API deployments, you must have an existing virtual network inside of the resource group that you're deploying your scale set with instance mix in.
+- For REST API deployments, you must have an existing virtual network inside of the resource group that you're deploying your scale set with instance mix into.
 - You can't mix VM architecture in the same instance mix deployment; you can't mix Arm64 and x64.
 - You can't mix VMs that use SCSI and NVMe storage interfaces.
 - All VMs specified in `skuProfile` must use the same Security Profile.
-- Instance mix does not support Standby Pools, Azure Dedicated Host, or Proximity Placement Groups.
-- When using MaxSurge, instance mix will replace the VM with the size it was before the scaling action.
+- Instance mix doesn't support Standby Pools, Azure Dedicated Host, or Proximity Placement Groups.
+- With MaxSurge, instance mix replaces the VM with the size it was before the scaling action.
 
 ## Next steps
 Learn how to [create a scale set using instance mix](instance-mix-create.md).
