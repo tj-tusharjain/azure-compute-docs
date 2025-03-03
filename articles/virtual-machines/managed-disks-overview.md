@@ -83,25 +83,11 @@ You can reduce costs by uploading data to managed disks directly, without attach
 
 To learn how to transfer your VHD to Azure, see the [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md) article.
 
-### Granular access control
+#### Control access to managed disk imports and exports
 
-You can use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to assign specific permissions for a managed disk to one or more users.
+You have several options for protecting your managed disks from being imported or exported. You can create a custom Azure role-based access control (RBAC) role with a limited permission set, you can use Microsoft Entra ID, Private Links, Azure Policy, or configure the `NetworkAccessPolicy` parameter on your disk resources. To learn more, see [Restrict managed disks from being imported or exported](disks-restrict-import-export-overview.md).
 
-Managed disks expose various operations, including read, write (create/update), and delete, along with retrieving a [shared access signature (SAS) URI](/azure/storage/common/storage-sas-overview) for the disk. You can grant access to only the operations that a person needs to perform a job.
-
-For example, if you don't want a person to copy a managed disk to a storage account, don't grant access to the export action for that managed disk. Similarly, if you don't want a person to use a SAS URI to copy a managed disk, don't grant that permission to the managed disk.
-
-## Security
-
-### Private Link
-
-You can use [Azure Private Link](/azure/private-link/private-link-overview) support for managed disks to import or export a managed disk that's internal to your network. With Private Link, you can generate a time-bound SAS URI for unattached managed disks and snapshots. You can then use that SAS URI to export the data to other regions for regional expansion, disaster recovery, and forensic analysis. You can also use the SAS URI to directly upload a VHD to an empty disk from on-premises.
-
-Private Link can help you restrict the export and import of managed disks so that it occurs only within your Azure virtual network. Using Private Link helps ensure that your data travels only within the secure Microsoft backbone network.
-
-To learn how to enable Private Link for importing or exporting a managed disk, see the [Azure CLI](linux/disks-export-import-private-links-cli.md) or [Azure portal](disks-enable-private-links-for-import-export-portal.yml) article.
-
-### Encryption
+## Encryption
 
 Several kinds of encryption are available for your managed disks, including Server-Side Encryption (SSE), Azure Disk Encryption (ADE), encryption at host, and confidential disk encryption. You can use either platform-managed keys or customer-managed keys with these encryption options. To learn more about your encryption options, see [Overview of managed disk encryption options](disk-encryption-overview.md)
 
