@@ -21,6 +21,12 @@ No, you can't mix multiple CPU architectures in a scale set using instance mix.
 ### Which regions support instance mix?
 All public Azure regions support instance mix.
 
+### Will instance mix request quota for me?
+No, you must have quota for the VMs you specify in the `skuProfile`. If you don't have quota for a given VM size, we'll try using another VM size specified that does have quota.
+
+### I updated my scale set to use instance mix, why aren't my VMs aligning to my allocation strategy?
+When updating your scale set to use instance mix, all scale in or scale out actions after updating the scale set will use the inputs from instance mix to determine which VMs to scale in and out. 
+
 ## Troubleshooting
 | Error Code                                 | Error Message                                                                                                        | Troubleshooting options                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
