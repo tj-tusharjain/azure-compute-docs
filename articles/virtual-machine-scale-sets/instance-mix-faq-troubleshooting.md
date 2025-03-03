@@ -5,7 +5,7 @@ author: brittanyrowe
 ms.author: brittanyrowe
 ms.topic: conceptual
 ms.service: azure-virtual-machine-scale-sets
-ms.date: 11/18/2024
+ms.date: 03/03/2025
 ms.reviewer: jushiman
 ---
 
