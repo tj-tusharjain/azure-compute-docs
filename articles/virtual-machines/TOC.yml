@@ -2205,6 +2205,8 @@
       href: vm-watch-collector-suite.md
   - name: Monitor availability
     items:
+    - name: Configure VM watch
+      href: configure-vm-watch.md
     - name: Overview
       href: flash-overview.md
     - name: Use Azure Resource Graph
@@ -2228,6 +2230,8 @@
     href: ./linux/metrics-vm-usage-rest.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
+  - name: Configure EventHub
+    href: configure-eventhub-vm-watch.md
 - name: Backup and recovery
   items:
   - name: Overview
