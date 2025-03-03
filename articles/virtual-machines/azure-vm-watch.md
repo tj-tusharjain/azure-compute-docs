@@ -113,6 +113,7 @@ VM watch is delivered via the [Application Health VM extension](/azure/virtual-m
 
 ## Related content
 
-- VM watch Collectors Suite
+- [VM watch Collectors Suite](/azure/virtual-machines/vm-watch-collector-suite)
 - [Install VM watch](install-vm-watch.md)
-- Configure VM watch
+- [Configure VM watch](/azure/virtual-machines/configure-vm-watch)
+- [Configure Event Hubs for VM watch](/azure/virtual-machines/configure-eventhub-vm-watch)
