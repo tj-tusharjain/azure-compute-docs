@@ -118,13 +118,13 @@ Once VM watch settings are successfully configured to use Event Hubs as the outp
 
 The following screenshot shows data flowing into the Event Hub
 
-:::image type="content" source="./media/vm-watch-data-view.png" alt-text="Screenshot that shows VM watch data flowing into the Event Hub." lightbox="./media/vm-watch-data-view.png":::
+:::image type="content" source="./media/vm-watch-data-view.png" alt-text="Screenshot that shows VM watch data flowing into Event Hubs." lightbox="./media/vm-watch-data-view.png":::
 
 Also, you can use the [Event Hubs Data Explorer](/azure/event-hubs/event-hubs-data-explorer) feature to view incoming event and content. 
 
 The following screenshot shows Event Hubs Data Explorer
 
-:::image type="content" source="./media/vm-watch-data-explorer-view.png" alt-text="Screenshot that shows Event Hub data explorer." lightbox="./media/vm-watch-data-explorer-view.png":::
+:::image type="content" source="./media/vm-watch-data-explorer-view.png" alt-text="Screenshot that shows Event Hubs data explorer." lightbox="./media/vm-watch-data-explorer-view.png":::
 
 
 
