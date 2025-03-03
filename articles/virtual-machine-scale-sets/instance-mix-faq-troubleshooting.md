@@ -19,7 +19,7 @@ Yes, you can use both Spot and Standard Virtual Machines (VMs) in your scale set
 No, you can't mix multiple CPU architectures in a scale set using instance mix.
 
 ### Which regions support instance mix?
-All public Azure regions support instance mix.
+All global Azure regions support instance mix.
 
 ### Will instance mix request quota for me?
 No, you must have quota for the VMs you specify in the `skuProfile`. If you don't have quota for a given VM size, we'll try using another VM size specified that does have quota.
