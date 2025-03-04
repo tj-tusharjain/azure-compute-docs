@@ -49,23 +49,23 @@ Availability zones are unique physical locations within an Azure region. Each zo
 
 For information about the service-level agreement (SLA) for VM uptime with availability zones, see the [page for Azure SLAs](https://azure.microsoft.com/support/legal/sla/).
 
-## Backup and disaster recovery options
+### Backup and disaster recovery options
 
 Managed disks support several backup and disaster recovery options. These include built-in redundancy options (locally redundant storage, and zone-redundant storage), Azure Backup, managed disk snapshots, restore points, and Azure Site Recovery. The ideal configuration of backup and disaster recovery options for your needs vary. To decide what works best for you, see [Backup and disaster recovery for Azure managed disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
-### Managed disk snapshots
+#### Managed disk snapshots
 
 A managed disk snapshot is a read-only, crash-consistent full copy of a managed disk stored as a Standard HDD managed disk by default. These snapshots exist independently of the source disk, and you can use them to create new managed disks.
 
 To learn more about how to create snapshots for managed disks, see [Create a snapshot of a virtual hard disk](snapshot-copy-managed-disk.md).
 
-### Images
+#### Images
 
 Managed disks support creating managed custom images. You can create an image from your custom VHD in a storage account or directly from a generalized (via Sysprep) VM. The image contains all managed disks associated with a VM, including both the OS and data disks. A managed custom image enables the creation of hundreds of VMs without the need to copy or manage any storage accounts.
 
 For information on creating images, see [Create a legacy managed image of a generalized VM in Azure](windows/capture-image-resource.yml).
 
-#### Images versus snapshots
+##### Images versus snapshots
 
 It's important to understand the difference between images and snapshots. With managed disks, you can take an image of a generalized VM that you deallocated. This image includes all of the disks attached to the VM. You can use this image to create a VM.
 
@@ -73,7 +73,7 @@ A snapshot is a copy of a disk at a point in time. It applies only to one disk. 
 
 A snapshot doesn't have awareness of any disk except the one that it contains. Using snapshots in scenarios that require the coordination of multiple disks, such as striping, is problematic. Snapshots would need to be able to coordinate with each other, and that's currently not supported.
 
-## Upload your VHD or VHDX
+### Upload your VHD or VHDX
 
 You can reduce costs by uploading data to managed disks directly, without attaching them to VMs. With direct upload, you can upload VHDs up to 32 TiB in size. To learn how to upload your VHD to Azure, see the [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md) articles.
 
