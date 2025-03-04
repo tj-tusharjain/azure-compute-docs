@@ -7,7 +7,7 @@ ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 03/04/2025
 ---
 
 # Enable automatic HTTPS with Caddy in a sidecar container
@@ -56,12 +56,6 @@ az storage account create \
   --name <storage-account> \
   --resource-group <resource-group> \
   --location westeurope
-```
-
-Store the connection string to an environment variable 
-
-```azurecli
-AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string --name <storage-account> --resource-group <resource-group> --output tsv)
 ```
 
 Create the file shares required to store the container state and caddy configuration.
