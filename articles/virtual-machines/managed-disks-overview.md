@@ -131,8 +131,7 @@ On Azure Linux VMs, the temporary disk is typically */dev/sdb*. On Windows VMs, 
 
 ## Related content
 
-- Check out [Better Azure VM Resiliency with Managed Disks](/shows/azure/managed-disks-azure-resiliency) for a video that gives more details on managed disks
-- Learn more about the individual disk types that Azure offers, which type is a good fit for your needs, and their performance targets, see [Select a disk type for IaaS VMs](disks-types.md)
-- Learn about [Virtual machine and disk performance](disks-performance.md)
+- Learn more about the individual disk types that Azure offers, which type is fits your needs, and their performance targets, see [Select a disk type for IaaS VMs](disks-types.md)
+- Learn about how [Virtual machine and disk performance](disks-performance.md) works
 - Learn the [Best practices for achieving high availability with Azure virtual machines and managed disks](disks-high-availability.md)
 - Learn more about how managed disks are billed, see [Understand Azure Disk Storage billing](disks-understand-billing.md)
