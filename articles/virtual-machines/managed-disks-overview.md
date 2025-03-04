@@ -93,6 +93,8 @@ There are three main disk roles in Azure: the OS disk, the data disk, and the te
 
 ![Diagram that illustrates disk roles in action.](media/virtual-machines-managed-disks-overview/disk-types.png)
 
+Performance for each role works slightly differently. To learn more about how performance works for each role, see [Disk allocation and performance](disks-performance.md#disk-allocation-and-performance).
+
 ### OS disk
 
 Every virtual machine has one attached OS disk. This disk has a preinstalled operating system, which was selected when the VM was created. This disk contains the boot volume.
