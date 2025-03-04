@@ -23,13 +23,13 @@ This article assumes that you're familiar with:
 > [!NOTE]
 > | **Name**  | **Description** |
 > |---|---|
-> | **Collector** | This is a logical grouping of similar tests where you can collect checks, metrics, and logs to determine the health of a particular resource |
-> | **Signals** | This is what is emitted to reflect the health status of VMs. The three types of signals emitted are checks, metrics, and logs |
-> | **Group** | This indicates whether the collectors are part of the core or optional group. Core group collectors are enabled by default, while optional group collectors can be enabled or disabled based on your requirements |
-> | **Tags** | This is used to categorize and filter checks, metrics, and logs |
-> | **Eligibility** | This determines whether a collector is eligible to be executed based on the environment attributes specified by the user |
-> | **Default Behavior** | This is the standard setting and action that would be followed if no custom configurations are provided. |
-> | **Overwritable Parameters** | These are associated parameters that can be customized to override the default configuration |
+> | **Collector** | Logical grouping of similar tests where you can collect checks, metrics, and logs to determine the health of a particular resource |
+> | **Signals** | What is emitted to reflect the health status of VMs. The three types of signals emitted are checks, metrics, and logs |
+> | **Group** | Indicates whether the collectors are part of the core or optional group. Core group collectors are enabled by default, while optional group collectors can be enabled or disabled based on your requirements |
+> | **Tags** | Used to categorize and filter checks, metrics, and logs |
+> | **Eligibility** | Determines whether a collector is eligible to be executed based on the environment attributes you specify |
+> | **Default Behavior** | Standard setting and action that would be followed if no custom configurations are provided. |
+> | **Overwritable Parameters** | Associated parameters that can be customized to override the default configuration |
 
 
 ### Groups, tags and corresponding checks, metrics, and event logs
@@ -76,7 +76,7 @@ This article assumes that you're familiar with:
 
 ### Next steps
 
-- Configure VM watch
-- Configure Event Hubs for VM watch
+- [Configure VM watch](/azure/virtual-machines/configure-vm-watch)
+- [Configure Event Hubs for VM watch](/azure/virtual-machines/configure-eventhub-vm-watch)
 - [Install VM watch](/azure/virtual-machines/install-vm-watch?tabs=ARM-template-1%2Ccli-2)
 - [VM watch overview](/azure/virtual-machines/azure-vm-watch)
