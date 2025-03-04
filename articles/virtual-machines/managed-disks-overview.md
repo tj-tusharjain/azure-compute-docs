@@ -129,33 +129,10 @@ On Azure Linux VMs, the temporary disk is typically */dev/sdb*. On Windows VMs, 
 - For server-side encryption, you enable encryption at the host.
 - For Azure Disk Encryption, you set the `VolumeType` parameter to [All](./windows/disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk) on Windows or [EncryptFormatAll](./linux/disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms) on Linux.
 
-## Disk allocation and performance
-
-The following diagram depicts real-time allocation of bandwidth and I/O operations per second (IOPS) for disks, with three paths that I/O can take.
-
-![Diagram of a three-level provisioning system that shows bandwidth and IOPS allocation.](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
-
-The first I/O path is the uncached managed disk path. An I/O operation uses this path if you're using a managed disk and you set the host caching to `none`. An I/O operation that uses this path runs based on disk-level provisioning and then VM network-level provisioning for IOPS and throughput.
-
-The second I/O path is the cached managed disk path. Cached managed disk I/O uses an SSD that's close to the VM. This SSD has its own IOPS and throughput provisioned, and it appears as "SSD-level provisioning" in the diagram.
-
-When a cached managed disk initiates a read, the request first checks to see if the data is in the server SSD. If the data isn't present, this creates a cached miss. The I/O then runs based on SSD-level provisioning, disk-level provisioning, and then VM network-level provisioning for IOPS and throughput.
-
-When the server SSD initiates reads on cached I/O that are present on the server SSD, it creates a cache hit. The I/O then runs based on the SSD-level provisioning. Writes that a cached managed disk initiates always follow the path of a cached miss. They need to go through SSD-level, disk-level, and VM network-level provisioning.
-
-The third path is for the *Local/Temp* disk. It's available only on VMs that support *Local/Temp* disks. An I/O operation that uses this path runs based on SSD-level provisioning for IOPS and throughput.
-
-The following diagram shows an example of these limitations. The system prevents a Standard_D2s_v3 VM from achieving the 5,000 IOPS potential of a P30 disk, whether it's cached or not, because of limits at the SSD and network levels.
-
-![Diagram of the three-level provisioning system with a Standard_D2s_v3 example allocation.](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
-
-Azure uses a prioritized network channel for disk traffic. Disk traffic takes precedence over low-priority network traffic. This prioritization helps disks maintain their expected performance if there's network contentions.
-
-Similarly, Azure Storage handles resource contentions and other issues in the background with automatic load balancing. Azure Storage allocates required resources when you create a disk, and it applies proactive and reactive balancing of resources to handle the traffic level. This behavior further ensures that disks can sustain their expected IOPS and throughput targets. You can use the VM-level and disk-level metrics to track the performance and set up alerts as needed.
-
 ## Related content
 
-- If you want to watch a video that gives more detail on managed disks, check out [Better Azure VM Resiliency with Managed Disks](/shows/azure/managed-disks-azure-resiliency).
-- Learn more about the individual disk types that Azure offers, which type is a good fit for your needs, and their performance targets, see [Select a disk type for IaaS VMs](disks-types.md).
-- Learn the [Best practices for achieving high availability with Azure virtual machines and managed disks](disks-high-availability.md).
-- Learn more about how managed disks are billed, see [Understand Azure Disk Storage billing](disks-understand-billing.md).
+- Check out [Better Azure VM Resiliency with Managed Disks](/shows/azure/managed-disks-azure-resiliency) for a video that gives more details on managed disks
+- Learn more about the individual disk types that Azure offers, which type is a good fit for your needs, and their performance targets, see [Select a disk type for IaaS VMs](disks-types.md)
+- Learn about [Virtual machine and disk performance](disks-performance.md)
+- Learn the [Best practices for achieving high availability with Azure virtual machines and managed disks](disks-high-availability.md)
+- Learn more about how managed disks are billed, see [Understand Azure Disk Storage billing](disks-understand-billing.md)
