@@ -58,7 +58,8 @@ Following the scale set cost model, usage of instance mix is free. You continue 
 
 ## Recommendations
 * Use VMs of similar size for your workload to ensure an even spread of traffic from the load balancer. For example, using the `Standard_D8s_v4` and the `Standard_D8s_v5` VM sizes in your deployment would ensure your workload always runs on an eight core VM.
-* To benefit from Reservation pricing, use the `Prioritized` allocation strategy and setting your Reservation VM sizes as the first rank.
+* To benefit from reservation pricing, use the `Prioritized` allocation strategy and set your reservation VM sizes as the first rank.
+* To benefit from savings plan pricing, use the `Prioritized` allocation strategy and set your savings plan VM sizes as the first rank.
   
 ## Limitations 
 - Instance mix is only available for scale sets using Flexible Orchestration Mode.
