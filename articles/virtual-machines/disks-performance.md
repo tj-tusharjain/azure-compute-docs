@@ -3,7 +3,7 @@ title: Virtual machine and disk performance
 description: Learn more about how virtual machines and their attached disks work in combination for performance.
 author: roygara
 ms.author: rogarana
-ms.date: 10/28/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -22,7 +22,7 @@ There are three paths that bandwidth and I/O operations per second (IOPS) can ta
 
 The following diagram depicts real-time allocation of bandwidth and I/O operations per second (IOPS) for disks, with three paths that I/O can take.
 
-![Diagram of a three-level provisioning system that shows bandwidth and IOPS allocation.](media/disks-performance/real-time-disk-allocation.png)
+:::image type="content" source="media/disks-performance/real-time-disk-allocation.png" alt-text="Diagram of a three-level provisioning system that shows bandwidth and IOPS allocation." lightbox="media/disks-performance/real-time-disk-allocation.png":::
 
 The first I/O path is the uncached managed disk path. I/O operations use this path when you're using a managed disk and you set the host caching to `none`. I/O operations that use this path run based on disk-level provisioning and then VM network-level provisioning for IOPS and throughput.
 
@@ -36,7 +36,7 @@ The third path is for the *Local/Temp* disk. It's only available on VMs that sup
 
 The following diagram depicts an example of these limitations. The system prevents a Standard_D2s_v3 VM from achieving the 5,000 IOPS potential of a P30 disk, whether it's cached or not, because of limits at the SSD and network levels.
 
-![Diagram of the three-level provisioning system with a Standard_D2s_v3 example allocation.](media/disks-performance/example-vm-allocation.png)
+:::image type="content" source="media/disks-performance/example-vm-allocation.png" alt-text="Diagram of the three-level provisioning system with a Standard_D2s_v3 example allocation." lightbox="media/disks-performance/example-vm-allocation.png":::
 
 Azure uses a prioritized network channel for disk traffic. Disk traffic takes precedence over low-priority network traffic. This prioritization helps disks maintain their expected performance if there's network contentions.
 
@@ -147,7 +147,7 @@ Next let's look at what happens with IO requests when the host cache setting is 
 
 A read is handled the same way as a read-only. Writes are the only thing that's different with read/write caching. When writing with host caching is set to **Read/write**, the write only needs to be written to the host cache to be considered complete. The write is then lazily written to the disk when the cache is flushed periodically. Customers can additionally force a flush by issuing an `f/sync` or `fua` command. This means that a write is counted toward cached IO when it's written to the cache. When it's lazily written to the disk, it counts toward the uncached IO.
 
-![Diagram showing read/write host caching write.](media/vm-disk-performance/host-caching-read-write.jpg)
+![Diagram showing read/write host caching write.](media/disks-performance/host-caching-read-write.jpg)
 
 Let’s continue with our Standard_D8s_v3 virtual machine. Except this time, we enable host caching on the disks. This makes the VM's IOPS limit 16,000 IOPS. Attached to the VM are three underlying P30 disks that can each handle 5,000 IOPS.
 
@@ -163,7 +163,7 @@ Let’s continue with our Standard_D8s_v3 virtual machine. Except this time, we 
   - IOPS: 5,000
   - Host caching: **Read/write**
 
-![Diagram showing a host caching example.](media/vm-disk-performance/host-caching-example-without-remote.jpg)
+![Diagram showing a host caching example.](media/disks-performance/host-caching-example-without-remote.jpg)
 
 The application uses a Standard_D8s_v3 virtual machine with caching enabled. It makes a request for 16,000 IOPS. The requests are completed as soon as they're read or written to the cache. Writes are then lazily written to the attached Disks.
 
@@ -188,7 +188,7 @@ Let's run through an example to help you understand how these limits work togeth
   - IOPS: 5,000
   - Host caching: **Disabled**
 
-![Diagram showing a host caching example with remote storage.](media/vm-disk-performance/host-caching-example-with-remote.jpg)
+![Diagram showing a host caching example with remote storage.](media/disks-performance/host-caching-example-with-remote.jpg)
 
 In this case, the application running on a Standard_D8s_v3 virtual machine makes a request for 25,000 IOPS. The request is broken down as 5,000 IOPS to each of the attached disks. Three disks use host caching and two disks don't use host caching.
 
