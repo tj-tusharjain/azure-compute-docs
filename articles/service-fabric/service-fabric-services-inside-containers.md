@@ -108,9 +108,10 @@ This document provides guidance to get your service running inside a Windows con
    </Policies>
    ```
    
-10. (Optional) Primary certificate inside the container <br>
-By default, the primary cluster certificate is needed for communication between nodes, and this certificate is not installed inside the containers. This means that Service Fabric Services running inside a container cannot talk to services on other nodes.
-A way to fix this is to include the pfx file inside the container along with a powershell script to install the certificate inside the container.
+10. (Optional) Configure certificate for manual communication between services. <br>
+By default, the primary cluster certificate is needed for manual communication between different containerized services. This certificate is not installed inside the containers like it is on the node itself.
+One way to fix this is to include the .pfx file inside the container along with a powershell script to install the certificate inside the container.
+Another way would be to configure the cluster such that the certificate is not required.
 Learn more about [Service Fabric cluster security scenarios](service-fabric-cluster-security.md).
 
 11. (Optional) Configure Ktl logger to use user mode <br>
