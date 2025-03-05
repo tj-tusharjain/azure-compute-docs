@@ -91,9 +91,9 @@ Several kinds of encryption are available for your managed disks, including Serv
 
 There are three main disk roles in Azure: the OS disk, the data disk, and the temporary disk. These roles map to disks that are attached to your virtual machine.
 
-![Diagram that illustrates disk roles in action.](media/virtual-machines-managed-disks-overview/disk-types.png)
-
 Performance for each role works slightly differently. To learn more about how performance works for each role, see [Disk allocation and performance](disks-performance.md#disk-allocation-and-performance).
+
+![Diagram that illustrates disk roles in action.](media/virtual-machines-managed-disks-overview/disk-types.png)
 
 ### OS disk
 
