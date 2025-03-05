@@ -19,12 +19,6 @@ An alternative is to use Azure Elastic SAN as the storage for your virtual machi
 
 ## Benefits of managed disks
 
-### Performance options
-
-The demands and needs of your workload can shift over time, either due to high demand during a holiday, sudden bursts of traffic, or scaling up to meet client needs. Azure managed disks have several capabilities you can take advantage of to improve their performance and match the shifting needs of your workloads. Different disk types offer different capabilities, some disk types have capabilities you can use to ensure their performance automatically shifts to meet the changing demands of your workload, others require manual adjustment, and other disk types can't do either.
-
-To learn about the options each disk type has, see [Overview of options to improve Azure managed disk performance](disks-performance-options.md)
-
 ### High durability and availability
 
 Managed disks are designed for 99.999% availability, to achieve this availability, managed disks provide three replicas of your data. If one or two replicas experience problems, the remaining replicas help ensure persistence of your data and high tolerance against failures.
@@ -52,6 +46,12 @@ For example, say you have an application running on five VMs that are in an avai
 Managed disks support [availability zones](/azure/reliability/availability-zones-overview), which help protect your applications from datacenter failures. Availability zones are unique physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
 
 For information about the service-level agreement (SLA) for VM uptime with availability zones, see the [page for Azure SLAs](https://azure.microsoft.com/support/legal/sla/).
+
+### Performance options
+
+The demands and needs of your workload can shift over time, either due to high demand during a holiday, sudden bursts of traffic, or scaling up to meet client needs. Azure managed disks have several capabilities you can take advantage of to improve their performance and match the shifting needs of your workloads. Different disk types offer different capabilities, some disk types have capabilities you can use to ensure their performance automatically shifts to meet the changing demands of your workload, others require manual adjustment, and other disk types can't do either.
+
+To learn about the options each disk type has, see [Overview of options to improve Azure managed disk performance](disks-performance-options.md)
 
 ### Backup and disaster recovery options
 
