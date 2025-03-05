@@ -266,31 +266,3 @@ Let’s continue with our Standard_D8s_v3 virtual machine. Except this time, we 
 ![Diagram showing a host caching example.](media/disks-performance/host-caching-example-without-remote.jpg)
 
 The application uses a Standard_D8s_v3 virtual machine with caching enabled. It makes a request for 16,000 IOPS. The requests are completed as soon as they're read or written to the cache. Writes are then lazily written to the attached Disks.
-
-## Combined uncached and cached limits
-
-A virtual machine's cached limits are separate from its uncached limits. This means you can enable host caching on disks attached to a VM while  not enabling host caching on other disks. This configuration allows your virtual machines to get a total storage IO of the cached limit plus the uncached limit.
-
-Let's run through an example to help you understand how these limits work together. We continue with the Standard_D8s_v3 virtual machine and premium disks attached configuration.
-
-**Setup:**
-
-- Standard_D8s_v3
-  - Cached IOPS: 16,000
-  - Uncached IOPS: 12,800
-- P30 OS disk
-  - IOPS: 5,000
-  - Host caching: **Read/write**
-- Two P30 data disks × 2
-  - IOPS: 5,000
-  - Host caching: **Read/write**
-- Two P30 data disks × 2
-  - IOPS: 5,000
-  - Host caching: **Disabled**
-
-![Diagram showing a host caching example with remote storage.](media/disks-performance/host-caching-example-with-remote.jpg)
-
-In this case, the application running on a Standard_D8s_v3 virtual machine makes a request for 25,000 IOPS. The request is broken down as 5,000 IOPS to each of the attached disks. Three disks use host caching and two disks don't use host caching.
-
-- Since the three disks that use host caching are within the cached limits of 16,000, those requests are successfully completed. No storage performance capping occurs.
-- Since the two disks that don't use host caching are within the uncached limits of 12,800, those requests are also successfully completed. No capping occurs.
