@@ -39,6 +39,8 @@ This article describes how to use the Custom Script Extension by using the Azure
 | Windows Server 2019 Core | Supported |
 | Windows Server 2022 | Supported |
 | Windows Server 2022 Core | Supported |
+| Windows Server 2025 | Supported |
+| Windows Server 2025 Core | Core |
 
 ### Script location
 
