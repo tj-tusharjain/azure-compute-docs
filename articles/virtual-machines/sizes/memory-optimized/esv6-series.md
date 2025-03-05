@@ -1,5 +1,5 @@
 ---
-title: Esv6 size series (Preview)
+title: Esv6 size series
 description: Information on and specifications of the Esv6-series sizes
 author: mattmcinnes
 ms.service: azure-virtual-machines
@@ -10,19 +10,16 @@ ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 ---
 
-# Esv6 sizes series (Preview)
+# Esv6 sizes series 
 
 [!INCLUDE [esv6-summary](./includes/esv6-series-summary.md)]
-
-> [!NOTE]
-> - This VM series is currently in **Preview**. 
-> - See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+ 
 
 ## Host specifications
 [!INCLUDE [esv6-series-specs](./includes/esv6-series-specs.md)]
 
 ## Feature support
-[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Not Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Not Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Not Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Not Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Not Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 
 ## Sizes in series
 
@@ -42,7 +39,11 @@ vCPUs (Qty.) and Memory for each size
 | Standard_E64s_v6 | 64 | 512 |
 | Standard_E96s_v6 | 96 | 768 |
 | Standard_E128s_v6 | 128 | 1024 |
+| Standard_E192is_v6 | 128 | 1832 |
 
+> [!NOTE]
+> - The E128 and E192i sizes will be available later in GA
+> 
 #### VM Basics resources
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
@@ -54,8 +55,6 @@ Local (temp) storage info for each size
 > No local storage present in this series.
 >
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](../../azure-vms-no-temp-disk.yml).
-
-
 
 ### [Remote storage](#tab/sizestorageremote)
 
@@ -73,6 +72,7 @@ Remote (uncached) storage info for each size
 | Standard_E64s_v6 | 64 | 102400 | 3392 | 102400 | 3392 | 133333 | 3969 | 133333 | 3969 |
 | Standard_E96s_v6 | 64 | 153600 | 5088 | 153600 | 5088 | 200000 | 5953 | 200000 | 5953 |
 | Standard_E128s_v6 | 64 | 204800 | 6782 | 204800 | 6782 | 266667 | 7935 | 266667 | 7935 |
+| Standard_E192is_v6 | 64 | 260000 | 12000 | 260000 | 12000 | 400000 | 12000 | 400000 | 12000 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -104,6 +104,7 @@ Network interface info for each size
 | Standard_E64s_v6 | 8 | 30000 |
 | Standard_E96s_v6 | 8 | 41000 |
 | Standard_E128s_v6 | 8 | 54000 |
+| Standard_E192is_v6 | 8 | 200000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)

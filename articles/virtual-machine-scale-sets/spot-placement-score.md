@@ -16,13 +16,13 @@ ms.reviewer: ju-shim
 > [!IMPORTANT]
 > The Spot Placement Score feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Spot Placement Score evaluates the likelihood of success for individual Spot deployments by considering parameters like desired Spot Virtual Machine (VM) count, VM size, and your deployment region or zone. This feature enables you to generate a placement score to deploy a desired number of Spot Virtual Machines (VMs) across various combinations of regions, zones, and VM sizes. By inputting lists of up to eight regions and five VM sizes, you can obtain placement scores categorized as either High, Medium, or Low. A score of High indicates that the deployment is highly likely to succeed while a score of Low indicates that the deployment has a low chance of success. These scores are based on analyses of Spot capacity allocation probability and the survivability of the specified number of Spot VMs within each region and VM size combination. This functionality enhances deployment planning by providing predictive insights into deployment success and optimizing resource allocation for your Spot VMs. 
+Spot Placement Score evaluates the likelihood of success for individual Spot deployments by considering parameters like desired Spot Virtual Machine (VM) count, VM size, and your deployment region or zone. This feature enables you to generate a placement score to deploy a desired number of Spot Virtual Machines (VMs) across various combinations of regions, zones, and VM sizes. By inputting lists of up to eight regions and five VM sizes, you can obtain placement scores categorized as either High, Medium, or Low. A score of High indicates that the deployment is highly likely to succeed while a score of Low indicates that the deployment has a low chance of success. These scores are based on analyses of Spot capacity allocation probability of the specified number of Spot VMs within each region and VM size combination. This functionality enhances deployment planning by providing predictive insights into deployment success and optimizing resource allocation for your Spot VMs. 
 
 Using Spot Placement Score, you can achieve the following: 
 
 - A clear evaluation of how likely your Spot deployment is to succeed based on specified parameters. 
 
-- Identify the most suitable combination of regions and VM sizes to maximize Spot VM availability and survivability based on placement scores. 
+- Identify the most suitable combination of regions and VM sizes to maximize Spot VM availability based on placement scores. 
 
 - Improve the overall success rate of deploying Spot VMs by applying data-driven placement scores, reducing the risk of capacity issues or failures during deployment. 
 
@@ -32,7 +32,7 @@ There are no costs associated with this feature.
 
 ## Considerations
 
-- Spot placement scores serve purely as a recommendation based on certain data points like eviction rate and VM availability. A high placement score doesn't guarantee that the Spot request will be fully or partially fulfilled. 
+- Spot placement scores serve purely as a recommendation based on certain data points like Spot VM availability. A high placement score doesn't guarantee that the Spot request will be fully or partially fulfilled. 
 
 - Placement Scores are only valid at the time when it's requested. The same Placement Score isn't valid at a different time of the same day or another day. Any similarities are purely coincidental.  
 
@@ -46,7 +46,9 @@ There are no costs associated with this feature.
 
 - Spot Placement Score API internally calls other GET APIs and is part of your GET call quota. 
 
-- A score of **High** or **Medium** doesn't guarantee allocation success or no evictions. 
+- A score of **High** or **Medium** doesn't guarantee allocation success or no evictions.
+
+- This feature is available for all public Azure regions at this time.
 
 
 ## Configure your Spot Placement Score
