@@ -57,19 +57,13 @@ For information about the service-level agreement (SLA) for VM uptime with avail
 
 Managed disks support several backup and disaster recovery options. These options include built-in redundancy options (locally redundant storage, and zone-redundant storage), Azure Backup, managed disk snapshots, restore points, and Azure Site Recovery. The ideal configuration of backup and disaster recovery options for your needs can vary. To decide which works best for your needs, see [Backup and disaster recovery for Azure managed disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
-#### Managed disk snapshots
-
-A managed disk snapshot is a read-only, crash-consistent full copy of a managed disk stored as a Standard HDD managed disk by default. These snapshots exist independently of the source disk, and you can use them to create new managed disks.
-
-To learn more about how to create snapshots for managed disks, see [Create a snapshot of a virtual hard disk](snapshot-copy-managed-disk.md).
-
-#### Images
+### Images
 
 Managed disks support creating managed custom images. You can create an image from your custom VHD in a storage account or directly from a generalized (via Sysprep) VM. The image contains all managed disks associated with a VM, including both the OS and data disks. A managed custom image enables the creation of hundreds of VMs without the need to copy or manage any storage accounts.
 
 For information on creating images, see [Create a legacy managed image of a generalized VM in Azure](windows/capture-image-resource.yml).
 
-##### Images versus snapshots
+#### Images versus snapshots
 
 It's important to understand the difference between images and snapshots. With managed disks, you can take an image of a generalized VM that you deallocated. This image includes all of the disks attached to the VM. You can use this image to create a VM.
 
