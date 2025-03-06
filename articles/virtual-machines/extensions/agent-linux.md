@@ -16,6 +16,9 @@ The Microsoft Azure Linux VM Agent (waagent) manages Linux and FreeBSD provision
 
 The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see the [Azure Linux VM Agent readme on GitHub](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 
+> [!IMPORTANT]
+> FIPS 140-3 Enforced is not supported on RHEL/Ubuntu with extensions using 'protectedSettings'.
+
 ### Image provisioning
 
 - Creates a user account
@@ -79,9 +82,6 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 | Rocky Linux | 9.x+ | 9.x+ |
 | SLES | 12.x+, 15.x+ | 15.x SP4+ |
 | Ubuntu (LTS releases)| 18.04+, 20.04+, 22.04+, 24.04+ | 20.04+, 22.04+, 24.04+ |
-
-> [!IMPORTANT]
-> FIPS 140-3 Enforced is not supported on RHEL/Ubuntu with extensions using 'protectedSettings'.  ETA for support is mid 2025.
 
 Other supported systems:
 
