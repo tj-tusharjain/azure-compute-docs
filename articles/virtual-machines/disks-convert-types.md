@@ -271,7 +271,7 @@ az disk-encryption-set update --name "nameOfYourDiskEncryptionSetHere" --resourc
 
 [!INCLUDE [managed-disk-premium-ssd-v2-conversion-preview](./includes/managed-disk-premium-ssd-v2-conversion-preview.md)]
 
-Migration with full snapshots stored on Premium SSD, Standard SSD and Standard HDD isn't supported. Migration via snapshot from Premium SSD v2 or Ultra Disk to Premium SSD, Standard SSD and Standard HDD is not supported.
+Migration with full snapshots stored on Premium SSD, Standard SSD and Standard HDD isn't supported.
 
 Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
 
