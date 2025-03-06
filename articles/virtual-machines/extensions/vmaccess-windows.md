@@ -130,7 +130,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
 
 ### Using Azure PowerShell VM/VMSS Extension Commands for Windows
 
-You can use the [Set-AzVMExtension](https://learn.microsoft.com/en-us/powershell/module/az.compute/set-azvmextension) command to run the VMAccess Extension with the specified configuration for a Windows virtual machine. 
+You can use the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) command to run the VMAccess Extension with the specified configuration for a Windows virtual machine. 
 
 The following PowerShell is an example using the Set-AzVMExtension command:
 
@@ -251,7 +251,7 @@ You can retrieve the execution state of the VM extensions on a given VM by runni
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" | Format-Table
-
+```
 
 For more help, you can contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to [Azure support](https://azure.microsoft.com/support/options/) and select **Get support**. For more information about Azure Support, read the [Azure support plans FAQ](https://azure.microsoft.com/support/faq/).
 
