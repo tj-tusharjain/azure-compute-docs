@@ -144,16 +144,20 @@ Set-AzVMExtension `
   -TypeHandlerVersion "2.0" `
   -Settings @{ "ResetPassword" = $true } `
   -ProtectedSettings @{ "Username" = "adminUser"; "Password" = "userPassword" }
+```
 
 The -Settings and -ProtectedSettings parameters also accept JSON file paths. For example, to update the local administrator password using a JSON file, create a file named update_admin_password.json with the following content. Replace the values with your own information:
 
+```json
 {
   "Username": "adminUser",
   "Password": "userPassword"
 }
+```
 
 Then, run the extension with the JSON file as input:
 
+```powershell
 Set-AzVMExtension `
   -ResourceGroupName "myResourceGroup" `
   -VMName "myVM" `
@@ -162,18 +166,17 @@ Set-AzVMExtension `
   -Type "VMAccessAgent" `
   -TypeHandlerVersion "2.0" `
   -ProtectedSettings (Get-Content -Path "update_admin_password.json" -Raw | ConvertFrom-Json)
+```
 
 ## Azure PowerShell Deployment for Windows
 
 Azure PowerShell can be used to deploy the VMAccess Extension to an existing Windows virtual machine or virtual machine scale set. You can deploy the extension to a VM by running:
 
-azurepowershell-interactive
+```powershell
 $username = "<username>"
 $password = "<password>"
-
 $settings = @{ "ResetPassword" = $true }
 $protectedSettings = @{ "Username" = $username; "Password" = $password }
-
 Set-AzVMExtension -ResourceGroupName "<resource-group>" `
     -VMName "<vm-name>" `
     -Location "<location>" `
@@ -183,15 +186,15 @@ Set-AzVMExtension -ResourceGroupName "<resource-group>" `
     -TypeHandlerVersion "2.0" `
     -Settings $settings `
     -ProtectedSettings $protectedSettings
+```
 
 You can also provide and modify extension settings by using strings:
 
+```powershell
 $username = "<username>"
 $password = "<password>"
-
 $settingsString = '{"ResetPassword": true}';
 $protectedSettingsString = '{"Username":"' + $username + '", "Password":"' + $password + '"}';
-
 Set-AzVMExtension -ResourceGroupName "<resource-group>" `
     -VMName "<vm-name>" `
     -Location "<location>" `
@@ -201,25 +204,23 @@ Set-AzVMExtension -ResourceGroupName "<resource-group>" `
     -TypeHandlerVersion "2.0" `
     -SettingString $settingsString `
     -ProtectedSettingString $protectedSettingsString
+```
 
 ### To deploy to a virtual machine scale set, run the following command:
 
+```powershell
 $resourceGroupName = "<resource-group>"
 $vmssName = "<vmss-name>"
-
 $protectedSettings = @{
   "Username" = "adminUser"
   "Password" = "userPassword"
 }
-
 $publicSettings = @{
   "ResetPassword" = $true
 }
-
 $vmss = Get-AzVmss `
             -ResourceGroupName $resourceGroupName `
             -VMScaleSetName $vmssName
-
 Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
     -Name "VMAccessAgent" `
     -Publisher "Microsoft.Compute" `
@@ -228,12 +229,11 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
     -AutoUpgradeMinorVersion $true `
     -Setting $publicSettings `
     -ProtectedSetting $protectedSettings
-
 Update-AzVmss `
     -ResourceGroupName $resourceGroupName `
     -Name $vmssName `
     -VirtualMachineScaleSet $vmss
-
+```
 
 ## Troubleshoot and Support
 
