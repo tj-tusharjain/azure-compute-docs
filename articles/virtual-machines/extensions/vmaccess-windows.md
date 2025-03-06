@@ -46,7 +46,7 @@ This article describes how to run the VMAccess Extension from the Azure PowerShe
 - You can only have one version of the extension applied to a VM. To run a second action, update the existing extension with a new configuration.
 - When updating a user, VMAccess modifies the Remote Desktop settings to allow login.
 
-## Extension Schema
+## Extension schema
 
 The VMAccess Extension configuration includes settings for username, passwords, and resetting the administrator password. You can store this information in configuration files, specify it in PowerShell, or include it in an Azure Resource Manager (ARM) template. The following JSON schema contains all the properties available to use in public and protected settings.
 
@@ -74,7 +74,7 @@ The VMAccess Extension configuration includes settings for username, passwords, 
 }
 ```
 
-## Property Values
+## Property values
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
@@ -83,7 +83,7 @@ The VMAccess Extension configuration includes settings for username, passwords, 
 | type | VMAccessAgent | string |
 | typeHandlerVersion | 2.4 | int |
 
-## Settings Property Values
+## Settings property values
 
 | Name | Data Type | Description |
 | ---- | ---- | ---- |
@@ -91,7 +91,7 @@ The VMAccess Extension configuration includes settings for username, passwords, 
 | password | string | The password to set for the user account. |
 | reset_password | boolean | Whether or not to reset the user password. |
 
-## Deploying with PowerShell
+## Deploy with PowerShell
 
 You can use PowerShell to apply the VMAccess extension to a Windows VM. The following PowerShell is an example of a script to reset the administrator password:
 
@@ -120,7 +120,7 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
                     -ProtectedSettings $protectedSettings
 ```
 
-## Template Deployment
+## Template deployment
 
 Azure VM Extensions can be deployed with Azure Resource Manager (ARM) templates. The JSON schema detailed in the previous section can be used in an ARM template to run the VMAccess Extension during the template's deployment. You can find a sample template that includes the VMAccess extension on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-password-reset).
 
@@ -128,7 +128,7 @@ Azure VM Extensions can be deployed with Azure Resource Manager (ARM) templates.
 
 The JSON configuration for a virtual machine extension must be nested inside the virtual machine resource fragment of the template, specifically `"resources": []` object for the virtual machine template and for a virtual machine scale set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
 
-### Using Azure PowerShell VM/VMSS Extension Commands for Windows
+### Use Azure PowerShell VM/VMSS extension commands for Windows
 
 You can use the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) command to run the VMAccess Extension with the specified configuration for a Windows virtual machine. 
 
@@ -168,7 +168,7 @@ Set-AzVMExtension `
   -ProtectedSettings (Get-Content -Path "update_admin_password.json" -Raw | ConvertFrom-Json)
 ```
 
-## Azure PowerShell Deployment for Windows
+## Azure PowerShell deployment for Windows
 
 Azure PowerShell can be used to deploy the VMAccess Extension to an existing Windows virtual machine or virtual machine scale set. You can deploy the extension to a VM by running:
 
@@ -206,7 +206,7 @@ Set-AzVMExtension -ResourceGroupName "<resource-group>" `
     -ProtectedSettingString $protectedSettingsString
 ```
 
-### To deploy to a virtual machine scale set, run the following command:
+To deploy to a virtual machine scale set, run the following command:
 
 ```powershell
 $resourceGroupName = "<resource-group>"
@@ -235,7 +235,7 @@ Update-AzVmss `
     -VirtualMachineScaleSet $vmss
 ```
 
-## Troubleshoot and Support
+## Troubleshoot and support
 
 The VMAccess extension logs exist locally on the VM and are particularly useful for troubleshooting.
 
