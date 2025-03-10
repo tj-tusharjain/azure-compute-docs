@@ -11,7 +11,7 @@ ms.date: 02/21/2025
 ms.author: carols
 ---
 
-# Canonical Ubuntu LTS end of standard spport guidance 
+# Canonical Ubuntu LTS end of standard support guidance 
 
 Long-term support (LTS) releases of Ubuntu Server receive standard security updates for five years by default. Every six months, interim releases bring new features, while hardware enablement updates add support for the latest machines to all supported LTS releases. 
 
