@@ -33,7 +33,7 @@ Ubuntu Pro includes security patching for all Ubuntu packages due to Extended Se
 
 Ubuntu Pro is available for free for personal and small-scale commercial users on up to 5 machines and with transparent, per-machine pricing for enterprises.  
 
-New virtual machines can be deployed with Ubuntu Pro from the Azure Marketplace. You can also upgrade Ubuntu Server (version 16.04 or higher) virtual machines to Ubuntu Pro without redeployment or downtown. See the [Ubuntu Server to Ubuntu Pro in-place upgrade on Azure guide](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade) for more information.
+New virtual machines can be deployed with Ubuntu Pro from the Azure Marketplace. You can also upgrade Ubuntu Server (version 16.04 or higher) virtual machines to Ubuntu Pro without redeployment or downtown. See the [Ubuntu Server to Ubuntu Pro in-place upgrade on Azure guide](https://learn.microsoft.com/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade) for more information.
 
 
 | **Ubuntu LTS Release** | **End of Standard Support** | **End of Ubuntu Pro Support** |
