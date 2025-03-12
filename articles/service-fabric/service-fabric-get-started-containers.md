@@ -394,7 +394,7 @@ The build version for Windows Server 2016 is 14393, and the build version for Wi
 ```
 
    > [!NOTE]
-   > The OS build version tagging features is only available for Service Fabric on Windows
+   > The OS build version tagging feature is only available for Service Fabric on Windows
    >
 
 If the underlying OS on the VM is build 16299 (version 1709), Service Fabric picks the container image corresponding to that Windows Server version. If an untagged container image is also provided alongside tagged container images in the application manifest, then Service Fabric treats the untagged image as one that works across versions. Tag the container images explicitly to avoid issues during upgrades.
@@ -572,7 +572,7 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
 
 ## Set container retention policy
 
-To assist with diagnosing container startup failures, Service Fabric (version 6.1 or higher) supports retaining containers that terminated or failed to startup. This policy can be set in the **ApplicationManifest.xml** file as shown in the following snippet:
+To assist with diagnosing container startup failures, Service Fabric (version 6.1 or higher) supports retaining containers that terminated or failed to start up. This policy can be set in the **ApplicationManifest.xml** file as shown in the following snippet:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
@@ -603,9 +603,9 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 ```
 
 ## EntryPoint Override
-With 8.2 version of ServiceFabric Runtime, entrypoint for **container** and **exe host** code package can be overridden. This can be used in cases where all the manifest elements remains the same but the container image needs to be changed, then provisioning a different app type version is not required anymore, or different arguments needs to be passed based on test or prod scenario and the entry point remains the same.
+With 8.2 version of ServiceFabric Runtime, entrypoint for **container** and **exe host** code package can be overridden. This can be used in cases where all the manifest elements remain the same but the container image needs to be changed, then provisioning a different app type version is not required anymore, or different arguments needs to be passed based on test or prod scenario and the entry point remains the same.
 
-Following is an example on how to override container entry point:
+Following is an example of how to override container entry point:
 
 ### ApplicationManifest.xml
 ```xml
@@ -697,7 +697,7 @@ Similarly, below is an example on how to override the **ExeHost**:
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
+* Check out the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
