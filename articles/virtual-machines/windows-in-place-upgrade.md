@@ -5,7 +5,7 @@ services: virtual-machines
 author: ju-shim
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 10/22/2024
+ms.date: 03/12/2025
 ms.author: jushiman
 ---
 
@@ -46,6 +46,8 @@ The in-place upgrade process requires the use of Managed Disks on the VM to be u
 
 We recommend that you create a snapshot of your operating system disk and any data disks before starting the in-place upgrade process. This enables you to revert to the previous state of the VM if anything fails during the in-place upgrade process. To create a snapshot on each disk, follow these steps to [create a snapshot of a disk](./snapshot-copy-managed-disk.md). 
 
+> [!NOTE]
+> During the upgrade process, the upgrade media disk is only created in the `en-US` language. Currently, no other languages or editions are supported. To avoid errors caused by previously using a different language ISO to install the OS, you can set the system language to `en-US` or change the system locale to `English (United States)` in Control Panel.
  
 ## Create upgrade media disk
 
