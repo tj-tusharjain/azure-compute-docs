@@ -31,7 +31,7 @@ Running an existing application in a Windows container on a Service Fabric clust
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
   *  Docker for Windows. [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
-* A Windows cluster with three or more nodes running on Windows Server with Docker installed. For more info on how to install Docker on the cluster, refer to [Installing Mirantis Runtime](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Deployment/Mirantis-Installation.md). 
+* A Windows cluster with three or more nodes running on Windows Server with Docker installed. For more information on how to install Docker on the cluster, refer to [Installing Mirantis Runtime](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Deployment/Mirantis-Installation.md). 
 
   For this article, the version (build) of Windows Server running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
   
