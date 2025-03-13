@@ -31,8 +31,6 @@ See the [Ubuntu Server upgrade guide](https://ubuntu.com/server/docs/how-to-up
 
 Ubuntu Pro includes security patching for all Ubuntu packages due to Extended Security Maintenance (ESM) for Infrastructure and Applications and optional 24/7 phone and ticket support. Ubuntu Pro adds an extra five years of support to an Ubuntu LTS release, for a total of 10 years of support. 
 
-Ubuntu Pro is available for free for personal and small-scale commercial users on up to 5 machines and with transparent, per-machine pricing for enterprises.  
-
 New virtual machines can be deployed with Ubuntu Pro from the Azure Marketplace. You can also upgrade Ubuntu Server (version 16.04 or higher) virtual machines to Ubuntu Pro without redeployment or downtown. See the [Ubuntu Server to Ubuntu Pro in-place upgrade on Azure guide](https://learn.microsoft.com/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade) for more information.
 
 
