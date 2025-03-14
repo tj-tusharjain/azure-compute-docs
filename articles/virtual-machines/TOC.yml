@@ -2366,6 +2366,16 @@
     href: ./cost-optimization-monitor-costs.md
   - name: Best practices
     href: ./cost-optimization-best-practices.md
+- name: Retirement migration
+  items:
+  - name: VM Sizes
+    items:
+    - name: N-series migration guide
+      href: ./migration/sizes/n-series-migration-guide.md
+    - name: NV-series migration guide
+      href: ./migration/sizes/nv-series-migration-guide.md
+  - name: Dedicated Host migration guide
+    href: ./migration/dedicated-host-migration-guide.md
 - name: Resources
   items:
   - name: Cloud adoption framework
