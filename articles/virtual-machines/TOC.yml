@@ -2368,7 +2368,7 @@
     href: ./cost-optimization-best-practices.md
 - name: Retirement migration
   items:
-  - name: VM Sizes retiring migration guides
+  - name: VM size series retirement migration guides
     items:
     - name: N-series migration guide
       href: ./migration/sizes/n-series-migration.md
