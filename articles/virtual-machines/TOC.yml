@@ -2049,7 +2049,7 @@
         displayName: create a key vault
         href: ./windows/key-vault-setup.md
   - name: Mitigating speculative execution
-    href: ./migration/mitigate-se.md
+    href: ./mitigate-se.md
   - name: Join a Linux VM to Microsoft Entra ID
     displayName: Azure AD
     items:
