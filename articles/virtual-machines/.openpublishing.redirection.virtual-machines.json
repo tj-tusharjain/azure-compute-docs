@@ -6631,11 +6631,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/migrate-se.md",
-            "redirect_url": "/azure/virtual-machines/migration/migrate-se",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/migration-classic-resource-manager-cli.md",
             "redirect_url": "/azure/virtual-machines/migration/migration-classic-resource-manager-cli",
             "redirect_document_id": true
@@ -6686,8 +6681,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/n-series-migration-guide.md",
-            "redirect_url": "/azure/virtual-machines/migration/sizes/n-series-migration-guide",
+            "source_path_from_root": "/articles/virtual-machines/n-series-migration.md",
+            "redirect_url": "/azure/virtual-machines/migration/sizes/n-series-migration",
             "redirect_document_id": true
         },
         {

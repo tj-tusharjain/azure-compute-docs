@@ -33,7 +33,7 @@ To learn more about size series retirement, previous-gen sizes, and the retireme
 
 |Series name        | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide |
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
-| Av1-series        | **Announced**     | 11/02/23                    | 8/31/24                 | [Av1-series Retirement](./retirement/av1-series-retirement.md)  |
+| Av1-series        | **Announced**     | 11/02/23                    | 8/31/24                 | [Av1-series Retirement](./av1-series-retirement.md)  |
 
 ## Compute optimized retired sizes
 
