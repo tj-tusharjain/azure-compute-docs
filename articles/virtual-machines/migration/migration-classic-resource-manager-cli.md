@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli compute-evergreen, devx-track-arm-template
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](../classic-vm-deprecation.md#how-does-this-affect-me).
 
 These steps show you how to use CLI commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure classic CLI](/cli/azure/install-classic-cli). Since Azure CLI only applies to Azure Resource Manager resources, it cannot be used for this migration.
 
@@ -28,13 +28,13 @@ These steps show you how to use CLI commands to migrate infrastructure as a serv
 <br>
 Here is a flowchart to identify the order in which steps need to be executed during a migration process
 
-![Screenshot that shows the migration steps](./media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../media/migration-classic-resource-manager/migration-flow.png)
 
 ## Step 1: Prepare for migration
 
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
 
-* Read through the [list of unsupported configurations or features](migration-classic-resource-manager-overview.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
+* Read through the [list of unsupported configurations or features](./migration-classic-resource-manager-overview.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
@@ -167,7 +167,7 @@ azure network vnet list
 
 The output will look something like this:
 
-![Screenshot of the command line with the entire virtual network name highlighted.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
+![Screenshot of the command line with the entire virtual network name highlighted.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
 In the above example, the **virtualNetworkName** is the entire name **"Group classicubuntu16 classicubuntu16"**.
 

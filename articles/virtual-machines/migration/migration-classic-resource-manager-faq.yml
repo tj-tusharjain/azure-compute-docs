@@ -13,7 +13,7 @@ metadata:
 title: Frequently asked questions about classic to Azure Resource Manager migration
 summary: |
   > [!IMPORTANT]
-  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more](https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
+  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more](https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](../classic-vm-deprecation.md#how-does-this-affect-me).
   
 
 sections:
@@ -114,7 +114,7 @@ sections:
       - question: |
           How can I restore backups of classic VMs once Classic VMs and Classic Storage Accounts are retired?
         answer: |
-          Once classic VMs have been retired, restoring backups of classic VMs require using the `restore disks` restoration type. Classic VM disks may be restored to ARM storage accounts. After restoring the disks, you can [convert them to managed disks](scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md) and [create a new ARM VM with them attached](scripts/create-vm-from-managed-os-disks.md). Alternatively, you can [attach them as data disks to an existing VM](windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).  
+          Once classic VMs have been retired, restoring backups of classic VMs require using the `restore disks` restoration type. Classic VM disks may be restored to ARM storage accounts. After restoring the disks, you can [convert them to managed disks](../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md) and [create a new ARM VM with them attached](../scripts/create-vm-from-managed-os-disks.md). Alternatively, you can [attach them as data disks to an existing VM](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).  
 
       - question: |
           Can I validate my subscription or resources to see if they're capable of migration? 

@@ -16,7 +16,7 @@ ms.custom: compute-evergreen, devx-track-arm-template
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](../classic-vm-deprecation.md#how-does-this-affect-me).
 
 Let's take a deep-dive on migrating from the Azure classic deployment model to the Azure Resource Manager deployment model. We look at resources at a resource and feature level to help you understand how the Azure platform migrates resources between the two deployment models. For more information, please read the service announcement article: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md).
 
@@ -29,7 +29,7 @@ First, it's important to understand the difference between data-plane and manage
 
 The data plane is the same between the classic deployment model and Resource Manager stacks. The difference is that during the migration process, Microsoft translates the representation of the resources from the classic deployment model to that in the Resource Manager stack. As a result, you need to use new tools, APIs, and SDKs to manage your resources in the Resource Manager stack.
 
-![Diagram that shows the difference between management/control plane and data plane](./media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagram that shows the difference between management/control plane and data plane](../media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Before you start the migration:
 
 The migration workflow is as follows:
 
-![Diagram that shows the migration workflow](./media/migration-classic-resource-manager/migration-workflow.png)
+![Diagram that shows the migration workflow](../media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation. Azure tries the action again.
@@ -94,13 +94,13 @@ After the prepare operation is complete, you have the option of visualizing the 
 
 The following two screenshots show the result after a successful prepare operation. The first one shows a resource group that contains the original cloud service. The second one shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
 
-![Screenshot that shows original cloud service](./media/migration-classic-resource-manager/portal-classic.png)
+![Screenshot that shows original cloud service](../media/migration-classic-resource-manager/portal-classic.png)
 
-![Screenshot that shows Azure Resource Manager resources in the prepare operation](./media/migration-classic-resource-manager/portal-arm.png)
+![Screenshot that shows Azure Resource Manager resources in the prepare operation](../media/migration-classic-resource-manager/portal-arm.png)
 
 Here is a behind-the-scenes look at your resources after the completion of the prepare phase. Note that the resource in the data plane is the same. It's represented in both the management plane (classic deployment model) and the control plane (Resource Manager).
 
-![Diagram of the prepare phase](./media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagram of the prepare phase](../media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > VMs that are not in a virtual network in the classic deployment model are stopped and deallocated in this phase of migration.
@@ -120,7 +120,7 @@ If you see any issues, you can always abort the migration and go back to the cla
 ### Abort
 This is an optional step if you want to revert your changes to the classic deployment model and stop the migration. This operation deletes the Resource Manager metadata (created in the prepare step) for your resources. 
 
-![Diagram of abort step](media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagram of abort step](../media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -135,13 +135,13 @@ After you finish the validation, you can commit the migration. Resources do not 
 >
 >
 
-![Diagram of commit step](media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagram of commit step](../media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## Migration flowchart
 
 Here is a flowchart that shows how to proceed with migration:
 
-![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../media/migration-classic-resource-manager/migration-flow.png)
 
 ## Translation of the classic deployment model to Resource Manager resources
 You can find the classic deployment model and Resource Manager representations of the resources in the following table. Other features and resources are not currently supported.
