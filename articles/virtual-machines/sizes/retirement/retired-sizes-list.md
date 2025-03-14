@@ -27,13 +27,13 @@ To learn more about size series retirement, previous-gen sizes, and the retireme
 > [!IMPORTANT] 
 > If you're currently using one of the size series listed as *Retired*, view the migration guide to switch to a replacement series as soon as possible.
 
-*Previous-gen* size series aren't retired and still fully supported, but they have limitations similar to series that are announced for retirement. For a list of previous-gen sizes, see [previous generation Azure VM sizes](./previous-gen-sizes-list.md).
+*Previous-gen* size series aren't retired and still fully supported, but they have limitations similar to series that are announced for retirement. For a list of previous-gen sizes, see [previous generation Azure VM sizes](../previous-gen-sizes-list.md).
 
 ## General purpose retired sizes
 
 |Series name        | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide |
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
-| Av1-series        | **Announced**     | 11/02/23                    | 8/31/24                 | [Av1-series Retirement](./migration-guides/av1-series-retirement.md)  |
+| Av1-series        | **Announced**     | 11/02/23                    | 8/31/24                 | [Av1-series Retirement](./retirement/av1-series-retirement.md)  |
 
 ## Compute optimized retired sizes
 
@@ -51,10 +51,10 @@ Currently there are no retired storage optimized series retired or announced for
 
 | Series name       | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
-| NV-Series         | **Retired**       | -                           | 9/6/23                  | [NV-series Retirement](./migration-guides/nv-series-retirement.md)    |
-| NC-Series         | **Retired**       | -                           | 9/6/23                  | [NC-series Retirement](./migration-guides/nc-series-retirement.md)    |
-| NCv2-Series       | **Retired**       | -                           | 9/6/23                  | [NCv2-series Retirement](./migration-guides/ncv2-series-retirement.md)  |
-| ND-Series         | **Retired**       | -                           | 9/6/23                  | [ND-series Retirement](./migration-guides/nd-series-retirement.md)    |
+| NV-Series         | **Retired**       | -                           | 9/6/23                  | [NV-series Retirement](./retirement/nv-series-retirement.md)    |
+| NC-Series         | **Retired**       | -                           | 9/6/23                  | [NC-series Retirement](./retirement/nc-series-retirement.md)    |
+| NCv2-Series       | **Retired**       | -                           | 9/6/23                  | [NCv2-series Retirement](./retirement/ncv2-series-retirement.md)  |
+| ND-Series         | **Retired**       | -                           | 9/6/23                  | [ND-series Retirement](./retirement/nd-series-retirement.md)    |
 
 ## FPGA accelerated retired sizes
 
@@ -64,18 +64,18 @@ Currently there are no retired FPGA accelerated series retired or announced for 
 
 | Series name       | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
-| HB-Series         | **Announced**     | 12/07/23                    | 8/31/24                  | [NV-series Retirement](./migration-guides/nv-series-retirement.md)    |
+| HB-Series         | **Announced**     | 12/07/23                    | 8/31/24                  | [NV-series Retirement](./retirement/nv-series-retirement.md)    |
 
 ## ADH retired sizes
 
 | Series name       | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
-| Dsv3-Type1        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./migration-guides/dedicated-host-retirement.md)    |
-| Dsv3-Type2        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./migration-guides/dedicated-host-retirement.md)    |
-| Esv3-Type1        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./migration-guides/dedicated-host-retirement.md)    |
-| Esv3-Type2        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./migration-guides/dedicated-host-retirement.md)    |
+| Dsv3-Type1        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./retirement/dedicated-host-retirement.md)    |
+| Dsv3-Type2        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./retirement/dedicated-host-retirement.md)    |
+| Esv3-Type1        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./retirement/dedicated-host-retirement.md)    |
+| Esv3-Type2        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./retirement/dedicated-host-retirement.md)    |
 
 
 ## Next steps
-- For a list of older and capacity limited sizes, see [Previous generation Azure VM sizes](./previous-gen-sizes-list.md).
-- For more information on VM sizes, see [Sizes for virtual machines in Azure](../sizes.md).
+- For a list of older and capacity limited sizes, see [Previous generation Azure VM sizes](../previous-gen-sizes-list.md).
+- For more information on VM sizes, see [Sizes for virtual machines in Azure](../overview.md).

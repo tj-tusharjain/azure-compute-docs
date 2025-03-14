@@ -90,11 +90,11 @@ You can [resize the VM](../../sizes/resize-vm.md).
 ## FAQ
 **Q:** Which GPU driver should I use for the target VM size? 
 
-**A:** For the NVsv3 series, use the [Nvidia GRID driver](../windows/n-series-driver-setup.md). For NVv4, use the [AMD GPU drivers](../windows/n-series-amd-driver-setup.md). 
+**A:** For the NVsv3 series, use the [Nvidia GRID driver](../../windows/n-series-driver-setup.md). For NVv4, use the [AMD GPU drivers](../../windows/n-series-amd-driver-setup.md). 
 
 **Q:** I use the Nvidia GPU driver extension today. Will it work for the target VM size? 
 
-**A:** The current [Nvidia driver extension](../extensions/hpccompute-gpu-windows.md) will work for NVsv3. Use the [AMD GPU driver extensions](../extensions/hpccompute-amd-gpu-windows.md) if the target VM size is NVv4. 
+**A:** The current [Nvidia driver extension](../../extensions/hpccompute-gpu-windows.md) will work for NVsv3. Use the [AMD GPU driver extensions](../../extensions/hpccompute-amd-gpu-windows.md) if the target VM size is NVv4. 
  
 **Q:** Which target VM series should I use if I have dependency on CUDA? 
 

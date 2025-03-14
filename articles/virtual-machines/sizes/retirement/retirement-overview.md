@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: overview
-ms.date: 02/02/2024
+ms.date: 03/14/2025
 ms.author: mattmcinnes
 ms.reviewer: iamwilliew
 ---
