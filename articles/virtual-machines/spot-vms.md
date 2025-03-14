@@ -163,8 +163,7 @@ Alternatively, try out the [ARG REST API](/rest/api/azure-resourcegraph/) to get
 
 **Q:** Can I convert Spot VMs to Standard VMs?
 
-**A:** No, Spot VMs cannot be directly converted to Standard VMs using the Azure portal, Azure CLI, ARM templates or other methods.
-
+**A:** No, Spot VMs cannot be directly converted to Standard VMs.
 
 ## Next steps
 Use the [CLI](./linux/spot-cli.md), [portal](spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Azure Spot Virtual Machines.
