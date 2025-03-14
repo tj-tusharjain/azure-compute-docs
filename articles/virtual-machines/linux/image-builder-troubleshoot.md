@@ -122,7 +122,6 @@ There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines
 
 #### Solution
 
-wj
 Use Azure CLI to reset identity on the image template. Ensure you [update](/cli/azure/update-azure-cli) Azure CLI to the 2.45.0 version or later.
 
 Confirm the managed identity from the target image builder template
