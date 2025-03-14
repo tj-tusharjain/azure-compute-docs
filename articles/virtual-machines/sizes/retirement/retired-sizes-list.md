@@ -51,10 +51,10 @@ Currently there are no retired storage optimized series retired or announced for
 
 | Series name       | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
-| NV-Series         | **Retired**       | -                           | 9/6/23                  | [NV-series Retirement](./retirement/nv-series-retirement.md)    |
-| NC-Series         | **Retired**       | -                           | 9/6/23                  | [NC-series Retirement](./retirement/nc-series-retirement.md)    |
-| NCv2-Series       | **Retired**       | -                           | 9/6/23                  | [NCv2-series Retirement](./retirement/ncv2-series-retirement.md)  |
-| ND-Series         | **Retired**       | -                           | 9/6/23                  | [ND-series Retirement](./retirement/nd-series-retirement.md)    |
+| NV-Series         | **Retired**       | -                           | 9/6/23                  | [NV-series Retirement](./nv-series-retirement.md)    |
+| NC-Series         | **Retired**       | -                           | 9/6/23                  | [NC-series Retirement](./nc-series-retirement.md)    |
+| NCv2-Series       | **Retired**       | -                           | 9/6/23                  | [NCv2-series Retirement](./ncv2-series-retirement.md)  |
+| ND-Series         | **Retired**       | -                           | 9/6/23                  | [ND-series Retirement](./nd-series-retirement.md)    |
 
 ## FPGA accelerated retired sizes
 
@@ -64,16 +64,16 @@ Currently there are no retired FPGA accelerated series retired or announced for 
 
 | Series name       | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
-| HB-Series         | **Announced**     | 12/07/23                    | 8/31/24                  | [NV-series Retirement](./retirement/nv-series-retirement.md)    |
+| HB-Series         | **Announced**     | 12/07/23                    | 8/31/24                  | [NV-series Retirement](./nv-series-retirement.md)    |
 
 ## ADH retired sizes
 
 | Series name       | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
-| Dsv3-Type1        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./retirement/dedicated-host-retirement.md)    |
-| Dsv3-Type2        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./retirement/dedicated-host-retirement.md)    |
-| Esv3-Type1        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./retirement/dedicated-host-retirement.md)    |
-| Esv3-Type2        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./retirement/dedicated-host-retirement.md)    |
+| Dsv3-Type1        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./dedicated-host-retirement.md)    |
+| Dsv3-Type2        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./dedicated-host-retirement.md)    |
+| Esv3-Type1        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./dedicated-host-retirement.md)    |
+| Esv3-Type2        | **Retired**       | -                           | 6/30/23                  | [Dedicated Host SKU Retirement](./dedicated-host-retirement.md)    |
 
 
 ## Next steps

@@ -534,7 +534,7 @@
           href: ./windows/n-series-amd-driver-setup.md
       - name: GPU compute migration guide
         displayName: GPU compute migration guide
-        href: ./n-series-migration.md
+        href: ./migration/sizes/n-series-migration-guide.md
     - name: FPGA - accelerated compute
       items:
       - name: Overview
@@ -1364,25 +1364,25 @@
       href: classic-vm-deprecation.md
     - name: Migration Overview
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-overview.md
+      href: ./migration/migration-classic-resource-manager-overview.md
     - name: Deep dive on migration
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-deep-dive.md
+      href: ./migration/migration-classic-resource-manager-deep-dive.md
     - name: Plan for migration
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-plan.md
+      href: ./migration/migration-classic-resource-manager-plan.md
     - name: Migrate using the CLI
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-cli.md
+      href: ./migration/migration-classic-resource-manager-cli.md
     - name: Migrate using PowerShell
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-ps.md
+      href: ./migration/migration-classic-resource-manager-ps.md
     - name: Common migration errors
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-errors.md
+      href: ./migration/migration-classic-resource-manager-errors.md
     - name: Community tools for migration
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-community-tools.md
+      href: ./migration/migration-classic-resource-manager-community-tools.md
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: migration-classic-resource-manager-faq.yml
@@ -2049,7 +2049,7 @@
         displayName: create a key vault
         href: ./windows/key-vault-setup.md
   - name: Mitigating speculative execution
-    href: mitigate-se.md
+    href: ./migration/mitigate-se.md
   - name: Join a Linux VM to Microsoft Entra ID
     displayName: Azure AD
     items:
