@@ -3,6 +3,8 @@ title: Migration Guide for GPU Compute Workloads in Azure
 description: NC, ND, NCv2-series migration guide.
 ms.service: azure-virtual-machines
 ms.subservice: sizes
+author: mattmcinnes
+ms.author: mattmcinnes
 ms.topic: conceptual
 ms.date: 02/27/2023
 ---
@@ -37,11 +39,11 @@ Thus, this document assumes that the user may not have any insight or control ov
 
 ### NC-Series VMs featuring NVIDIA K80 GPUs
 
-The [NC (v1)-Series](./nc-series.md) VMs are Azure’s oldest GPU-accelerated compute VM type, powered by 1 to 4 NVIDIA Tesla K80 datacenter GPU accelerators paired with Intel Xeon E5-2690 v3 (Haswell) processors. Once a flagship VM type for demanding AI, ML, and HPC applications, they remained a popular choice late into the product lifecycle (particularly via NC-series promotional pricing) for users who valued having a very low absolute cost per GPU-hour over GPUs with higher throughput-per-dollar.
+The [NC (v1)-Series](../../sizes/gpu-accelerated/nc-series.md) VMs are Azure’s oldest GPU-accelerated compute VM type, powered by 1 to 4 NVIDIA Tesla K80 datacenter GPU accelerators paired with Intel Xeon E5-2690 v3 (Haswell) processors. Once a flagship VM type for demanding AI, ML, and HPC applications, they remained a popular choice late into the product lifecycle (particularly via NC-series promotional pricing) for users who valued having a very low absolute cost per GPU-hour over GPUs with higher throughput-per-dollar.
 
 Today, given the relatively low compute performance of the aging NVIDIA K80 GPU platform, in comparison to VM series featuring newer GPUs, a popular use case for the NC-series is real-time inference and analytics workloads, where an accelerated VM must be available in a steady state to serve request from applications as they arrive. In these cases the volume or batch size of requests may be insufficient to benefit from more performant GPUs. NC VMs are also popular for developers and students learning about, developing for, or experimenting with GPU acceleration, who need an inexpensive cloud-based CUDA deployment target upon which to iterate that doesn’t need to perform to production levels.
 
-In general, NC-Series customers should consider moving directly across from NC sizes to [NC T4 v3](./nct4-v3-series.md) sizes, Azure’s new GPU-accelerated platform for light workloads powered by NVIDIA Tesla T4 GPUs.
+In general, NC-Series customers should consider moving directly across from NC sizes to [NC T4 v3](../../sizes/gpu-accelerated/ncast4v3-series.md) sizes, Azure’s new GPU-accelerated platform for light workloads powered by NVIDIA Tesla T4 GPUs.
 
 | Current VM Size | Target VM Size | Difference in Specification | 
 |---|---|---|
@@ -54,7 +56,7 @@ Standard_NC6 <br> Standard_NC6_Promo | Standard_NC4as_T4_v3 <br>or<br>Standard_N
 
 The NC v2-series virtual machines are a flagship platform originally designed for AI and Deep Learning workloads. They offered excellent performance for Deep Learning training, with per-GPU performance roughly 2x that of the original NC-Series and are powered by NVIDIA Tesla P100 GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. Like the NC and ND -Series, the NC v2-Series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
-In general, NCv2-Series customers should consider moving directly across to [NC A100 v4](./nc-a100-v4-series.md) sizes, Azure’s new GPU-accelerated platform  powered by NVIDIA Ampere A100 PCIe GPUs.   
+In general, NCv2-Series customers should consider moving directly across to [NC A100 v4](../../sizes/gpu-accelerated/nca100v4-series.md) sizes, Azure’s new GPU-accelerated platform  powered by NVIDIA Ampere A100 PCIe GPUs.   
 
 | Current VM Size | Target VM Size | Difference in Specification | 
 |---|---|---|
@@ -88,7 +90,7 @@ The ND-series virtual machines are a midrange platform originally designed for A
 3.  Resize the current N\* series VM size to the target size. This may also be a good time to update the operating system used by your Virtual Machine image, or adopt one of the HPC images with drivers pre-installed as your starting point.
 
     > [!IMPORTANT]
-    > Your VM image may have been produced with an older version of the CUDA runtime, NVIDIA driver, and (if applicable, for RDMA-enabled sizes only) Mellanox OFED drivers than your new GPU VM series requires, which can be updated by [following the instructions in the Azure Documentation.](./sizes-gpu.md)
+    > Your VM image may have been produced with an older version of the CUDA runtime, NVIDIA driver, and (if applicable, for RDMA-enabled sizes only) Mellanox OFED drivers than your new GPU VM series requires, which can be updated by [following the instructions in the Azure Documentation.](../../sizes/overview.md#gpu-accelerated)
 
 ### Breaking Changes
 
@@ -100,7 +102,7 @@ After assessing your current usage, decide what type of GPU VM you need. Dependi
 > A best practice is to select a VM size based on both cost and performance. The recommendations in this guide are based on a general-purpose, one-to-one comparison of performance metrics and the nearest match in another VM series. Before deciding on the right size, get a cost comparison using the Azure Pricing Calculator.
 
 > [!IMPORTANT]
-> All legacy NC, NC v2 and ND-Series sizes are available in multi-GPU sizes, including 4-GPU sizes with and without InfiniBand interconnect for scale-out, tightly-coupled workloads that demand more compute power than a single 4-GPU VM, or a single K80, P40, or P100 GPU can supply respectively. Although the recommendations above offer a straightforward path forward, users of these sizes should consider achieving their performance goals with more powerful NVIDIA V100 GPU-based VM series like the [NC v3-Series](./ncv3-series.md) and [ND v2-series](./ndv2-series.md), which typically enable the same level of workload performance at lower costs and with improved manageability by providing considerably greater performance per GPU and per VM before multi-GPU and multi-node configurations are required, respectively.
+> All legacy NC, NC v2 and ND-Series sizes are available in multi-GPU sizes, including 4-GPU sizes with and without InfiniBand interconnect for scale-out, tightly-coupled workloads that demand more compute power than a single 4-GPU VM, or a single K80, P40, or P100 GPU can supply respectively. Although the recommendations above offer a straightforward path forward, users of these sizes should consider achieving their performance goals with more powerful NVIDIA V100 GPU-based VM series like the [NC v3-Series](../../sizes/gpu-accelerated/ncv3-series.md) and [ND v2-series](../../sizes/overview.md#gpu-accelerated/ndv2-series.md), which typically enable the same level of workload performance at lower costs and with improved manageability by providing considerably greater performance per GPU and per VM before multi-GPU and multi-node configurations are required, respectively.
 <br>
 
 #### Get quota for the target VM family
@@ -109,8 +111,8 @@ Follow the guide to [request an increase in vCPU quota by VM family.](/azure/azu
 
 #### Resize the current virtual machine
 
-You can [resize the virtual machine](resize-vm.md). 
+You can [resize the virtual machine](../../sizes/resize-vm.md). 
 
 ## Next steps
 
-For a full list of GPU enabled virtual machine sizes, see [GPU - accelerated compute overview](sizes-gpu.md)
+For a full list of GPU enabled virtual machine sizes, see [GPU - accelerated compute overview](../../sizes/overview.md#gpu-accelerated)

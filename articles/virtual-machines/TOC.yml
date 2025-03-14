@@ -2368,13 +2368,13 @@
     href: ./cost-optimization-best-practices.md
 - name: Retirement migration
   items:
-  - name: VM Sizes
+  - name: VM Sizes retiring migration guides
     items:
     - name: N-series migration guide
       href: ./migration/sizes/n-series-migration-guide.md
     - name: NV-series migration guide
       href: ./migration/sizes/nv-series-migration-guide.md
-  - name: Dedicated Host migration guide
+  - name: Dedicated Host retirement migration guide
     href: ./migration/dedicated-host-migration-guide.md
 - name: Resources
   items:
