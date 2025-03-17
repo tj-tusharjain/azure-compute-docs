@@ -1,5 +1,5 @@
 ---
-title: Big Containers on Azure Container Instances
+title: Big Containers on Azure Container Instances (Preview)
 description: Capabilities and benefits of Big Containers on Azure Container Instances.
 ms.author: tomcassidy
 author: tomvcassidy
@@ -8,7 +8,7 @@ services: container-instances
 ms.topic: conceptual
 ms.date: 03/27/2025
 ---
-# Big Containers on Azure Container Instances
+# Big Containers on Azure Container Instances (Preview)
 This article outlines the capabilities and benefits of Big Containers on Azure Container Instances. Customers can now deploy workloads with higher vCPU and memory for standard containers, confidential containers, containers with virtual networks, as well as containers utilizing virtual nodes to connect to AKS. This setup supports vCPU counts greater than 4 and memory capacities of 16 GB, with a maximum of 32 vCPU and 256 GB per standard container group and 32 vCPU and 192 GB per confidential container group. This feature removes limitations for compute and memory intensive workloads!   
 
 ## Benefits of Big Containers  
