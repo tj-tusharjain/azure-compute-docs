@@ -24,12 +24,12 @@ If you want, you can also migrate resources by using the [Azure CLI](migration-c
 
 * For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](./migration-classic-resource-manager-overview.md).
 * For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](./migration-classic-resource-manager-deep-dive.md).
-* [Review the most common migration errors](./migration-classic-resource-manager-errors.md).
+* [Screenshot that shows a review of the most common migration errors.](./migration-classic-resource-manager-errors.md).
 
 <br>
 Here's a flowchart to identify the order in which steps need to be executed during a migration process.
 
-![Screenshot that shows the migration steps](../media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps.](../media/migration-classic-resource-manager/migration-flow.png)
 
  
 

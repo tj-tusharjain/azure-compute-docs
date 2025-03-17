@@ -29,7 +29,7 @@ First, it's important to understand the difference between data-plane and manage
 
 The data plane is the same between the classic deployment model and Resource Manager stacks. The difference is that during the migration process, Microsoft translates the representation of the resources from the classic deployment model to that in the Resource Manager stack. As a result, you need to use new tools, APIs, and SDKs to manage your resources in the Resource Manager stack.
 
-![Diagram that shows the difference between management/control plane and data plane](../media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Screenshot that shows the difference between management/control plane and data plane.](../media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Before you start the migration:
 
 The migration workflow is as follows:
 
-![Diagram that shows the migration workflow](../media/migration-classic-resource-manager/migration-workflow.png)
+![Screenshot that shows the migration workflow.](../media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation. Azure tries the action again.
@@ -120,7 +120,7 @@ If you see any issues, you can always abort the migration and go back to the cla
 ### Abort
 This is an optional step if you want to revert your changes to the classic deployment model and stop the migration. This operation deletes the Resource Manager metadata (created in the prepare step) for your resources. 
 
-![Diagram of abort step](../media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Screenshot that shows the abort step.](../media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -135,13 +135,13 @@ After you finish the validation, you can commit the migration. Resources don't a
 >
 >
 
-![Diagram of commit step](../media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Screenshot that shows the commit step.](../media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## Migration flowchart
 
 Here's a flowchart that shows how to proceed with migration:
 
-![Screenshot that shows the migration steps](../media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps.](../media/migration-classic-resource-manager/migration-flow.png)
 
 ## Translation of the classic deployment model to Resource Manager resources
 You can find the classic deployment model and Resource Manager representations of the resources in the following table. Other features and resources aren't currently supported.

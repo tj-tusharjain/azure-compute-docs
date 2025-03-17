@@ -2323,24 +2323,48 @@
       href: concepts-restore-points.md
     - name: Troubleshooting
       href: restore-point-troubleshooting.md
-  - name: Move and migrate VMs
+- name: Move and migrate VMs
+  items:
+  - name: Change subscription or resource group
+    displayName: move migrate
+    href: /azure/azure-resource-manager/management/move-resource-group-and-subscription
+  - name: Change subscription for Marketplace VMs
+    displayName: offer plan sku marketplace
+    href: azure-cli-change-subscription-marketplace.md
+  - name: Move VMs to another region
+    href: /azure/site-recovery/azure-to-azure-tutorial-migrate?toc=/azure/virtual-machines/toc.json
+  - name: Move to an availability zone
+    href: /azure/site-recovery/move-azure-vms-avset-azone?toc=/azure/virtual-machines/toc.json
+  - name: Move Maintenance Control configurations to another region
+    href: move-region-maintenance-configuration.md
+  - name: Move Maintenance Control configuration resources to another region
+    href: move-region-maintenance-configuration-resources.md
+  - name: Migrate AWS VMs to Azure
+    href: /azure/migrate/tutorial-migrate-aws-virtual-machines
+  - name: Retirement migration
     items:
-    - name: Change subscription or resource group
-      displayName: move migrate
-      href: /azure/azure-resource-manager/management/move-resource-group-and-subscription
-    - name: Change subscription for Marketplace VMs
-      displayName: offer plan sku marketplace
-      href: azure-cli-change-subscription-marketplace.md
-    - name: Move VMs to another region
-      href: /azure/site-recovery/azure-to-azure-tutorial-migrate?toc=/azure/virtual-machines/toc.json
-    - name: Move to an availability zone
-      href: /azure/site-recovery/move-azure-vms-avset-azone?toc=/azure/virtual-machines/toc.json
-    - name: Move Maintenance Control configurations to another region
-      href: move-region-maintenance-configuration.md
-    - name: Move Maintenance Control configuration resources to another region
-      href: move-region-maintenance-configuration-resources.md
-    - name: Migrate AWS VMs to Azure
-      href: /azure/migrate/tutorial-migrate-aws-virtual-machines
+    - name: VM size series retirement migration guides
+      items:
+      - name: General-purpose sizes
+        items:
+        - name: D-series migration guide
+          href: ./migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide.md
+        - name: Ds-series migration guide
+          href: ./migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide.md
+        - name: Dsv2-series migration guide
+          href: ./migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide.md
+      - name: Storage-optimized sizes
+        items:
+        - name: Ls-series migration guide
+          href: ./migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide.md
+      - name: GPU-accelerated sizes
+        items:
+        - name: N-series migration guide
+          href: ./migration/sizes/n-series-migration.md
+        - name: NV-series migration guide
+          href: ./migration/sizes/nv-series-migration-guide.md
+    - name: Dedicated Host migration guide
+      href: ./migration/dedicated-host-migration-guide.md
 - name: Infrastructure automation
   items:
   - name: Overview
@@ -2366,16 +2390,6 @@
     href: ./cost-optimization-monitor-costs.md
   - name: Best practices
     href: ./cost-optimization-best-practices.md
-- name: Retirement migration
-  items:
-  - name: VM size series retirement migration guides
-    items:
-    - name: N-series migration guide
-      href: ./migration/sizes/n-series-migration.md
-    - name: NV-series migration guide
-      href: ./migration/sizes/nv-series-migration-guide.md
-  - name: Dedicated Host retirement migration guide
-    href: ./migration/dedicated-host-migration-guide.md
 - name: Resources
   items:
   - name: Cloud adoption framework

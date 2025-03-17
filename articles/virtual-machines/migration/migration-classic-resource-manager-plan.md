@@ -27,7 +27,7 @@ While Azure Resource Manager offers numerous amazing features, it's critical to 
 
 There are four general phases of the migration journey:
 
-![Migration phases](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
+![Screenshot that shows the migration phases.](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
 ## Plan
 
