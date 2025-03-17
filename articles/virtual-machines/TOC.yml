@@ -1329,6 +1329,8 @@
         href: ./extensions/dsc-template.md
     - name: VMAccess for Linux
       href: ./extensions/vmaccess-linux.md
+    - name: VMAccess for Windows
+      href: ./extensions/vmaccess-windows.md
     - name: Third-party extensions
       items:
       - name: Chef
