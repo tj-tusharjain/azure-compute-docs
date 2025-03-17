@@ -36,7 +36,7 @@ By migrating to newer VM series, you gain access to improved price-performance r
 For optimal performance and experience, we generally recommend using the newer v5 and v6 VM series. This ensures you have access to the latest features such as Premium Storage, Accelerated Networking, and Nested Virtualization. While the v6 VM series is preferred, there are certain scenarios where you might want to consider the v5 or even the v4 VM series. Here are some reasons why:
  - v6 VMs require [enabling NVMe](/azure/virtual-machines/nvme-overview) which means that you must have a [supported OS](/azure/virtual-machines/enable-nvme-interface).
  - v6 VMs support [Generation 2 VMs only](/azure/virtual-machines/generation-2).
- - v6 VMs require MANA ([Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-overview.md)) and a MANA supported operating system.
+ - v6 VMs require MANA ([Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-overview)) and a MANA supported operating system.
  - v6 VMs may not have available capacity in the regions and zones you need.
  
 Note that Lsv3 and Lasv3 series are the latest generation L-series VMs.
@@ -118,7 +118,7 @@ Depending on your business needs, consider these options:
 
    - Swap current RIs for a new VM series without any penalties.
 
-   - Refer to the [RI Exchange Guide](/azure/cost-management-billing/reservations/exchange)
+   - Refer to the [RI Exchange Guide](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)
 
 1. **Trade-In for Savings Plan**:
 
