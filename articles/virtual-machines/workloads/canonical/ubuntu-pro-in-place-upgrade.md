@@ -183,7 +183,7 @@ However, this action only applies if they're using version 28 of the Pro client.
 No, at present, neither UbuntuPro images nor virtual machines converted to UbuntuPro come with support from Canonical.
 
 - For issues that are reproducible in Azure and affect all customers, Microsoft Azure support will collaborate with Canonical to resolve the problem together.
-- For dedicated support, please use the following link to contact [Canonical](https://ubuntu.com/azure/get-in-touch).
+- For dedicated support, please use the following link to contact [Canonical](https://ubuntu.com/azure/pro).
 
 
 <!-- link references -->
