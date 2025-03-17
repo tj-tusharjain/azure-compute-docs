@@ -38,8 +38,7 @@ packages.
 
 - Access to security updates for 23,000+ packages including Apache Kafka, NGINX, MongoDB, Redis, and
   PostgreSQL integrated into system tools (for example Azure Update Manager, apt)
-- Security hardening and audit tools (CIS) to establish a security baseline across your systems (
-  helps meeting the Azure Linux Security Baseline policy)
+- Security hardening and audit tools (CIS) to establish a security baseline across your systems (helps meeting the Azure Linux Security Baseline policy)
 - Federal Information Processing Standard (FIPS) 140-2 certified modules
 - Common Criteria (CC) EAL2 provisioning packages
 - Kernel Live patch: kernel patches delivered immediately, without the need to reboot
