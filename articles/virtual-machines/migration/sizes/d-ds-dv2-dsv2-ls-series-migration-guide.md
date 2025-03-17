@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/17/2025
-ms.author: iamwilliew
+ms.author: wwilliams
 ms.reviewer: mattmcinnes
 ---
 
@@ -34,9 +34,9 @@ By migrating to newer VM series, you gain access to improved price-performance r
 *Refers to the lowest VM size in the given target VM Family. For actual VM specifications, please refer to the VM product sizes page.
 
 For optimal performance and experience, we generally recommend using the newer v5 and v6 VM series. This ensures you have access to the latest features such as Premium Storage, Accelerated Networking, and Nested Virtualization. While the v6 VM series is preferred, there are certain scenarios where you might want to consider the v5 or even the v4 VM series. Here are some reasons why:
- - v6 VMs require [enabling NVMe](https://learn.microsoft.com/en-us/azure/virtual-machines/nvme-overview) which means that you must have a [supported OS](https://learn.microsoft.com/en-us/azure/virtual-machines/enable-nvme-interface).
- - v6 VMs support [Generation 2 VMs only](https://learn.microsoft.com/en-us/azure/virtual-machines/generation-2).
- - v6 VMs require MANA ([Microsoft Azure Network Adapter](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-mana-overview)) and a MANA supported operating system.
+ - v6 VMs require [enabling NVMe](/azure/virtual-machines/nvme-overview) which means that you must have a [supported OS](/azure/virtual-machines/enable-nvme-interface).
+ - v6 VMs support [Generation 2 VMs only](/azure/virtual-machines/generation-2).
+ - v6 VMs require MANA ([Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-overview.md)) and a MANA supported operating system.
  - v6 VMs may not have available capacity in the regions and zones you need.
  
 Note that Lsv3 and Lasv3 series are the latest generation L-series VMs.
