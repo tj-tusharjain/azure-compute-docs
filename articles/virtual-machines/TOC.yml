@@ -534,7 +534,7 @@
           href: ./windows/n-series-amd-driver-setup.md
       - name: GPU compute migration guide
         displayName: GPU compute migration guide
-        href: ./n-series-migration.md
+        href: ./migration/sizes/n-series-migration.md
     - name: FPGA - accelerated compute
       items:
       - name: Overview
@@ -1364,28 +1364,28 @@
       href: classic-vm-deprecation.md
     - name: Migration Overview
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-overview.md
+      href: ./migration/migration-classic-resource-manager-overview.md
     - name: Deep dive on migration
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-deep-dive.md
+      href: ./migration/migration-classic-resource-manager-deep-dive.md
     - name: Plan for migration
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-plan.md
+      href: ./migration/migration-classic-resource-manager-plan.md
     - name: Migrate using the CLI
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-cli.md
+      href: ./migration/migration-classic-resource-manager-cli.md
     - name: Migrate using PowerShell
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-ps.md
+      href: ./migration/migration-classic-resource-manager-ps.md
     - name: Common migration errors
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-errors.md
+      href: ./migration/migration-classic-resource-manager-errors.md
     - name: Community tools for migration
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-community-tools.md
+      href: ./migration/migration-classic-resource-manager-community-tools.md
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
-      href: migration-classic-resource-manager-faq.yml
+      href: ./migration/migration-classic-resource-manager-faq.yml
   - name: Estimated VM cost card in Portal (Preview) 
     href: estimated-vm-create-cost-card.md
 - name: Availability and scale
@@ -2049,7 +2049,7 @@
         displayName: create a key vault
         href: ./windows/key-vault-setup.md
   - name: Mitigating speculative execution
-    href: mitigate-se.md
+    href: ./mitigate-se.md
   - name: Join a Linux VM to Microsoft Entra ID
     displayName: Azure AD
     items:
@@ -2323,24 +2323,48 @@
       href: concepts-restore-points.md
     - name: Troubleshooting
       href: restore-point-troubleshooting.md
-  - name: Move and migrate VMs
+- name: Move and migrate VMs
+  items:
+  - name: Change subscription or resource group
+    displayName: move migrate
+    href: /azure/azure-resource-manager/management/move-resource-group-and-subscription
+  - name: Change subscription for Marketplace VMs
+    displayName: offer plan sku marketplace
+    href: azure-cli-change-subscription-marketplace.md
+  - name: Move VMs to another region
+    href: /azure/site-recovery/azure-to-azure-tutorial-migrate?toc=/azure/virtual-machines/toc.json
+  - name: Move to an availability zone
+    href: /azure/site-recovery/move-azure-vms-avset-azone?toc=/azure/virtual-machines/toc.json
+  - name: Move Maintenance Control configurations to another region
+    href: move-region-maintenance-configuration.md
+  - name: Move Maintenance Control configuration resources to another region
+    href: move-region-maintenance-configuration-resources.md
+  - name: Migrate AWS VMs to Azure
+    href: /azure/migrate/tutorial-migrate-aws-virtual-machines
+  - name: Retirement migration
     items:
-    - name: Change subscription or resource group
-      displayName: move migrate
-      href: /azure/azure-resource-manager/management/move-resource-group-and-subscription
-    - name: Change subscription for Marketplace VMs
-      displayName: offer plan sku marketplace
-      href: azure-cli-change-subscription-marketplace.md
-    - name: Move VMs to another region
-      href: /azure/site-recovery/azure-to-azure-tutorial-migrate?toc=/azure/virtual-machines/toc.json
-    - name: Move to an availability zone
-      href: /azure/site-recovery/move-azure-vms-avset-azone?toc=/azure/virtual-machines/toc.json
-    - name: Move Maintenance Control configurations to another region
-      href: move-region-maintenance-configuration.md
-    - name: Move Maintenance Control configuration resources to another region
-      href: move-region-maintenance-configuration-resources.md
-    - name: Migrate AWS VMs to Azure
-      href: /azure/migrate/tutorial-migrate-aws-virtual-machines
+    - name: VM size series retirement migration guides
+      items:
+      - name: General-purpose sizes
+        items:
+        - name: D-series migration guide
+          href: ./migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide.md
+        - name: Ds-series migration guide
+          href: ./migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide.md
+        - name: Dsv2-series migration guide
+          href: ./migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide.md
+      - name: Storage-optimized sizes
+        items:
+        - name: Ls-series migration guide
+          href: ./migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide.md
+      - name: GPU-accelerated sizes
+        items:
+        - name: N-series migration guide
+          href: ./migration/sizes/n-series-migration.md
+        - name: NV-series migration guide
+          href: ./migration/sizes/nv-series-migration-guide.md
+    - name: Dedicated Host migration guide
+      href: ./migration/dedicated-host-migration-guide.md
 - name: Infrastructure automation
   items:
   - name: Overview
