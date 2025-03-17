@@ -29,8 +29,8 @@ Certain default limits and quotas can be increased. To request an increase of on
 
 > [!IMPORTANT]  
 > Not all limit increase requests are guaranteed to be approved.
-> Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
-> Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.
+> Deployments with GPU resources aren't supported in an Azure virtual network deployment and are only available on Linux container groups.
+> Using GPU resources (preview) isn't fully supported yet and any support is provided on a best-effort basis.
 
 ### Unchangeable (Hard) Limits 
 
@@ -58,7 +58,7 @@ The following limits are default limits that can’t be increased through a quot
 | Container group deletes per 5 minutes | 100<sup>1</sup> |
 
 > [!NOTE]
-> 1: Indicates that the feature maximum is configurable and may be increased through a support request. For more information on how to request a quota increase, please see the [How to request a quota increase section of Increase VM-family vCPU quotes](/azure/quotas/per-vm-quota-requests).
+> 1: Indicates that the feature maximum is configurable and may be increased through a support request. For more information on how to request a quota increase, see the [How to request a quota increase section of Increase VM-family vCPU quotes](/azure/quotas/per-vm-quota-requests).
 >
 > You can also create a support ticket if you'd like to discuss your specific needs with the support team.
 
@@ -77,7 +77,7 @@ For a general list of available regions for Azure Container Instances, see [avai
 #### Preview Limits: 
 
 > [!NOTE]
-> Big Container SKUs are in preview, and you may experience errors in some regions that you deploy. Preview features are not ideal for critical workloads. If you are experiencing errors when deploying containers with greater than 4 vCPU and 16 GB in a certain region, please submit an [Azure support request][azure-support] (select "Quota" for **Support type**).
+> Big Container SKUs are in preview, and you may experience errors in some regions that you deploy. Preview features aren't ideal for critical workloads. If you're experiencing errors when deploying containers with greater than 4 vCPU and 16 GB in a certain region, please submit an [Azure support request][azure-support] (select "Quota" for **Support type**).
 
 | Max CPU | Max Memory (GB) | Virtual network Max CPU | Virtual network Max Memory (GB) | Storage (GB) | 
 | :---: | :---: | :----: | :-----: | :-------: |
@@ -98,7 +98,7 @@ The following maximum resources are available to a container group deployed usin
 #### Preview Limits: 
 
 > [!NOTE]
-> Big Container SKUs are in preview, and you may experience errors in some regions that you deploy. Preview features are not ideal for critical workloads. If you are experiencing errors when deploying containers with greater than 4 vCPU and 16 GB in a certain region, please submit an [Azure support request][azure-support] (select "Quota" for **Support type**).
+> Big Container SKUs are in preview, and you may experience errors in some regions that you deploy. Preview features aren't ideal for critical workloads. If you're experiencing errors when deploying containers with greater than 4 vCPU and 16 GB in a certain region, please submit an [Azure support request][azure-support] (select "Quota" for **Support type**).
 
 | Max CPU | Max Memory (GB) | Virtual network Max CPU | Virtual network Max Memory (GB) | Storage (GB) | 
 | :---: | :---: | :----: | :-----: | :-------: |
@@ -118,12 +118,12 @@ The following maximum resources are available to a container group deployed usin
 ## GPU Container Resources (Preview) 
 
 > [!IMPORTANT]
-> K80 and P100 GPU SKUs were retired on August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is recommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](/azure/aks/aks-migration).
+> K80 and P100 GPU SKUs were retired on August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it's recommended to use Azure Kubernetes Service instead. GPU resources aren't fully supported and shouldn't be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](/azure/aks/aks-migration).
 
 > [!NOTE]
 > Not all limit increase requests are guaranteed to be approved.
-> Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
-> Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.
+> Deployments with GPU resources aren't supported in an Azure virtual network deployment and are only available on Linux container groups.
+> Using GPU resources (preview) isn't fully supported yet and any support is provided on a best-effort basis.
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview). These maximums are hard limits and can't be increased.
 
