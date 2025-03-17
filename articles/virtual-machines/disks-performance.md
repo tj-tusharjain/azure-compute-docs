@@ -3,7 +3,7 @@ title: Virtual machine and disk performance
 description: Learn more about how virtual machines and their attached disks work in combination for performance.
 author: roygara
 ms.author: rogarana
-ms.date: 03/04/2025
+ms.date: 03/17/2025
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -38,7 +38,7 @@ The following diagram depicts an example of these limitations. The system preven
 
 :::image type="content" source="media/disks-performance/example-vm-allocation.png" alt-text="Diagram of the three-level provisioning system with a Standard_D2s_v3 example allocation." lightbox="media/disks-performance/example-vm-allocation.png":::
 
-Azure uses a prioritized network channel for disk traffic. Disk traffic takes precedence over low-priority network traffic. This prioritization helps disks maintain their expected performance if there's network contentions.
+Azure uses a prioritized network channel for disk traffic. Disk traffic takes precedence over low-priority network traffic. This prioritization helps disks maintain their expected performance if there's network contention.
 
 Similarly, Azure Storage handles resource contentions and other issues in the background with automatic load balancing. Azure Storage allocates required resources when you create a disk, and it applies proactive and reactive balancing of resources to handle the traffic level. This behavior further ensures that disks can sustain their expected IOPS and throughput targets. Use VM-level and disk-level [metrics](disks-metrics.md) to track the performance and set up alerts as needed.
 
