@@ -1,5 +1,5 @@
 ---
-title: Big Containers on Azure Container Instances (Preview)
+title: Big containers on Azure container instances (preview)
 description: Capabilities and benefits of Big Containers on Azure Container Instances.
 ms.author: tomcassidy
 author: tomvcassidy
@@ -50,7 +50,7 @@ High-performance computing applications, such as climate modeling, genomic resea
 To begin using Big Containers, follow these steps. 
 
 1. If you plan to run containers larger than 4 vCPU and 16 GB, you must submit an [Azure support request][azure-support] (select "Quota" for **Support type**). 
-2. Once your quota has been allocated, you can deploy your container groups through Azure Portal, Azure CLI, PowerShell, ARM template, or any other medium that allows you to connect to your container groups in Azure. 
+2. Once your quota has been allocated, you can deploy your container groups through Azure portal, Azure CLI, PowerShell, ARM template, or any other medium that allows you to connect to your container groups in Azure. 
 3. Please note that since Big Containers are in preview, you may receive errors. It is not recommended to run critical workloads on preview features. 
 
 To learn more about Azure Container Instances, see [Serverless containers in Azure - Azure Container Instances | Microsoft Learn](./container-instances-overview.md)
