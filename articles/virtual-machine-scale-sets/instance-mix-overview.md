@@ -50,7 +50,7 @@ This allocation strategy is focused on workloads where cost and cost-optimizatio
 #### capacityOptimized
 The `capacityOptimized` allocation strategy is designed for workloads where securing VM capacity is the highest priority. This approach ensures that VMs are allocated based on availability rather than cost considerations.
 
-##### How Capacity Optimized Allocation Works
+##### How `capacityOptimized` allocation works
 - Azure prioritizes available capacity, without factoring in price, when determining which VM sizes to deploy.
 - VMs are deployed by dynamically selecting VM sizes based on underlying capacity availability, ensuring that instances can be allocated even in highly utilized regions.
 - This strategy is useful for workloads that must secure compute resources without delays due to capacity shortages.
@@ -66,7 +66,7 @@ Using the `capacityOptimized` allocation strategy, users can ensure that their w
 #### Prioritized
 The `Prioritized` allocation strategy enables control over how VM sizes are allocated by defining a priority ranking. `Prioritized` allows for a more predictable allocation order based on preferred VM sizes.
 
-##### How Prioritized Allocation Works
+##### How `Prioritized` allocation works
 - Each VM size in the `vmSizes` list can be assigned a priority rank to influence the order in which instances are allocated.
 - Lower rank numbers indicate higher priority. For example, a VM with a rank of 0 is prioritized over a VM with a rank of 2.
 - If multiple VM sizes have the same rank, they share the same allocation priority, Azure distributes VMs across those sizes based on availability.
