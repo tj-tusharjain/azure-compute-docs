@@ -55,7 +55,7 @@ VM sizes with up to 112-GB RAM from the following GPU VM series support hibernat
 - [NVv4-series](../virtual-machines/nvv4-series.md)
 - [NVadsA10v5-series](../virtual-machines/nva10v5-series.md)
 
-If you are using any UVM-enabled compute applications,we recommend idling the application before initiating hibernation. 
+If you are using any UVM-enabled compute applications, we recommend idling the application before initiating hibernation. 
 
 ### General limitations
 - You can resize VMs that have hibernation enabled, but not when the VM is in a *Hibernated* state. The VM should either be in a *Running* or *Stopped* state.
