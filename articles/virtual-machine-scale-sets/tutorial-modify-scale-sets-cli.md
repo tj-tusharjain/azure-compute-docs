@@ -46,7 +46,7 @@ az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION
 ```
 
 ## Create the Virtual Machine Scale Set
-To ensure that subsequent update and query commands have a valid resource to work on, create a Virtual Machine Scale Set. In this step, we deploy a basic scale set using a valid image ("Ubuntu2204") and set the instance count to 5 so that instance-specific updates can target an existing instance ID.
+To ensure that subsequent update and query commands have a valid resource to work on, create a Virtual Machine Scale Set. In this step, we deploy a basic scale set using a valid image (*Ubuntu2204*) and set the instance count to 5 so that instance-specific updates can target an existing instance ID.
 
 ```azurecli-interactive
 az vmss create \
