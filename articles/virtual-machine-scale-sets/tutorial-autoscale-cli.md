@@ -92,7 +92,7 @@ az monitor autoscale rule create \
 ```
 
 ## Simulate CPU load on scale set
-To test the autoscale rules, you need to simulate sustained CPU load on the VM instances in the scale set. In this minimalist approach, we avoid installing additional packages by using the built-in "yes" command to generate CPU load. The following command starts 3 background processes that continuously output data to /dev/null for 60 seconds and then terminates them.
+To test the autoscale rules, you need to simulate sustained CPU load on the VM instances in the scale set. In this minimalist approach, we avoid installing additional packages by using the built-in `yes` command to generate CPU load. The following command starts 3 background processes that continuously output data to `/dev/null` for 60 seconds and then terminates them.
 
 ```bash
 for i in {1..3}; do
