@@ -105,7 +105,7 @@ pkill yes
 This command simulates CPU load without introducing package installation errors.
 
 ## Monitor the active autoscale rules
-To monitor the number of VM instances in your scale set, use the watch command. It may take up to 5 minutes for the autoscale rules to begin the scale-out process in response to the CPU load. However, once it happens, you can exit watch with Ctrl-c. 
+To monitor the number of VM instances in your scale set, use the `watch` command. It may take up to 5 minutes for the autoscale rules to begin the scale-out process in response to the CPU load. However, once it happens, you can exit watch with *CTRL + C* keys. 
 
 By then, the scale set will automatically increase the number of VM instances to meet the demand. The following command shows the list of VM instances in the scale set:
 
