@@ -92,7 +92,8 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 
 The original tutorial includes commands to connect to the VM via SSH. For non-interactive automated execution, the SSH command is not executed. Instead, use the provided public IP address output from VM creation to manually connect if needed. 
 
-To connect to the VM, first retrieve the public IP address using the Azure CLI. Execute the following command to store the IP address in a variable: ```export IP_ADDRESS=$(az vm show --show-details --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_VM_NAME --query publicIps --output tsv)```
+To connect to the VM, first retrieve the public IP address using the Azure CLI. Execute the following command to store the IP address in a variable: 
+```export IP_ADDRESS=$(az vm show --show-details --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_VM_NAME --query publicIps --output tsv)```
 
 Once you have the IP address, use SSH to connect to the VM. The following command connects to the VM using the `azureuser` account and the retrieved IP address: ```ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS```
 
