@@ -29,7 +29,7 @@ Most platform updates don't affect customer VMs. When a no-impact update isn't p
 
 When VM impacting maintenance is required it will almost always be completed through a VM pause for less than 10 seconds. In rare circumstances, no more than once every 18 months for general purpose VM sizes, Azure uses a mechanism that will pause the VM for about 30 seconds. After any pause operation the VM clock is automatically synchronized upon resume. 
 
-Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, L, N, and H series (for more information on which sizes support or not, please review the [virtual machine sizes specs](./sizes/overview.md). Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
+Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, L, N, and H series. For more information, see [which VM sizes support memory-preserving maintenance](./sizes/overview.md). Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
 
 These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals from platform monitoring tools. Maintenance operations that do not require a reboot may occur simultaneously in paired regions or Availability Zones. For a given change, the deployment are mostly sequenced across Availability Zones and across Region pairs, but there can be overlap at the tail.
 
