@@ -2,12 +2,12 @@
   "redirections": [
     {
       "source_path": "articles/virtual-machines/linux/tutorial-config-management.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-config-management",
+      "redirect_url": "/azure/update-manager/migration-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/tutorial-config-management.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-config-management",
+      "redirect_url": "/azure/update-manager/migration-overview",
       "redirect_document_id": false
     },
     {
