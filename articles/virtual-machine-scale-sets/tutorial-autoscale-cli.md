@@ -37,7 +37,7 @@ export MY_RESOURCE_GROUP_NAME="myResourceGroup$RANDOM_SUFFIX"
 az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION
 ```
 
-Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). The following example creates a scale set with an instance count of 2, generates SSH keys if they don't exist, and uses a valid image "Ubuntu2204".
+Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). The following example creates a scale set with an instance count of 2, generates SSH keys if they don't exist, and uses a valid image *Ubuntu2204*.
 
 ```azurecli-interactive
 export MY_SCALE_SET_NAME="myScaleSet$RANDOM_SUFFIX"
