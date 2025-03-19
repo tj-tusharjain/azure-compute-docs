@@ -17,10 +17,6 @@ The upgrade policy mode you choose can impact the overall service uptime of your
 
 ## Upgrade policy modes
 
-> [!NOTE]
-> To update the image reference version during an upgrade, register the following feature flag: <br>
-> `Register-AzProviderFeature -FeatureName ImageReferenceUpgradeForVmoVMs -ProviderNamespace Microsoft.Compute`
-
 Each Virtual Machine Scale Set has an **upgrade policy mode** which determines how instances are brought up to date with the latest scale set model. Changes to the scale set model include updates that need to be applied to each individual instance. Some examples include: 
 - Image reference upgrades
 - SKU changes
