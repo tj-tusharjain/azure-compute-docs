@@ -164,7 +164,7 @@ The exact presentation of the output depends on the options you provide to the c
 }
 ```
 
-You can use [az vmss update](/cli/azure/vmss#az-vmss-update) to update various properties of your scale set. For example, updating your license type or a VM's instance protection policy. Note that the allowed license type value is "RHEL_BYOS" rather than "Windows_Server."
+You can use [az vmss update](/cli/azure/vmss#az-vmss-update) to update various properties of your scale set. For example, updating your license type or a VM's instance protection policy. Note that the allowed license type value is *RHEL_BYOS* rather than *Windows_Server*.
 
 ```azurecli-interactive
 az vmss update --name $SCALE_SET_NAME --resource-group $MY_RESOURCE_GROUP_NAME --license-type RHEL_BYOS
