@@ -17,7 +17,7 @@ Long-term support (LTS) releases of Ubuntu Server receive standard security upda
 
 When an Ubuntu release reaches the end of its standard support, the following applies: You can continue to use your existing virtual machines; however, security, feature, and maintenance updates will no longer be provided by Canonical. This may leave your systems vulnerable.  
 
-You'll want to consider either migrating to the next Ubuntu LTS release, or upgrading to Ubuntu Pro to gain access to extended security and maintenance from Canonical.   
+You'll want to consider either migrating to the next Ubuntu LTS release, or upgrading to Ubuntu Pro to gain access to expanded security and maintenance from Canonical.   
 
 ## Upgrading to a newer Ubuntu LTS 
 
@@ -27,11 +27,11 @@ You can only directly upgrade one version of Ubuntu LTS to the next version. For
 
 See the [Ubuntu Server upgrade guide](https://ubuntu.com/server/docs/how-to-upgrade-your-release) for more information.  
 
-## Ubuntu Pro – extended security maintenance for LTS releases 
+## Ubuntu Pro – expanded security maintenance for LTS releases
 
-Ubuntu Pro includes security patching for all Ubuntu packages due to Extended Security Maintenance (ESM) for Infrastructure and Applications and optional 24/7 phone and ticket support. Ubuntu Pro adds an extra five years of support to an Ubuntu LTS release, for a total of 10 years of support. 
+Ubuntu Pro includes security patching for all Ubuntu packages due to Expanded Security Maintenance (ESM) for Infrastructure and Applications and optional 24/7 phone and ticket support. Ubuntu Pro adds an extra five years of support to an Ubuntu LTS release, for a total of 10 years of support. 
 
-New virtual machines can be deployed with Ubuntu Pro from the Azure Marketplace. You can also upgrade Ubuntu Server (version 16.04 or higher) virtual machines to Ubuntu Pro without redeployment or downtown. See the [Ubuntu Server to Ubuntu Pro in-place upgrade on Azure guide](https://learn.microsoft.com/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade) for more information.
+New virtual machines can be deployed with Ubuntu Pro from the Azure Marketplace. You can also upgrade Ubuntu Server (version 16.04 or higher) virtual machines to Ubuntu Pro without redeployment or downtime. See the [Ubuntu Server to Ubuntu Pro in-place upgrade on Azure guide](https://learn.microsoft.com/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade) for more information.
 
 
 | **Ubuntu LTS Release** | **End of Standard Support** | **End of Ubuntu Pro Support** |
@@ -44,4 +44,4 @@ New virtual machines can be deployed with Ubuntu Pro from the Azure Marketplac
 
 ## More information  
 
-More information covering the Ubuntu LTS lifecycle can be found here: https://ubuntu.com/server
+More information covering the Ubuntu LTS lifecycle can be found here: https://ubuntu.com/about/release-cycle
