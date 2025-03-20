@@ -33,14 +33,14 @@ ms.custom: include file, devx-track-azurepowershell
           -Destination $keyDestination 
     ```
 
-1.    Create an instance of a DiskEncryptionSet. You can set RotationToLatestKeyVersionEnabled equal to $true to enable automatic rotation of the key. When you enable automatic rotation, the system will automatically update all managed disks, snapshots, and images referencing the disk encryption set to use the new version of the key within one hour.  
+1.    Create an instance of a DiskEncryptionSet. This script sets RotationToLatestKeyVersionEnabled equal to $true to enable automatic rotation of the key. When you enable automatic rotation, the system automatically updates all managed disks, snapshots, and images referencing the disk encryption set to use the new version of the key within one hour.  
     
         ```powershell
       $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName `
             -SourceVaultId $keyVault.ResourceId `
             -KeyUrl $key.Key.Kid `
             -IdentityType SystemAssigned `
-            -RotationToLatestKeyVersionEnabled $false
+            -RotationToLatestKeyVersionEnabled $true
 
        $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName `
                -ResourceGroupName $ResourceGroupName `
@@ -84,7 +84,7 @@ Set-AzContext -Subscription $targetSubscriptionId
 $desConfig=New-AzDiskEncryptionSetConfig -Location $location `
 -KeyUrl $key.Key.Kid `
 -IdentityType SystemAssigned `
--RotationToLatestKeyVersionEnabled $false
+-RotationToLatestKeyVersionEnabled $true
 
 $des=New-AzDiskEncryptionSet -Name $targetDiskEncryptionSetName `
 -ResourceGroupName $targetResourceGroupName `
