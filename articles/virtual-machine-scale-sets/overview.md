@@ -12,7 +12,7 @@ ms.reviewer: mimckitt
 ---
 # What are Virtual Machine Scale Sets?
 
-Azure Virtual Machine Scale Sets let you create and manage a group of load balanced virtual machines (VMs). The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
+Azure Virtual Machine Scale Sets let you create and manage a group of load balanced virtual machines (VM) instances. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
 - Easy to create and manage multiple VMs
 - Provides high availability and application resiliency by distributing VMs across availability zones or fault domains
 - Allows your application to automatically scale as resource demand changes
@@ -45,7 +45,7 @@ Azure Virtual Machine Scale Sets provide the management capabilities for applica
 
 - **Provides high availability and application resiliency**
     - Scale sets are used to run multiple instances of your application. If one of these VM instances has a problem, customers continue to access your application through one of the other VM instances with minimal interruption.
-    - For more availability, you can use [Availability Zones](/azure/reliability/availability-zones-overview) to automatically distribute VM instances in a scale set within a single datacenter or across multiple datacenters. Deploying VMs across Availability Zones can protect you against data center failure. Note that a scale set can't protect you against data center failures.
+    - For more availability, you can use [Availability Zones](/azure/reliability/availability-zones-overview) to automatically distribute VM instances in a scale set within a single datacenter or across multiple datacenters. A scale set alone can't protect you against data center failures. Deploying VMs across Availability Zones within a scale set can protect you against data center failure. 
 
 - **Allows your application to automatically scale as resource demand changes**
     - Customer demand for your application may change throughout the day or week. To match customer demand, scale sets can automatically increase the number of VM instances as application demand increases, then reduce the number of VM instances as demand decreases.
