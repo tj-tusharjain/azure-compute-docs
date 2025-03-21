@@ -28,7 +28,7 @@ This automated and elastic behavior reduces the management overhead to monitor a
 
 You can manually increase or decrease the number of instances in the virtual machine scale set by updating the `sku.capacity` property.
 
-### Azure portal
+### [Azure portal](#tab/portal-1)
 
 1. Navigate to an existing Virtual machine scale set.
 1. Under **Settings,** select the **Scaling** tab.
@@ -36,23 +36,24 @@ You can manually increase or decrease the number of instances in the virtual mac
 1. Update the **Instance count**.
 1. Press the **Save** button.
 
-### Azure CLI
+### [Azure CLI](#tab/cli-1)
 
 ```azurecli
 az vmss scale \
 	--new-capacity 5 \
-	--name <scale set name> \
-	--resource-group <resource group name>
+	--name scaleSetName \
+	--resource-group resourceGroupName
 ```
 
-### Azure PowerShell
+### [Azure PowerShell](#tab/ps-1)
 
 ```azurepowershell
 Update-AzVmss `
 	-SkuCapacity 5 `
-	-ResourceGroupName <resource group name> ` 
-	-VMScaleSetName <scale set name>  `
+	-ResourceGroupName resourceGroupName ` 
+	-VMScaleSetName scaleSetName  `
 ```
+---
 
 ## Benefits of autoscale
 If your application demand increases, the load on the virtual machines in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase and decrease the number of virtual machines in the scale set.
