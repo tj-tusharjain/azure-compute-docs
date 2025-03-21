@@ -74,7 +74,7 @@ Autoscale rules that use host-based metrics can be created with one of the follo
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure template](tutorial-autoscale-template.md)
 
-To create autoscale rules that use more detailed performance metrics, you can [install and configure the Azure diagnostics extension](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) on virtual machines, or [configure your application use App Insights](#application-level-metrics-with-app-insights).
+To create autoscale rules that use more detailed performance metrics, you can [install and configure the Azure diagnostics extension](#in-guest-virtual-machine-metrics-with-the-azure-diagnostics-extension) on virtual machines, or [configure your application use App Insights](#application-level-metrics-with-app-insights).
 
 Autoscale rules that use host-based metrics, in-guest virtual machine metrics with the Azure diagnostic extension, and App Insights can use the following configuration settings.
 
