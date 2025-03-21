@@ -56,7 +56,7 @@ For a group of virtual machines undergoing an update, the Azure platform orchest
 **Within an availability set:**
 - All VMs in a common availability set aren't updated concurrently.
 - VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.
--	In an Update Domain, no more than 20% of the VMs within an availability set are be updated at a time. For availability sets with less than 10 VMs, VMs update one at a time within an Update Domain.
+-	In an Update Domain, no more than 20% of the VMs within an availability set are be updated at a time. For availability sets with fewer than 10 VMs, VMs update one at a time within an Update Domain.
 
 Restricting the number of concurrently patched VMs across regions, within a region, or within an availability set limits the impact of a faulty patch on a given set of VMs. With health monitoring, any potential issues are flagged before they impact the entire workload.
 
@@ -188,8 +188,8 @@ VMs on Azure now support the following patch orchestration modes:
 - To use this mode on Linux VMs, set the property `osProfile.linuxConfiguration.patchSettings.patchMode=ImageDefault` in the VM template.
 
 > [!NOTE]
->For Windows VMs, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` can only be set when the VM is first created. This impacts certain patch mode transitions. Switching between AutomaticByPlatform and Manual modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`. Similarly switching between AutomaticByPlatform and AutomaticByOS modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`. Switching between AutomaticByOS and Manual modes is not supported.
->Azure recommends that [Assessment Mode](/rest/api/compute/virtual-machines/assess-patches) be enabled on a VM even if Azure Orchestration is not enabled for patching. This allows the platform to assess the VM every 24 hours for any pending updates, and save the details in [Azure Resource Graph](/azure/update-center/query-logs). The platform performs assessment to report consolidated results when the machine’s desired patch configuration state is applied or confirmed. This is reported as a ‘Platform’-initated assessment.
+>For Windows VMs, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` can only be set when the VM is first created. This impacts certain patch mode transitions. Switching between AutomaticByPlatform and Manual modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`. Similarly switching between AutomaticByPlatform and AutomaticByOS modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`. Switching between AutomaticByOS and Manual modes isn't supported.
+>Azure recommends that [Assessment Mode](/rest/api/compute/virtual-machines/assess-patches) be enabled on a VM even if Azure Orchestration isn't enabled for patching. This allows the platform to assess the VM every 24 hours for any pending updates, and save the details in [Azure Resource Graph](/azure/update-center/query-logs). The platform performs assessment to report consolidated results when the machine’s desired patch configuration state is applied or confirmed. This is reported as a ‘Platform’-initated assessment.
 
 ## Requirements for enabling automatic VM guest patching
 
@@ -290,7 +290,7 @@ When creating a VM using the Azure portal, patch orchestration modes can be set 
 > [!NOTE]
 >It can take more than three hours to enable automatic VM guest updates on a VM, as the enablement is completed during the VM's off-peak hours. As assessment and patch installation occur only during off-peak hours, your VM must be also be running during off-peak hours to apply patches.
 
-When automatic VM guest patching is enabled for a VM, a VM extension of type `Microsoft.CPlat.Core.LinuxPatchExtension` is installed on a Linux VM or a VM extension of type `Microsoft.CPlat.Core.WindowsPatchExtension` is installed on a Windows VM. This extension does not need to be manually installed or updated, as this extension is managed by the Azure platform as part of the automatic VM guest patching process.
+When automatic VM guest patching is enabled for a VM, a VM extension of type `Microsoft.CPlat.Core.LinuxPatchExtension` is installed on a Linux VM or a VM extension of type `Microsoft.CPlat.Core.WindowsPatchExtension` is installed on a Windows VM. This extension doesn't need to be manually installed or updated, as this extension is managed by the Azure platform as part of the automatic VM guest patching process.
 
 It can take more than three hours to enable automatic VM guest updates on a VM, as the enablement is completed during the VM's off-peak hours. The extension is also installed and updated during off-peak hours for the VM. If the VM's off-peak hours end before enablement can be completed, the enablement process resumes during the next available off-peak time.
 
@@ -338,7 +338,7 @@ The `patchStatus` section of the instance view response provides details on the 
 
 The assessment results for your VM can be reviewed under the `availablePatchSummary` section. An assessment is periodically conducted for a VM that has automatic VM guest patching enabled. The count of available patches after an assessment is provided under `criticalAndSecurityPatchCount` and `otherPatchCount` results. Automatic VM guest patching installs all patches assessed under the *Critical* and *Security* patch classifications. Any other assessed patch is skipped.
 
-The patch installation results for your VM can be reviewed under the `lastPatchInstallationSummary` section. This section provides details on the last patch installation attempt on the VM, including the number of patches that were installed, pending, failed or skipped. Patches are installed only during the off-peak hours maintenance window for the VM. Pending and failed patches are automatically retried during the next off-peak hours maintenance window.
+The patch installation results for your VM can be reviewed under the `lastPatchInstallationSummary` section. This section provides details on the last patch installation attempt on the VM, including the number of patches that were installed, pending, failed, or skipped. Patches are installed only during the off-peak hours maintenance window for the VM. Pending and failed patches are automatically retried during the next off-peak hours maintenance window.
 
 ## Disable automatic VM guest patching
 Automatic VM guest patching can be disabled by changing the [patch orchestration mode](#patch-orchestration-modes) for the VM.
@@ -348,7 +348,7 @@ To disable automatic VM guest patching on a Linux VM, change the patch mode to `
 To enable automatic VM guest patching on a Windows VM, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` determines which patch modes can be set on the VM and this property can only be set when the VM is first created. This impacts certain patch mode transitions:
 - For VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, disable automatic VM guest patching by changing the patch mode to `Manual`.
 - For VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, disable automatic VM guest patching by changing the patch mode to `AutomaticByOS`.
-- Switching between AutomaticByOS and Manual modes is not supported.
+- Switching between AutomaticByOS and Manual modes isn't supported.
 
 Use the examples from the [enablement](#enable-automatic-vm-guest-patching) section above in this article for API, PowerShell and CLI usage examples to set the required patch mode.
 
@@ -356,7 +356,7 @@ Use the examples from the [enablement](#enable-automatic-vm-guest-patching) sect
 If automatic VM guest patching is already enabled for your VM, a periodic patch assessment is performed on the VM during the VM's off-peak hours. This process is automatic and the results of the latest assessment can be reviewed through the VM's instance view as described earlier in this document. You can also trigger an on-demand patch assessment for your VM at any time. Patch assessment can take a few minutes to complete and the status of the latest assessment is updated on the VM's instance view.
 
 > [!NOTE]
->On-demand patch assessment does not automatically trigger patch installation. If you have enabled automatic VM guest patching then the assessed and applicable patches for the VM are installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
+>On-demand patch assessment doesn't automatically trigger patch installation. If you have enabled automatic VM guest patching, then the assessed and applicable patches for the VM are installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
 
 ### REST API
 Use the [Assess Patches](/rest/api/compute/virtual-machines/assess-patches) API to assess available patches for your virtual machine.
@@ -452,15 +452,15 @@ az vm install-patches --resource-group myResourceGroup --name myVM --maximum-dur
 ```
 ## Strict Safe Deployment on Canonical Images
 
-[Microsoft and Canonical have partnered](https://ubuntu.com/blog/ubuntu-snapshots-on-azure-ensuring-predictability-and-consistency-in-cloud-deployments) to make it easier for our customers to stay current with Linux OS updates and increase the security and resiliency of their Ubuntu workloads on Azure. By leveraging Canonical’s snapshot service, Azure now applies the same set of Ubuntu updates consistently to your fleet across regions.
+[Microsoft and Canonical have partnered](https://ubuntu.com/blog/ubuntu-snapshots-on-azure-ensuring-predictability-and-consistency-in-cloud-deployments) to make it easier for our customers to stay current with Linux OS updates and increase the security and resiliency of their Ubuntu workloads on Azure. By using Canonical’s snapshot service, Azure now applies the same set of Ubuntu updates consistently to your fleet across regions.
 
-Azure stores the package related updates within the customer repository for up to 90 days, depending on the available space. This allows customers to update their fleet leveraging Strict Safe Deployment for VMs that are up to 3 months behind on updates.
+Azure stores the package related updates within the customer repository for up to 90 days, depending on the available space. This allows customers to update their fleet leveraging Strict Safe Deployment for VMs that are up to three months behind on updates.
 
-There is no action required for customers that have enabled Auto Patching. The platform installs a package that is snapped to a point-in-time by default. In the event a snapshot-based update cannot be installed, Azure applies the latest package on the VM to ensure the VM remains secure. The point-in-time updates are consistent on all VMs across regions to ensure homogeneity. Customers can view the published date information related to the applied update in [Azure Resource Graph](/azure/governance/resource-graph/overview) and the [Instance View](/powershell/module/az.compute/get-azvm) of the VM.
+There's no action required for customers that have enabled Auto Patching. The platform installs a package that is snapped to a point-in-time by default. In the event a snapshot-based update can't be installed, Azure applies the latest package on the VM to ensure the VM remains secure. The point-in-time updates are consistent on all VMs across regions to ensure homogeneity. Customers can view the published date information related to the applied update in [Azure Resource Graph](/azure/governance/resource-graph/overview) and the [Instance View](/powershell/module/az.compute/get-azvm) of the VM.
 
 ## Image End-of-Life (EOL)
 
-Publishers may no longer support generating new updates for their images after a certain date. This is commonly referred to as End-of-life (EOL) for the image. Azure does not recommend using images after their EOL date, since it exposes the service to security vulnerabilities or performance issues. The Azure Guest Patching Service (AzGPS) communicates necessary steps for customers and impacted partners. AzGPS removes the image from the support list after the EOL date. VMs that use an end of life image on Azure might continue to work beyond their date. However, any issues experienced by these VMs are not eligible for support.
+Publishers may no longer support generating new updates for their images after a certain date. This is commonly referred to as End-of-life (EOL) for the image. Azure doesn't recommend using images after their EOL date, since it exposes the service to security vulnerabilities or performance issues. The Azure Guest Patching Service (AzGPS) communicates necessary steps for customers and impacted partners. AzGPS removes the image from the support list after the EOL date. VMs that use an end of life image on Azure might continue to work beyond their date. However, any issues experienced by these VMs aren't eligible for support.
 
 ## Next steps
 > [!div class="nextstepaction"]
