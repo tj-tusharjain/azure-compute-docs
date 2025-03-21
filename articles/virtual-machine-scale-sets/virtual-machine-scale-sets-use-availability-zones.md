@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: azure-virtual-machine-scale-sets
 ms.subservice: availability
-ms.date: 03/07/2025
+ms.date: 03/21/2025
 ms.reviewer: jushiman, fisteele
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
