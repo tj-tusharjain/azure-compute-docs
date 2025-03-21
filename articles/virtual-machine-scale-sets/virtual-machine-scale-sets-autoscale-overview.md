@@ -32,7 +32,7 @@ You can manually increase or decrease the number of instances in the virtual mac
 
 1. Navigate to an existing Virtual machine scale set.
 1. Under **Settings,** select the **Scaling** tab.
-1. Choose **Manual Scale**, if it is not already selected.
+1. Choose **Manual Scale**, if it isn't already selected.
 1. Update the **Instance count**.
 1. Press the **Save** button.
 
@@ -65,7 +65,7 @@ When these virtual machines are created and your applications are deployed, the 
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure autoscale rules to decrease the number of virtual machines in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
 
 ## Use host-based metrics
-You can create autoscale rules that built-in host metrics available from your virtual machines. Host metrics give you visibility into the performance of the virtual machines in a scale set without the need to install or configure additional agents and data collections. Autoscale rules that use these metrics can scale out or in the number of virtual machines in response to CPU usage, memory demand, or disk access.
+You can create autoscale rules that built-in host metrics available from your virtual machines. Host metrics give you visibility into the performance of the virtual machines in a scale set without the need to install or configure more agents and data collections. Autoscale rules that use these metrics can scale out or in the number of virtual machines in response to CPU usage, memory demand, or disk access.
 
 Autoscale rules that use host-based metrics can be created with one of the following tools:
 
@@ -83,7 +83,7 @@ Autoscale rules can use metrics from one of the following sources:
 
 | Metric source        | Use case                                                                                                                     |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Current scale set    | For host-based metrics that do not require additional agents to be installed or configured.                                  |
+| Current scale set    | For host-based metrics that don't require more agents to be installed or configured.                                  |
 | Storage account      | The Azure diagnostic extension writes performance metrics to Azure storage that is then consumed to trigger autoscale rules. |
 | Service Bus Queue    | Your application or other components can transmit messages on an Azure Service Bus queue to trigger rules.                   |
 | Application Insights | An instrumentation package installed in your application that streams metrics directly from the app.                         |
@@ -156,7 +156,7 @@ The following examples are scenarios that may benefit the use of schedule-based 
 
 - Automatically scale out the number of virtual machines at the start of the work day when customer demand increases. At the end of the work day, automatically scale in the number of virtual machines to minimize resource costs overnight when application use is low.
 - If a department uses an application heavily at certain parts of the month or fiscal cycle, automatically scale the number of virtual machines to accommodate their additional demands.
-- When there is a marketing event, promotion, or holiday sale, you can automatically scale the number of virtual machines ahead of anticipated customer demand. 
+- When there's a marketing event, promotion, or holiday sale, you can automatically scale the number of virtual machines ahead of anticipated customer demand. 
 
 ## Limitations
 - You can have up to 20 Autoscale rules for a given scale set.
