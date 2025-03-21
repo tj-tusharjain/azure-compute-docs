@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: overview
 ms.service: azure-virtual-machine-scale-sets
 ms.subservice:
-ms.date: 08/16/2024
+ms.date: 03/21/2025
 ms.reviewer: mimckitt
 
 ---
