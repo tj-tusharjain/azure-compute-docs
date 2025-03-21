@@ -264,7 +264,7 @@ Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatin
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Set-AzVMOperatingSystem -VM $VirtualMachine -PatchMode "AutomaticByPlatform"
-Update-AzVM -VM $VirtualMachine
+Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
 ### Azure CLI for Windows VMs
