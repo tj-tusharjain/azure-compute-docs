@@ -105,15 +105,12 @@ The following host-based metrics are available for use when you create autoscale
 | CPU Credits Consumed      |
 
 When you create autoscale rules to monitor a given metric, the rules look at one of the following metrics aggregation actions:
-
-| Aggregation type |
-|------------------|
-| Average          |
-| Minimum          |
-| Maximum          |
-| Total            |
-| Last             |
-| Count            |
+Average
+- Minimum
+- Maximum
+- Total
+- Last
+- Count
 
 The autoscale rules are then triggered when the metrics are compared against your defined threshold with one of the following operators:
 
