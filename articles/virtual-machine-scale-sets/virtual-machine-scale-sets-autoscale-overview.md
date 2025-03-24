@@ -59,7 +59,7 @@ Update-AzVmss `
 If your application demand increases, the load on the virtual machines in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase and decrease the number of virtual machines in the scale set.
 
 > [!NOTE]
-> When using automatic instance repairs for your scale set, the maximum number of instances in the scale set can be 1000. Learn more about [Automatic Instance Repairs](./virtual-machine-scale-sets-automatic-instance-repairs.md).
+> When using automatic instance repairs for your scale set, the maximum number of instances in the scale set can be 1,000. Learn more about [Automatic Instance Repairs](./virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 When these virtual machines are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or memory, how long the application load must meet a given threshold, and how many virtual machines to add to the scale set.
 
@@ -151,12 +151,12 @@ To gain more visibility in to the performance of your applications, you can use 
 For more information about App Insights, see [What is Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
 ## Scheduled autoscale
-You can also create autoscale rules based on schedules. These schedule-based rules allow you to automatically scale the number of virtual machines at fixed times. With performance-based rules, there may be a performance impact on the application before the autoscale rules trigger and the new virtual machines are provisioned. If you can anticipate such demand, the additional virtual machines are provisioned and ready for the additional customer use and application demand.
+You can also create autoscale rules based on schedules. These schedule-based rules allow you to automatically scale the number of virtual machines at fixed times. With performance-based rules, there may be a performance impact on the application before the autoscale rules trigger and the new virtual machines are provisioned. If you can anticipate such demand, the extra virtual machines are provisioned and ready for the increased customer use and application demand.
 
 The following examples are scenarios that may benefit the use of schedule-based autoscale rules:
 
 - Automatically scale out the number of virtual machines at the start of the work day when customer demand increases. At the end of the work day, automatically scale in the number of virtual machines to minimize resource costs overnight when application use is low.
-- If a department uses an application heavily at certain parts of the month or fiscal cycle, automatically scale the number of virtual machines to accommodate their additional demands.
+- For departments with applications that experience heavy usage during specific times of the month or fiscal cycle, automatically scale the number of virtual machines to handle the increased demand seamlessly.
 - When there's a marketing event, promotion, or holiday sale, you can automatically scale the number of virtual machines ahead of anticipated customer demand. 
 
 ## Limitations
