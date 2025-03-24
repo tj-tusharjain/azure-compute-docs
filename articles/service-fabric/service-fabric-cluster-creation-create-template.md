@@ -168,7 +168,7 @@ You add the Microsoft Entra configuration to a cluster Resource Manager template
 
 ## Populate the parameter file with the values
 
-Finally, use the output values from the key vault and Microsoft Entra AD PowerShell commands to populate the parameters file.
+Finally, use the output values from the key vault and Microsoft Entra PowerShell commands to populate the parameters file.
 
 If you plan to use the Azure service fabric RM PowerShell modules, then you do not need to populate the cluster certificate information. If you want the system to generate the self signed certificate for cluster security you, just keep them as null. 
 
