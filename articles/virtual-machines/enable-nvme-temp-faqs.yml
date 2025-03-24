@@ -5,7 +5,7 @@ metadata:
   ms.service: azure-virtual-machines
   ms.topic: faq
   ms.custom: references_regions
-  ms.date: 03/19/2025
+  ms.date: 03/24/2025
 
 title: FAQ for Temp NVMe disks
 summary: |
@@ -17,7 +17,7 @@ sections:
       - question: |
           What are the prerequisites to create temp disk that uses NVMe interface for my VM?
         answer: |
-          In order to use the NVMe interface for your temp disk, the local SSD interface to the VM will need to be on NVMe interface (Azure Boost SSD). Guest OS to be used for creating the VM needs to have NVMe driver support, which most of the recent OS should have.            
+          NVMe support for local temp disks varies at a VM family level. All of the new v6 VMs with local disk support NVMe temp disks, but v5 VMs and earlier may not support NVMe local temp disks (most of those sizes local disks are on SCSI interface). Additionally, some VM families (like L-series) have had locally attached NVMe SSDs from Lsv2 generation VMs onward. Please refer to the spec pages for each VM family to determine if NVMe temp disks are supported. Also, please note your Guest OS needs to have NVMe driver support in order to use local NVMe, which most of the recent OS releases should have by default.             
   
       - question: |
           How are temp NVMe disks in my Dl/D/E_v6 VMs different from remote NVMe disks?
