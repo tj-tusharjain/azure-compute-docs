@@ -14,7 +14,7 @@ On September 30, 2025, Microsoft Azure will retire the Standard_NC6s_v3, Standar
 
 Microsoft is recommending, the Azure [NC A100 v4-series](./nc-a100-v4-series.md) VMs, which offer greater GPU memory bandwidth per GPU, improved [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli) capabilities, larger and faster local solid state drives. Overall the NC A100 v4-series delivers [better cost performance](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/a-quick-start-to-benchmarking-in-azure-nvidia-deep-learning/ba-p/3563884) across midrange AI training and inference workloads. 
 
-Other VMs that may be migrated to from the Standard_NC6s_v3, Standard_NC12s_v3, and Standard_NC24s_v3 include NVadsA10_v5, NC_A100_v4, NCads_H100_v5, and NVadsV710_v5.
+Other VMs that may be migrated to from Standard_NC6s_v3, Standard_NC12s_v3, and Standard_NC24s_v3 include NVadsA10_v5, NC_A100_v4, NCads_H100_v5, and NVadsV710_v5.
 
 ## How does the retirement of the NC6s_v3, NC12s_v3, NC24s_v3 virtual machine sizes in NCv3-series affect me? 
 
