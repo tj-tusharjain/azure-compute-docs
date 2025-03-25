@@ -13,7 +13,12 @@ ms.date: 11/28/2022
 # PowerShell DSC Extension
 
 > [!NOTE]
-> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](/azure/governance/machine-configuration/overview). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
+> DSC extension will be retired on March 31, 2028, please transition to
+> [Azure Machine Configuration](/azure/governance/machine-configuration/overview) by that date. For more information, see the [blog post]
+> announcement. The Azure Machine Configuration service combines features of DSC Extension, Azure
+> Automation State Configuration, and the most commonly requested features from customer feedback.
+> Azure Machine Configuration also includes hybrid machine support through
+> [Arc-enabled servers](/azure/azure-arc/servers/overview).
 
 ## Overview
 
