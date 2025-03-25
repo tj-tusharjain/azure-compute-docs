@@ -17,7 +17,7 @@ sections:
       - question: |
           What are the prerequisites to create temp disk that uses NVMe interface for my VM?
         answer: |
-          NVMe support for local temp disks varies at a VM family level. All of the new v6 VMs with local disk support NVMe temp disks, but v5 VMs and earlier may not support NVMe local temp disks (most of those sizes local disks are on SCSI interface). Additionally, some VM families (like L-series) have had locally attached NVMe SSDs from Lsv2 generation VMs onward. Please refer to the spec pages for each VM family to determine if NVMe temp disks are supported. Also, please note your Guest OS needs to have NVMe driver support in order to use local NVMe, which most of the recent OS releases should have by default.             
+          NVMe support for local temp disks varies at a virtual machine (VM) family level. All of the new v6 VMs with local disk support NVMe temp disks, but v5 VMs and earlier versions may not support NVMe local temp disks, as most of those sizes local disks are on the SCSI interface.  Some VM families like L-series, has locally attached NVMe SSDs from Lsv2 generation VMs onward.  Refer to the VM family overviews to determine if NVMe temp disks are supported. Also, note your Guest OS needs to have NVMe driver support in order to use local NVMe, which most of the recent OS releases have by default.             
   
       - question: |
           How are temp NVMe disks in my Dl/D/E_v6 VMs different from remote NVMe disks?
