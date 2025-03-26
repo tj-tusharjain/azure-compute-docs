@@ -23,7 +23,7 @@ Instance mix is best suited for workloads that are flexible in compute requireme
 ## Use cases
 Instance mix is ideal for scenarios where flexibility and cost optimization are key. Common use cases include:
 
-- Running cost-sensitive workloads that can leverage multiple Spot VM sizes to minimize expenses.
+- Running cost-sensitive workloads that can use multiple Spot VM sizes to minimize expenses.
 - Gradually adopting newer VM generations, such as D32sv5 and D32sv6, while continuing to utilize existing older VMs in the same series.
 - Supporting workloads with a primary or preferred VM size, while having fallback or secondary VM sizes available for added flexibility.
 - Ensuring high availability and reliability by distributing a diverse mix of VMs across Availability Zones and Fault Domains, especially during periods of high demand.
@@ -59,7 +59,7 @@ The `capacityOptimized` allocation strategy is designed for workloads where secu
 
 ##### How `capacityOptimized` allocation works
 - Azure prioritizes available capacity, without factoring in price, when determining which VM sizes to deploy.
-- VMs are deployed by dynamically selecting VM sizes based on underlying capacity availability, ensuring that instances can be allocated even in highly utilized regions.
+- VM sizes are dynamically selected based on underlying capacity availability, ensuring that instances can be allocated even in highly utilized regions.
 - This strategy is useful for workloads that must secure compute resources without delays due to capacity shortages.
 
 ##### Considerations
@@ -68,7 +68,7 @@ The `capacityOptimized` allocation strategy is designed for workloads where secu
 - VM allocation is region-dependent. Availability may vary across Azure regions, and the selection process adapts accordingly.
 - Best suited for critical workloads. This strategy is ideal when securing VMs is more important than optimizing for cost.
 
-Using the `capacityOptimized` allocation strategy, users can ensure that their workloads receive the necessary compute resources, even in situations where capacity constraints might otherwise prevent VM allocation.
+Users can ensure that their workloads receive the necessary compute resources, even in situations where capacity constraints might otherwise prevent VM allocation.
 
 #### Prioritized
 The `Prioritized` allocation strategy enables control over how VM sizes are allocated by defining a priority ranking. `Prioritized` allows for a more predictable allocation order based on preferred VM sizes.
@@ -101,11 +101,11 @@ When using instance mix, keep the following limitations in mind:
 2. **Quota Requirements**: Ensure you have sufficient quota for the VM sizes you're requesting with instance mix.
 3. **VM Size Limit**: You can specify up to **five VM sizes** in an instance mix deployment.
 4. **Virtual Network Requirement**: For REST API deployments, an existing virtual network must be present in the resource group where the scale set is being deployed.
-5. **Architecture Consistency**: Mixing VM architectures (e.g., Arm64 and x64) in the same instance mix deployment is not supported.
-6. **Storage Interface Consistency**: VMs with different storage interfaces (e.g., SCSI and NVMe) cannot be mixed in the same instance mix.
+5. **Architecture Consistency**: Mixing VM architectures (for example, Arm64 and x64) in the same instance mix deployment isn't supported.
+6. **Storage Interface Consistency**: VMs with different storage interfaces (for example, SCSI and NVMe) can't be mixed in the same instance mix.
 7. **Security Profile Consistency**: All VMs specified in the `skuProfile` must share the same Security Profile.
 8. **Local Disk Configuration**: All selected VM sizes must have the same local disk configuration.
-9. **Unsupported Features**: Instance mix does not support the following:
+9. **Unsupported Features**: Instance mix doesn't support the following features:
     - Standby Pools
     - Azure Dedicated Host
     - Proximity Placement Groups
