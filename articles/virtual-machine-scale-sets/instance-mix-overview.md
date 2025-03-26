@@ -96,21 +96,19 @@ Following the scale set cost model, usage of instance mix is free. You continue 
 ## Limitations
 
 When using instance mix, keep the following limitations in mind:
-
-1. **Orchestration Mode**: Instance mix is only available for scale sets using Flexible Orchestration Mode.
-2. **Quota Requirements**: Ensure you have sufficient quota for the VM sizes you're requesting with instance mix.
-3. **VM Size Limit**: You can specify up to **five VM sizes** in an instance mix deployment.
-4. **Virtual Network Requirement**: For REST API deployments, an existing virtual network must be present in the resource group where the scale set is being deployed.
-5. **Architecture Consistency**: Mixing VM architectures (for example, Arm64 and x64) in the same instance mix deployment isn't supported.
-6. **Storage Interface Consistency**: VMs with different storage interfaces (for example, SCSI and NVMe) can't be mixed in the same instance mix.
-7. **Security Profile Consistency**: All VMs specified in the `skuProfile` must share the same Security Profile.
-8. **Local Disk Configuration**: All selected VM sizes must have the same local disk configuration.
-9. **Unsupported Features**: Instance mix doesn't support the following features:
+- **Orchestration Mode**: Instance mix is only available for scale sets using Flexible Orchestration Mode.
+- **Quota Requirements**: Ensure you have sufficient quota for the VM sizes you're requesting with instance mix.
+- **VM Size Limit**: You can specify up to **five VM sizes** in an instance mix deployment.
+- **Virtual Network Requirement**: For REST API deployments, an existing virtual network must be present in the resource group where the scale set is being deployed.
+- **Architecture Consistency**: Mixing VM architectures (for example, Arm64 and x64) in the same instance mix deployment isn't supported.
+- **Storage Interface Consistency**: VMs with different storage interfaces (for example, SCSI and NVMe) can't be mixed in the same instance mix.
+- **Security Profile Consistency**: All VMs specified in the `skuProfile` must share the same Security Profile.
+- **Local Disk Configuration**: All selected VM sizes must have the same local disk configuration.
+- **Unsupported Features**: Instance mix doesn't support the following features:
     - Standby Pools
     - Azure Dedicated Host
     - Proximity Placement Groups
-10. **Scaling Behavior with MaxSurge**: During scaling actions with MaxSurge, instance mix replaces the VM with the same size it had before the scaling action.
-
+- **Scaling Behavior with MaxSurge**: During scaling actions with MaxSurge, instance mix replaces the VM with the same size it had before the scaling action.
 
 ## Next steps
 Learn how to [create a scale set using instance mix](instance-mix-create.md).
