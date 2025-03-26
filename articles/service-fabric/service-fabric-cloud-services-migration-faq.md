@@ -1,6 +1,6 @@
 ---
 title: FAQ for converting Azure Cloud Services (extended support) apps to Service Fabric 
-description: This guide answers most frequently asked questions aka FAQ for Cloud Services (extended support) migration to Service Fabric managed cluster.
+description: This guide answers most frequently asked questions (FAQ) for Cloud Services (extended support) migration to Service Fabric managed cluster.
 ms.topic: how-to
 ms.author: hirshah
 author: hirshah
@@ -12,7 +12,16 @@ ms.date: 03/25/2025
 # Frequently Asked Questions (FAQ)
 This guide answers most frequently asked questions (FAQ) for Cloud Services (extended support) migration to Service Fabric managed cluster.
 
-## Pricing 
+##Why this retirement ?
+Migrating from Cloud Services (Extended Support) to Service Fabric managed cluster enhances the scalability, flexibility, and reliability of your Azure deployments. We encourage you to transition to Service Fabric managed clust   er prior to the retirement date to experience the advantages of faster deployment, high-density hosting, and distributed platform hosting.
+
+##What is the retirement date ?
+From now to 31 March 2027, you can continue to use Cloud Services (extended support) without disruption. To avoid service disruption, you must  migrate workloads running Cloud Services (extended support) to Service Fabric managed clusters by March 31, 2027. 
+
+##Can I request extension ?
+Unfortunately, we cannot grant extension requests and customers must migrate within the two year retirement window until 31-March-2027.
+
+## Pricing change
 There is no pricing rate change for VM size because of this migration and customers continue to get billed same rate while using the same size.
 
 ## Migration tooling
