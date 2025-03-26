@@ -19,7 +19,6 @@ Instance mix is best suited for workloads that are flexible in compute requireme
 - Deploy a heterogeneous mix of VM sizes in a single scale set. You can view max scale set instance counts in the [documentation](./virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
 - Optimize your deployments for cost or capacity through allocation strategies.
 - Continue to make use of scale set features, like [Spot Priority Mix](./spot-priority-mix.md) or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
-- 
 ## Use cases
 Instance mix is ideal for scenarios where flexibility and cost optimization are key. Common use cases include:
 
