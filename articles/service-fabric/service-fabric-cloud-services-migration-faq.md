@@ -13,7 +13,7 @@ ms.date: 03/25/2025
 This guide answers most frequently asked questions (FAQ) for Cloud Services (extended support) migration to Service Fabric managed cluster.
 
 ## Pricing 
-There will be no pricing rate change for VM SKU size and customers continue to get billed same rate for same VM size.
+There is no pricing rate change for VM size because of this migration and customers continue to get billed same rate while using the same size.
 
 ## Migration tooling
 Migrating from Cloud Service (extended support) to Service Fabric managed cluster requires architecture and deployment modifications, and hence there is no one-click migration tooling available. Each application must determine how its code runs on the VM/node and make custom adjustments accordingly.
