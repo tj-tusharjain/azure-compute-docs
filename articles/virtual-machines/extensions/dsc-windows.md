@@ -14,7 +14,7 @@ ms.date: 11/28/2022
 
 > [!NOTE]
 > DSC extension will be retired on March 31, 2028, please transition to
-> [Azure Machine Configuration](/azure/governance/machine-configuration/overview) by that date. For more information, see the [blog post](https://azure.microsoft.com/en-us/updates/?id=485828)
+> [Azure Machine Configuration](/azure/governance/machine-configuration/overview) by that date. For more information, see the [blog post](https://azure.microsoft.com/updates/?id=485828)
 > announcement. The Azure Machine Configuration service combines features of DSC Extension, Azure
 > Automation State Configuration, and the most commonly requested features from customer feedback.
 > Azure Machine Configuration also includes hybrid machine support through
