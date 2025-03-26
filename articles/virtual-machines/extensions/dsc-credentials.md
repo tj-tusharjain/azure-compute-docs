@@ -16,7 +16,7 @@ ms.custom:
 This article covers the Desired State Configuration (DSC) extension for Azure. For an overview of the DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](dsc-overview.md).
 
 > [!NOTE]
-> DSC extension will be retired on March 31, 2028, please transition to
+> DSC extension will be retired on March 31, 2028. Please transition to:
 > [Azure Machine Configuration](/azure/governance/machine-configuration/overview) by that date.
 > For more information, see the [blog post](https://azure.microsoft.com/updates/?id=485828)
 > announcement. The Azure Machine Configuration service combines certain features of DSC Extension, Azure
