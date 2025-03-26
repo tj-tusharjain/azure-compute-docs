@@ -920,8 +920,8 @@
       href: service-fabric-cloud-services-migration-differences.md
     - name: Migrate to Service Fabric
       href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
-    - name: Recommended practices
-      href: /azure/architecture/service-fabric/migrate-from-cloud-services
+    - name: Frequently asked questions (FAQ)
+      href: service-fabric-cloud-services-migration-faq.md
     - name: Modernize your application
       href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
 - name: Reference
