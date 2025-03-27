@@ -153,6 +153,7 @@ Network interface info for each size
 | Standard_M192ids_v2  | 8 | 30000 | 
 | Standard_M192idms_v2 | 8 | 30000 |
 
+---
 [!INCLUDE [virtual-machines-common-sizes-table-defs](./includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes and information
