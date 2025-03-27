@@ -90,6 +90,7 @@ Network interface info for each size
 | Standard_M192is_v2  | 8 | 30000 | 
 | Standard_M192ims_v2 | 8 | 30000 |
 
+---
 ## Mdsv2 Medium Memory with Disk  
 
 ### [Basics](#tab/mdsv2basics)
