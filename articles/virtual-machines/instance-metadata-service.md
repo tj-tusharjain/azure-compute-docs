@@ -1517,7 +1517,7 @@ If there's a data element not found or a malformed request, the Instance Metadat
 
 ## Support
 
-If you'ren't able to get a metadata response after multiple attempts, you can create a support issue in the Azure portal.
+If you aren't able to get a metadata response after multiple attempts, you can create a support issue in the Azure portal.
 
 ## Product feedback
 
