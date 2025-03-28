@@ -33,7 +33,7 @@ There are two isolation levels that are supported in Reliable Collections:
          * Writes are blocked while there is an active read of the data
          * Reads are also blocked while there is an active write of the data. 
 * **Snapshot**: Specifies that data read by any statement in a transaction is the transactionally consistent version of the data that existed at the start of the transaction.
-  The transaction can recognize only data modifications that were committed before the start of the transaction.
+  The transaction can recognize only data modifications that were committed before the first read of the transaction.
   Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.
   The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.
   Snapshots are consistent across Reliable Collections.
