@@ -26,11 +26,22 @@ Isolation level defines the degree to which the transaction must be isolated fro
 There are two isolation levels that are supported in Reliable Collections:
 
 * **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes.
+    * Benefits of Read Repeatable Transactions:
+         * Lower memory footprint than snapshot transactions
+         * Ensures consistent return of values for multiple reads at a given time
+     * Considerations for Read Repeatable Transactions:
+         * Writes are blocked while there is an active read of the data
+         * Reads are also blocked while there is an active write of the data. 
 * **Snapshot**: Specifies that data read by any statement in a transaction is the transactionally consistent version of the data that existed at the start of the transaction.
   The transaction can recognize only data modifications that were committed before the start of the transaction.
   Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.
   The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.
   Snapshots are consistent across Reliable Collections.
+    * Benefits of Snapshot Transactions:
+         * Allows for writes even when a value has been read in an uncommitted transaction
+     *  Considerations for Snapshot Transactions:
+         * Long running snapshot transactions can result in a large memory footprint for the service as more values are moved into memory to maintain the snapshot isolation
+         * Different transactions can return different values for read data depending on when the snapshot was taken
 
 Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica at the time of transaction's creation.
 Following is the table that depicts isolation level defaults for Reliable Dictionary and Queue operations.
@@ -47,6 +58,15 @@ Following is the table that depicts isolation level defaults for Reliable Dictio
 Both the Reliable Dictionary and the Reliable Queue support *Read Your Writes*.
 In other words, any write within a transaction will be visible to a following read
 that belongs to the same transaction.
+
+### Example Repeatable Read Behavior
+![Reliable Collections Read Repeatable Isolation Example](media/service-fabric-reliable-services-reliable-collections-transactions-locks/RC-ReadRepeatable-Isolation.png "Read Repeatable Isolation Transaction Graph")
+
+In this example you can see that T2 is prevented from acquiring a lock on K1 until T1 Commits since T1 currently holds a read lock on the key. 
+### Example Snapshot Behavior
+![Reliable Collections Snapshot Isolation Example](media/service-fabric-reliable-services-reliable-collections-transactions-locks/RC-Snapshot-Isolation.png "Snapshot Isolation Transaction Graph")
+
+In this example you can see that even though T2 has updated the value of K1 to V6, T2 still enumerts K1 as V1 while still being aware its own change to K2. T3 is unaffected since it reads keys that do not have any current write locks. 
 
 ## Locks
 
