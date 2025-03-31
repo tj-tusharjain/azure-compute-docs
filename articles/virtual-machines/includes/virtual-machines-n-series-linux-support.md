@@ -22,6 +22,9 @@ For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](
 > [!Note]
 >The Azure NVads A10 v5 VMs only support GRID 14.1(510.73) or higher driver versions. The vGPU driver for the A10 SKU is a unified driver that supports both graphics and compute workloads.
 
+> [!CAUTION]
+> Secure Boot and vTPM should be disabled because the process will hang when they are enabled.
+
 > [!TIP]
 > As an alternative to manual CUDA driver installation on a Linux VM, you can deploy an Azure [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) image. The DSVM edition for Ubuntu 16.04 LTS pre-installs NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
 
