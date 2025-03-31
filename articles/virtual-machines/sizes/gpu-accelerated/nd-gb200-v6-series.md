@@ -1,32 +1,24 @@
 ---
-title: Ddv4 size series
-description: Information on and specifications of the Ddv4-series sizes
-author: mattmcinnes
+title: ND GB200-v6 size series
+description: Information on and specifications of the ND GB200-v6-series sizes
+author: iamwilliew
 ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 07/29/2024
-ms.author: mattmcinnes
+ms.date: 03/20/2025
+ms.author: wwilliams
 ms.reviewer: mattmcinnes
 ---
 
-# Ddv4 sizes series
+# ND GB200-v6 sizes series
 
-[!INCLUDE [ddv4-summary](./includes/ddv4-series-summary.md)]
+[!INCLUDE [nd-gb200-v6--summary](./includes/nd-gb200-v6-series-summary.md)]
 
 ## Host specifications
-[!INCLUDE [ddv4-series-specs](./includes/ddv4-series-specs.md)]
+[!INCLUDE [nd-gb200-v6-series-specs](./includes/nd-gb200-v6-series-specs.md)]
 
 ## Feature support
-
-Premium Storage: Not Supported<br>
-Premium Storage caching: Not Supported<br>
-Live Migration: Supported<br>
-Memory Preserving Updates: Supported<br>
-VM Generation Support: Generation 1 and 2<br>
-Accelerated Networking: Supported<br>
-Ephemeral OS Disks: Supported<br>
-Nested Virtualization: Supported<br>
+[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Not Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Not Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Not Supported <br>[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 
 ## Sizes in series
 
@@ -36,31 +28,18 @@ vCPUs (Qty.) and Memory for each size
 
 | Size Name | vCPUs (Qty.) | Memory (GB) |
 | --- | --- | --- |
-| Standard_D2d_v4 | 2 | 8 |
-| Standard_D4d_v4 | 4 | 16 |
-| Standard_D8d_v4 | 8 | 32 |
-| Standard_D16d_v4 | 16 | 64 |
-| Standard_D32d_v4 | 32 | 128 |
-| Standard_D48d_v4 | 48 | 192 |
-| Standard_D64d_v4 | 64 | 256 |
+| Standard_ND128isr_NDR_GB200_v6 | 128 | 900 |
 
 #### VM Basics resources
-- [What are vCPUs](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
-### [Local Storage](#tab/sizestoragelocal)
+### [Local storage](#tab/sizestoragelocal)
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Throughput (MB/s) |
-| --- | --- | --- | --- | --- |
-| Standard_D2d_v4 | 1 | 75 | 9000 | 125 |
-| Standard_D4d_v4 | 1 | 150 | 19000 | 250 |
-| Standard_D8d_v4 | 1 | 300 | 38000 | 500 |
-| Standard_D16d_v4 | 1 | 600 | 75000 | 1000 |
-| Standard_D32d_v4 | 1 | 1200 | 150000 | 2000 |
-| Standard_D48d_v4 | 1 | 1800 | 225000 | 3000 |
-| Standard_D64d_v4 | 1 | 2400 | 300000 | 4000 |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (TB) |
+| --- | --- | --- |
+| Standard_ND128isr_NDR_GB200_v6 | 4 | 16 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -68,24 +47,18 @@ Local (temp) storage info for each size
 - [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
 
 #### Table definitions
-- <sup>1</sup>Temp disk speed often differs between RR (Random Read) and RW (Random Write) operations. RR operations are typically faster than RW operations. The RW speed is usually slower than the RR speed on series where only the RR speed value is listed.
+- Temp disk speed often differs between RR (Random Read) and RW (Random Write) operations. RR operations are typically faster than RW operations. The RW speed is usually slower than the RR speed on series where only the RR speed value is listed.
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
 
-### [Remote Storage](#tab/sizestorageremote)
+### [Remote storage](#tab/sizestorageremote)
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage Disks (Qty.) | Uncached Premium SSD Disk IOPS | Uncached Premium SSD Throughput (MB/s) | Uncached Premium SSD Burst<sup>1</sup> IOPS | Uncached Premium SSD Burst<sup>1</sup> Throughput (MB/s) |
-| --- | --- | --- | --- | --- | --- |
-| Standard_D2d_v4 | 4 | 3200 | 48 | 4000 | 200 |
-| Standard_D4d_v4 | 8 | 6400 | 96 | 8000 | 200 |
-| Standard_D8d_v4 | 16 | 12800 | 192 | 16000 | 400 |
-| Standard_D16d_v4 | 32 | 25600 | 384 | 32000 | 800 |
-| Standard_D32d_v4 | 32 | 51200 | 768 | 64000 | 1600 |
-| Standard_D48d_v4 | 32 | 76800 | 1152 | 80000 | 2000 |
-| Standard_D64d_v4 | 32 | 80000 | 1200 | 80000 | 2000 |
+| Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) |
+| --- | --- | --- | --- |
+| Standard_ND128isr_NDR_GB200_v6 | 316 | 80000 | 1200 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -93,8 +66,8 @@ Remote (uncached) storage info for each size
 - [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
 
 #### Table definitions
-- <sup>1</sup>Some sizes support [bursting](../../disk-bursting.md) to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
-
+- Some sizes support [bursting](../../disk-bursting.md) to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
+- Special Storage refers to either [Ultra Disk](../../../virtual-machines/disks-enable-ultra-ssd.md) or [Premium SSD v2](../../../virtual-machines/disks-deploy-premium-v2.md) storage.
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
@@ -105,34 +78,29 @@ Remote (uncached) storage info for each size
 
 Network interface info for each size
 
-| Size Name | Max NICs (Qty.) | Max Network Bandwidth (Mb/s) |
-| --- | --- | --- |
-| Standard_D2d_v4 | 2 | 5000 |
-| Standard_D4d_v4 | 2 | 10000 |
-| Standard_D8d_v4 | 4 | 12500 |
-| Standard_D16d_v4 | 8 | 12500 |
-| Standard_D32d_v4 | 8 | 16000 |
-| Standard_D48d_v4 | 8 | 24000 |
-| Standard_D64d_v4 | 8 | 30000 |
+| Size Name | Max Front-end NICs (Qty.) | Max Front-end Bandwidth (Mbps) | Max Scale-up NICS (Qty.) | Max Scale-Up Bandwidth (Gbps)<sup>1</sup> | Max Scale-out NICS (Qty.) | Max Scale-Out Bandwidth (TBps)<sup>2</sup> |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_ND128isr_NDR_GB200_v6 | 1 | 160 | 4 | 400 | 4 | 1.8 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
 - [Virtual machine network bandwidth](/azure/virtual-network/virtual-machine-network-throughput)
 
 #### Table definitions
+- <sup>1</sup> Bandwidth is per NIC to up to 100,000 of GPUs through InfiniBand
+- <sup>2</sup> Bandwidth is up to 72 GPUs per domain through NVLINK
 - Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](/azure/virtual-network/virtual-machine-network-throughput)
 - Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](/azure/virtual-network/virtual-network-optimize-network-bandwidth). 
--  To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](/azure/virtual-network/virtual-network-bandwidth-testing).
+- To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](/azure/virtual-network/virtual-network-bandwidth-testing).
 
 ### [Accelerators](#tab/sizeaccelerators)
 
 Accelerator (GPUs, FPGAs, etc.) info for each size
 
-> [!NOTE]
-> No accelerators are present in this series.
+| Size Name | Accelerators (Qty.) | Accelerator-Memory (GB) |
+| --- | --- | --- |
+| Standard_ND128isr_NDR_GB200_v6 | 4 | 192 |
 
 ---
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
-
-
