@@ -17,23 +17,21 @@ There are five types of managed disks: Ultra Disks, Premium solid-state drives (
 
 An alternative is to use Azure Elastic SAN as the storage for your virtual machine (VM). With Elastic SAN, you can consolidate the storage for all your workloads into a single storage back end. Elastic SAN can be more cost effective if you have many large-scale, I/O-intensive workloads and top-tier databases. To learn more, see [What is Azure Elastic SAN?](/azure/storage/elastic-san/elastic-san-introduction).
 
-## Benefits of managed disks
-
-### High durability and availability
+## High durability and availability
 
 Managed disks are designed for 99.999% availability, to achieve this availability, managed disks provide three replicas of your data. If one or two replicas experience problems, the remaining replicas help ensure persistence of your data and high tolerance against failures.
 
 This architecture helps Azure consistently deliver high durability for infrastructure as a service (IaaS) disks, with a 0% annualized failure rate. Locally redundant storage (LRS) disks provide at least 99.999999999% (11 9's) of durability over a year. Zone-redundant storage (ZRS) disks provide at least 99.9999999999% (12 9's) of durability over a year.
 
-### Simple and scalable VM deployment
+## Simple and scalable VM deployment
 
 With managed disks, you can create up to 50,000 disks of each disk type in a subscription per region. You can then create thousands of VMs in a single subscription.
 
 Managed disks increase the scalability of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md). You can create up to 1,000 VMs in a virtual machine scale set by using an Azure Marketplace image or an Azure Compute Gallery image with managed disks.
 
-### Failure isolation
+## Failure isolation
 
-#### Integration with availability sets
+### Integration with availability sets
 
 Managed disks are integrated with availability sets to help ensure that the disks of [VMs in an availability set](./availability-set-overview.md) are sufficiently isolated from each other to avoid a single point of failure.
 
@@ -41,19 +39,19 @@ Disks are automatically placed in different storage scale units (stamps). If a s
 
 For example, say you have an application running on five VMs that are in an availability set. The disks for those VMs aren't all stored in the same stamp. So if one stamp goes down, the other instances of the application continue to run.
 
-#### Integration with availability zones
+### Integration with availability zones
 
 Managed disks support [availability zones](/azure/reliability/availability-zones-overview), which help protect your applications from datacenter failures. Availability zones are unique physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
 
 For information about the service-level agreement (SLA) for VM uptime with availability zones, see the [page for Azure SLAs](https://azure.microsoft.com/support/legal/sla/).
 
-### Performance options
+## Performance options
 
 The demands and needs of your workload can shift over time, either due to high demand during a holiday, sudden bursts of traffic, or scaling up to meet client needs. Azure managed disks have several capabilities you can take advantage of to improve their performance and match the shifting needs of your workloads. Different disk types offer different capabilities, some disk types have capabilities you can use to ensure their performance automatically shifts to meet the changing demands of your workload, others require manual adjustment, and other disk types can't do either.
 
 To learn about the options each disk type has, see [Overview of options to improve Azure managed disk performance](disks-performance-options.md)
 
-### Backup and disaster recovery options
+## Backup and disaster recovery options
 
 Managed disks support several backup and disaster recovery options. These options include built-in redundancy options (locally redundant storage, and zone-redundant storage), Azure Backup, managed disk snapshots, restore points, and Azure Site Recovery. The ideal configuration of backup and disaster recovery options for your needs can vary. To decide which works best for your needs, see [Backup and disaster recovery for Azure managed disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
@@ -71,21 +69,21 @@ A snapshot is a copy of a disk at a point in time. It applies only to one disk. 
 
 A snapshot doesn't have awareness of any disk except the one that it contains. Using snapshots in scenarios that require the coordination of multiple disks, such as striping, is problematic. Snapshots would need to be able to coordinate with each other, and that's not supported.
 
-### Upload your VHD or VHDX
+## Upload your VHD or VHDX
 
 You can reduce costs by uploading data to managed disks directly, without attaching them to VMs. With direct upload, you can upload VHDs up to 32 TiB in size. To learn how to upload your VHD to Azure, see the [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md) articles.
 
-### Security
+## Security
 
 ### Control access to managed disk imports and exports
 
 You have several options for protecting your managed disks from being imported or exported. You can create a custom Azure role-based access control (RBAC) role with a limited permission set, you can use Microsoft Entra ID, Private Links, Azure Policy, or configure the `NetworkAccessPolicy` parameter on your disk resources. To learn more, see [Restrict managed disks from being imported or exported](disks-restrict-import-export-overview.md).
 
-#### Encryption
+### Encryption
 
 Several kinds of encryption are available for your managed disks, including Server-Side Encryption (SSE), Azure Disk Encryption (ADE), encryption at host, and confidential disk encryption. You can use either platform-managed keys or customer-managed keys with these encryption options. To learn more about your encryption options, see [Overview of managed disk encryption options](disk-encryption-overview.md)
 
-### Shared disks
+## Shared disks
 
 For use with cluster applications, you can attach an individual managed disk to multiple VMs simultaneously, allowing you to either deploy new or migrate existing clustered applications to Azure. This configuration requires a cluster manager, like Windows Server Failover Cluster (WSFC), or Pacemaker, that handles cluster node communication and write locking. To learn more about this configuration, see [Share an Azure managed disk](disks-shared.md).
 
