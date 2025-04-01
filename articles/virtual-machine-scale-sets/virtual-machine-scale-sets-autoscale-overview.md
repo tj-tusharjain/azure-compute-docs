@@ -105,7 +105,7 @@ The following host-based metrics are available for use when you create autoscale
 | CPU Credits Consumed      |
 
 When you create autoscale rules to monitor a given metric, the rules look at one of the following metrics aggregation actions:
-Average
+- Average
 - Minimum
 - Maximum
 - Total
@@ -113,15 +113,12 @@ Average
 - Count
 
 The autoscale rules are then triggered when the metrics are compared against your defined threshold with one of the following operators:
-
-| Operator                 |
-|--------------------------|
-| Greater than             |
-| Greater than or equal to |
-| Less than                |
-| Less than or equal to    |
-| Equal to                 |
-| Not equal to             |
+- Greater than            
+- Greater than or equal to
+- Less than               
+- Less than or equal to   
+- Equal to                
+- Not equal to            
 
 ### Actions when rules trigger
 When an autoscale rule triggers, your scale set can automatically scale in one of the following ways:
