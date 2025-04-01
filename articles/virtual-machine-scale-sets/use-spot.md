@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: azure-virtual-machine-scale-sets
 ms.subservice: azure-spot-vm
-ms.date: 06/14/2024
+ms.date: 04/01/2025
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Azure Spot Virtual Machines for Virtual Machine Scale Sets 
 
-Using Azure Spot Virtual Machines on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure evicts Azure Spot Virtual Machine instances. Therefore, Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
+Using [Azure Spot Virtual Machines](../virtual-machines/spot-vms.md) on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure evicts Azure Spot Virtual Machine instances. Therefore, Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machine instances on scale sets, Azure allocates the instance only if there's capacity available, but there's no SLA for these instances. An Azure Spot Virtual Machine Scale Set is deployed in a single fault domain and offers no high availability guarantees.
 
@@ -90,13 +90,13 @@ To deploy Azure Spot Virtual Machines on scale sets, you can set the new *Priori
 - [Azure PowerShell](#powershell)
 - [Azure Resource Manager templates](#resource-manager-templates)
 
-## Portal
+## [Azure portal](#tab/portal-1)
 
 The process to create a scale set that uses Azure Spot Virtual Machines is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the Spot flag, eviction type, eviction policy and if you want to try to restore instances:
 ![Create a scale set with Azure Spot Virtual Machines](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-1.png)
 
 
-## Azure CLI
+## [Azure CLI](#tab/cli-1)
 
 > [!IMPORTANT]
 >Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
@@ -119,7 +119,7 @@ az vmss create \
     --spot-restore-timeout PT1H
 ```
 
-## PowerShell
+## [PowerShell](#tab/ps-1)
 
 > [!IMPORTANT]
 >Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
@@ -139,6 +139,8 @@ $vmssConfig = New-AzVmssConfig `
     -SpotRestoreTimeout 60 `
     -EvictionPolicy delete
 ```
+
+---
 
 ## Resource Manager templates
 
@@ -191,57 +193,6 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 `Response Code: 204` means the simulated eviction was successful. 
 
 For more information, see [Testing a simulated eviction notification](../virtual-machines/windows/spot-powershell.md#simulate-an-eviction).
-
-## FAQ
-
-**Q:** Once created, is an Azure Spot Virtual Machine instance the same as standard instance?
-
-**A:** Yes, except there's no SLA for Azure Spot Virtual Machines and they can be evicted at any time.
-
-
-**Q:** What to do when you get evicted, but still need capacity?
-
-**A:** We recommend you use standard VMs instead of Azure Spot Virtual Machines if you need capacity right away.
-
-
-**Q:** How is quota managed for Azure Spot Virtual Machine?
-
-**A:** Azure Spot Virtual Machine instances and standard instances have separate quota pools. Azure Spot Virtual Machine quota is shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
-
-
-**Q:** Can I request for additional quota for Azure Spot Virtual Machine?
-
-**A:** Yes, you are able to submit the request to increase your quota for Azure Spot Virtual Machines through the [standard quota request process](/azure/azure-portal/supportability/per-vm-quota-requests).
-
-
-**Q:** Can I convert existing scale sets to Azure Spot Virtual Machine Scale Sets?
-
-**A:** No, setting the `Spot` flag is only supported at creation time.
-
-
-**Q:** If I was using `low` for low-priority scale sets, do I need to start using `Spot` instead?
-
-**A:** For now, both `low` and `Spot` will work, but you should start transitioning to using `Spot`.
-
-
-**Q:** Can I create a scale set with both regular VMs and Azure Spot Virtual Machines?
-
-**A:** No, a scale set cannot support more than one priority type.
-
-
-**Q:**  Can I use autoscale with Azure Spot Virtual Machine Scale Sets?
-
-**A:** Yes, you can set autoscaling rules on your Azure Spot Virtual Machine Scale Set. If your VMs are evicted, autoscale can try to create new Azure Spot Virtual Machines. Remember, you are not guaranteed this capacity though. 
-
-
-**Q:**  Does autoscale work with both eviction policies (deallocate and delete)?
-
-**A:** Yes, however it is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. Also, your scaling operations could be impacted by spot evictions. For example, Virtual Machine Scale Set instances could fall below the set min count due to multiple spot evictions during scaling operations. 
-
-
-**Q:** Where can I post questions?
-
-**A:** You can post and tag your question with `azure-spot` at [Q&A](/answers/topics/azure-spot.html). 
 
 ## Next steps
 
