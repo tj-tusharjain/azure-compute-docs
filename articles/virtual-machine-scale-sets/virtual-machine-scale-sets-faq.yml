@@ -46,9 +46,9 @@ sections:
           All regions support scale sets.
 
       - question: |
-          Which Stock Keeping Units (SKUs) are supported for Virtual Machine Scale Sets?
+          Which Azure Virtual Machine Stock Keeping Units (SKUs) are supported for Virtual Machine Scale Sets?
         answer: |
-          All SKUs are supported for Virtual Machine Scale Sets.
+          All Virtual Machine SKUs are supported for Virtual Machine Scale Sets.
 
       - question: |
           How do I create a scale set by using a custom image?
@@ -89,7 +89,7 @@ sections:
       - question: |
           Do scale sets work with Azure availability zones?
         answer: |
-          Yes. For more information, see the [scale set zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
+          Yes. For more information, see the [scale set availability zone documentation](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
   - name: Autoscale
@@ -271,7 +271,7 @@ sections:
           For an example, see [the vm-sshkey GitHub quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json).
 
       - question: |
-          When I run `Update-AzVmss` after adding more than one certificate from the same key vault, why do I get an error message?
+          When I run Update-AzVmss after adding more than one certificate from the same key vault, why do I get an error message?
         answer: |
           This error can happen if you try to readd the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command doesn't work correctly if you're adding more secrets.
 
@@ -293,7 +293,7 @@ sections:
           You don't need to hard-code passwords in scripts. You can dynamically retrieve passwords with the permissions you use to run the deployment script. If you have a script that moves a certificate from the secret store key vault, the secret store `get certificate` command also outputs the password of the .pfx file.
 
       - question: |
-          How does the `Secrets` property of `virtualMachineProfile.osProfile` for a Virtual Machine Scale Set work? Why do I need the `sourceVault` value when I have to specify the absolute URI for a certificate by using the `certificateUrl` property?
+          How does the Secrets property of the virtualMachineProfile.osProfile for a Virtual Machine Scale Set work? Why do I need the sourceVault value when I have to specify the absolute URI for a certificate by using the certificateUrl property?
         answer: |
           A Windows Remote Management (WinRM) certificate reference must be present in the `Secrets` property of the operating system profile.
 
