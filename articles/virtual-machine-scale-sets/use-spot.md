@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 Using [Azure Spot Virtual Machines](../virtual-machines/spot-vms.md) (VMs) on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure evicts Azure Spot Virtual Machine instances. Therefore, Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machine instances on scale sets, Azure allocates the instance only if there's capacity available, but there's no SLA for these instances. An Azure Spot Virtual Machine Scale Set is deployed in a single fault domain and offers no high availability guarantees.
+The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machine instances on scale sets, Azure allocates the instance only if there's capacity available, but there's no Service Level Agreement (SLA) for these instances. An Azure Spot Virtual Machine Scale Set is deployed in a single fault domain and offers no high availability guarantees.
 
 ## Limitations
 
@@ -43,11 +43,11 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 ## Eviction policy
 
-When creating a scale set using Azure Spot Virtual Machines, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
+When creating a scale set using Azure Spot Virtual Machines, you can set the eviction policy to `Deallocate` (default) or `Delete`. 
 
 The `Deallocate` policy moves your evicted instances to the stopped-deallocated state allowing you to redeploy evicted instances. However, there's no guarantee that the allocation will succeed. The deallocated VMs counts against your scale set instance quota and you're charged for your underlying disks. 
 
-If you would like your instances to be deleted when they're evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you won't be charged for the storage. You can also use the autoscaling feature of scale sets to automatically try to compensate for evicted VMs, however, there's no guarantee that the allocation succeeds. It's recommended you only use the autoscale feature on Azure Spot Virtual Machine Scale Sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
+If you would like your instances to be deleted when they're evicted, you can set the eviction policy to `Delete`. With the eviction policy set to `delete`, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you aren't charged for the storage. You can also use the autoscaling feature of scale sets to automatically try to compensate for evicted VMs, however, there's no guarantee that the allocation succeeds. It's recommended you only use the autoscale feature on Azure Spot Virtual Machine Scale Sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
 
 Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This notifies you if your VMs are being evicted and you have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
@@ -77,14 +77,14 @@ Try & restore is disabled in scale sets that use [Autoscale](virtual-machine-sca
 
 ## Placement Groups
 
-Placement group is a construct similar to an Azure availability set, with its own fault domains and upgrade domains. By default, a scale set consists of a single placement group with a maximum size of 100 VMs. If the scale set property called `singlePlacementGroup` is set to *false*, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. 
+Placement group is a construct similar to an Azure availability set, with its own fault domains and upgrade domains. By default, a scale set consists of a single placement group with a maximum size of 100 VMs. If the scale set property called `singlePlacementGroup` is set to `false`, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. 
 
 > [!IMPORTANT]
-> Unless you're using Infiniband with HPC, it's strongly recommended to set the scale set property `singlePlacementGroup` to *false* to enable multiple placement groups for better scaling across the region or zone. 
+> Unless you're using Infiniband for high-performance computing, it's strongly recommended to set the scale set property `singlePlacementGroup` to `false` to enable multiple placement groups for better scaling across the region or zone. 
 
 ## Deploying Azure Spot Virtual Machines in scale sets
 
-To deploy Azure Spot Virtual Machines on scale sets, you can set the new *Priority* flag to *Spot*. All VMs in your scale set will be set to Spot. To create a scale set with Azure Spot Virtual Machines, use one of the following methods:
+To deploy Azure Spot Virtual Machines on scale sets, you can set the new `Priority` flag to `Spot`. All VMs in your scale set will be set to Spot. To create a scale set with Azure Spot Virtual Machines, use one of the following methods:
 
 ## [Azure portal](#tab/portal-1)
 
@@ -121,7 +121,7 @@ az vmss create \
 >Starting November 2023, scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
 The process to create a scale set with Azure Spot Virtual Machines is the same as detailed in the [getting started article](quick-create-powershell.md).
-Just add '-Priority Spot', and supply a `-max-price` to the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+Just add `-Priority "Spot"`, and supply a `-max-price` to the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
