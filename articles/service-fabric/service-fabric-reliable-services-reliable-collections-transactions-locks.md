@@ -59,14 +59,14 @@ Both the Reliable Dictionary and the Reliable Queue support *Read Your Writes*.
 In other words, any write within a transaction will be visible to a following read
 that belongs to the same transaction.
 
-### Example Repeatable Read Behavior
-![Reliable Collections Read Repeatable Isolation Example](media/service-fabric-reliable-services-reliable-collections-transactions-locks/RC-ReadRepeatable-Isolation.png "Read Repeatable Isolation Transaction Graph")
+### Example repeatable read behavior
+![Reliable Collections Read Repeatable Isolation Example](media/service-fabric-reliable-services-reliable-collections-transactions-locks/reliable-collections-read-repeatable-isolation.png "Screenshot of sequence diagram describing an example transaction flow involving a read repeatable transaction.")
 
 In this example you can see that T2 is prevented from acquiring a lock on K1 until T1 Commits since T1 currently holds a read lock on the key. 
-### Example Snapshot Behavior
-![Reliable Collections Snapshot Isolation Example](media/service-fabric-reliable-services-reliable-collections-transactions-locks/RC-Snapshot-Isolation.png "Snapshot Isolation Transaction Graph")
+### Example snapshot behavior
+![Reliable Collections Snapshot Isolation Example](media/service-fabric-reliable-services-reliable-collections-transactions-locks/reliable-collections-snapshot-isolation.png "Screenshot of sequence diagram describing an example transaction flow involving a snapshot isolation transaction.")
 
-In this example you can see that even though T2 has updated the value of K1 to V6, T2 still enumerts K1 as V1 while still being aware its own change to K2. T3 is unaffected since it reads keys that do not have any current write locks. 
+In this example you can see that even though T2 has updated the value of K1 to V6, T2 still enumerates K1 as V1 while still being aware its own change to K2. T3 is unaffected since it reads keys that do not have any current write locks. 
 
 ## Locks
 
