@@ -84,7 +84,7 @@ Rich Health States reporting contains four Health States, *Initializing*, *Healt
 | TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
 | TCP | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). | 
 
-## Initializing state
+### Initializing state
 
 This state only applies to Rich Health States. The *Initializing* state only occurs once at extension start time and can be configured by the extension settings `gracePeriod` and `numberOfProbes`.  
 
@@ -94,7 +94,7 @@ At extension startup, the application health will remain in the *Initializing* s
 
 If the same Health State (*Healthy* or *Unhealthy*) is reported consecutively, the application health will transition out of the *Initializing* state and into the reported Health State (*Healthy* or *Unhealthy*). 
 
-### Example
+#### Example
 
 If `numberOfProbes` = 3, that would mean:
 - To transition from *Initializing* to *Healthy* state: Application health extension must receive three consecutive *Healthy* signals via HTTP/HTTPS or TCP protocol 
@@ -104,7 +104,7 @@ If the `gracePeriod` expires before a consecutive health status is reported by t
 - HTTP/HTTPS protocol: The application health will transition from *Initializing* to *Unknown*  
 - TCP protocol: The application health will transition from *Initializing* to *Unhealthy* 
 
-## Unknown state 
+### Unknown state 
 
 This state only applies to Rich Health States. The *Unknown* state is only reported for "http" or "https" probes and occurs in the following scenarios: 
 - When a non-2xx status code is returned by the application  
@@ -124,7 +124,7 @@ The following table shows the health status interpretation for [Rolling Upgrades
 | Unhealthy | Unhealthy | Yes |
 | Unknown | Unhealthy | Yes |
 
-## Extension schema for Rich Health States
+### Extension schema for Rich Health States
 
 The following JSON shows the schema for the Rich Health States extension. The extension requires at a minimum either an "http" or "https" request with an associated port or request path respectively. TCP probes are also supported, but won't be able to set the `ApplicationHealthState` through the probe response body and won't have access to the *Unknown* state.
 
@@ -198,7 +198,7 @@ Some scenarios that may result in an *Unhealthy* state include:
 - When the application endpoint is incorrectly configured 
 - When the application endpoint isn't reachable 
 
-## Extension schema for Binary Health States
+### Extension schema for Binary Health States
 
 The following JSON shows the schema for the Application Health extension. The extension requires at a minimum either a "tcp", "http" or "https" request with an associated port or request path respectively.
 
