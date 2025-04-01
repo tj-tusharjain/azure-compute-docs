@@ -67,9 +67,9 @@ sections:
       - question: |
           If I reduce my scale set capacity from 20 to 15, which VMs are removed?
         answer: |
-          By default, VMs are removed from the scale set evenly across availability zones (if the scale set is deployed in zonal configuration) and fault domains, to maximize availability. VMs with the highest IDs are removed first.
+          By default, the scale set removes VMs evenly across availability zones and fault domains to maximize availability. It removes VMs with the highest IDs first.
 
-          You can change the order of virtual machine removal by specifying a [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) for the scale set.
+          You can specify a [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) to change the order in which VMs are removed.
 
       - question: |
           What if I then increase the capacity from 15 to 18?
@@ -161,7 +161,7 @@ sections:
       - question: |
           If I stopped (deallocated) a VM, is that VM started as part of an autoscale operation?
         answer: |
-          No. If autoscale rules require more VM instances as part of a scale set, a new VM instance is created. Stopped (deallocated) VM instances aren't started as part of an autoscale event. However, the stopped (deallocated) VMs can be deleted as part of an autoscale event that scales in the number of instances, in the same way that any VM instance can be deleted based on the order of VM instance IDs.
+          No. Autoscale rules create new VM instances when more capacity is needed. Stopped (deallocated) VMs are not started during an autoscale event. However, they can be deleted during a scale-in event, just like any other VM instance, based on instance ID order.
 
 
 
@@ -203,8 +203,7 @@ sections:
           ```azurecli
           az sf cluster create -h
           ```
-
-          Self-signed certificates can't be used for distributed trust that are provided by a certificate authority, and shouldn't be used for any Service Fabric cluster that are intended to host enterprise production solutions. For more security guidance, review [Azure Service Fabric security best practices](/azure/security/fundamentals/service-fabric-best-practices) and [Service Fabric cluster security scenarios](../service-fabric/service-fabric-cluster-security.md).
+          Avoid using self-signed certificates for distributed trust. Self-signed certificates are not recommended for Service Fabric clusters intended for enterprise production solutions. For more security guidance, review [Azure Service Fabric security best practices](/azure/security/fundamentals/service-fabric-best-practices) and [Service Fabric cluster security scenarios](../service-fabric/service-fabric-cluster-security.md).
 
       - question: |
           For SSH authentication with a Linux Virtual Machine Scale Set from a Resource Manager template, can I specify an SSH key pair to use?
@@ -273,7 +272,7 @@ sections:
       - question: |
           When I run Update-AzVmss after adding more than one certificate from the same key vault, why do I get an error message?
         answer: |
-          This error can happen if you try to readd the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command doesn't work correctly if you're adding more secrets.
+          This error can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command doesn't work correctly if you're adding more secrets.
 
           To add more secrets from the same key vault, update the following list: `$vmss.properties.osProfile.secrets[0].vaultCertificates`.
 
@@ -285,7 +284,7 @@ sections:
           > Currently, you can't remove certificates from VMs by using the Virtual Machine Scale Set API.
           >
 
-          New VMs won't have the old certificate. However, VMs that have the certificate, and that are already deployed, do have the old certificate.
+          Newly provisioned VMs will exclude the deprecated certificate. However, existing VMs that were already deployed with the certificate will retain it unless explicitly modified.
 
       - question: |
           Can I push certificates to the Virtual Machine Scale Set without providing the password, when the certificate is in the secret store?
@@ -304,7 +303,7 @@ sections:
       - question: |
           If I add secrets to an existing Virtual Machine Scale Set, are the secrets injected into existing VMs, or only into new ones?
         answer: |
-          Certificates are added to all your VMs, even pre-existing ones. If your Virtual Machine Scale Set `upgradePolicy` property is set to `manual`, the certificate is added to the VM when you perform a manual update on the VM.
+          Certificates are added to all your VMs, even preexisting ones. If your Virtual Machine Scale Set `upgradePolicy` property is set to `manual`, the certificate is added to the VM when you perform a manual update on the VM.
 
       - question: |
           Where do I put certificates for Linux VMs?
@@ -332,11 +331,11 @@ sections:
       - question: |
           What happens if I delete a certificate from the key vault?
         answer: |
-          If the secret is deleted from the key vault, and then you `stop deallocate` all your VMs and then start them again, you encounter a failure. The failure occurs because the CRP needs to retrieve the secrets from the key vault, but it can't. In this scenario, you can delete the certificates from the Virtual Machine Scale Set model.
+          If a secret is deleted from the key vault and you subsequently `stop deallocate` all your VMs, restarting them will fail. This failure occurs because the compute resource provider attempts to retrieve the secret from the key vault, but it's no longer available. To resolve this issue, you can remove the certificates from the Virtual Machine Scale Set model.
 
-          The CRP component doesn't make customer secrets persistent. If you run `stop deallocate` for all VMs in the Virtual Machine Scale Set, the cache is deleted. In this scenario, secrets are retrieved from the key vault.
+          The compute resource provider doesn't store customer secrets persistently. When you run `stop deallocate` for all VMs in the Virtual Machine Scale Set, the cached secrets are cleared. In this case, the compute resource provider tries to retrieve the secrets from the key vault again.
 
-          You don't encounter this problem when scaling out, because there's a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
+          This issue doesn't occur during a scale-out operation because a cached copy of the secret is maintained in Azure Service Fabric (in the single-fabric tenant model).
 
       - question: |
           Why do I have to specify the certificate version when I use Key Vault?
@@ -429,7 +428,7 @@ sections:
       - question: |
           If the extensions associated with an existing Virtual Machine Scale Set are updated, are existing VMs affected?
         answer: |
-          If the extension definition in the Virtual Machine Scale Set model is updated, and the `upgradePolicy` property is set to `automatic`, it updates the VMs. If the `upgradePolicy` property is set to `manual`, extensions are flagged as not matching the model.
+          If the extension definition in the Virtual Machine Scale Set model is updated and the `upgradePolicy` is set to `automatic`, the extensions are automatically updated on all VMs. However, if the `upgradePolicy` is set to `manual`, the extensions are marked as out of sync with the model. In this case, the extensions will not be updated until you manually trigger an update for the VM instances.
 
       - question: |
           Are extensions run again when an existing machine is service-healed or reimaged?
@@ -494,7 +493,7 @@ sections:
               Using a VM access extension doesn't require reimaging, because the extension doesn't update the password in the model. The extension runs a script to append the password to the password or to the SSH key file. The extension doesn't remove the original SSH key. Once the extension is updated, upgrade the instances to apply the updates to the username and password on all the VM instances.
               
               >[!NOTE]
-              > If Auto upgrade policy is set to `manual`, manually select the instance to perform an upgrade operation on individual VM instances. If auto upgrade set to `Auto`, the extension will automatically upgrade. For more information, see [Automatic Extension Upgrades](../virtual-machines/automatic-extension-upgrade.md)
+              > If the auto upgrade policy is set to `manual`, you need to manually select and upgrade individual VM instances. If it is set to `Auto`, the extension upgrades automatically. For more details, see [Automatic Extension Upgrades](../virtual-machines/automatic-extension-upgrade.md).
 
               Use the following PowerShell example for a Windows Virtual Machine Scale Set:
 
@@ -764,11 +763,9 @@ sections:
       - question: |
           How do I get property information for each VM without making multiple calls? For example, how would I get the fault domain for each of the 100 VMs in my Virtual Machine Scale Set?
         answer: |
-          You can call `ListVMInstanceViews` by doing a REST API `GET` on the following resource URI:
+          You can call `ListVMInstanceViews` by doing a REST API `GET` call on the following resource URI: `/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView`
 
-          /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
-          
-          The fault domain isn't returned when the scale set uses max spreading (platformFaultDomainCount = 1), because there's no guarantee as to how many fault domains would be used with this setting.
+           Note: If the scale set uses max spreading (`platformFaultDomainCount = 1`), the fault domain information won't be returned, as the number of fault domains used isn't guaranteed with this configuration.
 
       - question: |
           Can I pass different extension arguments to different VMs in a Virtual Machine Scale Set?
@@ -780,7 +777,7 @@ sections:
         answer: |
           Gaps are because your Virtual Machine Scale Set `overprovision` property is set to the default value of `true`. If overprovisioning is set to `true`, more VMs than requested are created. Extra VMs are then deleted. In this case, you gain increased deployment reliability, but at the expense of contiguous naming and contiguous network address translation (NAT) rules.
 
-          You can set this property to `false`. For small Virtual Machine Scale Sets, deployment reliability won't be significantly affected.
+          You can set this property to `false`. For small Virtual Machine Scale Sets, deployment reliability won't be affected.
 
       - question: |
           What's the difference between deleting a VM in a Virtual Machine Scale Set and deallocating the VM? When should I choose one over the other?
@@ -789,7 +786,7 @@ sections:
 
           - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
           - You want to start a set of VMs more quickly than you can scale out a Virtual Machine Scale Set.
-            - Related to this scenario, you might have created your own autoscale engine and want a faster end-to-end scale.
+          - Related to this scenario, you might have made your own autoscale engine and want a faster end-to-end scale.
           - You have a Virtual Machine Scale Set that is unevenly distributed across fault domains or update domains. This uneven distribution might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the Virtual Machine Scale Set evenly distributes the VMs across fault domains or update domains.
 
       - question: |
