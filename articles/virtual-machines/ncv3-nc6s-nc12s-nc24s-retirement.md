@@ -18,7 +18,7 @@ Other VMs that may be migrated to from Standard_NC6s_v3, Standard_NC12s_v3, and 
 
 ## How does the retirement of the NC6s_v3, NC12s_v3, NC24s_v3 virtual machine sizes in NCv3-series affect me? 
 
-**After** **September 30th, any remaining** **tandard_NC6s_v3, Standard_NC12s_v3 and Standard_NC24s_v3 virtual machines (VMs) subscriptions will be set to a deallocated state. They'll stop working and no longer incur billing charges. The NCv3 will no longer be under SLA or have support included.** 
+**After** **September 30th, any remaining** **S****tandard_NC6s_v3, Standard_NC12s_v3 and Standard_NC24s_v3 virtual machines (VMs) subscriptions will be set to a deallocated state. They'll stop working and no longer incur billing charges. The NCv3 will no longer be under SLA or have support included.** 
 
 > [!Note]
 > This retirement only impacts the virtual machine sizes in the original NCv3-series powered by NVIDIA V100 GPUs. [See Standard_NC24rs_v3 retirement guide](https://aka.ms/nc24rsv3migrationguide). This retirement announcement doesn't apply to NCasT4 v3, and NC A100 v4 and NCads H100 v5 series virtual machines.
