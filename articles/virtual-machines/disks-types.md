@@ -207,7 +207,7 @@ When using managed disks, the following billing considerations apply:
 
 **Snapshots**: Snapshots are billed based on the size used. For example, you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB. In this case, the snapshot is billed only for the used data size of 10 GiB.
 
-For more information on snapshots, see the section on snapshots in the [managed disk overview](managed-disks-overview.md#managed-disk-snapshots).
+For more information on snapshots, see [Create a snapshot of a virtual hard disk](snapshot-copy-managed-disk.md).
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/bandwidth/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
