@@ -8,6 +8,7 @@
         "title": "[BULK] - DocuTune remediation - Sensitive terms with GUIDs",
         "batchSize": 9,
         "maxBatches": 100,
+        "groupBy": "articles/*",
         "body": "Applying sensitive terms with GUID changes as part of content SFI.",
         "newBranchNamePrefix": "",
         "headRemote": "origin",
