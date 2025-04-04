@@ -143,7 +143,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -Settings @{"enableAMA" = "true"}
 ```
 
-### PowerShell Deployment for Azure Monitor Agent
+### PowerShell deployment for Azure Monitor Agent
 
 If you are using the Azure Monitor Agent, you must use the `enableAMA` setting. Otherwise, Dependency agent attempts to send data to the legacy Log Analytics agent. For example:
 ```powershell
