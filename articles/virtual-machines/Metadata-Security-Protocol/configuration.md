@@ -1,3 +1,14 @@
+---
+title: audit log for metadata security protocol
+description: Learn more about the audit logs
+author: minnielahoti
+ms.service: azure-virtual-machines
+ms.topic: how-to
+ms.date: 04/08/2025
+ms.author: minnielahoti
+ms.reviewer: azmetadatadev
+---
+
 # Configuration
 
 MSP offers customization to maximally restrict metadata server access in your workload. This page introduces the fundamental concepts that can be quickly enabled on any supported VM/VMSS.

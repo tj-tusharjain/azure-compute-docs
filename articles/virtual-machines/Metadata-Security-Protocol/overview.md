@@ -1,3 +1,14 @@
+---
+title: audit log for metadata security protocol
+description: Learn more about the audit logs
+author: minnielahoti
+ms.service: azure-virtual-machines
+ms.topic: how-to
+ms.date: 04/08/2025
+ms.author: minnielahoti
+ms.reviewer: azmetadatadev
+---
+
 # Metadata Security Protocol (MSP)
 
 MSP enhances the security of the [Azure Instance Metadata Service](https://aka.ms/azureimds) and [Azure Wireserver](https://aka.ms/azureWireserver) endpoints (available in Azure IaaS VM/VMSS at 169.254.169.254 and 168.63.129.16 respectively). These cloud "metadata services" are ubiquitous across the industry with all major providers offering their own varaints.

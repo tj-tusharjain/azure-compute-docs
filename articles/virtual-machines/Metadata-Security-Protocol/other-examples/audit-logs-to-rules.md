@@ -1,3 +1,14 @@
+---
+title: audit log for metadata security protocol
+description: Learn more about the audit logs
+author: minnielahoti
+ms.service: azure-virtual-machines
+ms.topic: how-to
+ms.date: 04/08/2025
+ms.author: minnielahoti
+ms.reviewer: azmetadatadev
+---
+
 # Converting Audit Logs to an Allow List
 
 See [Advanced Configuration](../advanced-configuration.md) first to learn about RBAC and the `InVMAccessControlProfile` resource type in MSP.

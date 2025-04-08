@@ -1,3 +1,14 @@
+---
+title: audit log for metadata security protocol
+description: Learn more about the audit logs
+author: minnielahoti
+ms.service: azure-virtual-machines
+ms.topic: how-to
+ms.date: 04/08/2025
+ms.author: minnielahoti
+ms.reviewer: azmetadatadev
+---
+
 # Reset Latched Key
 
 If the VM loses its copy of the latched key, a disk is migrated to a new VM, or any other key mismatch occurs, the VM will be unable to access Wireserver + IMDS. Reseting the key will bring the VM back to a healthy state if the key is lost or unmatched between Host and Guest.

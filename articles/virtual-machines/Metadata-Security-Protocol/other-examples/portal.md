@@ -1,3 +1,14 @@
+---
+title: audit log for metadata security protocol
+description: Learn more about the audit logs
+author: minnielahoti
+ms.service: azure-virtual-machines
+ms.topic: how-to
+ms.date: 04/08/2025
+ms.author: minnielahoti
+ms.reviewer: azmetadatadev
+---
+
 # MSP via Portal
 
 Azure Portal has preview support for configuring some aspects of MSP using [this link](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Compute=flight34).
