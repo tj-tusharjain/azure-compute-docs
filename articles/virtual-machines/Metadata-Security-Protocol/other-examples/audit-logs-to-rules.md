@@ -53,7 +53,7 @@ A very simple rules schema would look like :
 
 ### Using ARM template
 
-1. [Create a new private gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/create-gallery?tabs=portal%2Cportaldirect%2Ccli2#create-a-private-gallery) in Azure compute gallery.
+1. [Create a new private gallery](https://learn.microsoft.com/azure/virtual-machines/create-gallery?tabs=portal%2Cportaldirect%2Ccli2#create-a-private-gallery) in Azure compute gallery.
 1. Create an `InVMAccessControlProfile` definition with parameters for:
     - The gallery name to store in (from step 1)
     - Profile name

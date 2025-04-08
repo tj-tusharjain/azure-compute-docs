@@ -14,7 +14,7 @@ The `InVMAccessControlProfile` allows you to define more granular control on the
 The new resource type facilitates managing these configurations at scale. The rules that are appropriate for your VM depend on what software its running. The `InVMAccessControlProfile` allows you to define your configuration once and link it against all applicable VMs.
 
 > [!NOTE]
-> We recommend treating these controls as *defense in depth* in your threat modeling. These controls can significantly enhance the security of a workload, but they are best used as additional protection instead of as core isolation mechanisms. In cloud native multi-tenant workloads, especially if untrusted code is executed, hardware/hypervisor backed isolation like offered by [Azure Container Instances](https://azure.microsoft.com/en-us/products/container-instances) offer far greater protection. MSP authorization rules complement hardware backed isolation.
+> We recommend treating these controls as *defense in depth* in your threat modeling. These controls can significantly enhance the security of a workload, but they are best used as additional protection instead of as core isolation mechanisms. In cloud native multi-tenant workloads, especially if untrusted code is executed, hardware/hypervisor backed isolation like offered by [Azure Container Instances](https://azure.microsoft.com/products/container-instances) offer far greater protection. MSP authorization rules complement hardware backed isolation.
 
 ## Properties
 
