@@ -1,0 +1,205 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "languageVersion": "2.0",
+  "parameters": {
+    "existingGalleryName": {
+      "type": "String",
+      "metadata": {
+        "description": "Name of the Azure Compute Gallery."
+      }
+    },
+    "existingInVMAccessControlProfile": {
+      "type": "String",
+      "metadata": {
+        "description": "Name of the Gallery InVMAccessControlProfile."
+      }
+    },
+    "inVMAccessControlProfileVersion": {
+      "type": "String",
+      "defaultValue": "1.1.0",
+      "metadata": {
+        "description": "InVMAccessControlProfile Version, format: X.X.X, for example: 1.0.0"
+      }
+    },
+    "profileVersionProperties": {
+      "type": "object",
+      "nullable": false,
+      "metadata": {
+        "description": "Specify 'properties' section of the profile"
+      },
+      "properties": {
+        "targetLocations": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "metadata": {
+                    "description": "name of the location"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "excludeFromLatest": {
+          "type": "Bool",
+          "nullable": true,
+          "metadata": {
+            "description": ""
+          }
+        },
+        "mode": {
+          "type": "string",
+          "allowedValues": ["Audit", "Enforce", "Disabled"],
+          "nullable": false
+        },
+        "defaultAccess": {
+          "type": "string",
+          "allowedValues": ["Allow", "Deny"],
+          "nullable": false
+        },
+        "rules": {
+          "type": "object",
+          "nullable": true,
+          "properties": {
+            "privileges": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "Give the privilege a name"
+                      }
+                    },
+                    "path": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "For example: /machine"
+                      }
+                    },
+                    "queryParameters": {
+                      "type": "object",
+                      "metadata": {
+                        "description": "This is a dictionary, for example {\"comp\": \"goalstate\", \"foo\": \"bar\"}"
+                      },
+                      "nullable": true
+                    }
+                  }
+                }
+              ]
+            },
+            "roles": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "Give the privilege a name"
+                      }
+                    },
+                    "privileges": {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "string",
+                          "metadata": {
+                            "description": "one of the privilege defined above"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "identities": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "Give the Identity a name"
+                      }
+                    },
+                    "userName": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "groupName": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "processName": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "exePath": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  }
+                }
+              ]
+            },
+            "roleAssignments": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "role": {
+                      "type": "string",
+                      "metadata": {
+                        "description": "One of the role name defined above"
+                      }
+                    },
+                    "identities": {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "string",
+                          "metadata": {
+                            "description": "one of the Identity name defined above"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "location": {
+      "defaultValue": "[resourceGroup().location]",
+      "type": "String",
+      "metadata": {
+        "description": "Location of the Gallery InVMAccessControlProfile."
+      }
+    }
+  },
+  "resources": {
+    "myProfileVersion": {
+      "type": "Microsoft.Compute/galleries/inVMAccessControlProfiles/versions",
+      "apiVersion": "2024-03-03",
+      "name": "[concat(parameters('existingGalleryName'), '/', parameters('existingInVMAccessControlProfile'), '/', parameters('inVMAccessControlProfileVersion'))]",
+      "location": "[parameters('location')]",
+      "properties": "[parameters('profileVersionProperties')]"
+    }
+  }
+}

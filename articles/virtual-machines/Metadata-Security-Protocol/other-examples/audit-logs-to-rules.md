@@ -1,0 +1,175 @@
+# Converting Audit Logs to an Allow List
+
+See [Advanced Configuration](../advanced-configuration.md) first to learn about RBAC and the `InVMAccessControlProfile` resource type in MSP.
+
+## Collecting Audit Logs
+
+If you have enabled MSP in `Audit` or `Enforce` mode, the GPA will create audit logs in the VM.
+
+| OS Family | Audit Log Location |
+|--|--|
+| Linux | `/var/lib/azure-proxy-agent/ProxyAgent.Connection.log` |
+| Windows | `C:\WindowsAzure\ProxyAgent\Logs\ProxyAgent.Connection.log` |
+
+## Converting Logs to Rules
+
+There are two ways to create an Allowlist:
+- Automated Allowlist generation
+- Manually create Allowlist
+
+### Automated Allowlist generation
+
+1. Download and run the Allowlist Tool from either option below:
+   - Select `allowListTool.exe` from the [latest release page](https://github.com/Azure/GuestProxyAgent/releases/latest)
+   - Direct download [link](https://github.com/Azure/GuestProxyAgent/releases/latest/download/allowListTool.exe)
+1. Follow the steps in the Allowlist Tool to create your Allowlist and download the generated Allowlist.
+
+### Manually create Allowlist
+
+Once a VM is enabled with MSP in Audit/Enforce mode, the proxy agent would capture all the requests being made to the Host endpoints. The logs are captured in the below folder inside the VM:
+
+| Operating System | Log File Path |
+|--|--|
+| Windows | `C:\WindowsAzure\ProxyAgent\Logs\ProxyAgent.Connection.log` |
+| Linux | `/var/lib/azure-proxy-agent/ProxyAgent.Connection.log` |
+
+From these connection logs, you can analyze the applications that are making the requests to the IMDS/WireServer endpoints :
+
+![image.png](../images/create-sig/logs1.png)
+
+The JSON captured here would be of the format :
+
+![image.png](../images/create-sig/logs2.png)
+
+From this, you can identify the endpoints that you want to secure (which would be the `privileges` in the final InVMAccessControlProfile ), and the `identities` that should have access.
+
+A very simple rules schema would look like :
+
+![image.png](../images/create-sig/logs3.png)
+
+> NOTE: To ease the generation of this Access Control rules, we are building a generator tool which can help parse these Audit logs & provide a UI to generate the Access control roles.
+
+## Creating a New InVMAccessControlProfile
+
+### Using ARM template
+
+1. [Create a new private gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/create-gallery?tabs=portal%2Cportaldirect%2Ccli2#create-a-private-gallery) in Azure compute gallery.
+1. Create an `InVMAccessControlProfile` definition with parameters for:
+    - The gallery name to store in (from step 1)
+    - Profile name
+    - OS type
+    - Host Endpoint type (Wireserver or IMDS)
+1. Create a specific version
+
+Templates for the above:
+
+1. Create gallery template: [CreateGalleryTemplate.json](../samples/create-sig/CreateGalleryTemplate-d408ae07-7bcc-4a7b-bd37-3b194cff81d5.json)
+2. InVMAccessControlProfile definition template: [CreateInVMAccessControlProfileTemplate.json](../samples/create-sig/CreateInVMAccessControlProfileTemplate-0239e5dc-9074-45d2-a845-2fd4225d9c69.json)
+3. InVMAccessControlProfile version template: [CreateInVMAccessControlProfileVersionTemplate.json](../samples/create-sig/CreateInVMAccessControlProfileVersionTemplate-b9a2aa55-49ce-4443-8db3-4ef9e9d867d9.json)
+
+Parameter Files:
+
+- Windows Wireserver: [InVMAccessControlProfileParameter-WindowsWireServer.json](../samples/create-sig/InVMAccessControlProfileParameter-WindowsWireServer-6df07a8f-a789-4137-8a93-23e4e3379777.json)
+- Windows IMDS: [InVMAccessControlProfileParameter-WindowsIMDS.json](../samples/create-sig/InVMAccessControlProfileParameter-WindowsIMDS-3174ebb2-a67b-48b9-8f15-e9f7793e987d.json)
+- Linux Wireserver:[InVMAccessControlProfileParameter-LinuxWireServer.json](../samples/create-sig/InVMAccessControlProfileParameter-LinuxWireServer-9e269e26-6256-4b60-a9e5-7486d815f499.json)
+- Linux IMDS: [InVMAccessControlProfileParameter-LinuxIMDS.json](../samples/create-sig/InVMAccessControlProfileParameter-LinuxIMDS-9526e42b-5f89-4d88-a066-0efd10b05fa7.json)
+
+## Sample InVMAccessControlProfile
+
+```
+"properties": {
+    "mode": "Enforce",
+    "defaultAccess": "Allow",
+    "rules": {
+      "privileges": [
+        {
+          "name": "GoalState",
+          "path": "/machine",
+          "queryParameters": {
+            "comp": "goalstate"
+          }
+        }
+      ],
+      "roles": [
+        {
+          "name": "Provisioning",
+          "privileges": [
+            "GoalState"
+          ]
+        },
+        {
+          "name": "ManageGuestExtensions",
+          "privileges": [
+            "GoalState"
+          ]
+        },
+        {
+          "name": "MonitoringAndSecret",
+          "privileges": [
+            "GoalState"
+          ]
+        }
+      ],
+      "identities": [
+        {
+          "name": "WinPA",
+          "userName": "SYSTEM",
+          "exePath": "C:\\Windows\\System32\\cscript.exe"
+        },
+        {
+          "name": "GuestAgent",
+          "userName": "SYSTEM",
+          "processName": "WindowsAzureGuestAgent.exe"
+        },
+        {
+          "name": "WaAppAgent",
+          "userName": "SYSTEM",
+          "processName": "WaAppAgent.exe"
+        },
+        {
+          "name": "CollectGuestLogs",
+          "userName": "SYSTEM",
+          "processName": "CollectGuestLogs.exe"
+        },
+        {
+          "name": "AzureProfileExtension",
+          "userName": "SYSTEM",
+          "processName": "AzureProfileExtension.exe"
+        },
+        {
+          "name": "AzurePerfCollectorExtension",
+          "userName": "SYSTEM",
+          "processName": "AzurePerfCollectorExtension.exe"
+        },
+        {
+          "name": "WaSecAgentProv",
+          "userName": "SYSTEM",
+          "processName": "WaSecAgentProv.exe"
+        }
+      ],
+      "roleAssignments": [
+        {
+          "role": "Provisioning",
+          "identities": [
+            "WinPA"
+          ]
+        },
+        {
+          "role": "ManageGuestExtensions",
+          "identities": [
+            "GuestAgent",
+            "WaAppAgent",
+            "CollectGuestLogs"
+          ]
+        },
+        {
+          "role": "MonitoringAndSecret",
+          "identities": [
+            "AzureProfileExtension",
+            "AzurePerfCollectorExtension",
+            "WaSecAgentProv"
+          ]
+        }
+      ]
+    },
+```

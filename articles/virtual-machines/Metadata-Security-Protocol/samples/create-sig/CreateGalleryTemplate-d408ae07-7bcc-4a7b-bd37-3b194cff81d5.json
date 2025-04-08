@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "galleryName": {
+      "type": "String",
+      "metadata": {
+        "description": "Name of the Azure Compute Gallery."
+      }
+    },
+    "location": {
+      "defaultValue": "[resourceGroup().location]",
+      "type": "String",
+      "metadata": {
+        "description": "Location of the Gallery InVMAccessControlProfile."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/galleries",
+      "apiVersion": "2023-07-03",
+      "name": "[parameters('galleryName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "description": "Gallery hosting InVMAccessControlProfiles"
+      }
+    }
+  ]
+}

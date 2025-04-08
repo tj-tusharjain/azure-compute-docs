@@ -2230,6 +2230,34 @@
   - name: Monitor metadata
     displayName: instance metadata service IMDS
     href: instance-metadata-service.md
+  - name: Metadata Security Protocol
+    items:
+    - name: Overview
+      href: learn/overview.md
+    - name: MSP Configuration
+      href: learn/configuration.md
+    - name: Deploy a VM/VMSS With MSP
+      href: learn/greenfield.md
+    - name: Enable MSP on Existing VM/VMSS
+      href: learn/brownfield.md
+    - name: Other Examples
+      items:
+        - name: MSP via Portal
+          href: learn/other-examples/portal.md
+        - name: MSP via SDK
+          href: learn/other-examples/sdk.md
+        - name: Disable MSP
+          href: learn/other-examples/disable.md
+        - name: Reset Latched Key
+          href: learn/other-examples/key-reset.md
+        - name: Create Rules From Audit Logs
+          href: learn/other-examples/audit-logs-to-rules.md
+    - name: Advanced Configuration
+      href: learn/advanced-configuration.md
+    - name: Troubleshooting Guide
+      href: learn/tsg.md
+    - name: MSP FAQs
+      href: learn/faq.md 
   - name: Get usage metrics with REST
     href: ./linux/metrics-vm-usage-rest.md
   - name: Boot diagnostics

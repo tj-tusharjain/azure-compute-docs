@@ -1,0 +1,104 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "languageVersion": "2.0",
+  "parameters": {
+    "existingGalleryName": {
+      "value": "myGallery"
+    },
+    "existingInVMAccessControlProfile": {
+      "value": "WindowsIMDS"
+    },
+    "inVMAccessControlProfileVersion": {
+      "value": "1.1.0"
+    },
+    "profileVersionProperties": {
+      "value": {
+        "targetLocations": [
+          {
+            "name": "eastus2euap"
+          }
+        ],
+        "excludeFromLatest": false,
+        "mode": "Enforce",
+        "defaultAccess": "Allow",
+        "rules": {
+          "privileges": [
+            {
+              "path": "/metadata/identity/auth2/token",
+              "name": "MSIToken"
+            }
+          ],
+          "roles": [
+            {
+              "name": "Monitoring",
+              "privileges": ["MSIToken"]
+            },
+            {
+              "name": "NetworkSecurity",
+              "privileges": ["MSIToken"]
+            },
+            {
+              "name": "VmssRuntime",
+              "privileges": ["MSIToken"]
+            }
+          ],
+          "identities": [
+            {
+              "name": "SecurityScanMgr",
+              "processName": "SecurityScanMgr.exe"
+            },
+            {
+              "name": "MetricsExtension",
+              "processName": "MetricsExtension.exe"
+            },
+            {
+              "name": "AzurePerfCollectorExtension",
+              "processName": "AzurePerfCollectorExtension.exe"
+            },
+            {
+              "name": "AzureProfilerExtension",
+              "processName": "AzureProfilerExtension.exe"
+            },
+            {
+              "name": "NetworkSecurityScanner",
+              "processName": "NetworkSecurityScanner.exe"
+            },
+            {
+              "name": "VmssRuntimeAgent",
+              "processName": "VmssRuntimeAgent.exe"
+            },
+            {
+              "name": "VmssMonAgentLauncherLauncher",
+              "processName": "VmssMonAgentLauncherLauncher.exe"
+            },
+            {
+              "name": "GenExtHealthMonitor",
+              "processName": "GenExtHealthMonitor.exe"
+            }
+          ],
+          "roleAssignments": [
+            {
+              "role": "Monitoring",
+              "identities": [
+                "SecurityScanMgr",
+                "MetricsExtension",
+                "AzurePerfCollectorExtension",
+                "AzureProfilerExtension",
+                "GenExtHealthMonitor"
+              ]
+            },
+            {
+              "role": "NetworkSecurity",
+              "identities": ["NetworkSecurityScanner"]
+            },
+            {
+              "role": "VmssRuntime",
+              "identities": ["VmssRuntimeAgent", "VmssMonAgentLauncherLauncher"]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
