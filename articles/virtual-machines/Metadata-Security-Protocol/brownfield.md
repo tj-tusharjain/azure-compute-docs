@@ -9,9 +9,9 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# Enable MSP on existing VM/VMSS
+# Enable MSP on existing VM or Virtual Machine Scale Sets
 This page explains the different ways 
-Metadata Security Protocol (MSP) can be enabled on existing Virtual Machines (VM) or Virtual Machine Scale Sets (VMSS). MSP can be enabled via Portal, ARM template, or the REST API in pre-existing VMs.
+Metadata Security Protocol (MSP) can be enabled on existing Virtual Machines (VM) or Virtual Machine Scale Sets. MSP can be enabled via Portal, ARM template, or the REST API in preexisting VMs.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Metadata Security Protocol (MSP) can be enabled on existing Virtual Machines (VM
 
 ## Enable MSP on a VM
 
-### With Azure Portal
+### With Azure portal
 
 See [examples](./other-examples/portal.md).
 
@@ -52,7 +52,7 @@ PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroup
 
 #### Validating the linked rules were applied to your VM
 
-Please check the VM Instance View to confirm the status of the `Microsoft.CPlat.ProxyAgent.ProxyAgentWindows` extension.
+Check the VM Instance View to confirm the status of the `Microsoft.CPlat.ProxyAgent.ProxyAgentWindows` extension.
 The `ComponentStatus/ProxyAgentStatus/succeeded` status would have an `imdsRuleId` & `wireServerRuleId` which should map to the reference ID of the `InVMAccessControlProfile`.
 
 ```json
@@ -93,6 +93,6 @@ The `ComponentStatus/ProxyAgentStatus/succeeded` status would have an `imdsRuleI
     }
 ```
 
-## Enable MSP on a VMSS
+## Enable MSP on a Virtual Machine Scale Sets
 
-Applying the same steps to the VMSS model will apply MSP to every VM in the Scale Set.
+Steps above also apply to the Virtual Machine Scale Sets model.
