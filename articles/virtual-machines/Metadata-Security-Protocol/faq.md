@@ -9,15 +9,16 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# Frequently Asked Questions
+# Frequently asked questions
+This page answers the commonly asked questions by customers. If you do not see a question that can help you, please reach out to our support team. 
 
 ## Usage
 
 ### How to check if the feature is enabled?
 
-MSP enablement can be checked programmatically using the [GET VM API](https://learn.microsoft.com/rest/api/compute/virtual-machines/get?view=rest-compute-2024-07-01&tabs=HTTP) to retrieve the VM model. The `proxyAgentSettings` properties will report MSP configuration.
+ - MSP enablement can be checked programmatically using the [GET VM API](https://learn.microsoft.com/rest/api/compute/virtual-machines/get?view=rest-compute-2024-07-01&tabs=HTTP) to retrieve the VM model. The `proxyAgentSettings` properties will report MSP configuration.
 
-Additionally, the GuestProxyAgent instance view in the VM runtime status, reports the state of MSP from its perspective in the VM. If MSP is diabled, the value will show as `"Disabled"`.
+ - Additionally, the GuestProxyAgent instance view in the VM runtime status, reports the state of MSP from its perspective in the VM. If MSP is disabled, the value will show as `"Disabled"`.
 
 ### How do we check component health?
 

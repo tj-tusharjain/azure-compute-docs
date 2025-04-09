@@ -9,18 +9,20 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# MSP via Portal
+# MSP via portal
 
 Azure Portal has preview support for configuring some aspects of MSP using [this link](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Compute=flight34).
 
-> NOTE: Currently, the portal view would only be available for subscriptions registered with "Microsoft.Compute/ProxyAgentPreview" AFEC flag.
+> [!NOTE]
+> Currently, the portal view would only be available for subscriptions registered with "Microsoft.Compute/ProxyAgentPreview" AFEC flag.
 
-## Deploy a VM With MSP
+## Deploy a VM with MSP
 
-![image.png](../images/portal-greenfield.png)
+![Screenshot of deploying a new VM with MSP](../images/portal-greenfield.png)
 
+> [!Note]
 > Portal currently only supports [inline / basic](../configuration.md#inline-configuration) configuration.
 
-## Enable MSP on an Existing VM
+## Enable MSP on an existing VM
 
-![image.png](../images/portal-brownfield.png)
+![Screenshot of enabling MSP on preexisting VM](../images/portal-brownfield.png)

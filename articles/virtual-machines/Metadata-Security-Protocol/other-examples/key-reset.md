@@ -9,13 +9,12 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# Reset Latched Key
-
-If the VM loses its copy of the latched key, a disk is migrated to a new VM, or any other key mismatch occurs, the VM will be unable to access Wireserver + IMDS. Reseting the key will bring the VM back to a healthy state if the key is lost or unmatched between Host and Guest.
+# Reset latched key
+If the VM loses its copy of the latched key, a disk is migrated to a new VM, or any other key mismatch occurs, the VM will be unable to access Wireserver + IMDS. Resetting the key will bring the VM back to a healthy state if the key is lost or unmatched between Host and Guest.
 
 > The VM owner must request the key reset. Metadata services can't distinguish between an attacker or the GPA requesting a reset when the key is lost, so resets can not be issued from within the VM.
 
-## Reset a VM's Key
+## Reset a VMs Key
 
 The platform will always ensure the `keyIncarnationId` in the VM model matches the actual key in storage. By incrementing this value, a key reset will be triggered. See [Configuration](../configuration.md) for more details.
 

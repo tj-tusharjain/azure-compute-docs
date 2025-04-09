@@ -9,13 +9,13 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# Advanced Configuration
+# Advanced configuration
 
-MSP allows users to optionally define custom Role Based Access Control (RBAC) allow lists for metadata service endpoints on a per-user and/or per-process basis. This is enabled by a new resource type in the Azure Compute Gallery, the `InVMAccessControlProfile`.
+Metadata Security Protocol (MSP) allows users to optionally define custom Role Based Access Control (RBAC) allow lists for metadata service endpoints on a per-user and/or per-process basis. This is enabled by a new resource type in the Azure Compute Gallery, the `InVMAccessControlProfile`.
 
 ## Motivation
 
-Traditionally, metadata services treat the entire VM as the trust boundary and allow any software running in the guest to access them. This access is usually overly permissive, especially if your workload isn't strictly implemented with a modern cloud native architecture. MSRC analysis of attacks across the industry has shown that applying the principle of least privileged access (restricting access only to software that needs it) would have prevented the vast majority of real world security exploits of this class.
+Traditionally, metadata services treat the entire Virtual Machine (VM) as the trust boundary and allow any software running in the guest to access them. This access is usually overly permissive, especially if your workload isn't strictly implemented with a modern cloud native architecture. Microsoft Security Response Center (MSRC) analysis of attacks across the industry has shown that applying the principle of least privileged access, restricting access only to software that needs it, would have prevented the vast majority of real world security exploits of this class.
 
 The `InVMAccessControlProfile` allows you to define more granular control on the applications/users that can have access to the endpoints. It enables you to write rules like:
 
@@ -35,7 +35,7 @@ The new resource type facilitates managing these configurations at scale. The ru
 | `defaultAccess` | Enum: `"Allow" \| "Deny"` | Controls if an endpoint is accessible or restricted when no privileges for that resource are specified. See [Privileges](#privileges). |
 | `rules` | `object` | The RBAC definition to apply. See [Writing Rules](#writing-rules). |
 
-## MSP Allow List (RBAC) Concepts
+## MSP Allowlist (RBAC) concepts
 
 The first step of access control is to verify the identity of the client. Normally this is done by using a credential of some kind. MSP was designed to avoid introducing any breaking changes to clients to maximize compatibility and make onboarding easier. Additionally, having clients upgraded with credentials introduces another layer of trust bootstrapping problems to solve.
 
@@ -43,7 +43,7 @@ Instead, MSP supports defining "virtual identities" against existing OS and proc
 
 ### Roles
 
-Roles allow you to group multiple privileges into a named, reuasble unit. They are used to improve organization and readability.
+Roles allow you to group multiple privileges into a named, reusable unit. They are used to improve organization and readability.
 
 ### Role Assignments
 
@@ -64,7 +64,7 @@ The GPA supports writing *exact match* rules against these metadata:
 
 The ideal way to configure your workload would be to run each application in a dedicated user account with uniquely scoped groups, then write rules only against those properties. The user id cannot be spoofed and there is no pattern matching to contend with. However, we recognize this isn't practical in all workloads, which is why we offer the additional properties.
 
-If multiple properties are specifed, then the matching is performed as a logical AND. For example, the identity defintion:
+If multiple properties are specified, then the matching is performed as a logical AND. For example, the identity definition:
 
 ```json
 {
@@ -229,4 +229,4 @@ For completeness, this is the implicit RBAC definition that is applied for the d
 }
 ```
 
-Remember though, Wireserver only allows access from Administrator / root processes. The reason `defaultAccess` is stilll `Allow` here is because this rule is not user configurable. It is baked into the GPA. Before evaluating any RBAC rules for a Wireserver request, the GPA first asserts if the client is an admin user. If it isn't, the request is immediately rejected.
+Remember though, Wireserver only allows access from Administrator / root processes. The reason `defaultAccess` is still `Allow` here is because this rule is not user configurable. It is baked into the GPA. Before evaluating any RBAC rules for a Wireserver request, the GPA first asserts if the client is an admin user. If it isn't, the request is immediately rejected.

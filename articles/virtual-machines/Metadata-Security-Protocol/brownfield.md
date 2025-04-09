@@ -1,5 +1,5 @@
 ---
-title: Brownfield
+title: Enable MSP on existing VM/VMSS
 description: MSP on preexisting VMs
 author: minnielahoti
 ms.service: azure-virtual-machines
@@ -9,18 +9,22 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# Enable MSP on Existing VM/VMSS
+# Enable MSP on existing VM/VMSS
+This page explains the different ways 
+Metadata Security Protocol (MSP) can be enabled on existing Virtual Machines (VM) or Virtual Machine Scale Sets (VMSS). MSP can be enabled via Portal, ARM template, or the REST API in pre-existing VMs.
 
 ## Prerequisites
 
-1. Ensure your image of choice is [compatible](./overview.md#compatibility).
-1. Familiarize yourself with the [basic configuration](./configuration.md#configuration) options.
+-  Ensure your image of choice is [compatible](./overview.md#compatibility).
+- Familiarize yourself with the [basic configuration](./configuration.md#configuration) options.
 
 ## Enable MSP on a VM
 
 ### With Azure Portal
 
 See [examples](./other-examples/portal.md).
+
+### With ARM template
 
 ### With REST API
 

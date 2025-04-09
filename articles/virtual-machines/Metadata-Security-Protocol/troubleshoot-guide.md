@@ -9,7 +9,8 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# Troubleshooting Guide
+# Troubleshooting guide
+This page provides some basic troubleshooting guide. If you are unable to resolve the issues encountered while using the Metadata Security Protocol (MSP) feature, please contact our Support team. 
 
 ## New VM/VMSS deployment failures
 
@@ -29,7 +30,7 @@ Ensure that you are using a [valid image]()
 - The GPA must be baked into your image in order to deploy with MSP enabled.
 - Your cloud-init version must be a newer, MSP aware version. If it is not, a race condition will occur between it and the GPA.
 
-The exact failure will depend on if/how your image is misconfigured or if a platform failure occured:
+The exact failure will depend on if/how your image is misconfigured or if a platform failure occurred:
 
 | GPA Installed | Cloud-init Version | Expected Failure | Cause | 
 |--|--|--|--|
@@ -70,7 +71,7 @@ azure-proxy-agent service captures its overall status into `/var/log/azure-proxy
 
 ### GPA service missing or not running
 #### Windows VM
-For Windows VMs, CRP implicitly installs an extension "Microsoft.CPlat.ProxyAgent.ProxyAgentWindows" that installs Windows Guest Proxy Agent (GPA)to the VM for MSP feature. 
+For Windows VMs, CRP implicitly installs an extension "Microsoft.CPlat.ProxyAgent.ProxyAgentWindows" that installs Windows Guest Proxy Agent (GPA) to the VM for MSP feature. 
 
 When enabling MSP, it installs 3 Windows Services to the VM:
 - Windows Guest Proxy Agent (GPA) service (**GuestProxyAgent**)
@@ -101,7 +102,7 @@ When enabling MSP, it installs one service `azure-proxy-agent` to the VM.
 
 Windows VM
 
-eBPFCore and NetEbpfExt service must in started (RUNNING) state,
+eBPFCore and NetEbpfExt service must be in `RUNNING` state,
 ```
 c:\>sc query eBPFCore
 
@@ -160,7 +161,7 @@ If `nodev cgroup2` is listed, it means cgroup v2 is supported by this OS; if not
 ```
 mount | grep cgroup2
 ```
-If there is no record displayed, ask the VM owner to setup it with command below and then reboot the VM.
+If there is no record displayed, ask the VM owner to set it up with command below and then reboot the VM.
 ```
 sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=1"
 ```
@@ -180,4 +181,5 @@ If your VM's long-lived key is lost it will no longer be able to communicate wit
 1. Refer to [Key Reset](other-examples/key-reset.md) for complete documentation on the `KeyIncarnationId` filed of the `ProxyAgentSettings` section of the VM model.
 1. Select a new `KeyIncarnationId` value, and apply it to the VM model with a `PUT` operation
 
-> Note: If sending multiple requests or otherwise using automation you must ensure that the values you send are strictly monotonically increasing or else no change may be applied. 
+> [!Note]
+> If sending multiple requests or otherwise using automation you must ensure that the values you send are strictly monotonically increasing or else no change may be applied. 

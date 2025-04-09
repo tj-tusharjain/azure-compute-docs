@@ -9,12 +9,13 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# Deploy a VM/VMSS With MSP
+# Deploy a VM/VMSS with MSP
+This page explains how to enable the Metadata Security Protocol (MSP) feature while provisioning a new Virtual Machine (VM) or Virtual Machine Scale Sets (VMSS).
 
 ## Prerequisites
 
-1. Ensure your image of choice is [compatible](./overview.md#compatibility).
-1. Familiarize yourself with the [basic configuration](./configuration.md#configuration) options.
+-  Ensure your image of choice is [compatible](./overview.md#compatibility).
+- Familiarize yourself with the [basic configuration](./configuration.md#configuration) options.
 
 ## Deploy VM with MSP
 
