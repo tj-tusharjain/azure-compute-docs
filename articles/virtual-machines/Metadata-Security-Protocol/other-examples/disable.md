@@ -32,4 +32,4 @@ PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroup
 
 Portal doesn't allow disabling MSP completely at this time, but you can disable actual enforcement of security requirements to allow requests to flow normally:
 
-![image.png](../../images/disable-msp-portal.png)
+![image.png](../images/disable-msp-portal.png)
