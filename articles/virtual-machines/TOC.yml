@@ -2244,8 +2244,6 @@
       items:
         - name: MSP via Portal
           href: Metadata-Security-Protocol/other-examples/portal.md
-        - name: MSP via SDK
-          href: Metadata-Security-Protocol/other-examples/sdk.md
         - name: Disable MSP
           href: Metadata-Security-Protocol/other-examples/disable.md
         - name: Reset Latched Key
