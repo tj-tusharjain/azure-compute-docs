@@ -101,7 +101,7 @@ When enabling MSP, it installs one service `azure-proxy-agent` to the VM.
 
 Windows VM
 
-eBPFCore and NetEbpfExt service must in started (RUNNING) state, or <ask windows eBPF team for details>,
+eBPFCore and NetEbpfExt service must in started (RUNNING) state,
 ```
 c:\>sc query eBPFCore
 
@@ -177,15 +177,7 @@ If your VM's long-lived key is lost it will no longer be able to communicate wit
 
 ### Resetting a Key
 
-1. Refer to <configuration link here> for complete documentation on the `KeyIncarnationId` filed of the `ProxyAgentSettings` section of the VM model.
+1. Refer to [Key Reset](other-examples/key-reset.md) for complete documentation on the `KeyIncarnationId` filed of the `ProxyAgentSettings` section of the VM model.
 1. Select a new `KeyIncarnationId` value, and apply it to the VM model with a `PUT` operation
 
-> Note: If sending multiple requests or otherwise using automation you must ensure that the values you send are strictly monotonically increasing or else no change may be applied. For more details see <link to general concept if one indeed exists>
-
-#### Example
-
-```text
-POST <URL here>
-<headers here?>
-<body here>
-```
+> Note: If sending multiple requests or otherwise using automation you must ensure that the values you send are strictly monotonically increasing or else no change may be applied. 
