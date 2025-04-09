@@ -4,7 +4,7 @@ description: Learn the available options for improving Azure managed disk perfor
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 03/03/2025
+ms.date: 04/14/2025
 ms.author: rogarana
 ms.custom: accpeerreview2025-2
 ---
@@ -50,9 +50,9 @@ High-scale Azure Virtual Machines that can use premium storage have a multitier 
 
 Write accelerator is a disk capability for M-Series VMs on Premium SSD managed disks. Write accelerator improves the I/O latency of writes against Premium SSD disks. Write accelerator is optimized for volumes that contain the transaction log or redo logs of a DBMS, and shouldn't be used for data volumes. To learn more, see the [write accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) article.
 
-### Performance plus (preview)
+### Performance plus
 
-Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium SSDs that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
+Enabling performance plus increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium SSDs that are 513 GiB and larger. Enabling performance plus improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
 
 ## Standard SSD
 
@@ -65,9 +65,9 @@ With credit-based bursting, a disk bursts only if it has burst credits accumulat
 
 High-scale Azure Virtual Machines that can use premium storage have a multitier caching technology called **BlobCache**. **BlobCache** is a caching solution built on RAM and SSDs that are locally attached to the server hosting the virtual machine (VM). This cache is available for Standard HDD, Standard SSD, and Premium SSD managed disks. With disk caching enabled, high-scale VMs can achieve levels of performance that exceed the underlying disk performance. To learn more, see [Disk caching](premium-storage-performance.md#disk-caching).
 
-### Performance plus (preview)
+### Performance plus
 
-Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard SSDs that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
+Enabling performance plus increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard SSDs that are 513 GiB and larger. Enabling performance plus improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
 
 ## Standard HDD
 
@@ -76,9 +76,9 @@ Enabling performance plus (preview) increases the Input/Output Operations Per Se
 
 High-scale Azure Virtual Machines that can use premium storage have a multitier caching technology called **BlobCache**. **BlobCache** is a caching solution built on RAM and SSDs that are locally attached to the server hosting the virtual machine (VM). This cache is available for Standard HDD, Standard SSD, and Premium SSD managed disks. With disk caching enabled, high-scale VMs can achieve levels of performance that exceed the underlying disk performance. To learn more, see [Disk caching](premium-storage-performance.md#disk-caching).
 
-### Performance plus (preview)
+### Performance plus
 
-Enabling performance plus (preview) increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard hard disk drives (HDD) that are 513 GiB and larger. Enabling performance plus (preview) improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
+Enabling performance plus increases the Input/Output Operations Per Second (IOPS) and throughput limits for Azure Standard hard disk drives (HDD) that are 513 GiB and larger. Enabling performance plus improves the experience for workloads that require high IOPS and throughput, such as database and transactional workloads. There's no extra charge for enabling performance plus on a disk. To learn more about performance plus, see [Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli).
 
 ## Next steps
 

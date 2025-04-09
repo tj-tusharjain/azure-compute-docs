@@ -340,5 +340,8 @@ VM NonExistentVM not found. Skipping disk attachment.
 1. Select the **Source type** that you'd like.
 1. Then select **Change size** and select the disk type you'd like and choose a size larger than 513 GiB.
 1. Proceed to **Advanced** and select the checkbox next to **Enable performance plus**.
+1. Select **Review + create** and then deploy your disk.
+
+:::image type="content" source="media/disks-enable-performance/disks-performance-plus-enable.png" alt-text="Screenshot of disks advanced page in the disk portal deployment." lightbox="media/disks-enable-performance/disks-performance-plus-enable.png":::
 
 ---
