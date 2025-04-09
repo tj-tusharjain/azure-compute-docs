@@ -46,17 +46,17 @@ Once a VM is enabled with MSP in Audit/Enforce mode, the proxy agent would captu
 
 From these connection logs, you can analyze the applications that are making the requests to the IMDS/WireServer endpoints :
 
-[![Screenshot of audit logs](../images/create-sig/logs1.png)](../images/create-sig/logs1.png#lightbox)
+[![Screenshot of first audit logs](../images/create-sig/logs1.png)](../images/create-sig/logs1.png#lightbox)
 
 The JSON captured here would be of the format :
 
-[![Screenshot of audit logs](../images/create-sig/logs2.png)](../images/create-sig/logs2.png#lightbox)
+[![Screenshot of second audit logs](../images/create-sig/logs2.png)](../images/create-sig/logs2.png#lightbox)
 
 From this, you can identify the endpoints that you want to secure (which would be the `privileges` in the final InVMAccessControlProfile ), and the `identities` that should have access.
 
 A very simple rules schema would look like :
 
-[image ![Screenshot of audit logs](../images/create-sig/logs3.png)](../images/create-sig/logs3.png#lightbox)
+[image ![Screenshot of third audit logs](../images/create-sig/logs3.png)](../images/create-sig/logs3.png#lightbox)
 
 > [!NOTE]
 > To ease the generation of this Access Control rules, we built an allowlist generator tool which can help parse these audit logs & provide a UI to generate the Access control roles.

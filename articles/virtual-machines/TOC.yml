@@ -2253,7 +2253,7 @@
     - name: Advanced Configuration
       href: Metadata-Security-Protocol/advanced-configuration.md
     - name: Troubleshooting Guide
-      href: Metadata-Security-Protocol/tsg.md
+      href: Metadata-Security-Protocol/troubleshoot-guide.md
     - name: MSP FAQs
       href: Metadata-Security-Protocol/faq.md 
   - name: Get usage metrics with REST
