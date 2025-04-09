@@ -1,5 +1,5 @@
 ---
-title: audit log for metadata security protocol
+title: Overview of metadata security protocol
 description: overview of metadata security protocol
 author: minnielahoti
 ms.service: azure-virtual-machines

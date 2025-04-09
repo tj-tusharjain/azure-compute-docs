@@ -1,5 +1,5 @@
 ---
-title: audit log for metadata security protocol
+title: Greenfield
 description: Learn more about deploying a VM with MSP
 author: minnielahoti
 ms.service: azure-virtual-machines

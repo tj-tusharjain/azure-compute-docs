@@ -1,5 +1,5 @@
 ---
-title: audit log for metadata security protocol
+title: Frequently asked questions
 description: FAQ section
 author: minnielahoti
 ms.service: azure-virtual-machines

@@ -1,5 +1,5 @@
 ---
-title: audit log for metadata security protocol
+title: Key reset for MSP
 description: Learn more about key reset
 author: minnielahoti
 ms.service: azure-virtual-machines

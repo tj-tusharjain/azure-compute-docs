@@ -1,5 +1,5 @@
 ---
-title: audit log for metadata security protocol
+title: Disable MSP
 description: Disabling MSP
 author: minnielahoti
 ms.service: azure-virtual-machines

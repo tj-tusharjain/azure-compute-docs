@@ -1,5 +1,5 @@
 ---
-title: audit log for metadata security protocol
+title: Advanced Configuration
 description: Creating Allowlist
 author: minnielahoti
 ms.service: azure-virtual-machines

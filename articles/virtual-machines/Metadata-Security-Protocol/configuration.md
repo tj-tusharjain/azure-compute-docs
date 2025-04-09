@@ -1,5 +1,5 @@
 ---
-title: audit log for metadata security protocol
+title: Configuration
 description: Configure MSP
 author: minnielahoti
 ms.service: azure-virtual-machines

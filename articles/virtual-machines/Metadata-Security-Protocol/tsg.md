@@ -1,5 +1,5 @@
 ---
-title: audit log for metadata security protocol
+title: Troubleshooting guide
 description: Troubleshooting guide
 author: minnielahoti
 ms.service: azure-virtual-machines
