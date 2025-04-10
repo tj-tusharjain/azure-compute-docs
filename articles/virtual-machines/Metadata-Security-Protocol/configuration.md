@@ -11,7 +11,7 @@ ms.reviewer: azmetadatadev
 
 # Configuration
 
-MSP offers customization to maximally restrict metadata server access in your workload. This page introduces the fundamental concepts that can be quickly enabled on any supported VM/VMSS.
+Metadata Security Protocol (MSP) offers customization to maximally restrict metadata server access in your workload. This page introduces the fundamental concepts that can be quickly enabled on any supported Virtual Machine (VM) or Virtual Machine Scale Sets.
 
 Users that are more familiar how their workload uses metadata services can harden access further by following the [Advanced Configuration guide](./advanced-configuration.md).
 
@@ -21,7 +21,7 @@ Users that are more familiar how their workload uses metadata services can harde
 |--|--|
 | "Metadata Services" | A general term for the industry practice of offering private, non-internet anonymous HTTP APIs available at a fixed location. Typically `169.254.169.254`. While the exact features, details, and service count vary by cloud provider, they all share a similar architecture and purpose. |
 | [IMDS](https://aka.ms/azureimds) | A user facing metadata service that comes with support and full API documentation. It is intended for both Azure and 3rd party integrations. It offers a mix of metadata and credentials. |
-| [WireServer](https://aka.ms/azurewireserver) | A platform facing metadata service, used to implement core IaaS functionality. It isn't intended for general consumption and Azure offers no support for doing so. While the consumers of the service are Azure implementation related, the service must still be considered in security assessments. WireServer resources are treated as privileged by default. However, IMDS resources shouldn't be viewed as non-privileged. Depending on your workload, IMDS can also provide sensitive information. |
+| [WireServer](https://aka.ms/azurewireserver) | A platform facing metadata service, used to implement core IaaS functionality. It isn't intended for general consumption and Azure offers no support for doing so. While the consumers of the service are Azure implementation related, the service must still be considered in security assessments. WireServer resources are treated as privileged by default. However, Azure Instance Metadata Service (IMDS) resources shouldn't be viewed as non-privileged. Depending on your workload, IMDS can also provide sensitive information. |
 | Guest Proxy Agent (GPA) | An in-guest agent that enables MSP protections. |
 
 ## ARM Fields
@@ -36,10 +36,10 @@ All configuration is managed via new properties in the `securityProfile` section
 
 | `ProxyAgentSettings` property | Type | Default | Details  |
 |--|--|--|--|
-| `enabled`| `Bool` | `false` | Specifies whether MSP feature should be enabled on the virtual machine or virtual machine scale set. Default is `false`. This controls: <ul><li>Applying other settings</li><li>Platform latched key generation</li><li>Automatic GPA Installation (when `true`) / Uninstallation (when `false`) on Windows VM/VMSS</li></ul> |
+| `enabled`| `Bool` | `false` | Specifies whether MSP feature should be enabled on the virtual machine or virtual machine scale set. Default is `false`. This property controls: <ul><li>Applying other settings</li><li>Platform latched key generation</li><li>Automatic GPA Installation (when `true`) / Uninstallation (when `false`) on Windows VM/VMSS</li></ul> |
 | `imds` | HostEndpointSettings | N/A | IMDS specific configuration. See [Per-Metadata Service Configuration](#per-metadata-service-configuration). |
 | `wireServer` | HostEndpointSettings | N/A | Settings for the Wireserver endpoint. See [Per-Metadata Service Configuration](#per-metadata-service-configuration). |
-| `keyIncarnationId` | `Integer` | `0` | A counter for key generation. Strictly monotonically incrementing this value (other values will be ignored) instructs MSP to reset the key used for securing communication channel between guest and host. The GPA will notice that the key has been reset and automatically acquire the new one. (*This property is only for used recovery/troubleshooting purposes.*) |
+| `keyIncarnationId` | `Integer` | `0` | A counter for key generation. Increasing this value instructs MSP to reset the key used for securing communication channel between guest and host. The GPA noticesthe key reset and automatically acquires a new one. (*This property is only for used recovery/troubleshooting purposes.*) |
 
 ### Per-Metadata Service Configuration
 
@@ -53,9 +53,9 @@ An inline configuration can be defined using the `mode` property of `HostEndpoin
 
 | `mode` (Enum; expressed as `String`) | GPA Behavior | Service Behavior |
 |--|--|--|
-| `"Disabled"` | The GPA will not set up eBPF interception of requests to this service. Requests will go directly to the service. | Unchanged. The service will **not** require that requests are endorsed (signed) by the GPA. |
-| `"Audit"` | The GPA will intercept requests to this service and determine if they are authorized by the current configuration. The request will always be forwarded to the service, but the result + caller information will be logged. | Unchanged. The service will **not** require that requests are endorsed (signed) by the GPA. |
-| `"Enforce"` | The GPA will intercept requests to this service and determine if they are authorized by the current configuration. If the caller is authorized, it will sign the request to endorse it. If the caller is not authorized, the GPA will immediately respond with status code `401` or `403` as appropriate. All outcomes will be recorded in the audit log. | Requests to the service **must** be endorsed (signed) by the GPA. Unsigned requests will be rejected with a `401` status code. |
+| `"Disabled"` | The GPA does not set up eBPF interception of requests to this service. Requests go directly to the service. | Unchanged. The service does **not** require that requests are endorsed (signed) by the GPA. |
+| `"Audit"` | The GPA intercepts requests to this service and determines if they are authorized by the current configuration. The request is always forwarded to the service, but the result + caller information is logged. | Unchanged. The service does **not** require that requests are endorsed (signed) by the GPA. |
+| `"Enforce"` | The GPA intercepts requests to this service and determines if they are authorized by the current configuration. If the caller is authorized, GPA signs the request to endorse it. If the caller is not authorized, the GPA responds with status code `401` or `403`. All outcomes are recorded in the audit log. | Requests to the service **must** be endorsed (signed) by the GPA. Unsigned requests will be rejected with a `401` status code. |
 
 > This property cannot be used at the same time as `inVMAccessControlProfileReferenceId`!
 
