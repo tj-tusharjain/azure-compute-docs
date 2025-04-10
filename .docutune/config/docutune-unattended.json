@@ -5,10 +5,11 @@
         "maxInFlightFiles": 200
     },
     "pullRequest": {
-        "title": "[BULK] [DocuTune-Remediation] - Scheduled execution to fix known issues in WAF",
-        "batchSize": 0,
+        "title": "[BULK] - DocuTune remediation - Sensitive terms with GUIDs",
+        "batchSize": 9,
         "maxBatches": 100,
-        "body": "",
+        "groupBy": "articles/*",
+        "body": "Applying sensitive terms with GUID changes as part of content SFI.",
         "newBranchNamePrefix": "",
         "headRemote": "origin",
         "draft": false,
@@ -21,14 +22,7 @@
         {
             "name": "Default",
             "command": "Fix",
-            "configType": "full",
-            "stopAt": 9
-        },
-        {
-            "name": "FlagBrokenLinks",
-            "base": "Default",
-            "configType": "links-only",
-            "stopAt": 10
+            "configType": "full"
         }
     ]
 }

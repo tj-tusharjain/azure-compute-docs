@@ -1,7 +1,7 @@
 ---
 title: Azure Linux VM Agent overview
 description: Learn how to install and configure the Azure Linux VM Agent (waagent) to manage your virtual machine's interaction with the Azure fabric controller.
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
@@ -15,6 +15,9 @@ ms.date: 03/28/2023
 The Microsoft Azure Linux VM Agent (waagent) manages Linux and FreeBSD provisioning, along with virtual machine (VM) interaction with the Azure fabric controller. In addition to the Linux agent providing provisioning functionality, Azure provides the option of using cloud-init for some Linux operating systems.
 
 The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see the [Azure Linux VM Agent readme on GitHub](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
+
+> [!IMPORTANT]
+> FIPS 140-3 Enforced is not supported on RHEL/Ubuntu with extensions using 'protectedSettings'.
 
 ### Image provisioning
 
@@ -69,7 +72,7 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 
 | Distribution | x64 | ARM64 |
 |:-----|:-----:|:-----:|
-| Alma Linux | 9.x+ | 9.x+ |
+| Alma Linux | 8.x+, 9.x+ | 8.x+, 9.x+ |
 | Debian | 10+ | 11.x+ |
 | Flatcar Linux | 3374.2.x+ | 3374.2.x+ |
 | Azure Linux | 2.x | 2.x |
@@ -79,10 +82,6 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 | Rocky Linux | 9.x+ | 9.x+ |
 | SLES | 12.x+, 15.x+ | 15.x SP4+ |
 | Ubuntu (LTS releases)| 18.04+, 20.04+, 22.04+, 24.04+ | 20.04+, 22.04+, 24.04+ |
-
-> [!IMPORTANT]
-> RHEL/Oracle Linux 6.10 is the only RHEL/OL 6 version with Extended Lifecycle Support available. [The extended maintenance ends on June 30, 2024](https://access.redhat.com/support/policy/updates/errata).
-
 
 Other supported systems:
 

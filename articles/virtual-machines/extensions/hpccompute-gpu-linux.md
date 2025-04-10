@@ -6,7 +6,7 @@ manager: gwallace
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
 ms.date: 07/25/2024
@@ -223,6 +223,60 @@ Extension execution output is logged to the following file. Refer to this file t
 | 13 | VM size not supported | Use an N-series VM to deploy. |
 | 14 | Operation unsuccessful | Check the execution output log. |
 
+### Known issues
+1. `NvidiaGpuDriverLinux` currently installs the latest drivers `17.5` GRID drivers which is having issues with CUDA on A10 series. NVIDIA is working on solving this issue, meanwhile, use GRID driver `16.5` by passing a runtime setting to the extension.
+   
+```azurecli
+az vm extension set  --resource-group <rg-name> --vm-name <vm-name>  --name NvidiaGpuDriverLinux --publisher Microsoft.HpcCompute --settings "{'driverVersion':'535.161'}"
+```
+
+```ARM templates
+{
+  "name": "NvidiaGpuDriverLinux",
+  "type": "extensions",
+  "apiVersion": "2015-06-15",
+  "location": "<location>",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', <myVM>)]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.HpcCompute",
+    "type": "NvidiaGpuDriverLinux",
+    "typeHandlerVersion": "1.11",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+         "driverVersion": "535.161"
+    }
+  }
+}
+```
+2. GRID Driver version `17.x` is incompatible on NVv3 (NVIDIA Tesla M60). GRID drivers up to version `16.5` are supported. `NvidiaGpuDriverLinux` installs the latest drivers which are incompatible on NVv3 SKU. Instead, use the following runtime settings to force the extension to install an older version of the driver. For more information on driver versions, see [NVIDIA GPU resources](https://raw.githubusercontent.com/Azure/azhpc-extensions/master/NvidiaGPU/resources.json).
+
+```azurecli
+az vm extension set  --resource-group <rg-name> --vm-name <vm-name>  --name NvidiaGpuDriverLinux --publisher Microsoft.HpcCompute --settings "{'driverVersion':'535.161'}"
+```
+
+```ARM templates
+{
+  "name": "NvidiaGpuDriverLinux",
+  "type": "extensions",
+  "apiVersion": "2015-06-15",
+  "location": "<location>",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', <myVM>)]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.HpcCompute",
+    "type": "NvidiaGpuDriverLinux",
+    "typeHandlerVersion": "1.11",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+         "driverVersion": "535.161"
+    }
+  }
+}
+```
+3. Grid 17.5 linux driver has a bug where it impacts CUDA related workload. Error signature typically involves CUDA devices unavailable. While Azure is working to resolve this issue, use GRID driver 16.5 to continue running your workload. 
 ### Support
 
 If you need more help at any point in this article, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to [Azure support](https://azure.microsoft.com/support/options/) and select **Get support**. For information about using Azure support, read the [Azure support FAQ](https://azure.microsoft.com/support/faq/).
