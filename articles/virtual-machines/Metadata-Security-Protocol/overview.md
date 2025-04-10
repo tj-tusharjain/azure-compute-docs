@@ -13,11 +13,11 @@ ms.reviewer: azmetadatadev
 
 MSP enhances the security of the [Azure Instance Metadata Service](https://aka.ms/azureimds) and [Azure Wireserver](https://aka.ms/azureWireserver) endpoints (available in Azure IaaS Virtual Machine (VM) or Virtual Machine Scale Sets at 169.254.169.254 and 168.63.129.16 respectively). These cloud "metadata services" are ubiquitous across the industry with all major providers offering their own variants.
 
-These services are used for providing metadata and bootstrapping VM credentials. As a result, they're frequently targeted by threat actors. Common vectors include confused deputy attacks (e.g. Server Side Request Forgery (SSRF)) against in guest workloads and sandbox escapes, which are of particular concern for hosted-on-behalf-of workloads where untrusted code is intentionally loaded into the VM.
+These services are used for providing metadata and bootstrapping VM credentials. As a result, threat actors frequency attack these services. Common vectors include confused deputy attacks against in guest workloads and sandbox escapes.  These vectors are of particular concern for hosted-on-behalf-of workloads where untrusted code loads into the VM.
 
 With metadata services, the trust boundary is the VM itself. Any software within the guest is authorized to request secrets from Instance Metadata Service (IMDS) + Wireserver. VM owners are responsible for carefully sandboxing any software they run inside the VM and ensuring that external actors can't exfiltrate data. In practice, the complexity of the problem leads to mistakes at scale which in turn lead to exploits.
 
-While numerous defense-in-depth strategies exist, providing secrets over an unauthenticated HTTP API carries inherent risk. Across the industry, this class of vulnerabilities has impacted hundreds of companies, millions of individuals, and caused financial losses in the hundreds of millions of dollars. MSP closes many of the most common vulnerabilities by addressing the root cause of these attacks and introducing strong Authentication (AuthN) and Authorization (AuthZ) concepts to cloud metadata services.
+While numerous defense-in-depth strategies exist, providing secrets over an unauthenticated HTTP API carries inherent risk. Across the industry, this class of vulnerabilities has impacted hundreds of companies, millions of individuals, and caused financial losses in the hundreds of millions of dollars. MSP closes most common vulnerabilities by addressing the root cause of these attacks and by introducing strong Authentication (AuthN)/Authorization (AuthZ) concepts to cloud metadata services.
 
 ## Compatibility
 
@@ -56,7 +56,7 @@ Examples:
 The GPA hardens against these types of attacks by:
 
 - Limiting metadata access to a subset of the VM (applying the principle of least privileged access).
-- Switching from a "default-open" to "default-closed" model. For instance, with nested virtualization a misconfigured L2
+- Switching from a "default-open" to "default-closed" model. For instance, with nested virtualization, a misconfigured L2
   VM that has access to the L1 VM's vNIC can communicate with a metadata service as the L1. With the GPA, a misconfigured
   L2 would no longer be able to gain access, as it would be unable to authenticate with the service.
 

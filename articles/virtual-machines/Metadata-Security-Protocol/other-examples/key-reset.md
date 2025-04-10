@@ -10,7 +10,7 @@ ms.reviewer: azmetadatadev
 ---
 
 # Reset latched key
-If the (Virtual Machine) VM loses its copy of the latched key, a disk is migrated to a new VM, or any other key mismatch occurs, the VM will be unable to access Wireserver or Instance Metadata Service (IMDS). Resetting the key will bring the VM back to a healthy state if the key is lost or unmatched between Host and Guest.
+If the Virtual Machine (VM) loses its copy of the latched key, a disk is migrated to a new VM. If any other key mismatch occurs, the VM can't access Wireserver or Instance Metadata Service (IMDS). Resetting the key will bring the VM back to a healthy state if the key is lost or unmatched between Host and Guest.
 
 > The VM owner must request the key reset. Metadata services can't distinguish between an attacker or the GPA requesting a reset when the key is lost, so resets can't be issued from within the VM.
 
@@ -32,7 +32,7 @@ PATCH https://management.azure.com/subscriptions/{subscription_id}/resourceGroup
 ```
 
 ### Confirm Reset Occurred
-Check the `AzureProxyAgentExtension` portion of the VM Instance view to confirm the new key is generated. You see your new `keyIncarnationId` once the change propagates end to end.
+Check the `AzureProxyAgentExtension` of the VM Instance view to confirm the new key is generated. You see your new `keyIncarnationId` once the change propagates end to end.
 
 ```json
 "keyLatchStatus":{
@@ -49,13 +49,13 @@ Check the `AzureProxyAgentExtension` portion of the VM Instance view to confirm 
 ```
 
 > [!NOTE]
-> These requests are idempotent. However, if multiple requests are made with multiple `keyIncarnationId` there's no guarantee on the number and order of `keyIncarnationId` you'll  observe. The final state reflects whichever request used the largest value.
+> These requests are idempotent. However, if multiple requests are made with multiple `keyIncarnationId` there's no guarantee on the number and order of `keyIncarnationId` you observe. The final state reflects whichever request used the largest value.
 
 ## Reset a Virtual Machine Scale Sets' Key
 
 Key data is unique for each instance in a Scale Set. The key must be reset on a per-instance basis.
 
-We only support reset key for particular Virtual Machine Scale Sets' VM Instance. We cannot reset key for all the Virtual Machine Scale Sets' instances in a single API.
+We only support reset key for particular Virtual Machine Scale Sets' VM Instance. We can't reset key for all the Virtual Machine Scale Sets' instances in a single API.
 
 See [Reset a VM's Key](#reset-a-vms-key), and substitute in your Virtual Machine Scale Sets' instance's resource ID instead. Example:
 

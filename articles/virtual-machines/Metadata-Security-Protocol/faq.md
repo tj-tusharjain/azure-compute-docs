@@ -10,7 +10,7 @@ ms.reviewer: azmetadatadev
 ---
 
 # Frequently asked questions
-This page answers the commonly asked questions by customers when working with the Metadata Security Protocol (MSP) feature. If you don't see a question that can help you, please reach out to our support team. 
+This page answers the commonly asked questions by customers when working with the Metadata Security Protocol (MSP) feature. If you don't see a question that can help you, reach out to our support team. 
 
 ## Usage
 
@@ -22,7 +22,7 @@ This page answers the commonly asked questions by customers when working with th
 
 ### How do we check component health?
 
-The GuestProxyAgent extension instance view will report the status of the GPA and its dependencies. Each component's `status` value shows `RUNNING` when it is healthy.
+The GuestProxyAgent extension instance view reports the status of the GPA and its dependencies. Each component's `status` value shows `RUNNING` when it's healthy.
 
 | Component | Field |
 |--|--|
@@ -69,21 +69,21 @@ Full example:
 
 No. Linux provisioning doesn't have a step where the platform can install another software before the VM is handed over to the customer. Additionally, this model isn't something most Linux customers want, it's more in line with the Windows philosophy.
 
-For security reasons, MSP doesn't allow a VM to successfully provision if a secure connection is not established. The GPA is responsible for establishing the secure connection, so it is required to already be present.
+For security reasons, MSP doesn't allow a VM to successfully provision if a secure connection isn't established. The GPA is responsible for establishing the secure connection, so it is required to already be present.
 
-If you do not wish to use an image with the GPA baked in, you must create the VM first then enable MSP afterwards. During preview we monitor usage patterns and evaluate potential ways to support the scenario, by allowing the GPA to be installed as a VM Extension rather than baked in.
+If you don't wish to use an image with the GPA baked in, you must create the VM first then enable MSP afterwards. During preview, we monitor usage patterns and evaluate potential ways to support the scenario, by allowing the GPA to be installed as a VM Extension rather than baked in.
 
 ## Features
 
 ### Is ARM64 Supported?
 
-ARM64 support will be available once the MSP feature is Generally Available.
+ARM64 support is available once the MSP feature is Generally Available.
 
 ## Design
 
 ### How is the latched key created? How does it bind to the VM? Can it be impersonated?
 
-Azure Host generates the latched key and stores it as platform data. The key is unique to each VM and only can be used on that VM's private connection to WireServer + Azure Instance Metadata Service(IMDS). 
+Azure Host generates the latched key and stores it as platform data. The key is unique to each VM and only can be used on that VM's private connection to WireServer + Azure Instance Metadata Service (IMDS). 
 
 ### How is the Allowlist (policy) provisioned? Is it done in a secure way?
 
@@ -98,11 +98,11 @@ Both components play a role in enforcement. MSP uses a shared responsibility mod
 - The trusted delegate (the GPA) is responsible for determining the identity of clients and endorsing requests that approve from.
   - The GPA can rely on the OS Kernel to authoritatively identify which process within the VM made a request.
 
-The most important element is that MSP is a default closed model whereas other security measures (like in guest firewall rules) are default open. If the GPA is down or otherwise bypassed, Wireserver rejects any requests as they won't be endorsed by the latched key. 
+The most important element is that MSP is a default closed model whereas other security measures (like in guest firewall rules) are default open. If the GPA is down or otherwise bypassed, Wireserver rejects any requests as they aren't endorsed by the latched key. 
 
 ### Why is this feature opt-in and not required or automatically enabled?
 
-IMDS is used by nearly every IaaS VM/VMSS in Azure. The diversity of workloads requires flexibility. While the design of MSP abstracts away most breaking changes, ultimately if a workload is dependent on a less secure configuration, enforcing stronger security breaks the workload.
+IMDS is used by nearly every IaaS VM or Virtual Machine Scale Sets in Azure. The diversity of workloads requires flexibility. While the design of MSP abstracts away most breaking changes, ultimately if a workload is dependent on a less secure configuration, enforcing stronger security breaks the workload.
 
 ### Why a new agent and not an Azure Guest Agent update?
 
