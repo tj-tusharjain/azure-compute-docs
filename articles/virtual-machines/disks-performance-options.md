@@ -4,7 +4,7 @@ description: Learn the available options for improving Azure managed disk perfor
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 04/14/2025
+ms.date: 04/15/2025
 ms.author: rogarana
 ms.custom: accpeerreview2025-2
 ---
@@ -23,12 +23,12 @@ Ultra Disks and Premium solid-state drives (SSD) v2 are designed to be highly pe
 
 Premium SSD supports several performance options, each geared towards different use cases. The following table outlines the main differences and ideal uses.
 
-|  |Credit-based bursting  |On-demand bursting  |Changing performance tier  |Caching |Write accelerator |
-|---------|---------|---------|---------|---------|---------|
-| **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term uses like determining your workloads performance needs.|Ideal if your workload would otherwise continually be running in burst. |Ideal for workloads that can be configured to rely on data from the cache. |Ideal for scenarios where log files are required to persist to a disk in a performant manner for modern databases. |
-|**Cost**     |Free         |Cost is variable, see the [Billing](/azure/virtual-machines/disk-bursting#billing) section of the bursting article for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |Free. |Free. |
-|**Availability**     |Only available for Premium SSD managed disks 512 GiB and smaller, and Standard SSDs 1,024 GiB and smaller.         |Only available for Premium SSD managed disks larger than 512 GiB.         |Available to all Premium SSD sizes.         |Available to all Premium SSD managed disk, Standard SSD, and Standard HDD sizes. |Only available to M-series Azure Virtual Machines, but can be configured with all Premium SSD sizes attached to M-series virtual machines. |
-|**Enablement**     |Enabled by default on eligible disks.         |User must enable manually.         |User must manually change their tier.         |User must manually configure both their cache settings and their workloads and applications. |User must manually configure and enable. |
+|  |Credit-based bursting  |On-demand bursting  |Changing performance tier  |Caching |Write accelerator |Performance plus |
+|---------|---------|---------|---------|---------|---------|---------|
+| **Scenarios**|Ideal for short-term scaling (30 minutes or less).|Ideal for short-term uses like determining your workloads performance needs.|Ideal if your workload would otherwise continually be running in burst. |Ideal for workloads that can be configured to rely on data from the cache. |Ideal for scenarios where log files are required to persist to a disk in a performant manner for modern databases. |Ideal for workloads that require higher sustained performance. |
+|**Cost**     |Free         |Cost is variable, see the [Billing](/azure/virtual-machines/disk-bursting#billing) section of the bursting article for details.        |The cost of each performance tier is fixed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.         |Free. |Free. |Free. |
+|**Availability**     |Only available for Premium SSD managed disks 512 GiB and smaller, and Standard SSDs 1,024 GiB and smaller.         |Only available for Premium SSD managed disks larger than 512 GiB.         |Available to all Premium SSD sizes.         |Available to all Premium SSD managed disk, Standard SSD, and Standard HDD sizes. |Only available to M-series Azure Virtual Machines, but can be configured with all Premium SSD sizes attached to M-series virtual machines. |Available for Standard HDD, Standard SSD, and Premium SSD managed disks 513 GiB and larger. |
+|**Enablement**     |Enabled by default on eligible disks.         |User must enable manually.         |User must manually change their tier.         |User must manually configure both their cache settings and their workloads and applications. |User must manually configure and enable. |Must enable performance plus when you create the disk, can't be enabled on existing disks. |
 
 ### Credit-based disk bursting
 
