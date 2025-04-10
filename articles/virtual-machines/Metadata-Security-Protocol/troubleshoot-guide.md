@@ -16,7 +16,7 @@ This page provides some basic troubleshooting guide. If you're unable to resolve
 
 ### Windows
 
-In Windows, the necessary components (GPA and eBPF for Windows) are automatically installed by the platform. If this fails:
+In Windows, the platform automatically installs the necessary components - GPA and eBPF for Windows. If the installation fails:
 
 1. Ensure you're using a [supported OS version]() <- link to compatibility matrix here.
 1. Ensure the failure code is [MSP related]() <- Link to possible errors
@@ -35,10 +35,10 @@ The exact failure depends on if/how your image is misconfigured or if a platform
 
 | GPA Installed | Cloud-init Version | Expected Failure | Cause | 
 |--|--|--|--|
-| No| `< 24.3`| `Linux.OSProvisioningInternalError`<br>Linux.cloud-init successfully reported ready for provisioning but the platform failed to record success | VM may fail to provision even though cloud-init reports ready.|  
-| No | `>= 24.3`| Linux.Cloud-Init failed due to azure-proxy-agent not found | Cloud-init reports failure to platform after detecting GPA not installed. |  
-| Yes | `< 24.3`| `Linux.OSProvisioningInternalError` | Cloud-init may report ready before GPA is configured as it is GPA-unaware.  May fail up to 100% of the time depending on scenario. | 
-| Yes | `>= 24.3`| Cloud-init reports GPA is unhealthy | Any of: eBPF setup failure, Cgroups v2 not enabled, generic startup failure, failure to acquire key |  
+| No | `< 24.3`| `Linux.OSProvisioningInternalError`<br>Linux.cloud-init successfully reported ready for provisioning but the platform failed to record success | VM may fail to provision even though cloud-init reports ready.|
+| No | `>= 24.3`| Linux.Cloud-Init failed due to azure-proxy-agent not found | Cloud-init reports failure to platform after detecting GPA not installed. |
+| Yes | `< 24.3`| `Linux.OSProvisioningInternalError` | Cloud-init may report ready before GPA is configured as it is GPA-unaware. May fail up to 100% of the time depending on scenario. | 
+| Yes | `>= 24.3`| Cloud-init reports GPA is unhealthy | Any of: eBPF setup failure, Cgroups v2 not enabled, generic startup failure, failure to acquire key |
 
 ## MSP enabled, but not applied in existing VM or Virtual Machine Scale Sets
 
@@ -72,19 +72,19 @@ azure-proxy-agent service captures its overall status into `/var/log/azure-proxy
 
 ### GPA service missing or not running
 #### Windows VM
-For Windows VMs, Control Resource Plane (CRP) implicitly installs an extension "Microsoft.CPlat.ProxyAgent.ProxyAgentWindows" that installs Windows Guest Proxy Agent (GPA) to the VM for MSP feature. 
+Control Resource Plane (CRP) implicitly installs these Windows services using Guest extensions:
 
-When enabling MSP, it installs three Windows Services to the VM:
 - Windows Guest Proxy Agent (GPA) service (**GuestProxyAgent**)
 - ebpf-for-windows kernel drivers: **eBPFCore**, **NetEbpfExt**
 
 #### Linux VM
 For Linux VMs, Linux Guest Proxy Agent (GPA) must be baked into its base image, or the user explicitly add GPA VM Extension `Microsoft.CPlat.ProxyAgent.ProxyAgentLinux` before enable MSP feature.
-#Prerequisites
+
+Prerequisites
 - Linux Kernel 5.15 or later, which has all our required eBPF features;
 - cgroup2 mounted by default, GPA service hooks up cgroup/connect4 eBPF event.
 
-When enabling MSP, it installs one service `azure-proxy-agent` to the VM.
+When enabling MSP, CRP installs one service `azure-proxy-agent` to the VM.
 ```
 # systemctl status azure-proxy-agent.service 
 ● azure-proxy-agent.service - Microsoft Azure GuestProxyAgent
@@ -157,7 +157,7 @@ Guest ProxyAgent requires cgroup2 mounted by default to hooks up cgroup/connect4
 ```
 grep cgroup /proc/filesystems
 ``` 
-If `nodev cgroup2` is listed, it means cgroup v2 is supported by this OS; if not listed, please opt-out MSP feature, update to this latest OS version and then enable MSP feature.
+If `nodev cgroup2` is listed, it means cgroup v2 is supported by this OS; if not listed, opt-out MSP feature, update to this latest OS version and then enable MSP feature.
 - Check if CGroup2 is mounted by default using `mount | grep cgroup2`
 ```
 mount | grep cgroup2
@@ -175,7 +175,7 @@ Follow the Key recovery / key reset instructions. Resetting the key allows the p
 
 ## Key recovery / key reset
 
-If your VM's long-lived key is lost it no longer communicates with Instance Metadata Service (IMDS) or Wireserver. Without the key, a new one can't be safely issued to the VM automatically. Additionally, if the key is compromised in some way it must be reset to ensure security is maintained.
+If your VM's long-lived key is lost, it no longer communicates with Instance Metadata Service (IMDS) or Wireserver. Without the key, a new one can't be safely issued to the VM automatically. Additionally, if the key is compromised in some way it must be reset to ensure security is maintained.
 
 ### Resetting a Key
 
