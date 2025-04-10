@@ -11,13 +11,13 @@ ms.reviewer: azmetadatadev
 
 # Metadata Security Protocol (MSP)
 
-MSP enhances the security of the [Azure Instance Metadata Service](https://aka.ms/azureimds) and [Azure Wireserver](https://aka.ms/azureWireserver) endpoints (available in Azure IaaS Virtual Machine (VM) or Virtual Machine Scale Sets at 169.254.169.254 and 168.63.129.16 respectively). These cloud "metadata services" are ubiquitous across the industry with all major providers offering their own variants.
+MSP enhances the security of the [Azure Instance Metadata Service](https://aka.ms/azureimds) and [Azure Wireserver](https://aka.ms/azureWireserver) endpoints (available in Azure IaaS Virtual Machine (VM) or Virtual Machine Scale Sets at 169.254.169.254 and 168.63.129.16 respectively). These cloud "metadata services" are ubiquitous across the industry with all major providers offering their own variants. Prior incidents of this class of vulnerabilities have impacted 
 
-These services are used for providing metadata and bootstrapping VM credentials. As a result, threat actors frequency attack these services. Common vectors include confused deputy attacks against in guest workloads and sandbox escapes.  These vectors are of particular concern for hosted-on-behalf-of workloads where untrusted code loads into the VM.
+These services are used for providing metadata and bootstrapping VM credentials. As a result, threat actors frequency attack these services. Common vectors include confused deputy attacks against in-guest workloads and sandbox escapes.  These vectors are of particular concern for hosted-on-behalf-of workloads where untrusted code loads into the VM.
 
 With metadata services, the trust boundary is the VM itself. Any software within the guest is authorized to request secrets from Instance Metadata Service (IMDS) + Wireserver. VM owners are responsible for carefully sandboxing any software they run inside the VM and ensuring that external actors can't exfiltrate data. In practice, the complexity of the problem leads to mistakes at scale which in turn lead to exploits.
 
-While numerous defense-in-depth strategies exist, providing secrets over an unauthenticated HTTP API carries inherent risk. Across the industry, this class of vulnerabilities has impacted hundreds of companies, millions of individuals, and caused financial losses in the hundreds of millions of dollars. MSP closes most common vulnerabilities by addressing the root cause of these attacks and by introducing strong Authentication (AuthN)/Authorization (AuthZ) concepts to cloud metadata services.
+While numerous defense-in-depth strategies exist, providing secrets over an unauthenticated HTTP API carries inherent risk. Across the industry, this class of vulnerabilities impacted hundreds of companies, millions of individuals, and caused financial losses in the hundreds of millions of dollars. MSP closes most common vulnerabilities by addressing the root cause of these attacks and by introducing strong Authentication (AuthN)/Authorization (AuthZ) concepts to cloud metadata services.
 
 ## Compatibility
 
@@ -61,24 +61,19 @@ The GPA hardens against these types of attacks by:
   L2 would no longer be able to gain access, as it would be unable to authenticate with the service.
 
 At provisioning time, the metadata service establishes a trusted delegate within the guest (the GPA). A long-lived
-secret is negotiated to authenticate with the trusted delegate, and all requests to the metadata service must be
-endorsed by the delegate using a hash-based message authentication code [HMAC](https://en.wikipedia.org/wiki/HMAC). This establishes a point-to-point trust
+secret is negotiated to authenticate with the trusted delegate, and the delegate must endorse all requests to the metadata service using a hash-based message authentication code (HMAC) ([HMAC](https://en.wikipedia.org/wiki/HMAC)). The HMAC establishes a point-to-point trust
 relationship with strong AuthN.
 
-The GPA leverages [eBPF](https://ebpf.io/what-is-ebpf/) to intercept HTTP requests to the metadata services. eBPF
-enables the GPA to verify the identity of the in-guest software that made the request. The GPA does this without introducing an additional kernel module. Using this information, it compares the identity of the client against an allowlist defined as a part of the VM model in the Azure Resource Manager (ARM) and endorses requests that are authorized by transparently adding a signature header. THerefore, the MSP feature can be enabled on existing workloads without breaking changes.
+The GPA uses [eBPF](https://ebpf.io/what-is-ebpf/) to intercept HTTP requests to the metadata services. eBPF
+enables the GPA to verify the identity of the in-guest software that made the request. The GPA uses eBPF to intercept requests without requiring an extra kernel module. GPA uses this information to compare the identity of the client against an allowlist defined as a part of the VM model in the Azure Resource Manager (ARM). The GPA then endorses requests  by adding a signature header. Therefore, the MSP feature can be enabled on existing workloads without breaking changes.
 
 - By default, the existing authorization levels are enforced: IMDS is open to all users and Wireserver is root / admin only.
-  - Today this restriction is accomplished with firewall rules in the guest. This is still a default-open mechanism,
-    because if that rule can be disabled or bypassed for any reason the metadata service will accept the request. The
-    AuthN mechanism enabled here default-closed. Bypassing interception maliciously or by error doesn't grant access to
-    the metadata service.
-- Advanced AuthZ configuration to authorize specific in-guest processes and users to access only specific endpoints is
-  supported by defining a custom allow list with Role Based Access Control (RBAC) semantics.
+  - Today this restriction is accomplished with firewall rules in the guest. This is still a default-open mechanism, because if that rule can be disabled or bypassed for any reason the metadata service still accepts the request. The AuthN mechanism enabled here default-closed. Bypassing interception maliciously or by error doesn't grant access to the metadata service.
+- Advanced AuthZ configuration to authorize specific in-guest processes and users to access only specific endpoints is supported by defining a custom allowlist with Role Based Access Control (RBAC) semantics.
 
 ## Getting Audit Logs
 
-In `Audit` and `Enforce` modes, audit logs will be generated on the local disk.
+In `Audit` and `Enforce` modes, audit logs are generated on the local disk.
 
 | OS Family | Audit Log Location |
 |--|--|
