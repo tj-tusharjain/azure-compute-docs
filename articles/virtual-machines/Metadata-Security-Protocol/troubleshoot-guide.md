@@ -10,27 +10,27 @@ ms.reviewer: azmetadatadev
 ---
 
 # Troubleshooting guide
-This page provides some basic troubleshooting guide. If you are unable to resolve the issues encountered while using the Metadata Security Protocol (MSP) feature, please contact our Support team. 
+This page provides some basic troubleshooting guide. If you're unable to resolve the issues encountered while using the Metadata Security Protocol (MSP) feature, please contact our Support team. 
 
-## New VM/VMSS deployment failures
+## New Virtual Machine (VM) or Virtual Machine Scale Sets deployment failures
 
 ### Windows
 
-In Windows, the necessary components (GPA and eBPF for Windows) will be automatically installed by the platform. If this fails:
+In Windows, the necessary components (GPA and eBPF for Windows) are automatically installed by the platform. If this fails:
 
-1. Ensure you are using a [supported OS version]() <- link to compatibility matrix here.
+1. Ensure you're using a [supported OS version]() <- link to compatibility matrix here.
 1. Ensure the failure code is [MSP related]() <- Link to possible errors
 1. Retry the deployment. Transient failures are a part of cloud computing.
 1. If the issue persists, please contact support.
 
 ### Linux
 
-Ensure that you are using a [valid image]()
+Ensure that you're using a [valid image]()
 
 - The GPA must be baked into your image in order to deploy with MSP enabled.
-- Your cloud-init version must be a newer, MSP aware version. If it is not, a race condition will occur between it and the GPA.
+- Your cloud-init version must be a newer, MSP aware version. If it's not, a race condition will occur between it and the GPA.
 
-The exact failure will depend on if/how your image is misconfigured or if a platform failure occurred:
+The exact failure depends on if/how your image is misconfigured or if a platform failure occurred:
 
 | GPA Installed | Cloud-init Version | Expected Failure | Cause | 
 |--|--|--|--|
@@ -39,9 +39,9 @@ The exact failure will depend on if/how your image is misconfigured or if a plat
 | Yes | `< 24.3`| DID NOT LATCH ERROR HERE | Cloud-init may report ready before GPA is configured as it is GPA-unaware.  May fail up to 100% of the time depending on scenario. | 
 | Yes | `>= 24.3`| Cloud-init reports GPA is unhealthy | Any of: eBPF setup failure, Cgroups v2 not enabled, generic startup failure, failure to acquire key |  
 
-## MSP enabled, but not applied in existing VM/VMSS
+## MSP enabled, but not applied in existing VM or Virtual Machine Scale Sets
 
-To avoid service disruptions when enabling MSP on an existing VM/VMSS, protections will not be applied until the VM has indicated it has successfully set up and acquired the long-lived key. This means the VM model can show that MSP is enabled, but the GPA service may still be unhealthy and indicate that protections are not activated.
+To avoid service disruptions when enabling MSP on an existing VM or Virtual Machine Scale Sets, protections aren't applied until the VM indicates it has successfully set up and acquired the long-lived key. This means the VM model can show that MSP is enabled, but the GPA service may still be unhealthy and indicate that protections aren't activated.
 
 ### Confirming the issue still exists
 
@@ -71,7 +71,7 @@ azure-proxy-agent service captures its overall status into `/var/log/azure-proxy
 
 ### GPA service missing or not running
 #### Windows VM
-For Windows VMs, CRP implicitly installs an extension "Microsoft.CPlat.ProxyAgent.ProxyAgentWindows" that installs Windows Guest Proxy Agent (GPA) to the VM for MSP feature. 
+For Windows VMs, Control Resource Plane (CRP) implicitly installs an extension "Microsoft.CPlat.ProxyAgent.ProxyAgentWindows" that installs Windows Guest Proxy Agent (GPA) to the VM for MSP feature. 
 
 When enabling MSP, it installs 3 Windows Services to the VM:
 - Windows Guest Proxy Agent (GPA) service (**GuestProxyAgent**)
@@ -161,20 +161,20 @@ If `nodev cgroup2` is listed, it means cgroup v2 is supported by this OS; if not
 ```
 mount | grep cgroup2
 ```
-If there is no record displayed, ask the VM owner to set it up with command below and then reboot the VM.
+If there's no record displayed, ask the VM owner to set it up with command below and then reboot the VM.
 ```
 sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=1"
 ```
 
 #### Failed to acquire key / key rejected
 
-The GPA was not able to acquire a key, because the platform is no longer offering it. This can be caused by actions like migrating a disk to a new VM; or deleting the VMs OS disk and replacing it.
+The GPA wasn't able to acquire a key, because the platform is no longer offering it. This can be caused by actions like migrating a disk to a new VM; or deleting the VMs OS disk and replacing it.
 
 Follow the Key recovery / key reset instructions. Resetting the key will allow the platform to offer a new one. The GPA periodically attempts to recover. Once the reset is completed, the GPA will automatically acquire a new key and go back to a healthy state.
 
 ## Key recovery / key reset
 
-If your VM's long-lived key is lost it will no longer be able to communicate with IMDS nor Wireserver. Without the key, a new one cannot be safely issued to the VM automatically. Additionally, if the key is compromised in some way it must be reset to ensure security is maintained.
+If your VM's long-lived key is lost it will no longer be able to communicate with Instance Metadata Service (IMDS) or Wireserver. Without the key, a new one can't be safely issued to the VM automatically. Additionally, if the key is compromised in some way it must be reset to ensure security is maintained.
 
 ### Resetting a Key
 

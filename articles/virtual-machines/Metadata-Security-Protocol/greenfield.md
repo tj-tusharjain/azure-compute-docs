@@ -9,8 +9,8 @@ ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
-# Deploy a VM/VMSS with MSP
-This page explains how to enable the Metadata Security Protocol (MSP) feature while provisioning a new Virtual Machine (VM) or Virtual Machine Scale Sets (VMSS).
+# Deploy a VM or Virtual Machine Scale Sets with MSP
+This page explains how to enable the Metadata Security Protocol (MSP) feature while provisioning a new Virtual Machine (VM) or Virtual Machine Scale Sets.
 
 ## Prerequisites
 
@@ -56,6 +56,6 @@ https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{res
 
 Once a VM is deployed, these steps are the same as for an [existing VM](./brownfield.md#validating-the-linked-rules-were-applied-to-your-vm).
 
-## Deploy VMSS with MSP
+## Deploy Virtual Machine Scale Sets with MSP
 
-Applying the same steps to the VMSS model will apply MSP to every VM in the Scale Set.
+Applying the same steps to the Virtual Machine Scale Sets model will apply MSP to every VM in the Scale Set.

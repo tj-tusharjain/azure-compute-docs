@@ -11,11 +11,11 @@ ms.reviewer: azmetadatadev
 
 # Converting audit logs to an allowlist
 
-See [Advanced Configuration](../advanced-configuration.md) first to learn about RBAC and the `InVMAccessControlProfile` resource type in MSP.
+See [Advanced Configuration](../advanced-configuration.md) first to learn about Role Based Access Control (RBAC) and the `InVMAccessControlProfile` resource type in Metadata Security Protocol (MSP).
 
 ## Collecting Audit Logs
 
-If you have enabled MSP in `Audit` or `Enforce` mode, the GPA will create audit logs in the VM.
+If MSP is enabled in `Audit` or `Enforce` mode, the GPA creates audit logs in the Virtual Machine (VM).
 
 | OS Family | Audit Log Location |
 |--|--|
@@ -30,36 +30,36 @@ There are two ways to create an Allowlist:
 
 ### Automated Allowlist generation
 
-1. Download and run the Allowlist Tool from either option below:
+1. Download and run the Allowlist Tool from either option:
    - Select `allowListTool.exe` from the [latest release page](https://github.com/Azure/GuestProxyAgent/releases/latest)
    - Direct download [link](https://github.com/Azure/GuestProxyAgent/releases/latest/download/allowListTool.exe)
 1. Follow the steps in the Allowlist Tool to create your Allowlist and download the generated Allowlist.
 
 ### Manually create Allowlist
 
-Once a VM is enabled with MSP in Audit/Enforce mode, the proxy agent would capture all the requests being made to the Host endpoints. The logs are captured in the below folder inside the VM:
+Once a VM is enabled with MSP in Audit/Enforce mode, the proxy agent would capture all the requests being made to the Host endpoints. The logs are captured in the folder inside the VM:
 
 | Operating System | Log File Path |
 |--|--|
 | Windows | `C:\WindowsAzure\ProxyAgent\Logs\ProxyAgent.Connection.log` |
 | Linux | `/var/lib/azure-proxy-agent/ProxyAgent.Connection.log` |
 
-From these connection logs, you can analyze the applications that are making the requests to the IMDS/WireServer endpoints :
+From the connection logs, you can analyze the applications that are making the requests to the Instance Metadata Service(IMDS)/WireServer endpoints:
 
 [![Screenshot of first audit logs](../images/create-sig/logs1.png)](../images/create-sig/logs1.png#lightbox)
 
-The JSON captured here would be of the format :
+The JSON captured here would be of the format:
 
 [![Screenshot of second audit logs](../images/create-sig/logs2.png)](../images/create-sig/logs2.png#lightbox)
 
-From this, you can identify the endpoints that you want to secure (which would be the `privileges` in the final InVMAccessControlProfile ), and the `identities` that should have access.
+From the log file, you can identify the endpoints that you want to secure (which would be the `privileges` in the final InVMAccessControlProfile ), and the `identities` that should have access.
 
-A very simple rules schema would look like :
+A simple rules schema would look like:
 
 [image ![Screenshot of third audit logs](../images/create-sig/logs3.png)](../images/create-sig/logs3.png#lightbox)
 
 > [!NOTE]
-> To ease the generation of this Access Control rules, we built an allowlist generator tool which can help parse these audit logs & provide a UI to generate the Access control roles.
+> We built an allowlist generator tool to make it easier to generate the Access Control rules. The allowlist tool helps parse the audit logs & provide a UI to generate the Access control roles.
 
 ## Creating a New InVMAccessControlProfile
 
