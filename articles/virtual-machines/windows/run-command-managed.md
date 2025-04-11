@@ -44,6 +44,23 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 | Windows Server 2025 | Supported | Supported |
 | Windows Server 2025 Core | Supported | Supported |
 
+## Available Command IDs
+| **CommandID** | **Description** |
+|:-----|:-----|
+|IPConfig | Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP.
+For usage, refer [Run scripts](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command-managed#create-or-update-run-command-on-a-vm-using-sourcecommandid) |
+| EnableWindowsUpdate | Enable Automatic Updates through Windows Update. |
+| DisableWindowsUpdate | Disable Automatic Updates through Windows Update. |
+| EnableAdminAccount | Checks if the local Administrator account is disabled, and if so enables it. |
+| EnableEMS | Enable Emergency Management Services (EMS) to allow for serial console connection in troubleshooting scenarios. |
+| EnableRemotePS | Enable remote PowerShell. |
+| IMDSCertCheck | Checks IMDS Health and then analyzes currently installed certificates that IMDS depends upon. If missing, shows additional details and mitigation steps. |
+| RDPSettings | Checks registry settings and domain policy settings. Suggests policy actions if machine is part of a domain or modifies the settings to default values. |
+| ResetRDPCert | Removes the SSL certificate tied to the RDP listener and restores the RDP listener security to default. Use this script if you see any issues with the certificate. |
+| WindowsActivationValidation | Checks the current Windows license status (activated or not) and will alert if the machine is not property activated. |
+| SetRDPPort | Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port. |
+| DisableNLA | Disables Network Level Authentication (NLA). You must restart the VM after the script completes for the change to take effect. The script itself does not restart the VM. You can use this script to disable NLA if RDP connections are failing with error 'The remote computer that you are trying to connect to requires Network Level Authentication (NLA), but your Windows domain controller cannot be contacted to perform NLA.' or error 'An authentication error has occurred. The Local Security Authority cannot be contacted.' NLA is a security feature that should only be disabled temporarily to allow RDP connections to succeed until the domain controller connectivity issue has been resolved. |
+
 ## Limiting access to Run Command
 
 Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription Level. The built-in [Reader](/azure/role-based-access-control/built-in-roles#reader) role and higher levels have this permission.
