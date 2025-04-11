@@ -16,7 +16,7 @@ This page answers the commonly asked questions by customers when working with th
 
 ### How to check if the feature is enabled?
 
- - Metadata Security Protocol (MSP) enablement can be checked programmatically using the [GET VM API](https://learn.microsoft.com/rest/api/compute/virtual-machines/get?view=rest-compute-2024-07-01&tabs=HTTP) to retrieve the Virtual Machine (VM) model. The `proxyAgentSettings` properties report MSP configuration.
+ - Metadata Security Protocol (MSP) enablement can be checked programmatically using the [GET VM API](https://learn.microsoft.com/rest/api/compute/virtual-machines/get) to retrieve the Virtual Machine (VM) model. The `proxyAgentSettings` properties report MSP configuration.
 
  - Additionally, the GuestProxyAgent instance view in the VM runtime status, reports the state of MSP from its perspective in the VM. If MSP is disabled, the value shows as `"Disabled"`.
 

@@ -56,7 +56,7 @@ From the log file, you can identify the endpoints that you want to secure (which
 
 A simple rules schema would look like:
 
-[image ![Screenshot of third audit logs.](../images/create-shared-image-gallery/example-access-control-rules.png)](../images/create-shared-image-gallery/xample-access-control-rules.png#lightbox)
+[image ![Screenshot of third audit logs.](../images/create-shared-image-gallery/example-access-control-rules.png)](../images/create-shared-image-gallery/example-access-control-rules.png#lightbox)
 
 > [!NOTE]
 > We built an allowlist generator tool to make it easier to generate the Access Control rules. The allowlist tool helps parse the audit logs & provide a UI to generate the Access control roles.
@@ -65,7 +65,7 @@ A simple rules schema would look like:
 
 ### Using ARM template
 
-1. [Create a new private gallery](https://learn.microsoft.com/azure/virtual-machines/create-gallery?tabs=portal%2Cportaldirect%2Ccli2#create-a-private-gallery) in Azure compute gallery.
+1. [Create a new private gallery](https://learn.microsoft.com/azure/virtual-machines/create-gallery) in Azure compute gallery.
 1. Create an `InVMAccessControlProfile` definition with parameters for:
     - The gallery name to store in (from step 1)
     - Profile name
