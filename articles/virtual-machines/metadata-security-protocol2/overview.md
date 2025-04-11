@@ -47,7 +47,7 @@ Examples:
 - ARM Templates
 - REST API 
 - PowerShell
-- [Azure Portal](./other-examples/portal.md)
+- [Azure portal](./other-examples/portal.md)
 
 ## Enhanced Security
 

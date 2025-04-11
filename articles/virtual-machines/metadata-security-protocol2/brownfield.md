@@ -1,5 +1,5 @@
 ---
-title: Enable MSP on existing VM/VMSS
+title: Enable MSP on existing Virtual Machine or Virtual Machine Scale Sets
 description: MSP on preexisting VMs
 author: minnielahoti
 ms.service: azure-virtual-machines

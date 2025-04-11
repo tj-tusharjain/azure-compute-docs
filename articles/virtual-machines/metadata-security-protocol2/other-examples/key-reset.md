@@ -1,5 +1,5 @@
 ---
-title: Key reset for MSP
+title: Reset latched key
 description: Learn more about key reset
 author: minnielahoti
 ms.service: azure-virtual-machines

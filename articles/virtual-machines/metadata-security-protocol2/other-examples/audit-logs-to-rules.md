@@ -46,22 +46,22 @@ Once a VM is enabled with MSP in Audit/Enforce mode, the proxy agent would captu
 
 From the connection logs, you can analyze the applications that are making the requests to the Instance Metadata Service(IMDS)/WireServer endpoints:
 
-[![Screenshot of first audit logs](../images/create-sig/logs1.png)](../images/create-sig/logs1.png#lightbox)
+[![Screenshot of first audit logs.](../images/create-shared-image-gallery/status-log.png)](../images/create-shared-image-gallery/status-log.png#lightbox)
 
 The JSON captured here would be of the format:
 
-[![Screenshot of second audit logs](../images/create-sig/logs2.png)](../images/create-sig/logs2.png#lightbox)
+[![Screenshot of second audit logs.](../images/create-shared-image-gallery/parse-json-from-logs.png)](../images/create-shared-image-gallery/parse-json-from-logs.png#lightbox)
 
-From the log file, you can identify the endpoints that you want to secure (which would be the `privileges` in the final InVMAccessControlProfile ), and the `identities` that should have access.
+From the log file, you can identify the endpoints that you want to secure (which would be the `privileges` in the final `InVMAccessControlProfile`), and the `identities` that should have access.
 
 A simple rules schema would look like:
 
-[image ![Screenshot of third audit logs](../images/create-sig/logs3.png)](../images/create-sig/logs3.png#lightbox)
+[image ![Screenshot of third audit logs.](../images/create-shared-image-gallery/example-access-control-rules.png)](../images/create-shared-image-gallery/xample-access-control-rules.png#lightbox)
 
 > [!NOTE]
 > We built an allowlist generator tool to make it easier to generate the Access Control rules. The allowlist tool helps parse the audit logs & provide a UI to generate the Access control roles.
 
-## Creating a New InVMAccessControlProfile
+## Creating a New `InVMAccessControlProfile`
 
 ### Using ARM template
 

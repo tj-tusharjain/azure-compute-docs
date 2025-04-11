@@ -141,7 +141,7 @@ GPA uses some eBPF features which requires Linux kernel 5.15 or later. If the cu
       "message": "Failed to load program 'connect4' with error: the BPF_PROG_LOAD syscall failed. Verifier output: ; int connect4(struct bpf_sock_addr *ctx)\n0: (bf) r6 = r1\n; __u64 cookie = bpf_get_socket_cookie(ctx);\n1: (85) call bpf_get_socket_cookie#46\n2: (b7) r1 = 0\n; destination_entry entry = {0};\n3: (63) *(u32 *)(r10 -44) = r1\nlast_idx 3 first_idx 0\nregs=2 stack=0 before 2: (b7) r1 = 0\n4: (63) *(u32 *)(r10 -48) = r1\n5: (63) *(u32 *)(r10 -52) = r1\n; entry.destination_ip.ipv4 = ctx->user_ip4;\n6: (61) r1 = *(u32 *)(r6 +4)\n; entry.destination_ip.ipv4 = ctx->user_ip4;\n7: (63) *(u32 *)(r10 -56) = r1\n; entry.destination_port = ctx->user_port;\n8: (61) r1 = *(u32 *)(r6 +24)\n; entry.destination_port = ctx->user_port;\n9: (63) *(u32 *)(r10 -40) = r1\n; entry.protocol = ctx->protocol;\n10: (61) r1 = *(u32 *)(r6 +36)\n; entry.protocol = ctx->protocol;\n11: (63) *(u32 *)(r10 -36) = r1\n12: (bf) r2 = r10\n; \n13: (07) r2 += -56\n; destination_entry *policy = bpf_map_lookup_elem(&policy_map, &entry);\n14: (18) r1 = 0xffff8baa17403400\n16: (85) cal..."
     },
 ```
-Try get the kernel version using `uname -r`, if it display lower than 5.15,  opt-out MSP feature, upgrade your OS image to latest version and enable MSP feature.
+Try get the kernel version using `uname -r`, if it displays lower than 5.15,  opt-out MSP feature, upgrade your OS image to latest version and enable MSP feature.
 
 #### Failed to attach cgroup program for redirection
 
@@ -171,7 +171,7 @@ sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=1"
 
 The GPA wasn't able to acquire a key, because the platform is no longer offering it. Actions like migrating a disk to a new VM or deleting the VMs OS disk and replacing it can cause this failure. 
 
-Follow the Key recovery / key reset instructions. Resetting the key allows the platform to offer a new one. The GPA periodically attempts to recover. Once the reset is completed, the GPA automatically acquire a new key and go back to a healthy state.
+Follow the Key recovery / key reset instructions. Resetting the key allows the platform to offer a new one. The GPA periodically attempts to recover. Once the reset is completed, the GPA automatically acquires a new key and go back to a healthy state.
 
 ## Key recovery / key reset
 

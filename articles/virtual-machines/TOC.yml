@@ -2236,9 +2236,9 @@
       href: Metadata-Security-Protocol/overview.md
     - name: MSP Configuration
       href: Metadata-Security-Protocol/configuration.md
-    - name: Deploy a VM/VMSS With MSP
+    - name: Deploy a Virtual Machine or Virtual Machine Scale Sets With MSP
       href: Metadata-Security-Protocol/greenfield.md
-    - name: Enable MSP on Existing VM/VMSS
+    - name: Enable MSP on Existing Virtual Machine or Virtual Machine Scale Sets
       href: Metadata-Security-Protocol/brownfield.md
     - name: Other Examples
       items:

@@ -67,7 +67,7 @@ The `inVMAccessControlProfiles` resource type defines a per-service configuratio
 
 | `HostEndpointSettings` property | Type | Details |
 |--|--|--|
-| `inVMAccessControlProfileReferenceId` | `String` | The resource id of the configuration to apply. |
+| `inVMAccessControlProfileReferenceId` | `String` | The resource ID of the configuration to apply. |
 
 > Must be a full ARM ID, which takes the form: `/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/inVMAccessControlProfiles/{profile}/versions/{version}`
 
