@@ -218,7 +218,7 @@ sections:
         answer: |
           Generally, yes. However, it's recommended to  confirm against the list of valid versions in a Plan using [Virtual Machine Images - List](/rest/api/compute/virtual-machine-images/list?tabs=HTTP).
 
-      - question: How do i ensure i receive emails about image deprecation?
+      - question: How do I receive emails about image deprecation?
         answer: |
           Ensure that you have either Owner, Account Admin, or User Access Administrator roles on your subscription
            
