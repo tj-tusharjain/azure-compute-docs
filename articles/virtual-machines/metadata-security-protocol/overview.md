@@ -23,17 +23,16 @@ While numerous defense-in-depth strategies exist, providing secrets over an unau
 
 MSP is supported on Azure IaaS VMs + Virtual Machine Scale Sets running OS based on:
 
-- Windows 10 or later (x64; ARM64)
-- Windows Server 2019 (x64, ARM64)
-- Windows Server 2022 (x64, ARM64)
-- Windows Server 2025 (x64, ARM64)
+- Windows 10 or later (x64)
+- Windows Server 2019 (x64)
+- Windows Server 2022 (x64)
+- Windows Server 2025 (x64)
 - Mariner 2.0 (x64, ARM64)
 - Azure Linux(Mariner 3.0) (x64, ARM64)
-- Ubuntu 20.04+
+- Ubuntu 20.04+ (x64, ARM64)
 
 > Once MSP is Generally Available, the list will be expanded to include:
 > - Redhat 9+
-> - Flatcar
 > - Rocky-Linux9+
 > - SUSE 15 SP4+
 
