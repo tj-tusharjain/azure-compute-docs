@@ -270,7 +270,7 @@ sections:
           Migration involves movement of the disk from one storage location to another. This is orchestrated via background copy of data, which can take several hours to complete, typically less than 24 Hrs depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There's no impact on write latency during this period.  
 
       - question: |
-          What changes are required in a preexisting Azure Backup service configuration prior/after migration to Managed Disks?
+          What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?
         answer: |
           No changes are required.
 
@@ -280,7 +280,7 @@ sections:
           Yes, backups work seamlessly.
 
       - question: |
-          What changes are required in a preexisting Azure Disks Encryption configuration prior/after migration to managed disks?
+          What changes are required in a pre-existing Azure Disks Encryption configuration prior/after migration to managed disks?
         answer: |
           No changes are required.
 
