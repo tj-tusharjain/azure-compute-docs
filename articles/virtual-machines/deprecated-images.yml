@@ -279,4 +279,4 @@ sections:
           
           ```azurecli
           az vm image list --<location> eastus --publisher <MicrosoftWindowsServer> --offer <WindowsServer> --sku <2022-Datacenter> --all --query "[?imageDeprecationStatus.imageState=='Active']"
-          ````
+          ```
