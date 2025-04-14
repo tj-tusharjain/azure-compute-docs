@@ -273,7 +273,7 @@ sections:
          
       - question: How do I check for active image versions under a particular SKU?
         answer: |
-          You can check for only Active image versions (images that are not deprecated or scheduled for deprecation) by filtering for Active images versions under a SKU:
+          Active images are images not scheduled for deprecation or already deprecated. List active images versions under a SKU by using the following Azure CLI command:
 
           Azure CLI:
           
