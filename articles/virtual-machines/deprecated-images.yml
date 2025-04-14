@@ -271,7 +271,7 @@ sections:
           ReasonPhrase: Not Found
           
          
-      - question: I want to check for only Active image versions (images not scheduled for deprecation or already deprecated) under a particular SKU?
+      - question: How do I check for active image versions under a particular SKU?
         answer: |
           You can check for only Active image versions (images that are not deprecated or scheduled for deprecation) by filtering for Active images versions under a SKU:
 
