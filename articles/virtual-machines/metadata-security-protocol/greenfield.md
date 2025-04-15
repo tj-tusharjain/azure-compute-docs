@@ -19,9 +19,9 @@ This page explains how to enable the Metadata Security Protocol (MSP) feature wh
 
 ## Deploy VM with MSP
 
-ARM templates are also supported. Here are examples for some of the deployment options:
+You can deploy a VM with MSP via an ARM template. You will update `proxyAgentSettings` and ensure the minimum API version is `2024-03-01`
 
-See [examples](./other-examples/portal.md).
+See [examples](./other-examples/arm-templates.md).
 
 ### With REST API
 
