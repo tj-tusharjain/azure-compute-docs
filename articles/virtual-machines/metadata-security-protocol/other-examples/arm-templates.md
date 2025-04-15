@@ -292,7 +292,7 @@ The JSON below is an example of an ARM template that can be used to deploy a VM 
 ```
 ## Deploy a VM with MSP on Linux
 
-```
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
