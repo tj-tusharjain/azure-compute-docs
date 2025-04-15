@@ -51,9 +51,10 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 ## Available Command IDs
 | **CommandID** | **Description** |
 |:-----|:-----|
-| ifconfig | Gets the configuration of all network interfaces. For usage, refer [Run scripts](https://learn.microsoft.com/azure/virtual-machines/linux/run-command-managed#create-or-update-run-command-on-a-vm-using-sourcecommandid) |
+| ifconfig | Gets the configuration of all network interfaces. For usage, refer [Run scripts](/azure/virtual-machines/linux/run-command-managed#create-or-update-run-command-on-a-vm-using-sourcecommandid) |
 
-> [!Note] The above command IDs are applicable to Managed Run Commands for Linux VMs. You can list all commandIds using command  "```Get-AzVMRunCommandDocument -Location {RegionName}```".
+> [!Note] 
+> The above command IDs are applicable to Managed Run Commands for Linux VMs. You can list all commandIds using command  "```Get-AzVMRunCommandDocument -Location {RegionName}```".
 
 ## Limiting access to Run Command
 

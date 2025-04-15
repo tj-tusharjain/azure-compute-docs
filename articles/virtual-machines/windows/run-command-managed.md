@@ -47,7 +47,7 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 ## Available Command IDs
 | **CommandID** | **Description** |
 |:-----|:-----|
-|IPConfig | Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP. For usage, refer [Run scripts](https://learn.microsoft.com/azure/virtual-machines/windows/run-command-managed#create-or-update-run-command-on-a-vm-using-sourcecommandid) |
+|IPConfig | Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP. For usage, refer [Run scripts](/azure/virtual-machines/windows/run-command-managed#create-or-update-run-command-on-a-vm-using-sourcecommandid) |
 | EnableWindowsUpdate | Enable Automatic Updates through Windows Update. |
 | DisableWindowsUpdate | Disable Automatic Updates through Windows Update. |
 | EnableAdminAccount | Checks if the local Administrator account is disabled, and if so enables it. |
@@ -60,7 +60,8 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 | SetRDPPort | Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port. |
 | DisableNLA | Disables Network Level Authentication (NLA). You must restart the VM after the script completes for the change to take effect. The script itself does not restart the VM. You can use this script to disable NLA if RDP connections are failing with error 'The remote computer that you are trying to connect to requires Network Level Authentication (NLA), but your Windows domain controller cannot be contacted to perform NLA.' or error 'An authentication error has occurred. The Local Security Authority cannot be contacted.' NLA is a security feature that should only be disabled temporarily to allow RDP connections to succeed until the domain controller connectivity issue have been resolved. |
 
-> [!Note] The above command IDs are applicable to Managed Run Commands for Windows VMs. You can list all commandIds using command  "```Get-AzVMRunCommandDocument -Location {RegionName}```".
+> [!Note]
+> The above command IDs are applicable to Managed Run Commands for Windows VMs. You can list all commandIds using command  "```Get-AzVMRunCommandDocument -Location {RegionName}```".
 
 ## Limiting access to Run Command
 
