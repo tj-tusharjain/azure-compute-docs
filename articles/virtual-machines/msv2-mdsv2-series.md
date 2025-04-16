@@ -60,7 +60,7 @@ Local (temp) storage info for each size
 
 Remote (uncached) storage info for each size
 
-| Size | Max Remote Storage Disks (Qty) | Max uncached disk trhoughput: IOPs/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> |
+| Size | Max Remote Storage Disks (Qty) | Max uncached disk throughput: IOPs/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> |
 | ---- | ------------------------------ | --------------------------------------- | ----------------------------------------------------- |
 | Standard_M32ms_v2   | 32 | 20000/500  | 40000/1000 | 
 | Standard_M64s_v2    | 64 | 40000/1000 | 80000/2000 | 
