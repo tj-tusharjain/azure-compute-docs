@@ -11,7 +11,7 @@ ms.reviewer: azmetadatadev
 
 # Enable MSP on existing VM or Virtual Machine Scale Sets
 This page explains the different ways 
-Metadata Security Protocol (MSP) can be enabled on existing Virtual Machines (VM) or Virtual Machine Scale Sets. MSP can be enabled via Portal, ARM template, or the REST API in preexisting VMs.
+Metadata Security Protocol (MSP) can be enabled on existing Virtual Machines (VM) or Virtual Machine Scale Sets. MSP can be enabled via Portal, ARM template, or the REST API in preexisting VMs. By default, for Windows VMs if ProxyAgentSettings.Enabled is true the `Microsoft.CPlat.ProxyAgent.ProxyAgentWindows` extension will be installed. For Linux VMs, setting ProxyAgentSettings.Enabled to true will not implicitly install Proxy Agent Extension. There must be an explicit PUT Rest API call on the `Microsoft.CPlat.ProxyAgent.ProxyAgentLinux` extension to enable Proxy Agent through the Proxy Agent Extension. The purpose of the Proxy Agent Extension is to enable, auto-update, and report status of Proxy Agent. 
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroup
 
 #### Validating the linked rules were applied to your VM
 
-Check the VM Instance View to confirm the status of the `Microsoft.CPlat.ProxyAgent.ProxyAgentWindows` extension.
+Check the VM Instance View to confirm the status of the `Microsoft.CPlat.ProxyAgent.ProxyAgentWindows` extension for Windows and `Microsoft.CPlat.ProxyAgent.ProxyAgentLinux` extension for Linux.
 The `ComponentStatus/ProxyAgentStatus/succeeded` status would have an `imdsRuleId` & `wireServerRuleId` which should map to the reference ID of the `InVMAccessControlProfile`.
 
 ```json

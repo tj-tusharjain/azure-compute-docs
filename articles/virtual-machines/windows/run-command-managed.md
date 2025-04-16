@@ -44,10 +44,10 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 | Windows Server 2025 | Supported | Supported |
 | Windows Server 2025 Core | Supported | Supported |
 
-## Available Command IDs
+## Available Commands
 | **CommandID** | **Description** |
 |:-----|:-----|
-|IPConfig | Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP. For usage, refer [Run scripts](/azure/virtual-machines/windows/run-command-managed#create-or-update-run-command-on-a-vm-using-sourcecommandid) |
+|IPConfig | Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP. For usage, refer to [Run scripts](https://learn.microsoft.com/azure/virtual-machines/windows/run-command-managed#create-or-update-run-command-on-a-vm-using-sourcecommandid) |
 | EnableWindowsUpdate | Enable Automatic Updates through Windows Update. |
 | DisableWindowsUpdate | Disable Automatic Updates through Windows Update. |
 | EnableAdminAccount | Checks if the local Administrator account is disabled, and if so enables it. |
