@@ -54,7 +54,7 @@ Local (temp) storage info for each size
 > [!NOTE]
 > No local storage present in this series.
 >
-> For frequently asked questions, see [Azure VM sizes with no local temp disk](../../azure-vms-no-temp-disk.yml).
+> For frequently asked questions, see [Azure VM sizes with no local temp disk](/articles/virtual-machines/azure-vms-no-temp-disk.yml).
 
 ### [Remote Storage](#tab/msv2storageremote)
 
