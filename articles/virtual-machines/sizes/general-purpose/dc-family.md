@@ -41,7 +41,7 @@ ms.author: mattmcinnes
 #### [DCesv5-series](#tab/dcesv5)
 [!INCLUDE [dcesv5-series-summary](./includes/dcesv5-series-summary.md)]
 
-[View the full DCesv5-series page](./dcesv5-series.md).
+[View the full DCesv5-series page](./dcesv6-series.md).
 
 [!INCLUDE [dcesv5-series-specs](./includes/dcesv5-series-specs.md)]
 
