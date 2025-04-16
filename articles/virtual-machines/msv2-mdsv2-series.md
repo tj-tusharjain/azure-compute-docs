@@ -31,17 +31,44 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
  
-## Msv2 Medium Memory Diskless 
+## Msv2 Medium Memory Diskless
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network egress bandwidth (Mbps) | 
-|---|---|---|---|---|---|---|---|---|
-| Standard_M32ms_v2   | 32  | 875  | 0 | 32 | 20000/500  | 40000/1000 | 8 | 8000  | 
-| Standard_M64s_v2    | 64  | 1024 | 0 | 64 | 40000/1000 | 80000/2000 | 8 | 16000 | 
-| Standard_M64ms_v2   | 64  | 1792 | 0 | 64 | 40000/1000 | 80000/2000 | 8 | 16000 | 
-| Standard_M128s_v2   | 128 | 2048 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
-| Standard_M128ms_v2  | 128 | 3892 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
-| Standard_M192is_v2<sup>2</sup>  | 192 | 2048 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
-| Standard_M192ims_v2 | 192 | 4096 | 0 | 64 | 80000/2000 | 80000/4000 | 8 | 30000 | 
+### [Basics](#tab/msv2basic)
+
+vCPUs (Qty.) and Memory for each size
+
+| Size | vCPU | Memory: GiB | 
+|---|---|---|
+| Standard_M32ms_v2   | 32  | 875  | 
+| Standard_M64s_v2    | 64  | 1024 | 
+| Standard_M64ms_v2   | 64  | 1792 |
+| Standard_M128s_v2   | 128 | 2048 |
+| Standard_M128ms_v2  | 128 | 3892 | 
+| Standard_M192is_v2  | 192 | 2048 |
+| Standard_M192ims_v2 | 192 | 4096 |
+
+### [Local Storage](#tab/msv2local)
+
+Local (temp) storage info for each size
+
+> [!NOTE]
+> No local storage present in this series.
+>
+> For frequently asked questions, see [Azure VM sizes with no local temp disk](/articles/virtual-machines/azure-vms-no-temp-disk.yml).
+
+### [Remote Storage](#tab/msv2storageremote)
+
+Remote (uncached) storage info for each size
+
+| Size | Max Remote Storage Disks (Qty) | Max uncached disk throughput: IOPs/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> |
+| ---- | ------------------------------ | --------------------------------------- | ----------------------------------------------------- |
+| Standard_M32ms_v2   | 32 | 20000/500  | 40000/1000 | 
+| Standard_M64s_v2    | 64 | 40000/1000 | 80000/2000 | 
+| Standard_M64ms_v2   | 64 | 40000/1000 | 80000/2000 |
+| Standard_M128s_v2   | 64 | 80000/2000 | 80000/4000 |
+| Standard_M128ms_v2  | 64 | 80000/2000 | 80000/4000 |
+| Standard_M192is_v2<sup>2</sup> | 64 | 80000/2000 | 80000/4000 |
+| Standard_M192ims_v2 | 64 | 80000/2000 | 80000/4000 |
 
 <sup>1</sup> Msv2 and Mdsv2 medium memory VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
 
@@ -49,21 +76,84 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
 - Max uncached Ultra Disk and Premium SSD V2 throughput (IOPS/ MBps): 120000/2000 
 - Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/4000
 
+### [Network](#tab/msv2network)
 
+Network interface info for each size
+
+| Size | Max NICs | Expected network egress bandwidth (Mbps) | 
+|---|---|---|
+| Standard_M32ms_v2   | 8 | 8000  | 
+| Standard_M64s_v2    | 8 | 16000 | 
+| Standard_M64ms_v2   | 8 | 16000 | 
+| Standard_M128s_v2   | 8 | 30000 | 
+| Standard_M128ms_v2  | 8 | 30000 | 
+| Standard_M192is_v2  | 8 | 30000 | 
+| Standard_M192ims_v2 | 8 | 30000 |
+
+---
 ## Mdsv2 Medium Memory with Disk  
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network egress bandwidth (Mbps) | 
-|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_M32dms_v2   | 32  | 875  | 1024 | 32 | 40000/400   | 40000/1000 | 20000/500  | 40000/1000 | 8 | 8000  | 
-| Standard_M64ds_v2    | 64  | 1024 | 2048 | 64 | 80000/800   | 80000/2000 | 40000/1000 | 80000/2000 | 8 | 16000 | 
-| Standard_M64dms_v2   | 64  | 1792 | 2048 | 64 | 80000/800   | 80000/2000 | 40000/1000 | 80000/2000 | 8 | 16000 | 
-| Standard_M128ds_v2   | 128 | 2048 | 4096 | 64 | 160000/1600 | 250000/4000 | 80000/2000 | 80000/4000 | 8 | 30000 | 
-| Standard_M128dms_v2  | 128 | 3892 | 4096 | 64 | 160000/1600 | 250000/4000 | 80000/2000 | 80000/4000 | 8 | 30000 | 
-| Standard_M192ids_v2  | 192 | 2048 | 4096 | 64 | 160000/1600 | 250000/4000 | 80000/2000 | 80000/4000 | 8 | 30000 | 
-| Standard_M192idms_v2 | 192 | 4096 | 4096 | 64 | 160000/1600 | 250000/4000 | 80000/2000 | 80000/4000 | 8 | 30000 | 
+### [Basics](#tab/mdsv2basics)
+
+vCPUs (Qty.) and Memory for each size
+
+| Size | vCPU | Memory: GiB |
+|---|---|---|
+| Standard_M32dms_v2   | 32  | 875  |
+| Standard_M64ds_v2    | 64  | 1024 |
+| Standard_M64dms_v2   | 64  | 1792 |
+| Standard_M128ds_v2   | 128 | 2048 |
+| Standard_M128dms_v2  | 128 | 3892 |
+| Standard_M192ids_v2  | 192 | 2048 |
+| Standard_M192idms_v2 | 192 | 4096 |
+
+### [Local Storage](#tab/mdsv2storagelocal)
+
+Local (temp and cached) storage info for each size
+
+| Size | Temp storage (SSD) GiB | Max cached and temp storage throughput: IOPS / MBps | Burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> |
+|---|---|---|---|
+| Standard_M32dms_v2   | 1024 | 40000/400 | 40000/1000 |
+| Standard_M64ds_v2    | 2048 | 80000/800   | 80000/2000 |
+| Standard_M64dms_v2   | 2048 | 80000/800   | 80000/2000 |
+| Standard_M128ds_v2   | 4096 | 160000/1600 | 250000/4000 |
+| Standard_M128dms_v2  | 4096 | 160000/1600 | 250000/4000 |
+| Standard_M192ids_v2  | 4096 | 160000/1600 | 250000/4000 |
+| Standard_M192idms_v2 | 4096 | 160000/1600 | 250000/4000 |
+
+<sup>1</sup> Msv2 and Mdsv2 medium memory VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
+
+### [Remote Storage](#tab/mdsv2storageremote)
+
+Remote (uncached) storage info for each size
+
+| Size | Max data disk | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> |
+|---|---|---|---|---|---|
+| Standard_M32dms_v2   | 32 | 20000/500  | 40000/1000 |
+| Standard_M64ds_v2    | 64 | 40000/1000 | 80000/2000 |
+| Standard_M64dms_v2   | 64 | 40000/1000 | 80000/2000 |
+| Standard_M128ds_v2   | 64 | 80000/2000 | 80000/4000 |
+| Standard_M128dms_v2  | 64 | 80000/2000 | 80000/4000 |
+| Standard_M192ids_v2  | 64 | 80000/2000 | 80000/4000 |
+| Standard_M192idms_v2 | 64 | 80000/2000 | 80000/4000 |
 
 <sup>1</sup> Msv2 and Mdsv2 medium memory VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
 
+### [Network](#tab/mdsv2network)
+
+Network interface info for each size
+
+| Size | Max NICs | Expected network egress bandwidth (Mbps) | 
+|---|---|---|
+| Standard_M32dms_v2   | 8 | 8000  | 
+| Standard_M64ds_v2    | 8 | 16000 | 
+| Standard_M64dms_v2   | 8 | 16000 | 
+| Standard_M128ds_v2   | 8 | 30000 | 
+| Standard_M128dms_v2  | 8 | 30000 | 
+| Standard_M192ids_v2  | 8 | 30000 | 
+| Standard_M192idms_v2 | 8 | 30000 |
+
+---
 [!INCLUDE [virtual-machines-common-sizes-table-defs](./includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes and information
