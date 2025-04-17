@@ -23,6 +23,7 @@ Frequently asked questions (FAQs) about Azure Trusted Launch feature use cases, 
 This section answers questions about use cases for Trusted Launch.
 
 ### Why should I use Trusted Launch? What does Trusted Launch guard against?
+
 Trusted Launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
 
 - **Firmware rootkits**: These kits overwrite the firmware of the virtual machine (VM) BIOS, so the rootkit can start before the operating system (OS).
@@ -46,18 +47,32 @@ VM Guest State (VMGS) is specific to Trusted Launch VMs. It's a blob managed by 
 
 ### Can I disable Trusted Launch for a new VM deployment?
 
-Trusted Launch VMs provide you with foundational compute security. We recommend that you don't disable them for new VM or virtual machine scale set deployments except if your deployments have dependency on:
+Trusted Launch VMs provide you with foundational compute security. We **strongly** recommend that you don't disable them for new VM or scale set deployments except if your deployments have dependency on:
 
 - [A VM size currently not supported](trusted-launch.md#virtual-machines-sizes)
 - [Unsupported features with Trusted Launch](trusted-launch.md#unsupported-features)
 - [An OS that doesn't support Trusted Launch](trusted-launch.md#operating-systems-supported)
+- [VM used to generate TrustedLaunchSupported Azure compute gallery image](trusted-launch-portal.md#trusted-launch-vm-supported-images)
 
-You can use the `securityType` parameter with the `Standard` value to disable Trusted Launch in new VM or virtual machine scale set deployments by using Azure PowerShell (v10.3.0+) and the Azure CLI (v2.53.0+).
+You can use the `securityType` parameter with the `Standard` value to disable Trusted Launch in new VM or scale set deployments by using Azure PowerShell (v10.3.0+) and the Azure CLI (v2.53.0+).
 
 > [!NOTE]
-> We don't recommend disabling Secure Boot unless you're using custom unsigned kernel or drivers.
+>
+> - Parameter `securityType` with value `Standard` can be used if subscription has feature flag `UseStandardSecurityType` registered under `Microsoft.Compute` namespace. Refer to [Setup feature in Azure subscription](/azure/azure-resource-manager/management/preview-features.md) for steps to enable required feature.
+> - We don't recommend disabling Secure Boot unless you're using custom unsigned kernel or drivers.
 
 If you need to disable Secure Boot, under the VM's configuration, clear the **Enable Secure Boot** option.
+
+#### [Template](#tab/template)
+
+Sample `securityProfile` element of ARM template for using `securityType` parameter with value `Standard`
+
+```json
+"securityProfile": {
+    "securityType": "Standard",
+    "uefiSettings": "[null()]"
+}
+```
 
 #### [CLI](#tab/cli)
 
