@@ -116,7 +116,8 @@ Backups configured with the [Enhanced policy](/azure/backup/backup-azure-vms-enh
 Trusted Launch supports ephemeral OS disks. For more information, see [Trusted Launch for ephemeral OS disks](ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks).
 
 > [!NOTE]
-> Keys and secrets generated or sealed by the virtual Trusted Platform Module (vTPM) after the creation of the VM might not be persisted across operations like reimaging and platform events like service healing for Trusted launch VMs created with ephemeral disks.
+>
+> For Trusted launch VMs created with ephemeral disks, Keys and secrets generated or sealed by the virtual Trusted Platform Module (vTPM) after the creation of the VM might not be persisted across operations like reimaging and platform events like service healing.
 
 ### Are security features available with Trusted launch applicable to data disks as well?
 
