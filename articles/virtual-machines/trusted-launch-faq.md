@@ -55,7 +55,7 @@ You can use the `securityType` parameter with the `Standard` value to disable Tr
 
 > [!NOTE]
 >
-> - Parameter `securityType` with value `Standard` can be used if subscription has feature flag `UseStandardSecurityType` registered under `Microsoft.Compute` namespace. Refer to [Setup feature in Azure subscription](/azure-resource-manager/management/preview-features.md) for steps to enable required feature.
+> - Parameter `securityType` with value `Standard` can be used if subscription has feature flag `UseStandardSecurityType` registered under `Microsoft.Compute` namespace. Refer to [Setup feature in Azure subscription](/azure/azure-resource-manager/management/preview-features) for steps to enable required feature.
 > - We don't recommend disabling Secure Boot unless you're using custom unsigned kernel or drivers.
 
 If you need to disable Secure Boot, under the VM's configuration, clear the **Enable Secure Boot** option.
