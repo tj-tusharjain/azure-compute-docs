@@ -42,7 +42,7 @@ az keyvault key create --vault-name $keyVaultName \
 --protection software
 ```
 
-- Create a DiskEncryptionSet. This script sets enable-auto-key-rotation to true to enable automatic rotation of the key. When you enable automatic rotation, the system automatically updates all managed disks, snapshots, and images referencing the disk encryption set to use the new version of the key within one hour.
+- Create a DiskEncryptionSet. You can set *enable-auto-key-rotation* to **true** to enable automatic rotation of the key. When you enable automatic rotation, the system automatically updates all managed disks, snapshots, and images referencing the disk encryption set to use the new version of the key within one hour.
 
 ```azurecli
 keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
@@ -51,7 +51,7 @@ az disk-encryption-set create -n $diskEncryptionSetName \
 -l $location \
 -g $rgName \
 --key-url $keyVaultKeyUrl \
---enable-auto-key-rotation true
+--enable-auto-key-rotation false
 ```
 
 - Grant the DiskEncryptionSet resource access to the key vault. 
@@ -107,7 +107,7 @@ az disk-encryption-set create -n $diskEncryptionSetName \
 -l $location \
 -g $rgName \
 --key-url $keyVaultKeyUrl \
---enable-auto-key-rotation true
+--enable-auto-key-rotation false
 ```
 
 Finally, grant the DiskEncryptionSet access to the Managed HSM.
