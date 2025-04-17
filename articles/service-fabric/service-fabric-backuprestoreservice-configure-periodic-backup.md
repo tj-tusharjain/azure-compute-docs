@@ -99,8 +99,8 @@ A backup policy consists of the following configurations:
 
         1. Enable system assigned or User assigned managed identity in the VMSS [Configure managed identities on virtual machine scale set](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities-scale-sets.md?pivots=identity-mi-methods-azp)
 
-        2. Assign role to the VMSS managed identity to storage account [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal.yml#step-2-open-the-add-role-assignment-pane)
-            1. Storage Account Contributor, Storage Blob Data Contributor, and Storage Table Data Contributor Role at minimum 
+        2. Assign role to the VMSS managed identity to storage account by following the instructions starting in step two of [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal)
+            * Storage Account Contributor, Storage Blob Data Contributor, and Storage Table Data Contributor Role at minimum
 
         [For more information on Managed Identity](/entra/identity/managed-identities-azure-resources/overview.md)
     
