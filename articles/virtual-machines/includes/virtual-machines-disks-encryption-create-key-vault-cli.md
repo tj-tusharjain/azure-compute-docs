@@ -14,7 +14,7 @@
 - Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log to an Azure account in with [az login](/cli/azure/reference-index).
 - Create an Azure Key Vault and encryption key.
 
-When creating the Key Vault, you must enable purge protection. Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
+When creating the Key Vault, you must enable purge protection. Purge protection ensures that a deleted key can't be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
 > [!IMPORTANT]
 > Don't camel case the region, if you do so, you may experience problems when assigning additional disks to the resource in the Azure portal.
