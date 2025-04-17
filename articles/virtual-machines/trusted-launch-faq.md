@@ -399,7 +399,7 @@ Architecture      : x64
 
 ### How do external communication drivers work with Trusted Launch VMs?
 
-Adding component object model (COM) ports requires that you disable Secure Boot. COM ports are disabled by default in Trusted Launch VMs.
+Adding component object model (COM) ports require that you disable Secure Boot. COM ports are disabled by default in Trusted Launch VMs.
 
 ## Troubleshooting issues
 
@@ -421,15 +421,15 @@ This deployment error happens when the snapshot or restore point provided is ina
 2. vTPM in a locked state.
 3. One or more critical vTPM indices are in an invalid state.
 
-This can happen if a user or workload running on the virtual machine sets the lock on vTPM or modifies critical vTPM indices that leave the vTPM in an invalid state.
+The listed reasons can happen if a user or workload running on the virtual machine sets the lock on vTPM or modifies critical vTPM indices that leave the vTPM in an invalid state.
 
 Retrying with the same snapshot/restore point results in the same failure.
 
 **Resolution:**
 
 1. On the source Trusted Launch VM where the snapshot or restore point was generated, the vTPM errors must be rectified.
-    1. If the vTPM state is modified by a workload on the virtual machine, you need to use the same to check the error states and bring the vTPM to a non-error state.
-    1. If TPM tools are used to modify the vTPM state, then you should use the same tools to check the error states and bring the vTPM to a non-error state.  
+    1. For vTPM state modified by a workload on the virtual machine, you need to use the same to check the error states and bring the vTPM to a non-error state.
+    1. For vTPM state modified using trusted platform module (TPM) tools, then you should use the same tools to check the error states and bring the vTPM to a non-error state.  
 
 Once the snapshot or restore point is free from these errors, you can use same to create a new Trusted Launch VM.
 
@@ -453,10 +453,10 @@ To access resource health from the VM configuration page, go to **Resource Healt
 If you verified that the no-boot is caused due to Secure Boot failure:
 
 1. The image you're using is an older version that might have one or more untrusted boot components and is on a deprecation path. To remedy an outdated image, update to a supported newer image version.
-1. The image you're using might have been built outside of a marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify whether your image has unsigned or untrusted boot components, see the following section, "Verify Secure Boot failures."
+1. The image you're using might be built outside of a marketplace source or the boot components modified and contain unsigned or untrusted boot components. To verify whether your image has unsigned or untrusted boot components, see the following section, "Verify Secure Boot failures."
 1. If the preceding two scenarios don't apply, the VM is potentially infected with malware (bootkit/rootkit). Consider deleting the VM and re-creating a new VM from the same source image while you evaluate all the software being installed.
 
-### Why does my Trusted Launch VM show 50MB less memory?
+### Why does my Trusted Launch VM show 50 MB less memory?
 
 With Trusted Launch, an execution environment commonly known as "the paravisor" is created and runs inside the VM.  Typically, about 50MB of memory is used by the paravisor and would show as "reserved" within the guest Operating System. 
 
@@ -547,7 +547,7 @@ This section provides information on certificates.
 
 ### How can I establish root of trust with Trusted Launch VMs?  
 
-The virtual TPM AK public certificate provides you with visibility for information on the full certificate chain (Root and Intermediate Certificates) to help you validate trust in the certificate and root chain. To ensure that you continually have the highest security posture for Trusted Launch, it provides information on instance properties so that you can trace back to the full chain.
+The virtual TPM AK public certificate provides you with visibility for information on the full certificate chain (Root and Intermediate Certificates) to help you validate trust in the certificate and root chain. It provides information on instance properties so that you can trace back to the full chain. It ensures that you continually have the highest security posture for Trusted Launch
 
 #### Download instructions
 
@@ -564,9 +564,9 @@ Package certificates, composed of .p7b (Full Certificate Authority) and .cer (In
 ### What Microsoft owned trusted certificates are built into Azure VMs?
 
 For Windows VMs, Windows CA certificate is built in UEFI firmware. For Linux VMs, Microsoft UEFI CA certificate is built in UEFI firmware.
-For Azure Linux VMs only, an additional ‘Azure Services Linux Kmod PCA’ certificate is also added in in UEFI firmware for all Linux distributions. Linux Kmod PCA is used to sign Microsoft owned kernel modules.
+For Azure Linux VMs only, `Azure Services Linux Kmod PCA` certificate is also added in UEFI firmware for all Linux distributions. Linux Kmod PCA is used to sign Microsoft owned kernel modules.
 
-Linux Kmod PCA certificate is added to make customer experience smoother when using Microsoft solutions like Azure Site Recovery (ASR) which installs a kernel module. The ASR kernel module will load without any customer action to supply a key as ASR kernel module is signed using the trusted ‘Azure Services Linux Kmod PCA’ certificate.
+Linux Kmod PCA certificate is added to make customer experience smoother when using Microsoft solutions like Azure Site Recovery (ASR) which installs a kernel module. The ASR kernel module loads without any customer action to supply a key as ASR kernel module is signed using the trusted ‘Azure Services Linux Kmod PCA’ certificate.
 
 #### Download instructions
 
