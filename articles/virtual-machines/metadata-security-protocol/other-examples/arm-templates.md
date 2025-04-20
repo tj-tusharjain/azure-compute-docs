@@ -19,8 +19,8 @@ For both templates, `proxyAgentSettings` must be updated to configure MSP. Also,
 
 ## Deploy VM with MSP on Windows
 
-The JSON code below is an example of an ARM template that can be used to deploy a VM with MSP enabled. 
-```
+The JSON below is an example of an ARM template that can be used to deploy a VM with MSP enabled. 
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -292,7 +292,7 @@ The JSON code below is an example of an ARM template that can be used to deploy 
 ```
 ## Deploy a VM with MSP on Linux
 
-```
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",

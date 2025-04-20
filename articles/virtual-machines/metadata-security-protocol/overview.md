@@ -4,7 +4,7 @@ description: Overview of metadata security protocol.
 author: minnielahoti
 ms.service: azure-virtual-machines
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 04/20/2025
 ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
