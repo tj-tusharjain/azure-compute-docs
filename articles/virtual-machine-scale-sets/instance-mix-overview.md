@@ -100,6 +100,7 @@ Following the scale set cost model, usage of instance mix is free. You continue 
 When using instance mix, keep the following limitations in mind:
 - **Orchestration Mode**: Instance mix is only available for scale sets using Flexible Orchestration Mode.
 - **Quota Requirements**: Ensure you have sufficient quota for the VM sizes you're requesting with instance mix.
+- **Virtual Machine Type**: Only VMs that are in the [general purpose](../virtual-machines/sizes/overview.md#general-purpose) category can be mixed at this time.
 - **VM Size Limit**: You can specify up to **five VM sizes** in an instance mix deployment.
 - **Virtual Network Requirement**: For REST API deployments, an existing virtual network must be present in the resource group where the scale set is being deployed.
 - **Architecture Consistency**: Mixing VM architectures (for example, Arm64 and x64) in the same instance mix deployment isn't supported.
