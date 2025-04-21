@@ -11,7 +11,7 @@ ms.reviewer: azmetadatadev
 
 # Metadata Security Protocol (MSP)
 
-MSP enhances the security of the [Azure Instance Metadata Service](https://aka.ms/azureimds) and [Azure WireServer](https://aka.ms/azureWireserver) endpoints (available in Azure IaaS Virtual Machine (VM) or Virtual Machine Scale Sets at 169.254.169.254 and 168.63.129.16 respectively). These services are used for providing metadata and bootstrapping VM credentials. As a result, threat actors frequency attack these services. Common vectors include confused deputy attacks against in-guest workloads and sandbox escapes.  These vectors are of particular concern for hosted-on-behalf-of workloads where untrusted code loads into the VM.
+MSP enhances the security of the [Azure Instance Metadata Service](https://aka.ms/azureimds) and [Azure WireServer](https://aka.ms/azureWireserver) services (available in Azure IaaS Virtual Machine (VM) or Virtual Machine Scale Sets at 169.254.169.254 and 168.63.129.16 respectively). These services are used for providing metadata and bootstrapping VM credentials. As a result, threat actors frequently target these services. Common vectors include confused deputy attacks against in-guest workloads and sandbox escapes. These vectors are of particular concern for hosted-on-behalf-of workloads where untrusted code loads into the VM.
 
 With metadata services, the trust boundary is the VM itself. Any software within the guest is authorized to request secrets from Instance Metadata Service (IMDS) + WireServer. VM owners are responsible for carefully sandboxing any software they run inside the VM and ensuring that external actors can't exfiltrate data. In practice, the complexity of the problem leads to mistakes at scale which in turn lead to exploits.
 
