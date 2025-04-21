@@ -117,9 +117,8 @@ In the request body, set `sku.name` to `Mix` and specify the total number of VMs
   "capacity": {TotalNumberVMs}
 },
 ```
-Ensure you reference your existing subnet:
 
-Reference your existing subnet as follows:
+Reference your existing subnet, as follows:
 
 ```json
 "subnet": {
@@ -153,7 +152,7 @@ If you use the `Prioritized` allocation strategy, you can assign a priority rank
 },
 ```
 
-- Replace placeholders (such as `{YourSubscriptionId}`) with your actual values.
+- Replace placeholders,such as `{YourSubscriptionId}`, with your actual values.
 - You can specify up to five VM sizes in the `vmSizes` array.
 - The `rank` property is required only when using the `Prioritized` allocation strategy.
 
