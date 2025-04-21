@@ -19,6 +19,7 @@ Instance mix is best suited for workloads that are flexible in compute requireme
 - Deploy a heterogeneous mix of VM sizes in a single scale set. You can view max scale set instance counts in the [documentation](./virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
 - Optimize your deployments for cost or capacity through allocation strategies.
 - Continue to make use of scale set features, like [Autoscale](./virtual-machine-scale-sets-autoscale-overview.md), [Spot Priority Mix](./spot-priority-mix.md), or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
+  
 ## Use cases
 Instance mix is ideal for scenarios where flexibility and cost optimization are key. Common use cases include:
 
@@ -62,7 +63,7 @@ The `capacityOptimized` allocation strategy is designed for workloads where secu
 - This strategy is useful for workloads that must secure compute resources without delays due to capacity shortages.
 
 ##### Considerations
-- Cost isn't considered. The selected VM sizes may include the most expensive options if they're the most readily available.
+- Cost isn't considered. The selected VM sizes may include more expensive options if those are the most readily available.
 - No user-defined ranking is required. Unlike the `Prioritized` allocation strategy, the selection process is fully automated based on Azure’s capacity insights.
 - VM allocation is region-dependent. Availability may vary across Azure regions, and the selection process adapts accordingly.
 - Best suited for critical workloads. This strategy is ideal when securing VMs is more important than optimizing for cost.
