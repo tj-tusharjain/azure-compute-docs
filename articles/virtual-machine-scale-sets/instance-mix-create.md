@@ -103,59 +103,58 @@ $vmssResult = New-AzVmss -ResourceGroupName $resourceGroupName -Name $vmssName -
 ```
 
 ### [REST API](#tab/arm-1)
-To deploy an instance mix scale set through REST API, use a `PUT` call to the scale set:
-```json
-PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{youScaleSetName}?api-version=2023-09-01
+To deploy a scale set with instance mix using the REST API, make a `PUT` request to the following endpoint:
+
+```http
+PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{yourScaleSetName}?api-version=2023-09-01
 ```
 
-In the request body, ensure `sku.name` is set to Mix:
+In the request body, set `sku.name` to `Mix` and specify the total number of VMs:
+
 ```json
-  "sku": {
-    "name": "Mix",
-    "capacity": {TotalNumberVMs}
-  },
-```
-Ensure you reference your existing subnet:
-```json
-"subnet": {
-    "id": "/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Network/virtualNetworks/{YourVnetName}/subnets/default"
+"sku": {
+  "name": "Mix",
+  "capacity": {TotalNumberVMs}
 },
 ```
-Lastly, be sure to specify the `skuProfile` with **up to five** VM sizes. This sample uses three:
+
+Reference your existing subnet, as follows:
+
 ```json
-    "skuProfile": {
-      "vmSizes": [
-        {
-          "name": "Standard_D8s_v5"
-        },
-        {
-          "name": "Standard_E16s_v5"
-        },
-        {
-          "name": "Standard_D2s_v5"
-        }
-      ],
-      "allocationStrategy": "lowestPrice"
-    },
+"subnet": {
+  "id": "/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Network/virtualNetworks/{YourVnetName}/subnets/default"
+},
 ```
 
-When using the `prioritized` allocation strategy, you can specify the priority ranking of the `vmSizes` specified:
+Specify the `skuProfile` with up to five VM sizes. The following example uses three sizes and the `lowestPrice` allocation strategy:
+
 ```json
-    "skuProfile": {
-      "vmSizes": [
-        {
-          "name": "Standard_D8s_v5", "rank": 1
-        },
-        {
-          "name": "Standard_E16s_v5", "rank": 2
-        },
-        {
-          "name": "Standard_D2s_v5", "rank": 1
-        }
-      ],
-      "allocationStrategy": "Prioritized"
-    },
+"skuProfile": {
+  "vmSizes": [
+    { "name": "Standard_D8s_v5"},
+    { "name": "Standard_D8as_v5"},
+    { "name": "Standard_D8s_v4"}
+  ],
+  "allocationStrategy": "lowestPrice"
+},
 ```
+
+If you use the `Prioritized` allocation strategy, you can assign a priority ranking to each VM size. For example:
+
+```json
+"skuProfile": {
+  "vmSizes": [
+    { "name": "Standard_D8s_v5", "rank": 1 },
+    { "name": "Standard_D8as_v5", "rank": 2 },
+    { "name": "Standard_D8s_v4", "rank": 3 }
+  ],
+  "allocationStrategy": "Prioritized"
+},
+```
+
+- Replace placeholders,such as `{YourSubscriptionId}`, with your actual values.
+- You can specify up to five VM sizes in the `vmSizes` array.
+- The `rank` property is required only when using the `Prioritized` allocation strategy.
 
 ---
 

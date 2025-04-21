@@ -18,7 +18,8 @@ Instance mix enables you to specify multiple different Virtual Machine (VM) size
 Instance mix is best suited for workloads that are flexible in compute requirements and can be run on various different sized VMs. Using instance mix you can:
 - Deploy a heterogeneous mix of VM sizes in a single scale set. You can view max scale set instance counts in the [documentation](./virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
 - Optimize your deployments for cost or capacity through allocation strategies.
-- Continue to make use of scale set features, like [Spot Priority Mix](./spot-priority-mix.md) or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
+- Continue to make use of scale set features, like [Autoscale](./virtual-machine-scale-sets-autoscale-overview.md), [Spot Priority Mix](./spot-priority-mix.md), or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
+  
 ## Use cases
 Instance mix is ideal for scenarios where flexibility and cost optimization are key. Common use cases include:
 
@@ -62,7 +63,7 @@ The `capacityOptimized` allocation strategy is designed for workloads where secu
 - This strategy is useful for workloads that must secure compute resources without delays due to capacity shortages.
 
 ##### Considerations
-- Cost isn't considered. The selected VM sizes may include the most expensive options if they're the most readily available.
+- Cost isn't considered. The selected VM sizes may include more expensive options if those are the most readily available.
 - No user-defined ranking is required. Unlike the `Prioritized` allocation strategy, the selection process is fully automated based on Azure’s capacity insights.
 - VM allocation is region-dependent. Availability may vary across Azure regions, and the selection process adapts accordingly.
 - Best suited for critical workloads. This strategy is ideal when securing VMs is more important than optimizing for cost.
@@ -89,8 +90,10 @@ Following the scale set cost model, usage of instance mix is free. You continue 
 
 ## Recommendations
 * Use VMs of similar size for your workload to ensure an even spread of traffic from the load balancer. For example, using the `Standard_D8s_v4` and the `Standard_D8s_v5` VM sizes in your deployment would ensure your workload always runs on an eight core VM.
+* Use VMs of [similar type](../virtual-machines/sizes/overview.md#list-of-vm-size-families-by-type) for consistent performance. 
 * To benefit from reservation pricing, use the `Prioritized` allocation strategy and set your reservation VM sizes as the first rank.
 * To benefit from savings plan pricing, use the `Prioritized` allocation strategy and set your savings plan VM sizes as the first rank.
+* To ensure a smooth autoscaling experience, use VMs of similar vCPU and memory configurations.
   
 ## Limitations
 
