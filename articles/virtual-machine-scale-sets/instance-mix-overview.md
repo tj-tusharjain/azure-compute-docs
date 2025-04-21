@@ -90,7 +90,7 @@ Following the scale set cost model, usage of instance mix is free. You continue 
 
 ## Recommendations
 * Use VMs of similar size for your workload to ensure an even spread of traffic from the load balancer. For example, using the `Standard_D8s_v4` and the `Standard_D8s_v5` VM sizes in your deployment would ensure your workload always runs on an eight core VM.
-* Mix VM sizes within the [general purpose VM sizes](../virtual-machines/sizes/overview.md#general-purpose) for consistent performance across the VMs.
+* Use VMs of [similar type](../virtual-machines/sizes/overview.md#list-of-vm-size-families-by-type) for consistent performance. 
 * To benefit from reservation pricing, use the `Prioritized` allocation strategy and set your reservation VM sizes as the first rank.
 * To benefit from savings plan pricing, use the `Prioritized` allocation strategy and set your savings plan VM sizes as the first rank.
 * To ensure a smooth autoscaling experience, use VMs of similar vCPU and memory configurations.
