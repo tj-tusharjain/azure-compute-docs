@@ -31,7 +31,7 @@ The instance mix settings can be updated on your scale set via CLI, PowerShell, 
 > [!NOTE]
 > When you change the allocation strategy, the new strategy takes effect only after the scale set scales in or out. Existing VMs are not affected until a scaling action occurs.
 
-When changing from `Prioritized` to another allocation strategy, you must first nullify the priority ranks associated with the VM sizes. This will be covered in more detail in the supporting code snippets. 
+When changing from `Prioritized (preview)` to another allocation strategy, you must first nullify the priority ranks associated with the VM sizes. This will be covered in more detail in the supporting code snippets. 
 
 ### [Azure CLI](#tab/cli-1)
 Ensure you are using Azure CLI version `2.66.0` or later.
