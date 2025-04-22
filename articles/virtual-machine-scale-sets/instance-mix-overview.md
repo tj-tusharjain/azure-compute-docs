@@ -15,11 +15,11 @@ Instance mix enables you to specify multiple different Virtual Machine (VM) size
 
 Instance mix is best suited for workloads that are flexible in compute requirements and can be run on various different sized VMs. Using instance mix you can:
 - Deploy a heterogeneous mix of VM sizes in a single scale set. You can view max scale set instance counts in the [documentation](./virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
-- Optimize your deployments for cost or capacity through allocation strategies.
+- Optimize your deployments for cost, capacity, or rank through allocation strategies.
 - Continue to make use of scale set features, like [Autoscale](./virtual-machine-scale-sets-autoscale-overview.md), [Spot Priority Mix](./spot-priority-mix.md), or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
   
 ## Use cases
-Instance mix is ideal for scenarios where flexibility and cost optimization are key. Common use cases include:
+Instance mix is ideal for scenarios where flexibility and capacity attainment are key. Common use cases include:
 
 - Running cost-sensitive workloads that can use multiple Spot VM sizes to minimize expenses.
 - Gradually adopting newer VM generations, such as D32sv5 and D32sv6, while continuing to utilize existing older VMs in the same series.
@@ -68,7 +68,7 @@ The `capacityOptimized` allocation strategy is designed for workloads where secu
 
 Users can ensure that their workloads receive the necessary compute resources, even in situations where capacity constraints might otherwise prevent VM allocation.
 
-#### Prioritized
+#### Prioritized (Preview)
 The `Prioritized` allocation strategy enables control over how VM sizes are allocated by defining a priority ranking. `Prioritized` allows for a more predictable allocation order based on preferred VM sizes.
 
 ##### How `Prioritized` allocation works
