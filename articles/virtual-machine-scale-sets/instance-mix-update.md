@@ -12,9 +12,6 @@ ms.reviewer: jushiman
 # Update instance mix settings on an existing scale set
 This article explains how to update the instance mix settings on a scale set, including changing VM sizes and allocation strategies.
 
-> [!IMPORTANT]
-> Instance mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change before general availability (GA).
-
 ## Prerequisites
 Before using instance mix, complete feature registration for the `FlexVMScaleSetSkuProfileEnabled` feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command:
 

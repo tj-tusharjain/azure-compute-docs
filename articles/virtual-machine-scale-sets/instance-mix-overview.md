@@ -1,5 +1,5 @@
 ---
-title: Use multiple Virtual Machine sizes with instance mix (Preview)
+title: Use multiple Virtual Machine sizes with instance mix
 description: Use multiple Virtual Machine sizes in a scale set using instance mix. Optimize deployments using allocation strategies. 
 author: brittanyrowe 
 ms.author: brittanyrowe
@@ -9,9 +9,7 @@ ms.date: 3/3/2025
 ms.reviewer: jushiman
 ---
 
-# Use multiple Virtual Machine sizes with instance Mix (Preview)
-> [!IMPORTANT]
-> Instance mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change before general availability (GA). 
+# Use multiple Virtual Machine sizes with instance mix
 
 Instance mix enables you to specify multiple different Virtual Machine (VM) sizes in your Virtual Machine Scale Set with Flexible Orchestration Mode, and an allocation strategy to further optimize your deployments. 
 
