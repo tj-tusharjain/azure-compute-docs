@@ -4,16 +4,16 @@ description: Overview of metadata security protocol.
 author: minnielahoti
 ms.service: azure-virtual-machines
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 04/20/2025
 ms.author: minnielahoti
 ms.reviewer: azmetadatadev
 ---
 
 # Metadata Security Protocol (MSP)
 
-MSP enhances the security of the [Azure Instance Metadata Service](https://aka.ms/azureimds) and [Azure Wireserver](https://aka.ms/azureWireserver) services (available in Azure IaaS Virtual Machine (VM) or Virtual Machine Scale Sets at 169.254.169.254 and 168.63.129.16 respectively). These services are used for providing metadata and bootstrapping VM credentials. As a result, threat actors frequency target these services. Common vectors include confused deputy attacks against in-guest workloads and sandbox escapes. These vectors are of particular concern for hosted-on-behalf-of workloads where untrusted code loads into the VM.
+MSP enhances the security of the [Azure Instance Metadata Service](https://aka.ms/azureimds) and [Azure WireServer](https://aka.ms/azureWireserver) services (available in Azure IaaS Virtual Machine (VM) or Virtual Machine Scale Sets at 169.254.169.254 and 168.63.129.16 respectively). These services are used for providing metadata and bootstrapping VM credentials. As a result, threat actors frequently target these services. Common vectors include confused deputy attacks against in-guest workloads and sandbox escapes. These vectors are of particular concern for hosted-on-behalf-of workloads where untrusted code loads into the VM.
 
-With metadata services, the trust boundary is the VM itself. Any software within the guest is authorized to request secrets from Instance Metadata Service (IMDS) + Wireserver. VM owners are responsible for carefully sandboxing any software they run inside the VM and ensuring that external actors can't exfiltrate data. In practice, the complexity of the problem leads to mistakes at scale which in turn lead to exploits.
+With metadata services, the trust boundary is the VM itself. Any software within the guest is authorized to request secrets from Instance Metadata Service (IMDS) + WireServer. VM owners are responsible for carefully sandboxing any software they run inside the VM and ensuring that external actors can't exfiltrate data. In practice, the complexity of the problem leads to mistakes at scale which in turn lead to exploits.
 
 While numerous defense-in-depth strategies exist, providing secrets over an unauthenticated HTTP API carries inherent risk. Across the industry, this class of vulnerabilities impacted hundreds of companies, millions of individuals, and caused financial losses in the hundreds of millions of dollars. MSP closes most common vulnerabilities by addressing the root cause of these attacks and by introducing strong Authentication (AuthN)/Authorization (AuthZ) concepts to cloud metadata services.
 
@@ -37,15 +37,37 @@ MSP is supported on Azure IaaS VMs + Virtual Machine Scale Sets running OS based
 The following are not supported yet:
 > - Ephemeral Disks 
 > - Compatability with Azure Backup 
+> - ARM64 
 
 ## How to Configure MSP
 
-Examples:
+### Register the feature flags
+
+To use MSP in preview, register the following flag using the `az feature register` command.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name ProxyAgentPreview
+```
+
+Verify the registration status by using the `az feature show` command. It takes a few minutes for the status to show *Registered*:
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name ProxyAgentPreview
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.Compute* resource provider by using the `az provider register` command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+Once you are registered in the feature flag you can configure MSP via: 
 
 - [ARM Templates](./other-examples/arm-templates.md)
 - REST API 
 - PowerShell
 - [Azure portal](./other-examples/portal.md)
+
+For details on how to configure MSP, visit  [MSP Configuration](./configuration.md) page. 
 
 ## Enhanced Security
 
