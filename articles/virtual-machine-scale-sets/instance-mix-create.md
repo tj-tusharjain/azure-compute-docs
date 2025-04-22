@@ -12,9 +12,6 @@ ms.reviewer: jushiman
 # Create a scale set using instance mix
 The article walks through how to deploy a scale set using instance mix, using different virtual machine (VM) sizes and an allocation strategy.
 
-> [!IMPORTANT]
-> Instance mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change before general availability (GA). 
-
 ## Prerequisites
 Before using instance mix, complete feature registration for the `FlexVMScaleSetSkuProfileEnabled` feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command:
 
@@ -35,9 +32,9 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 3. In the **Basics** tab, fill out the required fields. If the field isn't called out in the next sections, you can set the fields to what works best for your scale set.
 4. Ensure that you select a region that instance mix is supported in.
 5. Be sure **Orchestration mode** is set to **Flexible**.
-6. In the **Size** section, click **Select up to 5 sizes (preview)** and the **Select a VM size** page appears.
+6. In the **Size** section, click **Select up to 5 sizes** and the **Select a VM size** page appears.
 7. Use the size picker to select up to five VM sizes. Once you select your VM sizes, click the **Select** button at the bottom of the page to return to the scale set Basics tab.
-8. In the **Allocation strategy (preview)** field, select your allocation strategy.
+8. In the **Allocation strategy** field, select your allocation strategy.
 9. Using the `Prioritized` allocation strategy, the **Rank size** section appears below the Allocation strategy section. Clicking on the bottom **Rank priority** brings up the prioritization blade, where you can adjust the priority of your VM sizes.
 10. You can specify other properties in subsequent tabs, or you can go to **Review + create** and select the **Create** button at the bottom of the page to start your instance mix scale set deployment.
 
